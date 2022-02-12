@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Studentid</th>
+      <th>Groupid</th>
+      <th>Insterestsid</th>
+      <th>Profileid</th>
+      <th>Isofficer</th>
+      <th>Isadmin</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Tamuemail</th>
+      <th>Dateofbirth</th>
+      <th>Gradassistance</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.studentId %></td>
+        <td><%= user.groupId %></td>
+        <td><%= user.insterestsId %></td>
+        <td><%= user.profileId %></td>
+        <td><%= user.isOfficer %></td>
+        <td><%= user.isAdmin %></td>
+        <td><%= user.firstName %></td>
+        <td><%= user.lastName %></td>
+        <td><%= user.tamuEmail %></td>
+        <td><%= user.dateOfBirth %></td>
+        <td><%= user.gradAssistance %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>

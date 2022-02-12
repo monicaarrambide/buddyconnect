@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  studentId: 1
+  groupId: 1
+  insterestsId: 1
+  profileId: 1
+  isOfficer: false
+  isAdmin: false
+  firstName: MyString
+  lastName: MyString
+  tamuEmail: MyString
+  dateOfBirth: 2022-02-11
+  gradAssistance: false
+
+two:
+  studentId: 1
+  groupId: 1
+  insterestsId: 1
+  profileId: 1
+  isOfficer: false
+  isAdmin: false
+  firstName: MyString
+  lastName: MyString
+  tamuEmail: MyString
+  dateOfBirth: 2022-02-11
+  gradAssistance: false

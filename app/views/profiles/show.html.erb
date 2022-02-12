@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Profileid:</strong>
+  <%= @profile.profileId %>
+</p>
+
+<p>
+  <strong>Userid:</strong>
+  <%= @profile.userId %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @profile.year %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @profile.picture %>
+</p>
+
+<p>
+  <strong>Contactinfo:</strong>
+  <%= @profile.contactInfo %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

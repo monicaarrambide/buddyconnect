@@ -10,9 +10,74 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_02_11_202302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "commentId"
+    t.integer "postId"
+    t.integer "posterId"
+    t.date "commentDate"
+    t.string "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.integer "groupId"
+    t.integer "leaderInt"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.integer "interestsId"
+    t.integer "userId"
+    t.string "careerInterest"
+    t.string "hobbies"
+    t.integer "favMovieGenres"
+    t.integer "numberPrereqs"
+    t.string "expectations"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "postId"
+    t.integer "posterId"
+    t.date "postDate"
+    t.string "title"
+    t.string "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer "profileId"
+    t.integer "userId"
+    t.string "year"
+    t.string "picture"
+    t.string "contactInfo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.integer "studentId"
+    t.integer "groupId"
+    t.integer "insterestsId"
+    t.integer "profileId"
+    t.boolean "isOfficer"
+    t.boolean "isAdmin"
+    t.string "firstName"
+    t.string "lastName"
+    t.string "tamuEmail"
+    t.date "dateOfBirth"
+    t.boolean "gradAssistance"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end
