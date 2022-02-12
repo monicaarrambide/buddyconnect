@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  postId: 1
+  posterId: 1
+  postDate: 2022-02-11
+  title: MyString
+  body: MyString
+
+two:
+  postId: 1
+  posterId: 1
+  postDate: 2022-02-11
+  title: MyString
+  body: MyString

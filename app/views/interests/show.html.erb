@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Interestsid:</strong>
+  <%= @interest.interestsId %>
+</p>
+
+<p>
+  <strong>Userid:</strong>
+  <%= @interest.userId %>
+</p>
+
+<p>
+  <strong>Careerinterest:</strong>
+  <%= @interest.careerInterest %>
+</p>
+
+<p>
+  <strong>Hobbies:</strong>
+  <%= @interest.hobbies %>
+</p>
+
+<p>
+  <strong>Favmoviegenres:</strong>
+  <%= @interest.favMovieGenres %>
+</p>
+
+<p>
+  <strong>Numberprereqs:</strong>
+  <%= @interest.numberPrereqs %>
+</p>
+
+<p>
+  <strong>Expectations:</strong>
+  <%= @interest.expectations %>
+</p>
+
+<%= link_to 'Edit', edit_interest_path(@interest) %> |
+<%= link_to 'Back', interests_path %>

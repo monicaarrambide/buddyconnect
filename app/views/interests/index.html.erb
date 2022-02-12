@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Interests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Interestsid</th>
+      <th>Userid</th>
+      <th>Careerinterest</th>
+      <th>Hobbies</th>
+      <th>Favmoviegenres</th>
+      <th>Numberprereqs</th>
+      <th>Expectations</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interests.each do |interest| %>
+      <tr>
+        <td><%= interest.interestsId %></td>
+        <td><%= interest.userId %></td>
+        <td><%= interest.careerInterest %></td>
+        <td><%= interest.hobbies %></td>
+        <td><%= interest.favMovieGenres %></td>
+        <td><%= interest.numberPrereqs %></td>
+        <td><%= interest.expectations %></td>
+        <td><%= link_to 'Show', interest %></td>
+        <td><%= link_to 'Edit', edit_interest_path(interest) %></td>
+        <td><%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interest', new_interest_path %>
