@@ -1,0 +1,72 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :studentId %>
+    <%= form.number_field :studentId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :groupId %>
+    <%= form.number_field :groupId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :insterestsId %>
+    <%= form.number_field :insterestsId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profileId %>
+    <%= form.number_field :profileId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :isOfficer %>
+    <%= form.check_box :isOfficer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :isAdmin %>
+    <%= form.check_box :isAdmin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :firstName %>
+    <%= form.text_field :firstName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lastName %>
+    <%= form.text_field :lastName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tamuEmail %>
+    <%= form.text_field :tamuEmail %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dateOfBirth %>
+    <%= form.date_select :dateOfBirth %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gradAssistance %>
+    <%= form.check_box :gradAssistance %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Studentid:</strong>
+  <%= @user.studentId %>
+</p>
+
+<p>
+  <strong>Groupid:</strong>
+  <%= @user.groupId %>
+</p>
+
+<p>
+  <strong>Insterestsid:</strong>
+  <%= @user.insterestsId %>
+</p>
+
+<p>
+  <strong>Profileid:</strong>
+  <%= @user.profileId %>
+</p>
+
+<p>
+  <strong>Isofficer:</strong>
+  <%= @user.isOfficer %>
+</p>
+
+<p>
+  <strong>Isadmin:</strong>
+  <%= @user.isAdmin %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @user.firstName %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @user.lastName %>
+</p>
+
+<p>
+  <strong>Tamuemail:</strong>
+  <%= @user.tamuEmail %>
+</p>
+
+<p>
+  <strong>Dateofbirth:</strong>
+  <%= @user.dateOfBirth %>
+</p>
+
+<p>
+  <strong>Gradassistance:</strong>
+  <%= @user.gradAssistance %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
