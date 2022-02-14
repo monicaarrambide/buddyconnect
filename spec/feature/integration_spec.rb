@@ -143,3 +143,12 @@ RSpec.describe 'Updating a post', type: :feature do
       expect(page).to have_content("Body can't be blank")
     end
   end
+
+# SHOW
+RSpec.describe 'Show a post', type: :feature do
+    scenario 'correct post' do
+      posting = Post.create!(postId: 2468, posterId: 123456789, postDate: '2022-02-02', title: 'Hi', body: 'Hello everyone!')
+      visit post_path(id: posting.id)
+      expect(page).to have_content("Hello everyone!")
+    end  
+  end
