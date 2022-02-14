@@ -99,3 +99,47 @@ RSpec.describe 'Creating a post', type: :feature do
         expect(page).to have_content("Body can't be blank")
     end
 end
+
+# UPDATING
+RSpec.describe 'Updating a post', type: :feature do
+    scenario 'valid inputs' do
+      posting = Post.create!(postId: 2468, posterId: 123456789, postDate: '2022-02-02', title: 'Hi', body: 'Hello everyone!')
+      visit edit_post_path(id: posting.id)
+      fill_in 'Title', with: 'Harry Potter'
+      click_on 'Update Post'
+      visit posts_path 
+      expect(page).to have_content('Harry Potter')
+    end
+  
+    scenario 'invalid title input' do
+      posting = Post.create!(postId: 2468, posterId: 123456789, postDate: '2022-02-02', title: 'Hi', body: 'Hello everyone!')
+      visit edit_post_path(id: posting.id)
+      fill_in 'Title', with: ''
+      click_on 'Update Post'
+      expect(page).to have_content("Title can't be blank")
+    end
+  
+    scenario 'invalid postid input' do
+      posting = Post.create!(postId: 2468, posterId: 123456789, postDate: '2022-02-02', title: 'Hi', body: 'Hello everyone!')
+      visit edit_post_path(id: posting.id)
+      fill_in 'Postid', with: ''
+      click_on 'Update Post'
+      expect(page).to have_content("Postid can't be blank")
+    end
+  
+    scenario 'invalid posterid input' do
+      posting = Post.create!(postId: 2468, posterId: 123456789, postDate: '2022-02-02', title: 'Hi', body: 'Hello everyone!')
+      visit edit_post_path(id: posting.id)
+      fill_in 'Posterid', with: ''
+      click_on 'Update Post'
+      expect(page).to have_content("Posterid can't be blank")
+    end
+  
+    scenario 'invalid body input' do
+      posting = Post.create!(postId: 2468, posterId: 123456789, postDate: '2022-02-02', title: 'Hi', body: 'Hello everyone!')
+      visit edit_post_path(id: posting.id)
+      fill_in 'Body', with: ''
+      click_on 'Update Post'
+      expect(page).to have_content("Body can't be blank")
+    end
+  end
