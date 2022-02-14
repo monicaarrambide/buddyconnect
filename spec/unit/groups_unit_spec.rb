@@ -22,4 +22,4 @@ RSpec.describe Group, type: :model do
 
 end
 
-#:interestsId, :userId, :careerInterest, :hobbies, :favMovieGenres, :numberPrereqs, :expectations
+#:interestsId, :userId, :careerInterest, :hobbies, :favMovieGenres, :numberPrereqs, :expectations 
