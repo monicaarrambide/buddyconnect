@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 
-RSpec.describe Post, type: :model do
+RSpec.describe Profile, type: :model do
  subject do
-  described_class.new(profileId: 1234578, userID: 12345678, year: 'second year', picture: 'url', contactInfo: 'christinayahoo')
+  described_class.new(profileId: 1234578, userId: 12345678, year: 'second year', picture: 'url', contactInfo: 'christinayahoo')
  end
 
 
