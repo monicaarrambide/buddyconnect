@@ -1,11 +1,9 @@
 require 'rails_helper'
 
 
-RSpec.describe Profile, type: :model do
-
-
+RSpec.describe Post, type: :model do
  subject do
-   described_class.new(profileId: 12345678, userId: 12345678, year: 'second year', picture: 'url', contactInfo: 'christinayahoo' )
+  described_class.new(profileId: 1234578, userID: 12345678, year: 'second year', picture: 'url', contactInfo: 'christinayahoo')
  end
 
 
@@ -14,7 +12,7 @@ RSpec.describe Profile, type: :model do
  end
 
 
- it 'is not valid without a profile id' do
+ it 'is not valid without a profileid' do
    subject.profileId = nil
    expect(subject).not_to be_valid
  end
@@ -35,13 +33,15 @@ end
  it 'is not valid without a picture' do
    subject.picture = nil
    expect(subject).not_to be_valid
-end
+ end
 
 
- it 'is not valid without a contact info' do
+
+ it 'is not valid without a contactinfo' do
    subject.contactInfo = nil
    expect(subject).not_to be_valid
-end
+ end
+
   
   
 end
