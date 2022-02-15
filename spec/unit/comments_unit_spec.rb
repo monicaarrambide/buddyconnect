@@ -25,7 +25,7 @@ RSpec.describe Comment, type: :model do
     end
 
     it 'is not valid without a body' do
-        subject.comment = nil
+        subject.message = nil
         expect(subject).not_to be_valid
     end
 

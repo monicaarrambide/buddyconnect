@@ -5,7 +5,7 @@ RSpec.describe Profile, type: :model do
 
 
  subject do
-   described_class.new(profileId: 12345678, userID: 12345678, year: 'second year', picture: 'url', contactInfo: 'christinayahoo' )
+   described_class.new(profileId: 12345678, userId: 12345678, year: 'second year', picture: 'url', contactInfo: 'christinayahoo' )
  end
 
 
@@ -21,7 +21,7 @@ RSpec.describe Profile, type: :model do
 
 
  it 'is not valid without a user id' do
-   subject.userID = nil
+   subject.userId = nil
    expect(subject).not_to be_valid
 end
 

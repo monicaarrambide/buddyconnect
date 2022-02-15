@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
     subject do
-        described_class.new(studentId: 123456789, isOfficer: false, isAdmin: false, firstName: 'Jimbo', lastName: 'Fisher', tamuEmail:'jf@tamu.edu', dateOfBirth: '1965-10-09')
+        described_class.new(studentId: 123456789, isOfficer: false, isAdmin: false, firstName: 'Jimbo', lastName: 'Fisher', tamuEmail:'jf@tamu.edu', dateOfBirth: '1965-10-09', gradAssistance: false)
     end
 
     it 'is valid with valid attributes' do
@@ -48,5 +48,4 @@ RSpec.describe User, type: :model do
         subject.gradAssistance = nil
         expect(subject).not_to be_valid
     end
-
 end
