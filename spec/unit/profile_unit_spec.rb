@@ -18,8 +18,8 @@ RSpec.describe Post, type: :model do
  end
 
 
- it 'is not valid without a userid' do
-   subject.userID = nil
+ it 'is not valid without a user id' do
+   subject.userId = nil
    expect(subject).not_to be_valid
 end
 
