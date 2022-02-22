@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Post, type: :model do
+RSpec.describe Comment, type: :model do
     subject do
-        described_class.new(postId: 2468, posterId: 123456789, postDate: '2022-02-02', title: 'Hi', body: 'Hello everyone!')
+        described_class.new(commentId: 2468, postId: 123456789, posterId: 12345, commentDate: '2022-02-02', message: 'What it do')
     end
 
     it 'is valid with valid attributes' do
@@ -10,7 +10,7 @@ RSpec.describe Post, type: :model do
     end
 
     it 'is not valid without a postid' do
-        subject.postId = nil
+        subject.commentId = nil
         expect(subject).not_to be_valid
     end
 
@@ -20,12 +20,12 @@ RSpec.describe Post, type: :model do
     end
 
     it 'is not valid without a title' do
-        subject.title = nil
+        subject.postId = nil
         expect(subject).not_to be_valid
     end
 
     it 'is not valid without a body' do
-        subject.body = nil
+        subject.message = nil
         expect(subject).not_to be_valid
     end
 
