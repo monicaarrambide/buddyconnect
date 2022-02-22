@@ -1,4 +1,3 @@
-shell: /usr/bin/bash -e {0}
 env:
   RUBY_VERSION: 3.0.2
   POSTGRES_USER: postgres
