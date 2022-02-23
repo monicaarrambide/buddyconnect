@@ -354,6 +354,9 @@ Style/EndlessMethod: # (new in 1.8)
 Style/ExplicitBlockArgument:
     Enabled: true
 
+Style/FrozenStringLiteralComment:
+  Severity: warning
+
 Style/GlobalStdStream:
     Enabled: true
 
