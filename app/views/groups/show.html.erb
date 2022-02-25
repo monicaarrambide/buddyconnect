@@ -6,9 +6,20 @@
 </p>
 
 <p>
-  <strong>Leaderint:</strong>
-  <%= @group.leaderInt %>
+  <strong>Group Leader:</strong>
+  <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.firstName : "None"  %>
 </p>
+
+<p>
+  <strong>Members:</strong>
+</p>
+  <%User.where(groupId: @group.groupId).where.not(studentId: @group.leaderInt).each do |user| %>
+    <tr>
+      <td><%=user.firstName%> </td>
+      <td><%=user.lastName%> </td>
+    </tr>
+    <br/>
+<% end %>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

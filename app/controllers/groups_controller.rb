@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
   # GET /groups or /groups.json
   def index
     @groups = Group.all
+    @users = User.all
   end
 
   # GET /groups/1 or /groups/1.json
@@ -57,6 +58,13 @@ class GroupsController < ApplicationController
     end
   end
 
+  def change_users
+      #puts params
+      #Ideally: Pass in user and group id as params, do user.find(param[:userId]).groupId = params[:groupID] and save this
+      params[:user].groupId = @group.groupId
+      params[:user].save
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
@@ -65,6 +73,6 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:groupId, :leaderInt)
+      params.require(:group).permit(:groupId, :leaderInt, :studentId)
     end
 end

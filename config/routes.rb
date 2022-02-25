@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :users
   resources :interests
   resources :profiles
-  resources :groups
+  resources :groups do
+    resources :users
+  end
 
   root 'users#index'
 

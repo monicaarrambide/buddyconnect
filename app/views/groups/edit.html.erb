@@ -2,5 +2,15 @@
 
 <%= render 'form', group: @group %>
 
+<%= form_with model:[ @group, @group.change_users] do |form|%>
+<div class = "field">
+    <%= form.label :add_users%>
+    <%= form.select :add_users, User.order(:firstName).map{|user| [user.firstName, user.studentId]}, include_blank: true, id: "id_of_the_user_id_select_box", name: "user"%>
+</div>
+<div class = "actions">
+   <%= form.submit %>
+</div>
+<%end%>
+
 <%= link_to 'Show', @group %> |
 <%= link_to 'Back', groups_path %>
