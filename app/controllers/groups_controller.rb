@@ -35,17 +35,49 @@ class GroupsController < ApplicationController
     end
   end
 
+  
+    #params[:user].save
+
   # PATCH/PUT /groups/1 or /groups/1.json
   def update
     respond_to do |format|
-      if @group.update(group_params)
-        format.html { redirect_to group_url(@group), notice: "Group was successfully updated." }
-        format.json { render :show, status: :ok, location: @group }
+    #   if @group.update(user_id: group_params['user_id'])
+    #     format.html { redirect_to group_url(@group), notice: "Group was successfully updated." }
+    #     format.json { render :show, status: :ok, location: @group }
+    #   else
+    #     format.html { render :edit, status: :unprocessable_entity }
+    #     format.json { render json: @group.errors, status: :unprocessable_entity }
+    #   end
+    # end
+
+    #puts params
+    #Ideally: Pass in user and group id as params, do user.find(param[:userId]).groupId = params[:groupID] and save this
+    #params[:user].groupId = @group.groupId
+    if params[:group][:user_id].present?
+      tempUser = User.find_by(studentId: params[:group][:user_id])
+      if(tempUser.groupId == @group.groupId) 
+        tempUser.groupId = 0
+        tempUser.save
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        tempUser.groupId = @group.groupId
+        tempUser.save
       end
+      format.html { redirect_to group_url(@group), notice: "Group was successfully updated." }
+      format.json { render :show, status: :ok, location: @group }
+
+  elsif params[:group][:remove_users].present?
+    tempUser = User.find_by(studentId: params[:group][:remove_users])
+    if(tempUser.groupId == @group.groupId) 
+      tempUser.groupId = 0
+      tempUser.save
+    else
+      tempUser.groupId = @group.groupId
+      tempUser.save
     end
+    format.html { redirect_to group_url(@group), notice: "Group was successfully updated." }
+    format.json { render :show, status: :ok, location: @group }
+  end
+  end
   end
 
   # DELETE /groups/1 or /groups/1.json
@@ -73,6 +105,6 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:groupId, :leaderInt, :studentId)
+      params.require(:group).permit(:groupId, :leaderInt, :studentId, :user_id, :remove_users)
     end
 end
