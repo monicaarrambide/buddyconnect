@@ -64,8 +64,9 @@ class GroupsController < ApplicationController
       end
       format.html { redirect_to group_url(@group), notice: "Group was successfully updated." }
       format.json { render :show, status: :ok, location: @group }
+    end
 
-  elsif params[:group][:remove_users].present?
+  if params[:group][:remove_users].present?
     tempUser = User.find_by(studentId: params[:group][:remove_users])
     if(tempUser.groupId == @group.groupId) 
       tempUser.groupId = 0
