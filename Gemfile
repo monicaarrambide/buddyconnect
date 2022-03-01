@@ -20,8 +20,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # google oauth
 gem 'devise'
-gem 'omniauth'
+gem 'omniauth', '~>1.9.1'
 gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
