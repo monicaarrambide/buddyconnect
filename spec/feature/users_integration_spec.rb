@@ -1,7 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Creating a user', type: :feature do
+    
+Rails.application.env_config["devise.mapping"] = Devise.mappings[:user] # If using Devise
+Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:google_user]
     scenario 'valid inputs for user' do
+        
+        visit root_path
+        click_on 'Sign in with Google'
         visit new_user_path
         fill_in 'Studentid', with: 12345678
         fill_in 'Firstname', with: 'Jimbo'

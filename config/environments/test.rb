@@ -59,4 +59,25 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
   ENV['GOOGLE_OAUTH_CLIENT_ID'] = '468360085787-e1goacd7lr32omi2j29ffemlug4ck1u3.apps.googleusercontent.com'
   ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
+  
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.allowed_request_methods += %i[get]
+  OmniAuth.config.mock_auth[:google_user] = OmniAuth::AuthHash.new({
+    provider: 'google_oauth2',
+    uid: '123456789',
+    info: {
+      name: 'Jane Doe',
+      email: 'JaneDoe@example.com',
+      first_name: 'Jane',
+      last_name: 'Doe',
+    },
+    credentials: {
+      token: 'token1',
+      refresh_token: 'rtoken1',
+      expires_at: 1_354_920_555,
+      expires: true
+    }
+  })
+
+
 end
