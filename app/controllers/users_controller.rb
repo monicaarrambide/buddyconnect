@@ -63,14 +63,15 @@ class UsersController < ApplicationController
     officerList = []
     studList = []
     affinities = []
+    groups = []
     
     # Sorting officers and members into respective lists from user table
     User.all.each do |student|
       if not student.isOfficer and not student.isAdmin
         studList.append(student.studentId)
-        
       elsif student.isOfficer
         officerList.append(student.studentId)
+        groups.append([])
       end
     end
 
@@ -140,6 +141,8 @@ class UsersController < ApplicationController
       affinities.append(officer)
     end
 
+
+    # All affinities calculated!
     # officer index 0 = officerList index 0
 
     puts affinities.inspect()
@@ -147,27 +150,41 @@ class UsersController < ApplicationController
 
     # Sorting members based on affinity scores
 
-    highestAff = 0
     sID = 0
     topOfficer = 0
+    maxGroupSize = (studList.length/officerList.length.to_f).ceil
 
-    # for i in 0 ... studList.size
-    #   for j in 0 ... officerList.size
-    #     if affinities[j][i] > highestAff
-    #       highestAff = affinities[j][i]
-    #       topOfficer = j
-    #       sID = i
-    #     end
-
-    #     if officerList[j] 
-    #   end
-
-      
-      
-    # end
-
+    puts maxGroupSize
     
 
+    for i in 0 ... studList.size
+      highestAff = -1
+      for j in 0 ... officerList.size
+
+        if (affinities[j][i] > highestAff and groups[j].length < maxGroupSize)
+          highestAff = affinities[j][i]
+          topOfficer = j
+          sID = i
+        end
+
+      end
+      groups[topOfficer].append(studList[sID]);
+      
+    end
+
+    # update students groupId
+    puts groups.inspect()
+
+    for j in 0 ... groups.size
+      officerId = officerList[j]
+      # get the officers groupID
+      gID = User.where(studentId: officerId).pluck(:groupId)
+      for stude in groups[j]
+        # find student by ID in user table
+        # add grope id to users database
+        User.where(studentId: stude).update_all(:groupId  => gID.first) 
+      end
+    end
 
 
     # confirm that matching worked
