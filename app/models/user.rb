@@ -7,4 +7,6 @@ class User < ApplicationRecord
     validates :tamuEmail, presence: true
     validates :dateOfBirth, presence: true
     validates :gradAssistance, inclusion: { in: [ true, false ] }
+
+    
 end

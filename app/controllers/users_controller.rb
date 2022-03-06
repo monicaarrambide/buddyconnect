@@ -57,6 +57,128 @@ class UsersController < ApplicationController
     end
   end
 
+  # will calculate affinity between officers and students and match them accordingly
+  def affinity_matching
+
+    officerList = []
+    studList = []
+    affinities = []
+    
+    # Sorting officers and members into respective lists from user table
+    User.all.each do |student|
+      if not student.isOfficer and not student.isAdmin
+        studList.append(student.studentId)
+        
+      elsif student.isOfficer
+        officerList.append(student.studentId)
+      end
+    end
+
+
+    for i in officerList  
+      officer = []
+
+      for j in studList
+        affinityScore = 0
+        # score for potential roles
+        # this will have multiple answers (up to 3)
+        officerQ1 = Interest.where(userId: i).pluck(:potentialRoles)
+        studQ1 = Interest.where(userId: j).pluck(:potentialRoles)
+
+        if officerQ1 == studQ1
+          affinityScore += 10
+        end
+
+        # score for past job experience
+        # this will have multiple answers (up to 3)
+        officerQ2 = Interest.where(userId: i).pluck(:pastWorkExp)
+        studQ2 = Interest.where(userId: j).pluck(:pastWorkExp)
+
+        if officerQ2 == studQ2
+          affinityScore += 5
+        end
+
+        # score for years of experience
+        officerQ3 = Interest.where(userId: i).pluck(:numWorkExp)
+        studQ3 = Interest.where(userId: j).pluck(:numWorkExp)
+
+        if officerQ3 == studQ3
+          affinityScore += 2
+        end
+
+        # score for technologies worked on
+        # this will have multiple answers (did not specify how many they can select)
+        officerQ4 = Interest.where(userId: i).pluck(:usedTech)
+        studQ4 = Interest.where(userId: j).pluck(:usedTech)
+
+        if officerQ4 == studQ4
+          affinityScore += 2
+        end
+
+        # score for state
+        officerQ5 = Interest.where(userId: i).pluck(:state)
+        studQ5 = Interest.where(userId: j).pluck(:state)
+
+        if officerQ5 == studQ5
+          affinityScore += 1
+        end
+
+        # score for community
+        officerQ6 = Interest.where(userId: i).pluck(:community)
+        studQ6 = Interest.where(userId: j).pluck(:community)
+
+        if officerQ6 == studQ6
+          affinityScore += 1
+        end
+
+        puts affinityScore
+
+        # append affinity score for each student
+        officer.append(affinityScore)
+      end
+
+      affinities.append(officer)
+    end
+
+    # officer index 0 = officerList index 0
+
+    puts affinities.inspect()
+
+
+    # Sorting members based on affinity scores
+
+    highestAff = 0
+    sID = 0
+    topOfficer = 0
+
+    # for i in 0 ... studList.size
+    #   for j in 0 ... officerList.size
+    #     if affinities[j][i] > highestAff
+    #       highestAff = affinities[j][i]
+    #       topOfficer = j
+    #       sID = i
+    #     end
+
+    #     if officerList[j] 
+    #   end
+
+      
+      
+    # end
+
+    
+
+
+
+    # confirm that matching worked
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: "Function called: We matched! yay!" }
+      format.json { head :no_content }
+    end
+  end
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
