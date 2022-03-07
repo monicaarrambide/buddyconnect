@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_26_181736) do
+ActiveRecord::Schema.define(version: 2022_03_05_223851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,13 +43,20 @@ ActiveRecord::Schema.define(version: 2022_02_26_181736) do
   end
 
   create_table "interests", force: :cascade do |t|
-    t.integer "interestsId"
     t.integer "userId"
-    t.string "careerInterest"
-    t.string "hobbies"
-    t.integer "favMovieGenres"
-    t.integer "numberPrereqs"
-    t.string "expectations"
+    t.string "phone"
+    t.string "nationality"
+    t.string "state"
+    t.string "community"
+    t.integer "numPrereqs"
+    t.string "scholarship"
+    t.string "faveMovieGenre"
+    t.string "potentialRoles"
+    t.integer "numWorkExp"
+    t.string "usedTech"
+    t.string "projects"
+    t.string "extracurric"
+    t.string "pastWorkExp"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

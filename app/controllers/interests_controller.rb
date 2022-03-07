@@ -65,6 +65,6 @@ class InterestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def interest_params
-      params.require(:interest).permit(:interestsId, :userId, :careerInterest, :hobbies, :favMovieGenres, :numberPrereqs, :expectations)
+      params.require(:interest).permit(:userId, :phone, :nationality, :state, :community, :numPrereqs, :scholarship, :faveMovieGenre, :numWorkExp, :usedTech, :projects, :extracurric, pastWorkExp:[], potentialRoles:[])
     end
 end
