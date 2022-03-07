@@ -41,7 +41,7 @@ RSpec.describe "interests/edit", type: :view do
 
       assert_select "input[name=?]", "interest[faveMovieGenre]"
 
-      assert_select "input[name=?]", "interest[potentialRoles]"
+      assert_select "input[name=?]", "interest[potentialRoles][]"
 
       assert_select "input[name=?]", "interest[numWorkExp]"
 
@@ -51,7 +51,7 @@ RSpec.describe "interests/edit", type: :view do
 
       assert_select "input[name=?]", "interest[extracurric]"
 
-      assert_select "input[name=?]", "interest[pastWorkExp]"
+      assert_select "input[name=?]", "interest[pastWorkExp][]"
     end
   end
 end
