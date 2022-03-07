@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  resources :interests
-=======
   root to: 'dashboards#show'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
@@ -11,7 +8,6 @@ Rails.application.routes.draw do
 
   # post '/new', to 'users#new'
 
->>>>>>> fd78d4313277dcdaaf45bf971bf8e4763dd8ffd4
   resources :comments
   resources :posts
 
@@ -25,6 +21,8 @@ Rails.application.routes.draw do
   resources :groups do
     resources :users
   end
+
+  resources :interests
 
   # root 'users#index'
 

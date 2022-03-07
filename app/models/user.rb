@@ -6,9 +6,6 @@ class User < ApplicationRecord
     validates :lastName, presence: true
     validates :tamuEmail, presence: true
     validates :dateOfBirth, presence: true
-<<<<<<< HEAD
-    validates :gradAssistance, inclusion: { in: [ true, false ] }  
-=======
     validates :gradAssistance, inclusion: { in: [ true, false ] }
 
     devise :omniauthable, omniauth_providers: [:google_oauth2]
@@ -33,5 +30,4 @@ class User < ApplicationRecord
         end
         #@TODO could be a bug
       end
->>>>>>> fd78d4313277dcdaaf45bf971bf8e4763dd8ffd4
 end
