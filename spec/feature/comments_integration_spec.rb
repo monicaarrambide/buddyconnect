@@ -1,8 +1,15 @@
 # location: spec/feature/integration_spec.rb
 require 'rails_helper'
 
+Rails.application.env_config["devise.mapping"] = Devise.mappings[:user] # If using Devise
+Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:google_user]
+
 RSpec.describe 'Creating a comment', type: :feature do
   scenario 'valid inputs' do
+    
+    visit root_path
+    click_on 'Sign in with Google'
+    
     visit new_comment_path
     fill_in 'Commentid', with: 12345678
     fill_in 'Postid', with: 1234567
