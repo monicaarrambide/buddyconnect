@@ -2,9 +2,17 @@
 require 'rails_helper'
 
 
+<<<<<<< HEAD
+=======
+Rails.application.env_config["devise.mapping"] = Devise.mappings[:user] # If using Devise
+Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:google_user]
+>>>>>>> fd78d4313277dcdaaf45bf971bf8e4763dd8ffd4
 
 RSpec.describe 'Creating a interest', type: :feature do
   scenario 'valid inputs' do
+    
+    visit root_path
+    click_on 'Sign in with Google'
     visit new_interest_path
     fill_in 'Userid', with: 12345678
     fill_in 'Phone', with: 123456789

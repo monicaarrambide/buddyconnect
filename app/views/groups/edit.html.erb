@@ -2,5 +2,18 @@
 
 <%= render 'form', group: @group %>
 
+<%= form_with model: @group do |form|%>
+<div class = "field">
+    <%= form.label :user_id%>
+    <%= form.select :user_id, User.where.not(groupId: @group.groupId).order(:firstName).map{|user| [user.firstName, user.studentId]}, include_blank: true, id: "id_of_the_user_id_select_box", name: "user"%>
+    <%= form.label :remove_users%>
+    <%= form.select :remove_users, User.where(groupId: @group.groupId).order(:firstName).map{|user| [user.firstName, user.studentId]}, include_blank: true, id: "id_of_the_user_id_select_box", name: "user"%>
+</div>
+<div class = "actions">
+   <%= form.submit %>
+</div>
+<%end%>
+
+
 <%= link_to 'Show', @group %> |
 <%= link_to 'Back', groups_path %>

@@ -15,10 +15,7 @@ RSpec.describe Group, type: :model do
     subject.groupId = nil
     expect(subject).not_to be_valid
   end
-  it 'is not valid without a leader id' do
-    subject.leaderInt = nil
-    expect(subject).not_to be_valid
-  end
+
 
 end
 
