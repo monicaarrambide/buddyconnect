@@ -1,2 +1,1 @@
-release: rails db
-# drop table interests;
+release: rails db:migrate
