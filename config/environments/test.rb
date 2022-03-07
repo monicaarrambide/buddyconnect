@@ -67,9 +67,11 @@ Rails.application.configure do
     uid: '123456789',
     info: {
       name: 'Jane Doe',
-      email: 'JaneDoe@example.com',
+      email: 'JaneDoe@tamu.edu',
       first_name: 'Jane',
       last_name: 'Doe',
+      avatar_url: "mock_url",
+      uid: "123456789"
     },
     credentials: {
       token: 'token1',
