@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :community %>
-    <%= form.text_field :community %>
+    <%= form.select(:community, [['Park West'],['White Creek']], {:prompt => "Please select"})%>
   </div>
 
   <div class="field">
@@ -53,7 +53,7 @@
 
   <div class="field">
     <%= form.label :potentialRoles %>
-    <%= form.text_field :potentialRoles %>
+    <%= form.select :potentialRoles, options_for_select('Software Engineering', 'Data Analytics', 'Data Science', 'Business Intelligence', 'Consulting', 'Project Management', 'Product Management', 'Data Engineering', 'Business Analytics', 'Cyber Security'), {}, { :multiple => true, :size => 3}) %>
   </div>
 
   <div class="field">

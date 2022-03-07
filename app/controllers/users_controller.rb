@@ -144,7 +144,6 @@ class UsersController < ApplicationController
 
     # All affinities calculated!
     # officer index 0 = officerList index 0
-
     puts affinities.inspect()
 
 
@@ -161,7 +160,8 @@ class UsersController < ApplicationController
       highestAff = -1
       for j in 0 ... officerList.size
 
-        if (affinities[j][i] > highestAff and groups[j].length < maxGroupSize)
+        # if the studnt officer affinity is the greatest or if the affinity is equal, then the student is put in the group with less people
+        if ((affinities[j][i] > highestAff and groups[j].length < maxGroupSize) or (affinities[j][i] == highestAff and groups[j].length < groups[topOfficer].length))
           highestAff = affinities[j][i]
           topOfficer = j
           sID = i
@@ -171,7 +171,7 @@ class UsersController < ApplicationController
       groups[topOfficer].append(studList[sID]);
       
     end
-
+    [['Software Engineering'], ['Data Analytics']]
     # update students groupId
     puts groups.inspect()
 
@@ -181,7 +181,7 @@ class UsersController < ApplicationController
       gID = User.where(studentId: officerId).pluck(:groupId)
       for stude in groups[j]
         # find student by ID in user table
-        # add grope id to users database
+        # add group id to users database
         User.where(studentId: stude).update_all(:groupId  => gID.first) 
       end
     end

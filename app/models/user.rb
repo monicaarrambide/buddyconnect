@@ -6,7 +6,5 @@ class User < ApplicationRecord
     validates :lastName, presence: true
     validates :tamuEmail, presence: true
     validates :dateOfBirth, presence: true
-    validates :gradAssistance, inclusion: { in: [ true, false ] }
-
-    
+    validates :gradAssistance, inclusion: { in: [ true, false ] }  
 end
