@@ -86,6 +86,10 @@ class UsersController < ApplicationController
         officerQ1 = Interest.where(userId: i).pluck(:potentialRoles)
         studQ1 = Interest.where(userId: j).pluck(:potentialRoles)
 
+        puts "IM RIGHT HEREE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        puts officerQ1
+        puts studQ1
+
         if officerQ1 == studQ1
           affinityScore += 10
         end

@@ -13,4 +13,9 @@ class Interest < ApplicationRecord
     validates :projects, presence: true
     validates :extracurric, presence: true
     validates :pastWorkExp, presence: true
+
+    before_save do
+        self.potentialRoles.gsub!(/[\[\]\"]/, "") if attribute_present?("potentialRoles")
+        self.pastWorkExp.gsub!(/[\[\]\"]/, "") if attribute_present?("pastWorkExp")
+    end
 end
