@@ -139,9 +139,9 @@ Please refer to the `/config/environments/development.rb` file located within th
 
 # Deployment
 
-Customer App: 
+Customer/production App: https://stage-buddy-app.herokuapp.com/users/sign_in
 
-Production App: 
+Review App:  https://buddy-connec-test-vohk6obhdqqq.herokuapp.com/users/sign_in
 
 Please refer to this link and follow directions in order to deploy to Heroku:
 
