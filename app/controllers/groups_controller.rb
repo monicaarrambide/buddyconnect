@@ -5,10 +5,21 @@ class GroupsController < ApplicationController
   def index
     @groups = Group.all
     @users = User.all
+
+    # only admins are allowed to see all the groups
+    # if current_user.isAdmin == false
+    #   @group = Group.find_by(groupId: current_user.groupId)
+    #   redirect_to group_url(@group)
+    # end
+
   end
 
   # GET /groups/1 or /groups/1.json
   def show
+    # if params[:id] == nil
+    #   puts 'nil'
+    #   @group = Group.find_by(groupId: current_user.groupId)
+    # end
   end
 
   # GET /groups/new
@@ -101,7 +112,11 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      @group = Group.find(params[:id])
+      if params[:id] == nil
+        @group = Group.find_by(groupId: current_user.groupId)
+      else
+        @group = Group.find(params[:id])
+      end
     end
 
     # Only allow a list of trusted parameters through.

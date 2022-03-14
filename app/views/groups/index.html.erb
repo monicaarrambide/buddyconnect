@@ -7,6 +7,7 @@
     <tr>
       <th>Groupid</th>
       <th>Leaderint</th>
+      <th>Leader Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= group.groupId %></td>
         <td><%= group.leaderInt %></td>
+        <td><%= User.where(studentId: group.leaderInt).pluck(:firstName).first %></td>
         <td><%= link_to 'Show', group %></td>
         <td><%= link_to 'Edit', edit_group_path(group) %></td>
         <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
