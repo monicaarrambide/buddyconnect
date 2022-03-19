@@ -3,7 +3,8 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.order("created_at DESC")
+    @comments = Comment.all
   end
 
   # GET /posts/1 or /posts/1.json
@@ -21,7 +22,12 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    create_params = post_params
+    create_params[:posterId] = current_user.studentId #This way the poster id is always the users
+    create_params[:postId] = SecureRandom.uuid
+    #create_params[postDate] = Time.now
+    puts(create_params)
+    @post = Post.new(create_params)
 
     respond_to do |format|
       if @post.save
@@ -36,13 +42,29 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+    if params[:post][:message].present?
+      time = Time.new
+      puts(params)
+      create_comment = {
+        :message => params[:post][:message],
+        :commentId => SecureRandom.uuid,
+        :postId => @post.postId,
+        :posterId => current_user.studentId,
+        :commentDate => time.strftime("%Y-%m-%d"),
+      }
+      Comment.create(create_comment)
+
+      redirect_back(fallback_location: root_path)
+
+    else 
+      respond_to do |format|
+        if @post.update(post_params)
+          format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
+          format.json { render :show, status: :ok, location: @post }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -65,6 +87,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:postId, :posterId, :postDate, :title, :body)
+      params.require(:post).permit(:postId, :posterId, :postDate, :title, :body, :message)
     end
 end

@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<h1>
+  <%= @post.title %>
+</h1>
+
 <p>
-  <strong>Postid:</strong>
-  <%= @post.postId %>
+  <%= @post.body %>
 </p>
 
 <p>
-  <strong>Posterid:</strong>
-  <%= @post.posterId %>
+  <strong>Posted by:</strong>
+  <%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.firstName : "None" %>
 </p>
+
+
 
 <p>
   <strong>Postdate:</strong>
@@ -16,14 +21,35 @@
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
+  <strong>Reply to thread<strong>
+ <%= form_with model: @post do |form|%>
+<div class = "field">
+    <%= form.label :message %>
+    <%= form.text_field :message %>
+</div>
+<div class = "actions">
+   <%= form.submit %>
+</div>
+<%end%>
 <p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<p> Comments: <p>
+  <%Comment.where(postId: @post.postId).each do |comment| %>
+    <tr>
+      <td><%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.firstName : "None"%> said: </td>
+      <td><%=comment.message%> </td>
+      <br/>
+      <td><%= time_ago_in_words(comment.commentDate)%> ago</td>
+    </tr>
+    <%if current_user.studentId == comment.posterId%>
+      <%= link_to 'Edit', edit_comment_path(comment) %>
+      <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%end%>
+    <br/>
+    <br/>
+<% end %>
+
+<%if current_user.isOfficer%>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+<%end%>
 <%= link_to 'Back', posts_path %>
