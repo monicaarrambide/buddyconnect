@@ -84,15 +84,78 @@ class UsersController < ApplicationController
         # score for potential roles
         # this will have multiple answers (up to 3)
         officerQ1 = Interest.where(userId: i).pluck(:potentialRoles)
+
+        # turning potential roles into array for student and officers
+
+        # Split this string on comma characters.
+        
+        input = "lowercase a,uppercase A,lowercase z"
+        puts input
+        values = input.split(",")
+        puts values
+
+# Display each value to the console.
+# values.each do |value|
+#     puts value
+# end
+        puts "Officer pr array BEFORE split:"
+        puts officerQ1
+
+        prOfficer = officerQ1.split(",")
+        puts "Officer pr array AFTER split:"
+        puts prOfficer
+       
+        
         studQ1 = Interest.where(userId: j).pluck(:potentialRoles)
 
-        puts "IM RIGHT HEREE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-        puts officerQ1
-        puts studQ1
+        prStud = studQ1.split(",")
+        puts "Sutdent pr array:"
+        puts prStud
+        # puts "IM RIGHT HEREE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        # puts ""
+        # puts officerQ1
+        # puts studQ1
 
-        if officerQ1 == studQ1
-          affinityScore += 10
+        # a = [1,2,3,4,5]
+        # a.include?(3)   # => true
+        # a.include?(9)   # => false
+
+        # 'Unicorn'.in?(['Cat', 'Dog', 'Bird']) # => false
+
+        # string = "Today is Saturday"
+        # string.include?("Saturday") 
+
+       
+
+        if prStud.length() < prOfficer.length()
+          for k in 0 ... prStud.length()
+            puts "This is my current k: "
+            puts prStud[k]
+            # if officerQ1.include?(prStud[k])
+            # if prStud[k].in?(prOfficer)
+            
+            if prOfficer.include?(prStud[k])
+              puts "MATCH"
+              affinityScore += 10
+              puts affinityScore
+            end
+          end
+        else
+          for k in 0 ... prOfficer.size
+            puts "Officer - This is my current k: "
+            puts prOfficer[k]
+            if prStud.include?(prOfficer[k])
+            #if prOfficer[k].in?(prStud)
+              puts "MATCH"
+              affinityScore += 10
+              puts affinityScore
+            end
+          end
         end
+
+        # if officerQ1 == studQ1
+        #   affinityScore += 10
+        # end
 
         # score for past job experience
         # this will have multiple answers (up to 3)
@@ -135,8 +198,9 @@ class UsersController < ApplicationController
         if officerQ6 == studQ6
           affinityScore += 1
         end
-
-        puts affinityScore
+        
+        # puts "Affinity Scores"
+        # puts affinityScore
 
         # append affinity score for each student
         officer.append(affinityScore)
@@ -148,6 +212,7 @@ class UsersController < ApplicationController
 
     # All affinities calculated!
     # officer index 0 = officerList index 0
+    puts "Affinities scores"
     puts affinities.inspect()
 
 
