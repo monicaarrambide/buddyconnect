@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :interests
 
   # root 'users#index'
-  root to: 'groups#show'
+  root to: 'users#show'
 
 
 
