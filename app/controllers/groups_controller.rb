@@ -102,11 +102,13 @@ class GroupsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_group
       # TO DO: Can this be added to the model instead??
-      # if params[:id] == nil
-      #   @group = Group.find_by(groupId: current_user.groupId)
-      # else
-      @group = Group.find(params[:id])
-      # end
+      if params[:groupId].nil? and current_user.groupId.present?
+        @group = Group.find_by(groupId: current_user.groupId)
+      elsif current_user.groupId.nil?
+        @group = Group.find_or_create_by(groupId:0)
+      else
+        @group = Group.find(params[:id])
+      end
     end
 
     # Only allow a list of trusted parameters through.
