@@ -108,7 +108,7 @@ class GroupsController < ApplicationController
       # elsif current_user.groupId.nil?
       #   @group = Group.find_or_create_by(groupId:0)
       # else
-        @group = Group.find_or_create_by!(groupId: params[:id])
+      @group = Group.find_or_create_by!(groupId: current_user.groupId)
       #end
     end
 

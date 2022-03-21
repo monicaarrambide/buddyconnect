@@ -25,10 +25,12 @@
     <br/>
 <% end %>
 
+<%= link_to 'Profile', user_path(current_user.studentId) %>
 <% if current_user.isOfficer%>
+  |
   <%= link_to 'Edit', edit_group_path(@group) %> |
 <% end %>
 <% if current_user.isAdmin %>
-  <%= link_to 'Back', groups_path %>
+  <%= link_to 'Show Groups', groups_path %>
 <% end %>
 
