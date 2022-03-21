@@ -72,3 +72,6 @@
 
 <%= link_to 'Edit', edit_interest_path(@interest) %> |
 <%= link_to 'Back', user_path(@interest.userId) %>
+<% if current_user.isAdmin %>
+  | <%= link_to 'All interests', interests_path %>
+<% end %>
