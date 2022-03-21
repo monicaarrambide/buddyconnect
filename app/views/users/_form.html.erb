@@ -26,17 +26,17 @@
     <%= form.number_field :profileId %>
   </div>
 
-  <% if current_user.isAdmin %>
-    <div class="field">
-      <%= form.label :isOfficer %>
-      <%= form.check_box :isOfficer %>
-    </div>
+ 
+  <div class="field">
+    <%= form.label :isOfficer %>
+    <%= form.check_box :isOfficer %>
+  </div>
 
-    <div class="field">
-      <%= form.label :isAdmin %>
-      <%= form.check_box :isAdmin %>
-    </div>
-  <% end %>
+  <div class="field">
+    <%= form.label :isAdmin %>
+    <%= form.check_box :isAdmin %>
+  </div>
+ 
 
   <div class="field">
     <%= form.label :firstName %>

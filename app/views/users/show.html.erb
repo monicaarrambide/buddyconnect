@@ -55,7 +55,13 @@
   <%= @user.gradAssistance %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<% if not Interest.where(userId: current_user.studentId).exists? %>
+  <%= link_to 'Edit Interest', new_interest_path %>
+<% else %>
+  <%= link_to 'Edit Interest', interest_path(current_user.studentId) %>
+<% end %>
+
 <% if current_user.isAdmin %>
   |
   <%= link_to 'Back', users_path %>
