@@ -83,30 +83,26 @@ class UsersController < ApplicationController
         affinityScore = 0
         # score for potential roles
         # this will have multiple answers (up to 3)
-        officerQ1 = Interest.where(userId: i).pluck(:potentialRoles)
+        officerQ1 = Interest.where(userId: i).pluck(:potentialRoles).first.to_str
 
         # turning potential roles into array for student and officers
 
         # Split this string on comma characters.
         
-        input = "lowercase a,uppercase A,lowercase z"
-        puts input
-        values = input.split(",")
-        puts values
+        # input = "lowercase a,uppercase A,lowercase z"
+        # puts input
+        # values = input.split(",")
+        # puts values
 
-# Display each value to the console.
-# values.each do |value|
-#     puts value
-# end
-        puts "Officer pr array BEFORE split:"
-        puts officerQ1
+        # puts "Officer pr array BEFORE split:"
+        # puts officerQ1
 
         prOfficer = officerQ1.split(",")
         puts "Officer pr array AFTER split:"
         puts prOfficer
        
         
-        studQ1 = Interest.where(userId: j).pluck(:potentialRoles)
+        studQ1 = Interest.where(userId: j).pluck(:potentialRoles).first.to_str
 
         prStud = studQ1.split(",")
         puts "Sutdent pr array:"
@@ -125,30 +121,25 @@ class UsersController < ApplicationController
         # string = "Today is Saturday"
         # string.include?("Saturday") 
 
-       
-
-        if prStud.length() < prOfficer.length()
-          for k in 0 ... prStud.length()
+        if prStud.size < prOfficer.size
+          for k in 0 ... prStud.size
             puts "This is my current k: "
-            puts prStud[k]
-            # if officerQ1.include?(prStud[k])
-            # if prStud[k].in?(prOfficer)
+            puts prStud[k].strip
             
-            if prOfficer.include?(prStud[k])
-              puts "MATCH"
+            if prOfficer.include?(prStud[k].strip)
+              puts "Potential Role MATCH"
               affinityScore += 10
-              puts affinityScore
+              # puts affinityScore
             end
           end
         else
           for k in 0 ... prOfficer.size
             puts "Officer - This is my current k: "
-            puts prOfficer[k]
-            if prStud.include?(prOfficer[k])
-            #if prOfficer[k].in?(prStud)
-              puts "MATCH"
+            puts prOfficer[k].strip
+            if prStud.include?(prOfficer[k].strip)
+              puts "Potential role MATCH"
               affinityScore += 10
-              puts affinityScore
+              #puts affinityScore
             end
           end
         end
@@ -159,12 +150,39 @@ class UsersController < ApplicationController
 
         # score for past job experience
         # this will have multiple answers (up to 3)
-        officerQ2 = Interest.where(userId: i).pluck(:pastWorkExp)
-        studQ2 = Interest.where(userId: j).pluck(:pastWorkExp)
+        officerQ2 = Interest.where(userId: i).pluck(:pastWorkExp).first.to_str
+        studQ2 = Interest.where(userId: j).pluck(:pastWorkExp).first.to_str
 
-        if officerQ2 == studQ2
-          affinityScore += 5
+        peOfficer = officerQ2.split(",");
+        peStud = studQ2.split(",");
+
+        if peStud.size < peOfficer.size
+          for k in 0 ... peStud.size
+            puts "This is my current k: "
+            puts peStud[k].strip
+            
+            if peOfficer.include?(peStud[k].strip)
+              puts "Past experience MATCH"
+              affinityScore += 10
+              # puts affinityScore
+            end
+          end
+        else
+          for k in 0 ... peOfficer.size
+            puts "Officer - This is my current k: "
+            puts peOfficer[k].strip
+            if peStud.include?(peOfficer[k].strip)
+              puts "Past experience MATCH"
+              affinityScore += 10
+              # puts affinityScore
+            end
+          end
         end
+
+
+        # if officerQ2 == studQ2
+        #   affinityScore += 5
+        # end
 
         # score for years of experience
         officerQ3 = Interest.where(userId: i).pluck(:numWorkExp)
