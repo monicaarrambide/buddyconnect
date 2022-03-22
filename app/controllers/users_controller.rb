@@ -38,6 +38,14 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+
+        # generates random groupId for each officer
+        if @user.isOfficer == true
+          create_params = user_params
+          create_params[:groupId] = SecureRandom.uuid
+          @user.update(create_params)
+        end
+        
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else

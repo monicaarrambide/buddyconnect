@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-03-22T21:25:59+00:00">2022-03-22T21:25:59+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-03-22T23:49:37+00:00">2022-03-22T23:49:37+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="yellow">
-  83.71%
+  83.43%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.42
+         1.41
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>847</b> relevant lines,
-    <span class="green"><b>709</b> lines covered</span> and
-    <span class="red"><b>138</b> lines missed. </span>
+    <b>851</b> relevant lines,
+    <span class="green"><b>710</b> lines covered</span> and
+    <span class="red"><b>141</b> lines missed. </span>
     (<span class="yellow">
-  83.71%
+  83.43%
 </span>
 )
   </div>
@@ -149,12 +149,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#61fd777a7f9c31c5021a4469ea7156e1ade3bef8" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">27.45 %</td>
-            <td class="cell--number">217</td>
-            <td class="cell--number">102</td>
-            <td class="cell--number">28</td>
-            <td class="cell--number">74</td>
-            <td class="cell--number">0.73</td>
+            <td class="red strong cell--number t-file__coverage">27.36 %</td>
+            <td class="cell--number">225</td>
+            <td class="cell--number">106</td>
+            <td class="cell--number">29</td>
+            <td class="cell--number">77</td>
+            <td class="cell--number">0.71</td>
             
           </tr>
         
@@ -5138,7 +5138,7 @@
     <h3>app/controllers/users_controller.rb</h3>
     <h4>
       <span class="red">
-  27.45%
+  27.36%
 </span>
 
       lines covered
@@ -5147,9 +5147,9 @@
     
 
     <div class="t-line-summary">
-      <b>102</b> relevant lines.
-      <span class="green"><b>28</b> lines covered</span> and
-      <span class="red"><b>74</b> lines missed.</span>
+      <b>106</b> relevant lines.
+      <span class="green"><b>29</b> lines covered</span> and
+      <span class="red"><b>77</b> lines missed.</span>
     </div>
 
     
@@ -5600,35 +5600,35 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="41">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="41">
+            
             
 
             
 
-            <code class="ruby">        format.html { redirect_to user_url(@user), notice: &quot;User was successfully updated.&quot; }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="42">
+          <li class="never" data-hits="" data-linenumber="42">
+            
+            
+
+            
+
+            <code class="ruby">        # generates random groupId for each officer</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="43">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">        format.json { render :show, status: :ok, location: @user }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="43">
-            
-            
-
-            
-
-            <code class="ruby">      else</code>
+            <code class="ruby">        if @user.isOfficer == true</code>
           </li>
         </div>
       
@@ -5639,7 +5639,7 @@
 
             
 
-            <code class="ruby">        format.html { render :edit, status: :unprocessable_entity }</code>
+            <code class="ruby">          create_params = user_params</code>
           </li>
         </div>
       
@@ -5650,18 +5650,18 @@
 
             
 
-            <code class="ruby">        format.json { render json: @user.errors, status: :unprocessable_entity }</code>
+            <code class="ruby">          create_params[:groupId] = SecureRandom.uuid</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="46">
+          <li class="missed" data-hits="0" data-linenumber="46">
             
             
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">          @user.update(create_params)</code>
           </li>
         </div>
       
@@ -5672,7 +5672,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -5683,40 +5683,40 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">        </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="49">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="49">
+            <span class="hits">2</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">        format.html { redirect_to user_url(@user), notice: &quot;User was successfully updated.&quot; }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="50">
-            
-            
-
-            
-
-            <code class="ruby">  # DELETE /users/1 or /users/1.json</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="51">
+          <li class="covered" data-hits="1" data-linenumber="50">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def destroy</code>
+            <code class="ruby">        format.json { render :show, status: :ok, location: @user }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="51">
+            
+            
+
+            
+
+            <code class="ruby">      else</code>
           </li>
         </div>
       
@@ -5727,254 +5727,23 @@
 
             
 
-            <code class="ruby">    @user.destroy</code>
+            <code class="ruby">        format.html { render :edit, status: :unprocessable_entity }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="53">
+          <li class="missed" data-hits="0" data-linenumber="53">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        format.json { render json: @user.errors, status: :unprocessable_entity }</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="54">
-            
-            
-
-            
-
-            <code class="ruby">    respond_to do |format|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="55">
-            
-            
-
-            
-
-            <code class="ruby">      format.html { redirect_to users_url, notice: &quot;User was successfully destroyed.&quot; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="56">
-            
-            
-
-            
-
-            <code class="ruby">      format.json { head :no_content }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="57">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="58">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="59">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="60">
-            
-            
-
-            
-
-            <code class="ruby">  # will calculate affinity between officers and students and match them accordingly</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="61">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def affinity_matching</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="62">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="63">
-            
-            
-
-            
-
-            <code class="ruby">    officerList = []</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="64">
-            
-            
-
-            
-
-            <code class="ruby">    studList = []</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="65">
-            
-            
-
-            
-
-            <code class="ruby">    affinities = []</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="66">
-            
-            
-
-            
-
-            <code class="ruby">    groups = []</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="67">
-            
-            
-
-            
-
-            <code class="ruby">    </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="68">
-            
-            
-
-            
-
-            <code class="ruby">    # Sorting officers and members into respective lists from user table</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="69">
-            
-            
-
-            
-
-            <code class="ruby">    User.all.each do |student|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="70">
-            
-            
-
-            
-
-            <code class="ruby">      if not student.isOfficer and not student.isAdmin</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="71">
-            
-            
-
-            
-
-            <code class="ruby">        studList.append(student.studentId)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="72">
-            
-            
-
-            
-
-            <code class="ruby">      elsif student.isOfficer</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="73">
-            
-            
-
-            
-
-            <code class="ruby">        officerList.append(student.studentId)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="74">
-            
-            
-
-            
-
-            <code class="ruby">        groups.append([])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="75">
+          <li class="never" data-hits="" data-linenumber="54">
             
             
 
@@ -5985,7 +5754,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="76">
+          <li class="never" data-hits="" data-linenumber="55">
             
             
 
@@ -5996,7 +5765,18 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="77">
+          <li class="never" data-hits="" data-linenumber="56">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="57">
             
             
 
@@ -6007,13 +5787,233 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="78">
+          <li class="never" data-hits="" data-linenumber="58">
+            
+            
+
+            
+
+            <code class="ruby">  # DELETE /users/1 or /users/1.json</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="59">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="60">
+            
+            
+
+            
+
+            <code class="ruby">    @user.destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="61">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="62">
+            
+            
+
+            
+
+            <code class="ruby">    respond_to do |format|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="63">
+            
+            
+
+            
+
+            <code class="ruby">      format.html { redirect_to users_url, notice: &quot;User was successfully destroyed.&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="64">
+            
+            
+
+            
+
+            <code class="ruby">      format.json { head :no_content }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="65">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="66">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="67">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="68">
+            
+            
+
+            
+
+            <code class="ruby">  # will calculate affinity between officers and students and match them accordingly</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="69">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def affinity_matching</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="70">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="71">
+            
+            
+
+            
+
+            <code class="ruby">    officerList = []</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="72">
+            
+            
+
+            
+
+            <code class="ruby">    studList = []</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="73">
+            
+            
+
+            
+
+            <code class="ruby">    affinities = []</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="74">
+            
+            
+
+            
+
+            <code class="ruby">    groups = []</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="75">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="76">
+            
+            
+
+            
+
+            <code class="ruby">    # Sorting officers and members into respective lists from user table</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="77">
+            
+            
+
+            
+
+            <code class="ruby">    User.all.each do |student|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="78">
+            
+            
+
+            
+
+            <code class="ruby">      if not student.isOfficer and not student.isAdmin</code>
           </li>
         </div>
       
@@ -6024,7 +6024,7 @@
 
             
 
-            <code class="ruby">    for i in officerList  </code>
+            <code class="ruby">        studList.append(student.studentId)</code>
           </li>
         </div>
       
@@ -6035,18 +6035,18 @@
 
             
 
-            <code class="ruby">      officer = []</code>
+            <code class="ruby">      elsif student.isOfficer</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="81">
+          <li class="missed" data-hits="0" data-linenumber="81">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        officerList.append(student.studentId)</code>
           </li>
         </div>
       
@@ -6057,18 +6057,18 @@
 
             
 
-            <code class="ruby">      for j in studList</code>
+            <code class="ruby">        groups.append([])</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="83">
+          <li class="never" data-hits="" data-linenumber="83">
             
             
 
             
 
-            <code class="ruby">        affinityScore = 0</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -6079,7 +6079,7 @@
 
             
 
-            <code class="ruby">        # score for potential roles</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -6090,18 +6090,18 @@
 
             
 
-            <code class="ruby">        # this will have multiple answers (up to 3)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="86">
+          <li class="never" data-hits="" data-linenumber="86">
             
             
 
             
 
-            <code class="ruby">        officerQ1 = Interest.where(userId: i).pluck(:potentialRoles)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -6112,29 +6112,29 @@
 
             
 
-            <code class="ruby">        studQ1 = Interest.where(userId: j).pluck(:potentialRoles)</code>
+            <code class="ruby">    for i in officerList  </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="88">
+          <li class="missed" data-hits="0" data-linenumber="88">
+            
+            
+
+            
+
+            <code class="ruby">      officer = []</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="89">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="89">
-            
-            
-
-            
-
-            <code class="ruby">        puts &quot;IM RIGHT HEREE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;</code>
           </li>
         </div>
       
@@ -6145,7 +6145,7 @@
 
             
 
-            <code class="ruby">        puts officerQ1</code>
+            <code class="ruby">      for j in studList</code>
           </li>
         </div>
       
@@ -6156,7 +6156,7 @@
 
             
 
-            <code class="ruby">        puts studQ1</code>
+            <code class="ruby">        affinityScore = 0</code>
           </li>
         </div>
       
@@ -6167,18 +6167,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        # score for potential roles</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="93">
+          <li class="never" data-hits="" data-linenumber="93">
             
             
 
             
 
-            <code class="ruby">        if officerQ1 == studQ1</code>
+            <code class="ruby">        # this will have multiple answers (up to 3)</code>
           </li>
         </div>
       
@@ -6189,18 +6189,18 @@
 
             
 
-            <code class="ruby">          affinityScore += 10</code>
+            <code class="ruby">        officerQ1 = Interest.where(userId: i).pluck(:potentialRoles)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="95">
+          <li class="missed" data-hits="0" data-linenumber="95">
             
             
 
             
 
-            <code class="ruby">        end</code>
+            <code class="ruby">        studQ1 = Interest.where(userId: j).pluck(:potentialRoles)</code>
           </li>
         </div>
       
@@ -6216,24 +6216,24 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="97">
+          <li class="missed" data-hits="0" data-linenumber="97">
             
             
 
             
 
-            <code class="ruby">        # score for past job experience</code>
+            <code class="ruby">        puts &quot;IM RIGHT HEREE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="98">
+          <li class="missed" data-hits="0" data-linenumber="98">
             
             
 
             
 
-            <code class="ruby">        # this will have multiple answers (up to 3)</code>
+            <code class="ruby">        puts officerQ1</code>
           </li>
         </div>
       
@@ -6244,29 +6244,29 @@
 
             
 
-            <code class="ruby">        officerQ2 = Interest.where(userId: i).pluck(:pastWorkExp)</code>
+            <code class="ruby">        puts studQ1</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="100">
-            
-            
-
-            
-
-            <code class="ruby">        studQ2 = Interest.where(userId: j).pluck(:pastWorkExp)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="101">
+          <li class="never" data-hits="" data-linenumber="100">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="101">
+            
+            
+
+            
+
+            <code class="ruby">        if officerQ1 == studQ1</code>
           </li>
         </div>
       
@@ -6277,23 +6277,12 @@
 
             
 
-            <code class="ruby">        if officerQ2 == studQ2</code>
+            <code class="ruby">          affinityScore += 10</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="103">
-            
-            
-
-            
-
-            <code class="ruby">          affinityScore += 5</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="104">
+          <li class="never" data-hits="" data-linenumber="103">
             
             
 
@@ -6304,7 +6293,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="105">
+          <li class="never" data-hits="" data-linenumber="104">
             
             
 
@@ -6315,13 +6304,24 @@
         </div>
       
         <div>
+          <li class="never" data-hits="" data-linenumber="105">
+            
+            
+
+            
+
+            <code class="ruby">        # score for past job experience</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="never" data-hits="" data-linenumber="106">
             
             
 
             
 
-            <code class="ruby">        # score for years of experience</code>
+            <code class="ruby">        # this will have multiple answers (up to 3)</code>
           </li>
         </div>
       
@@ -6332,7 +6332,7 @@
 
             
 
-            <code class="ruby">        officerQ3 = Interest.where(userId: i).pluck(:numWorkExp)</code>
+            <code class="ruby">        officerQ2 = Interest.where(userId: i).pluck(:pastWorkExp)</code>
           </li>
         </div>
       
@@ -6343,7 +6343,7 @@
 
             
 
-            <code class="ruby">        studQ3 = Interest.where(userId: j).pluck(:numWorkExp)</code>
+            <code class="ruby">        studQ2 = Interest.where(userId: j).pluck(:pastWorkExp)</code>
           </li>
         </div>
       
@@ -6365,7 +6365,7 @@
 
             
 
-            <code class="ruby">        if officerQ3 == studQ3</code>
+            <code class="ruby">        if officerQ2 == studQ2</code>
           </li>
         </div>
       
@@ -6376,7 +6376,7 @@
 
             
 
-            <code class="ruby">          affinityScore += 2</code>
+            <code class="ruby">          affinityScore += 5</code>
           </li>
         </div>
       
@@ -6409,18 +6409,18 @@
 
             
 
-            <code class="ruby">        # score for technologies worked on</code>
+            <code class="ruby">        # score for years of experience</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="115">
+          <li class="missed" data-hits="0" data-linenumber="115">
             
             
 
             
 
-            <code class="ruby">        # this will have multiple answers (did not specify how many they can select)</code>
+            <code class="ruby">        officerQ3 = Interest.where(userId: i).pluck(:numWorkExp)</code>
           </li>
         </div>
       
@@ -6431,29 +6431,29 @@
 
             
 
-            <code class="ruby">        officerQ4 = Interest.where(userId: i).pluck(:usedTech)</code>
+            <code class="ruby">        studQ3 = Interest.where(userId: j).pluck(:numWorkExp)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="117">
-            
-            
-
-            
-
-            <code class="ruby">        studQ4 = Interest.where(userId: j).pluck(:usedTech)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="118">
+          <li class="never" data-hits="" data-linenumber="117">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="118">
+            
+            
+
+            
+
+            <code class="ruby">        if officerQ3 == studQ3</code>
           </li>
         </div>
       
@@ -6464,23 +6464,12 @@
 
             
 
-            <code class="ruby">        if officerQ4 == studQ4</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="120">
-            
-            
-
-            
-
             <code class="ruby">          affinityScore += 2</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="121">
+          <li class="never" data-hits="" data-linenumber="120">
             
             
 
@@ -6491,7 +6480,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="122">
+          <li class="never" data-hits="" data-linenumber="121">
             
             
 
@@ -6502,13 +6491,24 @@
         </div>
       
         <div>
+          <li class="never" data-hits="" data-linenumber="122">
+            
+            
+
+            
+
+            <code class="ruby">        # score for technologies worked on</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="never" data-hits="" data-linenumber="123">
             
             
 
             
 
-            <code class="ruby">        # score for state</code>
+            <code class="ruby">        # this will have multiple answers (did not specify how many they can select)</code>
           </li>
         </div>
       
@@ -6519,7 +6519,7 @@
 
             
 
-            <code class="ruby">        officerQ5 = Interest.where(userId: i).pluck(:state)</code>
+            <code class="ruby">        officerQ4 = Interest.where(userId: i).pluck(:usedTech)</code>
           </li>
         </div>
       
@@ -6530,7 +6530,7 @@
 
             
 
-            <code class="ruby">        studQ5 = Interest.where(userId: j).pluck(:state)</code>
+            <code class="ruby">        studQ4 = Interest.where(userId: j).pluck(:usedTech)</code>
           </li>
         </div>
       
@@ -6552,7 +6552,7 @@
 
             
 
-            <code class="ruby">        if officerQ5 == studQ5</code>
+            <code class="ruby">        if officerQ4 == studQ4</code>
           </li>
         </div>
       
@@ -6563,7 +6563,7 @@
 
             
 
-            <code class="ruby">          affinityScore += 1</code>
+            <code class="ruby">          affinityScore += 2</code>
           </li>
         </div>
       
@@ -6596,7 +6596,7 @@
 
             
 
-            <code class="ruby">        # score for community</code>
+            <code class="ruby">        # score for state</code>
           </li>
         </div>
       
@@ -6607,7 +6607,7 @@
 
             
 
-            <code class="ruby">        officerQ6 = Interest.where(userId: i).pluck(:community)</code>
+            <code class="ruby">        officerQ5 = Interest.where(userId: i).pluck(:state)</code>
           </li>
         </div>
       
@@ -6618,7 +6618,7 @@
 
             
 
-            <code class="ruby">        studQ6 = Interest.where(userId: j).pluck(:community)</code>
+            <code class="ruby">        studQ5 = Interest.where(userId: j).pluck(:state)</code>
           </li>
         </div>
       
@@ -6640,7 +6640,7 @@
 
             
 
-            <code class="ruby">        if officerQ6 == studQ6</code>
+            <code class="ruby">        if officerQ5 == studQ5</code>
           </li>
         </div>
       
@@ -6678,18 +6678,40 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="139">
+          <li class="never" data-hits="" data-linenumber="139">
             
             
 
             
 
-            <code class="ruby">        puts affinityScore</code>
+            <code class="ruby">        # score for community</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="140">
+          <li class="missed" data-hits="0" data-linenumber="140">
+            
+            
+
+            
+
+            <code class="ruby">        officerQ6 = Interest.where(userId: i).pluck(:community)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="141">
+            
+            
+
+            
+
+            <code class="ruby">        studQ6 = Interest.where(userId: j).pluck(:community)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="142">
             
             
 
@@ -6700,57 +6722,35 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="141">
+          <li class="missed" data-hits="0" data-linenumber="143">
             
             
 
             
 
-            <code class="ruby">        # append affinity score for each student</code>
+            <code class="ruby">        if officerQ6 == studQ6</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="142">
+          <li class="missed" data-hits="0" data-linenumber="144">
             
             
 
             
 
-            <code class="ruby">        officer.append(affinityScore)</code>
+            <code class="ruby">          affinityScore += 1</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="143">
+          <li class="never" data-hits="" data-linenumber="145">
             
             
 
             
 
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="144">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="145">
-            
-            
-
-            
-
-            <code class="ruby">      affinities.append(officer)</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -6761,18 +6761,18 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="147">
+          <li class="missed" data-hits="0" data-linenumber="147">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        puts affinityScore</code>
           </li>
         </div>
       
@@ -6794,29 +6794,29 @@
 
             
 
-            <code class="ruby">    # All affinities calculated!</code>
+            <code class="ruby">        # append affinity score for each student</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="150">
+          <li class="missed" data-hits="0" data-linenumber="150">
             
             
 
             
 
-            <code class="ruby">    # officer index 0 = officerList index 0</code>
+            <code class="ruby">        officer.append(affinityScore)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="151">
+          <li class="never" data-hits="" data-linenumber="151">
             
             
 
             
 
-            <code class="ruby">    puts affinities.inspect()</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -6832,13 +6832,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="153">
+          <li class="missed" data-hits="0" data-linenumber="153">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      affinities.append(officer)</code>
           </li>
         </div>
       
@@ -6849,7 +6849,7 @@
 
             
 
-            <code class="ruby">    # Sorting members based on affinity scores</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -6865,40 +6865,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="156">
-            
-            
-
-            
-
-            <code class="ruby">    sID = 0</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="157">
-            
-            
-
-            
-
-            <code class="ruby">    topOfficer = 0</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="158">
-            
-            
-
-            
-
-            <code class="ruby">    maxGroupSize = (studList.length/officerList.length.to_f).ceil</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="159">
+          <li class="never" data-hits="" data-linenumber="156">
             
             
 
@@ -6909,13 +6876,46 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="160">
+          <li class="never" data-hits="" data-linenumber="157">
             
             
 
             
 
-            <code class="ruby">    puts maxGroupSize</code>
+            <code class="ruby">    # All affinities calculated!</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="158">
+            
+            
+
+            
+
+            <code class="ruby">    # officer index 0 = officerList index 0</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="159">
+            
+            
+
+            
+
+            <code class="ruby">    puts affinities.inspect()</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="160">
+            
+            
+
+            
+
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -6926,7 +6926,7 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -6937,18 +6937,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    # Sorting members based on affinity scores</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="163">
+          <li class="never" data-hits="" data-linenumber="163">
             
             
 
             
 
-            <code class="ruby">    for i in 0 ... studList.size</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -6959,7 +6959,7 @@
 
             
 
-            <code class="ruby">      highestAff = -1</code>
+            <code class="ruby">    sID = 0</code>
           </li>
         </div>
       
@@ -6970,18 +6970,18 @@
 
             
 
-            <code class="ruby">      for j in 0 ... officerList.size</code>
+            <code class="ruby">    topOfficer = 0</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="166">
+          <li class="missed" data-hits="0" data-linenumber="166">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    maxGroupSize = (studList.length/officerList.length.to_f).ceil</code>
           </li>
         </div>
       
@@ -6992,7 +6992,7 @@
 
             
 
-            <code class="ruby">        # if the studnt officer affinity is the greatest or if the affinity is equal, then the student is put in the group with less people</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -7003,56 +7003,23 @@
 
             
 
-            <code class="ruby">        if ((affinities[j][i] &gt; highestAff and groups[j].length &lt; maxGroupSize) or (affinities[j][i] == highestAff and groups[j].length &lt; groups[topOfficer].length))</code>
+            <code class="ruby">    puts maxGroupSize</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="169">
+          <li class="never" data-hits="" data-linenumber="169">
             
             
 
             
 
-            <code class="ruby">          highestAff = affinities[j][i]</code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="170">
-            
-            
-
-            
-
-            <code class="ruby">          topOfficer = j</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="171">
-            
-            
-
-            
-
-            <code class="ruby">          sID = i</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="172">
-            
-            
-
-            
-
-            <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="173">
+          <li class="never" data-hits="" data-linenumber="170">
             
             
 
@@ -7063,79 +7030,112 @@
         </div>
       
         <div>
+          <li class="missed" data-hits="0" data-linenumber="171">
+            
+            
+
+            
+
+            <code class="ruby">    for i in 0 ... studList.size</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="172">
+            
+            
+
+            
+
+            <code class="ruby">      highestAff = -1</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="173">
+            
+            
+
+            
+
+            <code class="ruby">      for j in 0 ... officerList.size</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="never" data-hits="" data-linenumber="174">
             
             
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="175">
+          <li class="never" data-hits="" data-linenumber="175">
             
             
 
             
 
-            <code class="ruby">      groups[topOfficer].append(studList[sID]);</code>
+            <code class="ruby">        # if the studnt officer affinity is the greatest or if the affinity is equal, then the student is put in the group with less people</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="176">
+          <li class="missed" data-hits="0" data-linenumber="176">
             
             
 
             
 
-            <code class="ruby">      </code>
+            <code class="ruby">        if ((affinities[j][i] &gt; highestAff and groups[j].length &lt; maxGroupSize) or (affinities[j][i] == highestAff and groups[j].length &lt; groups[topOfficer].length))</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="177">
+          <li class="missed" data-hits="0" data-linenumber="177">
             
             
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">          highestAff = affinities[j][i]</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="178">
+          <li class="missed" data-hits="0" data-linenumber="178">
             
             
 
             
 
-            <code class="ruby">    [[&#39;Software Engineering&#39;], [&#39;Data Analytics&#39;]]</code>
+            <code class="ruby">          topOfficer = j</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="179">
+          <li class="missed" data-hits="0" data-linenumber="179">
             
             
 
             
 
-            <code class="ruby">    # update students groupId</code>
+            <code class="ruby">          sID = i</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="180">
+          <li class="never" data-hits="" data-linenumber="180">
             
             
 
             
 
-            <code class="ruby">    puts groups.inspect()</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -7151,95 +7151,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="182">
-            
-            
-
-            
-
-            <code class="ruby">    for j in 0 ... groups.size</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="183">
-            
-            
-
-            
-
-            <code class="ruby">      officerId = officerList[j]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="184">
-            
-            
-
-            
-
-            <code class="ruby">      # get the officers groupID</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="185">
-            
-            
-
-            
-
-            <code class="ruby">      gID = User.where(studentId: officerId).pluck(:groupId)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="186">
-            
-            
-
-            
-
-            <code class="ruby">      for stude in groups[j]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="187">
-            
-            
-
-            
-
-            <code class="ruby">        # find student by ID in user table</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="188">
-            
-            
-
-            
-
-            <code class="ruby">        # add group id to users database</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="189">
-            
-            
-
-            
-
-            <code class="ruby">        User.where(studentId: stude).update_all(:groupId  =&gt; gID.first) </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="190">
+          <li class="never" data-hits="" data-linenumber="182">
             
             
 
@@ -7250,13 +7162,101 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="191">
+          <li class="missed" data-hits="0" data-linenumber="183">
+            
+            
+
+            
+
+            <code class="ruby">      groups[topOfficer].append(studList[sID]);</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="184">
+            
+            
+
+            
+
+            <code class="ruby">      </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="185">
             
             
 
             
 
             <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="186">
+            
+            
+
+            
+
+            <code class="ruby">    [[&#39;Software Engineering&#39;], [&#39;Data Analytics&#39;]]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="187">
+            
+            
+
+            
+
+            <code class="ruby">    # update students groupId</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="188">
+            
+            
+
+            
+
+            <code class="ruby">    puts groups.inspect()</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="189">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="190">
+            
+            
+
+            
+
+            <code class="ruby">    for j in 0 ... groups.size</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="191">
+            
+            
+
+            
+
+            <code class="ruby">      officerId = officerList[j]</code>
           </li>
         </div>
       
@@ -7267,51 +7267,51 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      # get the officers groupID</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="193">
+          <li class="missed" data-hits="0" data-linenumber="193">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      gID = User.where(studentId: officerId).pluck(:groupId)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="194">
+          <li class="missed" data-hits="0" data-linenumber="194">
             
             
 
             
 
-            <code class="ruby">    # confirm that matching worked</code>
+            <code class="ruby">      for stude in groups[j]</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="195">
+          <li class="never" data-hits="" data-linenumber="195">
             
             
 
             
 
-            <code class="ruby">    respond_to do |format|</code>
+            <code class="ruby">        # find student by ID in user table</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="196">
+          <li class="never" data-hits="" data-linenumber="196">
             
             
 
             
 
-            <code class="ruby">      format.html { redirect_to users_url, notice: &quot;Function called: We matched! yay!&quot; }</code>
+            <code class="ruby">        # add group id to users database</code>
           </li>
         </div>
       
@@ -7322,7 +7322,7 @@
 
             
 
-            <code class="ruby">      format.json { head :no_content }</code>
+            <code class="ruby">        User.where(studentId: stude).update_all(:groupId  =&gt; gID.first) </code>
           </li>
         </div>
       
@@ -7333,7 +7333,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -7344,7 +7344,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -7377,62 +7377,62 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    # confirm that matching worked</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="203">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="203">
+            
             
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">    respond_to do |format|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="204">
+          <li class="missed" data-hits="0" data-linenumber="204">
             
             
 
             
 
-            <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
+            <code class="ruby">      format.html { redirect_to users_url, notice: &quot;Function called: We matched! yay!&quot; }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="205">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="205">
+            
             
 
             
 
-            <code class="ruby">    def set_user</code>
+            <code class="ruby">      format.json { head :no_content }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="23" data-linenumber="206">
-            <span class="hits">23</span>
+          <li class="never" data-hits="" data-linenumber="206">
+            
             
 
             
 
-            <code class="ruby">      if params[:id].nil?</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="19" data-linenumber="207">
-            <span class="hits">19</span>
+          <li class="never" data-hits="" data-linenumber="207">
+            
             
 
             
 
-            <code class="ruby">        @user = User.find_or_create_by!(tamuEmail: current_user.tamuEmail)</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -7443,45 +7443,12 @@
 
             
 
-            <code class="ruby">      else</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="209">
-            <span class="hits">4</span>
-            
-
-            
-
-            <code class="ruby">        @user = User.find_by(tamuEmail: current_user.tamuEmail)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="210">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="211">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="212">
+          <li class="never" data-hits="" data-linenumber="209">
             
             
 
@@ -7492,35 +7459,68 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="213">
+          <li class="never" data-hits="" data-linenumber="210">
             
             
 
             
 
-            <code class="ruby">    # Only allow a list of trusted parameters through.</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="214">
+          <li class="covered" data-hits="1" data-linenumber="211">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    def user_params</code>
+            <code class="ruby">  private</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="215">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="212">
+            
             
 
             
 
-            <code class="ruby">      params.require(:user).permit(:studentId, :groupId, :insterestsId, :profileId, :isOfficer, :isAdmin, :firstName, :lastName, :tamuEmail, :dateOfBirth, :gradAssistance)</code>
+            <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="213">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def set_user</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="23" data-linenumber="214">
+            <span class="hits">23</span>
+            
+
+            
+
+            <code class="ruby">      if params[:id].nil?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="19" data-linenumber="215">
+            <span class="hits">19</span>
+            
+
+            
+
+            <code class="ruby">        @user = User.find_or_create_by!(tamuEmail: current_user.tamuEmail)</code>
           </li>
         </div>
       
@@ -7531,12 +7531,100 @@
 
             
 
+            <code class="ruby">      else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="217">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">        @user = User.find_by(tamuEmail: current_user.tamuEmail)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="218">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="219">
+            
+            
+
+            
+
             <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="217">
+          <li class="never" data-hits="" data-linenumber="220">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="221">
+            
+            
+
+            
+
+            <code class="ruby">    # Only allow a list of trusted parameters through.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="222">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def user_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="223">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      params.require(:user).permit(:studentId, :groupId, :insterestsId, :profileId, :isOfficer, :isAdmin, :firstName, :lastName, :tamuEmail, :dateOfBirth, :gradAssistance)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="224">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="225">
             
             
 
