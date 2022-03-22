@@ -103,8 +103,8 @@ class UsersController < ApplicationController
 
         if prStud.size < prOfficer.size
           for k in prStud
-            puts "This is my current k: "
-            puts k.strip
+            # puts "This is my current k: "
+            # puts k.strip
             
             if prOfficer.include?(k.strip)
               puts "Potential Role MATCH"
@@ -113,18 +113,14 @@ class UsersController < ApplicationController
           end
         else
           for k in prOfficer
-            puts "Officer - This is my current k: "
-            puts k.strip
+            # puts "Officer - This is my current k: "
+            # puts k.strip
             if prStud.include?(k.strip)
               puts "Potential role MATCH"
               affinityScore += 10
             end
           end
         end
-
-        # if officerQ1 == studQ1
-        #   affinityScore += 10
-        # end
 
         # score for past job experience
         # this will have multiple answers (up to 3)
@@ -136,8 +132,8 @@ class UsersController < ApplicationController
 
         if peStud.size < peOfficer.size
           for k in peStud
-            puts "This is my current k: "
-            puts k.strip
+            # puts "This is my current k: "
+            # puts k.strip
             
             if peOfficer.include?(k.strip)
               puts "Past experience MATCH"
@@ -147,8 +143,8 @@ class UsersController < ApplicationController
           end
         else
           for k in peOfficer
-            puts "Officer - This is my current k: "
-            puts k.strip
+            # puts "Officer - This is my current k: "
+            # puts k.strip
             if peStud.include?(k.strip)
               puts "Past experience MATCH"
               affinityScore += 5
@@ -162,16 +158,39 @@ class UsersController < ApplicationController
         studQ3 = Interest.where(userId: j).pluck(:numWorkExp)
 
         if officerQ3 == studQ3
+          puts "Years MATCH"
           affinityScore += 2
         end
 
         # score for technologies worked on
         # this will have multiple answers (did not specify how many they can select)
-        officerQ4 = Interest.where(userId: i).pluck(:usedTech)
-        studQ4 = Interest.where(userId: j).pluck(:usedTech)
+        officerQ4 = Interest.where(userId: i).pluck(:usedTech).first.to_str
+        studQ4 = Interest.where(userId: j).pluck(:usedTech).first.to_str
 
-        if officerQ4 == studQ4
-          affinityScore += 2
+        techOfficer = officerQ4.split(",");
+        techStud = studQ4.split(",");
+
+        if techStud.size < techOfficer.size
+          for k in techStud
+            # puts "This is my current k: "
+            # puts k.strip
+            
+            if techOfficer.include?(k.strip)
+              puts "Technologies MATCH"
+              affinityScore += 2
+              # puts affinityScore
+            end
+          end
+        else
+          for k in techOfficer
+            # puts "Officer - This is my current k: "
+            # puts k.strip
+            if techStud.include?(k.strip)
+              puts "Technologies MATCH"
+              affinityScore += 2
+              # puts affinityScore
+            end
+          end
         end
 
         # score for state
@@ -179,6 +198,7 @@ class UsersController < ApplicationController
         studQ5 = Interest.where(userId: j).pluck(:state)
 
         if officerQ5 == studQ5
+          puts "State MATCH"
           affinityScore += 1
         end
 
@@ -187,6 +207,7 @@ class UsersController < ApplicationController
         studQ6 = Interest.where(userId: j).pluck(:community)
 
         if officerQ6 == studQ6
+          puts "Community MATCH"
           affinityScore += 1
         end
 
