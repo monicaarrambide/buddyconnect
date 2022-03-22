@@ -20,6 +20,25 @@
   <%= @post.postDate %>
 </p>
 
+<p> Comments: <p>
+  <%Comment.where(postId: @post.postId).each do |comment| %>
+    <tr>
+      <td><%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.firstName : "None"%> said: </td>
+      <td><%=comment.message%> </td>
+      <br/>
+      <td><%= time_ago_in_words(comment.commentDate)%> ago</td>
+    </tr>
+    <%if current_user.studentId == comment.posterId%>
+      <%= link_to 'Edit', edit_comment_path(comment) %>
+      <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%elsif current_user.isAdmin%>
+      <%= link_to 'Edit', edit_comment_path(comment) %>
+      <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%end%>
+    <br/>
+    <br/>
+<% end %>
+
 <p>
   <strong>Reply to thread<strong>
  <%= form_with model: @post do |form|%>
@@ -33,23 +52,11 @@
 <%end%>
 <p>
 
-<p> Comments: <p>
-  <%Comment.where(postId: @post.postId).each do |comment| %>
-    <tr>
-      <td><%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.firstName : "None"%> said: </td>
-      <td><%=comment.message%> </td>
-      <br/>
-      <td><%= time_ago_in_words(comment.commentDate)%> ago</td>
-    </tr>
-    <%if current_user.studentId == comment.posterId%>
-      <%= link_to 'Edit', edit_comment_path(comment) %>
-      <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%end%>
-    <br/>
-    <br/>
-<% end %>
-
-<%if current_user.isOfficer%>
+<%if current_user.isAdmin%>
   <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% elsif current_user.studentId == @post.posterId%>
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%end%>
 <%= link_to 'Back', posts_path %>
