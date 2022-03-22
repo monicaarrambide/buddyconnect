@@ -105,8 +105,8 @@ class UsersController < ApplicationController
           for k in prStud
             # puts "This is my current k: "
             # puts k.strip
-            
-            if prOfficer.include?(k.strip)
+            if (k.strip).in?(officerQ1)
+            # if prOfficer.include?(k.strip)
               puts "Potential Role MATCH"
               affinityScore += 10
             end
@@ -115,7 +115,8 @@ class UsersController < ApplicationController
           for k in prOfficer
             # puts "Officer - This is my current k: "
             # puts k.strip
-            if prStud.include?(k.strip)
+            if (k.strip).in?(studQ1)
+            #if prStud.include?(k.strip)
               puts "Potential role MATCH"
               affinityScore += 10
             end
@@ -134,8 +135,8 @@ class UsersController < ApplicationController
           for k in peStud
             # puts "This is my current k: "
             # puts k.strip
-            
-            if peOfficer.include?(k.strip)
+            if (k.strip).in?(officerQ2)
+            # if peOfficer.include?(k.strip)
               puts "Past experience MATCH"
               affinityScore += 5
               # puts affinityScore
@@ -145,7 +146,8 @@ class UsersController < ApplicationController
           for k in peOfficer
             # puts "Officer - This is my current k: "
             # puts k.strip
-            if peStud.include?(k.strip)
+            if (k.strip).include?(studQ2)
+            #if peStud.include?(k.strip)
               puts "Past experience MATCH"
               affinityScore += 5
               # puts affinityScore
@@ -170,12 +172,13 @@ class UsersController < ApplicationController
         techOfficer = officerQ4.split(",");
         techStud = studQ4.split(",");
 
+        #puts techStud
         if techStud.size < techOfficer.size
           for k in techStud
             # puts "This is my current k: "
             # puts k.strip
-            
-            if techOfficer.include?(k.strip)
+            if (k.strip).in?(officerQ4)
+            # if techOfficer.include?(k.strip)
               puts "Technologies MATCH"
               affinityScore += 2
               # puts affinityScore
@@ -185,7 +188,8 @@ class UsersController < ApplicationController
           for k in techOfficer
             # puts "Officer - This is my current k: "
             # puts k.strip
-            if techStud.include?(k.strip)
+            if (k.strip).in?(studQ4)
+            #if techStud.include?(k.strip)
               puts "Technologies MATCH"
               affinityScore += 2
               # puts affinityScore
