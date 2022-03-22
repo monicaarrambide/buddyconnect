@@ -9,6 +9,9 @@ RSpec.describe 'Creating a group', type: :feature do
     
     visit root_path
     click_on 'Sign in with Google'
+    visit edit_user_path(1)
+    fill_in 'Groupid', with: 1
+    click_on 'Update User'
     visit new_group_path
     fill_in 'Groupid', with: 12345678
     fill_in 'Leaderint', with: 123456789
