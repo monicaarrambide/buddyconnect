@@ -86,17 +86,6 @@ class UsersController < ApplicationController
         officerQ1 = Interest.where(userId: i).pluck(:potentialRoles).first.to_str
 
         # turning potential roles into array for student and officers
-
-        # Split this string on comma characters.
-        
-        # input = "lowercase a,uppercase A,lowercase z"
-        # puts input
-        # values = input.split(",")
-        # puts values
-
-        # puts "Officer pr array BEFORE split:"
-        # puts officerQ1
-
         prOfficer = officerQ1.split(",")
         puts "Officer pr array AFTER split:"
         puts prOfficer
@@ -107,39 +96,28 @@ class UsersController < ApplicationController
         prStud = studQ1.split(",")
         puts "Sutdent pr array:"
         puts prStud
-        # puts "IM RIGHT HEREE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-        # puts ""
-        # puts officerQ1
-        # puts studQ1
 
         # a = [1,2,3,4,5]
         # a.include?(3)   # => true
         # a.include?(9)   # => false
 
-        # 'Unicorn'.in?(['Cat', 'Dog', 'Bird']) # => false
-
-        # string = "Today is Saturday"
-        # string.include?("Saturday") 
-
         if prStud.size < prOfficer.size
-          for k in 0 ... prStud.size
+          for k in prStud
             puts "This is my current k: "
-            puts prStud[k].strip
+            puts k.strip
             
-            if prOfficer.include?(prStud[k].strip)
+            if prOfficer.include?(k.strip)
               puts "Potential Role MATCH"
               affinityScore += 10
-              # puts affinityScore
             end
           end
         else
-          for k in 0 ... prOfficer.size
+          for k in prOfficer
             puts "Officer - This is my current k: "
-            puts prOfficer[k].strip
-            if prStud.include?(prOfficer[k].strip)
+            puts k.strip
+            if prStud.include?(k.strip)
               puts "Potential role MATCH"
               affinityScore += 10
-              #puts affinityScore
             end
           end
         end
@@ -157,32 +135,27 @@ class UsersController < ApplicationController
         peStud = studQ2.split(",");
 
         if peStud.size < peOfficer.size
-          for k in 0 ... peStud.size
+          for k in peStud
             puts "This is my current k: "
-            puts peStud[k].strip
+            puts k.strip
             
-            if peOfficer.include?(peStud[k].strip)
+            if peOfficer.include?(k.strip)
               puts "Past experience MATCH"
-              affinityScore += 10
+              affinityScore += 5
               # puts affinityScore
             end
           end
         else
-          for k in 0 ... peOfficer.size
+          for k in peOfficer
             puts "Officer - This is my current k: "
-            puts peOfficer[k].strip
-            if peStud.include?(peOfficer[k].strip)
+            puts k.strip
+            if peStud.include?(k.strip)
               puts "Past experience MATCH"
-              affinityScore += 10
+              affinityScore += 5
               # puts affinityScore
             end
           end
         end
-
-
-        # if officerQ2 == studQ2
-        #   affinityScore += 5
-        # end
 
         # score for years of experience
         officerQ3 = Interest.where(userId: i).pluck(:numWorkExp)
@@ -216,9 +189,6 @@ class UsersController < ApplicationController
         if officerQ6 == studQ6
           affinityScore += 1
         end
-        
-        # puts "Affinity Scores"
-        # puts affinityScore
 
         # append affinity score for each student
         officer.append(affinityScore)
