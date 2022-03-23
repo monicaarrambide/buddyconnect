@@ -102,13 +102,10 @@ class GroupsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_group
       # TO DO: Can this be added to the model instead??
-      puts(params[:id])
-      # if params[:groupId].nil? and current_user.groupId.present?
-      #   @group = Group.find_by(groupId: current_user.groupId)
-      # elsif current_user.groupId.nil?
-      #   @group = Group.find_or_create_by(groupId:0)
-      # else
-      @group = Group.find_or_create_by!(groupId: current_user.groupId)
+
+      # the group is created with the groupId and leaderInt since group num doesn't exist without officer
+      lInt = User.where(groupId: current_user.groupId, isOfficer: true).pluck(:studentId).first
+      @group = Group.find_or_create_by!(groupId: current_user.groupId, leaderInt: lInt)
       #end
     end
 

@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-03-23T00:20:18+00:00">2022-03-23T00:20:18+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-03-23T05:29:36+00:00">2022-03-23T05:29:36+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -95,7 +95,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#fb19a5aa48c230fb22d9319596f8539914c40a02" class="src_link" title="app/controllers/groups_controller.rb">app/controllers/groups_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">47.06 %</td>
-            <td class="cell--number">119</td>
+            <td class="cell--number">124</td>
             <td class="cell--number">51</td>
             <td class="cell--number">24</td>
             <td class="cell--number">27</td>
@@ -1914,46 +1914,46 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="27">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="27">
+            
             
 
             
 
-            <code class="ruby">    respond_to do |format|</code>
+            <code class="ruby">    # if group_params[:leaderInt].nil?</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="28">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="28">
+            
             
 
             
 
-            <code class="ruby">      if @group.save</code>
+            <code class="ruby">    #   create_params = group_params</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="29">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="29">
+            
             
 
             
 
-            <code class="ruby">        format.html { redirect_to group_url(@group), notice: &quot;Group was successfully created.&quot; }</code>
+            <code class="ruby">    #   create_params[:leaderInt] = User.where(groupId: group_params[:groupId], isOfficer: true)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="30">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="30">
+            
             
 
             
 
-            <code class="ruby">        format.json { render :show, status: :created, location: @group }</code>
+            <code class="ruby">    #   @group.update!(create_params)</code>
           </li>
         </div>
       
@@ -1964,29 +1964,29 @@
 
             
 
-            <code class="ruby">      else</code>
+            <code class="ruby">    # end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="32">
+          <li class="never" data-hits="" data-linenumber="32">
             
             
 
             
 
-            <code class="ruby">        format.html { render :new, status: :unprocessable_entity }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="33">
+          <li class="never" data-hits="" data-linenumber="33">
             
             
 
             
 
-            <code class="ruby">        format.json { render json: @group.errors, status: :unprocessable_entity }</code>
+            <code class="ruby">    # puts(user_params[:leaderInt])</code>
           </li>
         </div>
       
@@ -1997,51 +1997,51 @@
 
             
 
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="35">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="36">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="37">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
+          <li class="covered" data-hits="1" data-linenumber="35">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">    respond_to do |format|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="36">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby">      if @group.save</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="37">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">        format.html { redirect_to group_url(@group), notice: &quot;Group was successfully created.&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="38">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        format.json { render :show, status: :created, location: @group }</code>
           </li>
         </div>
       
@@ -2052,276 +2052,34 @@
 
             
 
-            <code class="ruby">    #params[:user].save</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="40">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="41">
-            
-            
-
-            
-
-            <code class="ruby">  # PATCH/PUT /groups/1 or /groups/1.json</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="42">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def update</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="43">
-            
-            
-
-            
-
-            <code class="ruby">    respond_to do |format|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="44">
-            
-            
-
-            
-
-            <code class="ruby">    #   if @group.update(user_id: group_params[&#39;user_id&#39;])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="45">
-            
-            
-
-            
-
-            <code class="ruby">    #     format.html { redirect_to group_url(@group), notice: &quot;Group was successfully updated.&quot; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="46">
-            
-            
-
-            
-
-            <code class="ruby">    #     format.json { render :show, status: :ok, location: @group }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="47">
-            
-            
-
-            
-
-            <code class="ruby">    #   else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="48">
-            
-            
-
-            
-
-            <code class="ruby">    #     format.html { render :edit, status: :unprocessable_entity }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="49">
-            
-            
-
-            
-
-            <code class="ruby">    #     format.json { render json: @group.errors, status: :unprocessable_entity }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="50">
-            
-            
-
-            
-
-            <code class="ruby">    #   end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="51">
-            
-            
-
-            
-
-            <code class="ruby">    # end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="52">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="53">
-            
-            
-
-            
-
-            <code class="ruby">    #puts params</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="54">
-            
-            
-
-            
-
-            <code class="ruby">    #Ideally: Pass in user and group id as params, do user.find(param[:userId]).groupId = params[:groupID] and save this</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="55">
-            
-            
-
-            
-
-            <code class="ruby">    #params[:user].groupId = @group.groupId</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="56">
-            
-            
-
-            
-
-            <code class="ruby">    if params[:group][:user_id].present?</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="57">
-            
-            
-
-            
-
-            <code class="ruby">      tempUser = User.find_by(studentId: params[:group][:user_id])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="58">
-            
-            
-
-            
-
-            <code class="ruby">      if(tempUser.groupId == @group.groupId) </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="59">
-            
-            
-
-            
-
-            <code class="ruby">        tempUser.groupId = 0</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="60">
-            
-            
-
-            
-
-            <code class="ruby">        tempUser.save</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="61">
-            
-            
-
-            
-
             <code class="ruby">      else</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="62">
+          <li class="missed" data-hits="0" data-linenumber="40">
             
             
 
             
 
-            <code class="ruby">        tempUser.groupId = @group.groupId</code>
+            <code class="ruby">        format.html { render :new, status: :unprocessable_entity }</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="63">
+          <li class="missed" data-hits="0" data-linenumber="41">
             
             
 
             
 
-            <code class="ruby">        tempUser.save</code>
+            <code class="ruby">        format.json { render json: @group.errors, status: :unprocessable_entity }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="64">
+          <li class="never" data-hits="" data-linenumber="42">
             
             
 
@@ -2332,29 +2090,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="65">
-            
-            
-
-            
-
-            <code class="ruby">      format.html { redirect_to group_url(@group), notice: &quot;Group was successfully updated.&quot; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="66">
-            
-            
-
-            
-
-            <code class="ruby">      format.json { render :show, status: :ok, location: @group }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="67">
+          <li class="never" data-hits="" data-linenumber="43">
             
             
 
@@ -2365,7 +2101,18 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="68">
+          <li class="never" data-hits="" data-linenumber="44">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="45">
             
             
 
@@ -2376,161 +2123,29 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="69">
+          <li class="never" data-hits="" data-linenumber="46">
             
             
 
             
 
-            <code class="ruby">  if params[:group][:remove_users].present?</code>
+            <code class="ruby">  </code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="70">
+          <li class="never" data-hits="" data-linenumber="47">
             
             
 
             
 
-            <code class="ruby">    tempUser = User.find_by(studentId: params[:group][:remove_users])</code>
+            <code class="ruby">    #params[:user].save</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="71">
-            
-            
-
-            
-
-            <code class="ruby">    if(tempUser.groupId == @group.groupId) </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="72">
-            
-            
-
-            
-
-            <code class="ruby">      tempUser.groupId = 0</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="73">
-            
-            
-
-            
-
-            <code class="ruby">      tempUser.save</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="74">
-            
-            
-
-            
-
-            <code class="ruby">    else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="75">
-            
-            
-
-            
-
-            <code class="ruby">      tempUser.groupId = @group.groupId</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="76">
-            
-            
-
-            
-
-            <code class="ruby">      tempUser.save</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="77">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="78">
-            
-            
-
-            
-
-            <code class="ruby">    format.html { redirect_to group_url(@group), notice: &quot;Group was successfully updated.&quot; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="79">
-            
-            
-
-            
-
-            <code class="ruby">    format.json { render :show, status: :ok, location: @group }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="80">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="81">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="82">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="83">
+          <li class="never" data-hits="" data-linenumber="48">
             
             
 
@@ -2541,51 +2156,29 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="84">
+          <li class="never" data-hits="" data-linenumber="49">
             
             
 
             
 
-            <code class="ruby">  # DELETE /groups/1 or /groups/1.json</code>
+            <code class="ruby">  # PATCH/PUT /groups/1 or /groups/1.json</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="85">
+          <li class="covered" data-hits="1" data-linenumber="50">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def destroy</code>
+            <code class="ruby">  def update</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="86">
-            
-            
-
-            
-
-            <code class="ruby">    @group.destroy</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="87">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="88">
+          <li class="missed" data-hits="0" data-linenumber="51">
             
             
 
@@ -2596,24 +2189,431 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="89">
+          <li class="never" data-hits="" data-linenumber="52">
             
             
 
             
 
-            <code class="ruby">      format.html { redirect_to groups_url, notice: &quot;Group was successfully destroyed.&quot; }</code>
+            <code class="ruby">    #   if @group.update(user_id: group_params[&#39;user_id&#39;])</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="90">
+          <li class="never" data-hits="" data-linenumber="53">
             
             
 
             
 
-            <code class="ruby">      format.json { head :no_content }</code>
+            <code class="ruby">    #     format.html { redirect_to group_url(@group), notice: &quot;Group was successfully updated.&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+
+            <code class="ruby">    #     format.json { render :show, status: :ok, location: @group }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="55">
+            
+            
+
+            
+
+            <code class="ruby">    #   else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="56">
+            
+            
+
+            
+
+            <code class="ruby">    #     format.html { render :edit, status: :unprocessable_entity }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="57">
+            
+            
+
+            
+
+            <code class="ruby">    #     format.json { render json: @group.errors, status: :unprocessable_entity }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="58">
+            
+            
+
+            
+
+            <code class="ruby">    #   end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="59">
+            
+            
+
+            
+
+            <code class="ruby">    # end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="60">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="61">
+            
+            
+
+            
+
+            <code class="ruby">    #puts params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="62">
+            
+            
+
+            
+
+            <code class="ruby">    #Ideally: Pass in user and group id as params, do user.find(param[:userId]).groupId = params[:groupID] and save this</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="63">
+            
+            
+
+            
+
+            <code class="ruby">    #params[:user].groupId = @group.groupId</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="64">
+            
+            
+
+            
+
+            <code class="ruby">    if params[:group][:user_id].present?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="65">
+            
+            
+
+            
+
+            <code class="ruby">      tempUser = User.find_by(studentId: params[:group][:user_id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="66">
+            
+            
+
+            
+
+            <code class="ruby">      if(tempUser.groupId == @group.groupId) </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="67">
+            
+            
+
+            
+
+            <code class="ruby">        tempUser.groupId = 0</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="68">
+            
+            
+
+            
+
+            <code class="ruby">        tempUser.save</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="69">
+            
+            
+
+            
+
+            <code class="ruby">      else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="70">
+            
+            
+
+            
+
+            <code class="ruby">        tempUser.groupId = @group.groupId</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="71">
+            
+            
+
+            
+
+            <code class="ruby">        tempUser.save</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="72">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="73">
+            
+            
+
+            
+
+            <code class="ruby">      format.html { redirect_to group_url(@group), notice: &quot;Group was successfully updated.&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="74">
+            
+            
+
+            
+
+            <code class="ruby">      format.json { render :show, status: :ok, location: @group }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="75">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="76">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="77">
+            
+            
+
+            
+
+            <code class="ruby">  if params[:group][:remove_users].present?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="78">
+            
+            
+
+            
+
+            <code class="ruby">    tempUser = User.find_by(studentId: params[:group][:remove_users])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="79">
+            
+            
+
+            
+
+            <code class="ruby">    if(tempUser.groupId == @group.groupId) </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="80">
+            
+            
+
+            
+
+            <code class="ruby">      tempUser.groupId = 0</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="81">
+            
+            
+
+            
+
+            <code class="ruby">      tempUser.save</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="82">
+            
+            
+
+            
+
+            <code class="ruby">    else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="83">
+            
+            
+
+            
+
+            <code class="ruby">      tempUser.groupId = @group.groupId</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="84">
+            
+            
+
+            
+
+            <code class="ruby">      tempUser.save</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="85">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="86">
+            
+            
+
+            
+
+            <code class="ruby">    format.html { redirect_to group_url(@group), notice: &quot;Group was successfully updated.&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="87">
+            
+            
+
+            
+
+            <code class="ruby">    format.json { render :show, status: :ok, location: @group }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="88">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="89">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="90">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -2624,7 +2624,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2635,29 +2635,29 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">  # DELETE /groups/1 or /groups/1.json</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="93">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="94">
+          <li class="covered" data-hits="1" data-linenumber="93">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def change_users</code>
+            <code class="ruby">  def destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="94">
+            
+            
+
+            
+
+            <code class="ruby">    @group.destroy</code>
           </li>
         </div>
       
@@ -2668,18 +2668,18 @@
 
             
 
-            <code class="ruby">      #puts params</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="96">
+          <li class="missed" data-hits="0" data-linenumber="96">
             
             
 
             
 
-            <code class="ruby">      #Ideally: Pass in user and group id as params, do user.find(param[:userId]).groupId = params[:groupID] and save this</code>
+            <code class="ruby">    respond_to do |format|</code>
           </li>
         </div>
       
@@ -2690,7 +2690,7 @@
 
             
 
-            <code class="ruby">      params[:user].groupId = @group.groupId</code>
+            <code class="ruby">      format.html { redirect_to groups_url, notice: &quot;Group was successfully destroyed.&quot; }</code>
           </li>
         </div>
       
@@ -2701,7 +2701,7 @@
 
             
 
-            <code class="ruby">      params[:user].save</code>
+            <code class="ruby">      format.json { head :no_content }</code>
           </li>
         </div>
       
@@ -2712,7 +2712,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -2723,40 +2723,40 @@
 
             
 
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="101">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="101">
+          <li class="covered" data-hits="1" data-linenumber="102">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">  def change_users</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="102">
+          <li class="never" data-hits="" data-linenumber="103">
             
             
 
             
 
-            <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="103">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    def set_group</code>
+            <code class="ruby">      #puts params</code>
           </li>
         </div>
       
@@ -2767,29 +2767,29 @@
 
             
 
-            <code class="ruby">      # TO DO: Can this be added to the model instead??</code>
+            <code class="ruby">      #Ideally: Pass in user and group id as params, do user.find(param[:userId]).groupId = params[:groupID] and save this</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="105">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="105">
+            
             
 
             
 
-            <code class="ruby">      puts(params[:id])</code>
+            <code class="ruby">      params[:user].groupId = @group.groupId</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="106">
+          <li class="missed" data-hits="0" data-linenumber="106">
             
             
 
             
 
-            <code class="ruby">      # if params[:groupId].nil? and current_user.groupId.present?</code>
+            <code class="ruby">      params[:user].save</code>
           </li>
         </div>
       
@@ -2800,7 +2800,7 @@
 
             
 
-            <code class="ruby">      #   @group = Group.find_by(groupId: current_user.groupId)</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -2811,18 +2811,18 @@
 
             
 
-            <code class="ruby">      # elsif current_user.groupId.nil?</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="109">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="109">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      #   @group = Group.find_or_create_by(groupId:0)</code>
+            
+
+            <code class="ruby">  private</code>
           </li>
         </div>
       
@@ -2833,7 +2833,7 @@
 
             
 
-            <code class="ruby">      # else</code>
+            <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
           </li>
         </div>
       
@@ -2844,7 +2844,7 @@
 
             
 
-            <code class="ruby">      @group = Group.find_or_create_by!(groupId: current_user.groupId)</code>
+            <code class="ruby">    def set_group</code>
           </li>
         </div>
       
@@ -2855,7 +2855,7 @@
 
             
 
-            <code class="ruby">      #end</code>
+            <code class="ruby">      # TO DO: Can this be added to the model instead??</code>
           </li>
         </div>
       
@@ -2866,7 +2866,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2877,18 +2877,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      # the group is created with the groupId and leaderInt since group num doesn&#39;t exist without officer</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="115">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="115">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # Only allow a list of trusted parameters through.</code>
+            
+
+            <code class="ruby">      lInt = User.where(groupId: current_user.groupId, isOfficer: true).pluck(:studentId).first</code>
           </li>
         </div>
       
@@ -2899,18 +2899,18 @@
 
             
 
-            <code class="ruby">    def group_params</code>
+            <code class="ruby">      @group = Group.find_or_create_by!(groupId: current_user.groupId, leaderInt: lInt)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="117">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="117">
+            
             
 
             
 
-            <code class="ruby">      params.require(:group).permit(:groupId, :leaderInt, :studentId, :user_id, :remove_users)</code>
+            <code class="ruby">      #end</code>
           </li>
         </div>
       
@@ -2927,6 +2927,61 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="119">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="120">
+            
+            
+
+            
+
+            <code class="ruby">    # Only allow a list of trusted parameters through.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="121">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def group_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="122">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      params.require(:group).permit(:groupId, :leaderInt, :studentId, :user_id, :remove_users)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="123">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="124">
             
             
 
