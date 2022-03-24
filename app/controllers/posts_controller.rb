@@ -23,10 +23,11 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     create_params = post_params
+    time = Time.new
     create_params[:posterId] = current_user.studentId #This way the poster id is always the users
     create_params[:postId] = SecureRandom.uuid
+    create_params[:postDate] = time.strftime("%Y-%m-%d")
     #create_params[postDate] = Time.now
-    puts(create_params)
     @post = Post.new(create_params)
 
     respond_to do |format|
