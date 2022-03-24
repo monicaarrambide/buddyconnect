@@ -39,6 +39,7 @@
     <br/>
 <% end %>
 
+<%if current_user.isOfficer%>
 <p>
   <strong>Reply to thread<strong>
  <%= form_with model: @post do |form|%>
@@ -51,6 +52,7 @@
 </div>
 <%end%>
 <p>
+<%end%>
 
 <%if current_user.isAdmin%>
   <%= link_to 'Edit', edit_post_path(@post) %> |
