@@ -101,7 +101,12 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      @group = Group.find(params[:id])
+      # TO DO: Can this be added to the model instead??
+
+      # the group is created with the groupId and leaderInt since group num doesn't exist without officer
+      lInt = User.where(groupId: current_user.groupId, isOfficer: true).pluck(:studentId).first
+      @group = Group.find_or_create_by!(groupId: current_user.groupId, leaderInt: lInt)
+      #end
     end
 
     # Only allow a list of trusted parameters through.

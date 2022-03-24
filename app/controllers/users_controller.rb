@@ -37,7 +37,28 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     respond_to do |format|
+      # checks if user wasn't a previous officer
+      # avoids changing groupId every time info is updated
+      changeGroup = false
+      if @user.isOfficer == false
+        changeGroup = true
+      end
+
       if @user.update(user_params)
+
+        # generates random groupId for each new officer
+        if @user.isOfficer == true and changeGroup
+          create_params = user_params
+          gId = SecureRandom.uuid
+          
+          # ensures there's not two groups with the same id
+          while Group.find_by(groupId: gId).present?
+            gId = SecureRandom.uuid
+          end
+          create_params[:groupId] = gId
+          @user.update(create_params)
+        end
+
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -203,7 +224,11 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      if params[:id].nil?
+        @user = User.find_or_create_by!(tamuEmail: current_user.tamuEmail)
+      else
+        @user = User.find_by(tamuEmail: current_user.tamuEmail)
+      end
     end
 
     # Only allow a list of trusted parameters through.
