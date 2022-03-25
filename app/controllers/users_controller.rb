@@ -108,14 +108,14 @@ class UsersController < ApplicationController
 
         # turning potential roles into array for student and officers
         prOfficer = officerQ1.split(",")
-        puts "Officer pr array AFTER split:"
+        # puts "Officer pr array AFTER split:"
         puts prOfficer
        
         
         studQ1 = Interest.where(userId: j).pluck(:potentialRoles).first.to_str
 
         prStud = studQ1.split(",")
-        puts "Sutdent pr array:"
+        # puts "Sutdent pr array:"
         puts prStud
 
         # a = [1,2,3,4,5]
@@ -127,7 +127,6 @@ class UsersController < ApplicationController
             # puts "This is my current k: "
             # puts k.strip
             if (k.strip).in?(officerQ1)
-            # if prOfficer.include?(k.strip)
               puts "Potential Role MATCH"
               affinityScore += 10
             end
@@ -137,8 +136,7 @@ class UsersController < ApplicationController
             # puts "Officer - This is my current k: "
             # puts k.strip
             if (k.strip).in?(studQ1)
-            #if prStud.include?(k.strip)
-              puts "Potential role MATCH"
+              # puts "Potential role MATCH"
               affinityScore += 10
             end
           end
@@ -157,8 +155,7 @@ class UsersController < ApplicationController
             # puts "This is my current k: "
             # puts k.strip
             if (k.strip).in?(officerQ2)
-            # if peOfficer.include?(k.strip)
-              puts "Past experience MATCH"
+              # puts "Past experience MATCH"
               affinityScore += 5
               # puts affinityScore
             end
@@ -167,9 +164,8 @@ class UsersController < ApplicationController
           for k in peOfficer
             # puts "Officer - This is my current k: "
             # puts k.strip
-            if (k.strip).include?(studQ2)
-            #if peStud.include?(k.strip)
-              puts "Past experience MATCH"
+            if (k.strip).in?(studQ2)
+              #puts "Past experience MATCH"
               affinityScore += 5
               # puts affinityScore
             end
