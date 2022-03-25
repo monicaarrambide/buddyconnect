@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :userId %>
-    <%= form.number_field :userId %>
+    <%= form.number_field :userId, value: current_user.studentId%>
   </div>
 
   <div class="field">
