@@ -57,6 +57,9 @@ class PostsController < ApplicationController
 
       redirect_back(fallback_location: root_path)
 
+    elsif params[:post][:text].present?
+      Post.create(params)
+
     else 
       respond_to do |format|
         if @post.update(post_params)
@@ -88,6 +91,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:postId, :posterId, :postDate, :title, :body, :message)
+      params.permit(:postId, :posterId, :postDate, :title, :body, :message, :text)
     end
 end
