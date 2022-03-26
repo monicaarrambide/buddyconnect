@@ -70,6 +70,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
+    puts "Destroy"
     @user.destroy
 
     respond_to do |format|
@@ -301,7 +302,7 @@ class UsersController < ApplicationController
       if params[:id].nil?
         @user = User.find_or_create_by!(tamuEmail: current_user.tamuEmail)
       else
-        @user = User.find_by(tamuEmail: current_user.tamuEmail)
+        @user = User.find_by(studentId: params[:id])
       end
     end
 
