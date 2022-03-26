@@ -25,11 +25,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to user_url(@user.studentId), notice: "User was successfully created." }
+        format.json { render :show, status: :created, location: user_path(@user.studentId) }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: (@user.studentId).errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,8 +39,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       # checks if user wasn't a previous officer
       # avoids changing groupId every time info is updated
+      @user = User.find_by(studentId: user_params[:studentId])
       changeGroup = false
-      if @user.isOfficer == false
+      if not @user.isOfficer
         changeGroup = true
       end
 
@@ -59,8 +60,8 @@ class UsersController < ApplicationController
           @user.update(create_params)
         end
 
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
+        format.html { redirect_to user_url(@user.studentId), notice: "User was successfully updated." }
+        format.json { render :show, status: :ok, location: user_path(@user.studentId) }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }

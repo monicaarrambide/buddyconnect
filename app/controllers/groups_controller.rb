@@ -23,14 +23,14 @@ class GroupsController < ApplicationController
   # POST /groups or /groups.json
   def create
     @group = Group.new(group_params)
-
+    #@group = group_params
     respond_to do |format|
       if @group.save
-        format.html { redirect_to group_url(@group), notice: "Group was successfully created." }
-        format.json { render :show, status: :created, location: @group }
+        format.html { redirect_to group_path(@group.groupId), notice: "Group was successfully created." }
+        format.json { render :show, status: :created, location: @group.groupId }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        format.json { render json: (@group.groupId).errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,8 +62,8 @@ class GroupsController < ApplicationController
         tempUser.groupId = @group.groupId
         tempUser.save
       end
-      format.html { redirect_to group_url(@group), notice: "Group was successfully updated." }
-      format.json { render :show, status: :ok, location: @group }
+      format.html { redirect_to group_url(@group.groupId), notice: "Group was successfully updated." }
+      format.json { render :show, status: :ok, location: group_path(@group.groupId) }
     end
 
   if params[:group][:remove_users].present?
@@ -75,8 +75,8 @@ class GroupsController < ApplicationController
       tempUser.groupId = @group.groupId
       tempUser.save
     end
-    format.html { redirect_to group_url(@group), notice: "Group was successfully updated." }
-    format.json { render :show, status: :ok, location: @group }
+    format.html { redirect_to group_url(@group.groupId), notice: "Group was successfully updated." }
+    format.json { render :show, status: :ok, location: group_path(@group.groupId) }
   end
   end
   end
@@ -104,7 +104,7 @@ class GroupsController < ApplicationController
       # TO DO: Can this be added to the model instead??
       # params[:id] is groupId
       # the group is created with the groupId and leaderInt since group num doesn't exist without officer
-      puts params
+      #puts params
       lInt = User.where(groupId: params[:id], isOfficer: true).pluck(:studentId).first
       @group = Group.find_or_create_by!(groupId: params[:id], leaderInt: lInt)
     end
