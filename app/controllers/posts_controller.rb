@@ -24,6 +24,10 @@ class PostsController < ApplicationController
   def create
     create_params = post_params
     time = Time.new
+    if create_params[:commit].present?
+      create_params.delete :commit
+      create_params.delete :authenticity_token
+    end
     create_params[:posterId] = current_user.studentId #This way the poster id is always the users
     create_params[:postId] = SecureRandom.uuid
     create_params[:postDate] = time.strftime("%Y-%m-%d")
@@ -57,8 +61,13 @@ class PostsController < ApplicationController
 
       redirect_back(fallback_location: root_path)
 
-    elsif params[:post][:text].present?
-      Post.create(params)
+    elsif not params[:post].present?
+      create_params = params
+      puts("yes")
+      create_params.delete :authenticity_token
+      create_params.delete :commit
+      puts(create_params)
+      Post.create(create_params)
 
     else 
       respond_to do |format|
@@ -75,7 +84,9 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
-    @post.destroy
+    puts("destroy")
+    post = Post.find(params[:id])
+    post.destroy
 
     respond_to do |format|
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
@@ -91,6 +102,10 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.permit(:postId, :posterId, :postDate, :title, :body, :message, :text)
+      if params[:post].present?
+        params.require(:post).permit(:postId, :posterId, :postDate, :title, :body, :message, :text)
+      else
+        params.permit(:postId, :posterId, :postDate, :title, :body, :message, :text, :authenticity_token, :commit, :delete)
+      end
     end
 end

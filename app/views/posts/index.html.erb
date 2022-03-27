@@ -1,27 +1,30 @@
+<head>
+<%= stylesheet_link_tag 'forum'%>
+</head>
+<body>
 <p id="notice"><%= notice %></p>
 
 
-<h1>Posts</h1>
-
-
-
-<strong>Reply to thread<strong>
- <%= form_with model: @post do |form|%>
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class = "full-container">
+  <div class = "add-new-post">
+    <h3 class = "title">Add New Post</h3>
+      <div class = "form-container">
+        <%= form_with model: @post do |form|%>
+          <div class="field">
+            <%= form.text_field :title, :class => 'title-area', placeholder: "Post Summary/Title" %>
+          </div>
+          <div class="field">
+            <%= form.text_area :body, :class => 'text-area', rows: 10, placeholder: "Type here..." %>
+          </div>
+        <div class = "actions">
+          <%= form.submit "Create Post" %>
+        </div>
+        <%end%>
+      </div>
   </div>
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </div>
-<div class = "actions">
-   <%= form.submit %>
-</div>
-<%end%>
 
 
-
+<!--
 <div class="container">
   <table class="table table-striped">
   <thead>
@@ -43,25 +46,31 @@
   </table>
 </div>
 
+-->
 
 
-
+<div class = "forum-container">
+  <h1 class = "title">BuddyConnect Forum</h1>
 
     <% @posts.each do |post| %>
-
-        <h2><%= post.title %></h2>
+      <div class = "post">
+        <td><%= link_to post.title, post, class: "post-title" %></td>
+        </br>
         <td><%= post.body %></td>
-        <p>Posted by <%=User.where(studentId: post.posterId).first ? User.where(studentId: post.posterId).first.firstName : "None" %></p>
-        <td><%= time_ago_in_words(post.postDate) %> ago</td>
-        <td><%= link_to 'Show', post %></td>
+        </br>
+        </br>
+        <td>Posted by <%=User.where(studentId: post.posterId).first ? User.where(studentId: post.posterId).first.firstName : "None" %></td>
+        <td><%= time_ago_in_words (post.postDate) %> ago</td>
         <%if current_user.isAdmin%>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= button_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
-      <br>
+      </div>
     <% end %>
+</div>
 
+<!--<%= link_to 'Profile', user_path(current_user.studentId) %> -->
 
+</div>
 
-
-<%= link_to 'Profile', user_path(current_user.studentId) %>
+</body>
