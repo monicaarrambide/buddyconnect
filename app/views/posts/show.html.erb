@@ -1,26 +1,49 @@
+<head>  
+<%= stylesheet_link_tag 'posts'%>
+</head>
+<body>
+
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= @post.title %>
-</h1>
+<div class = "post-container">
+  <div class = "card">
+    <div class = "card-body">
+      <h1 class = "card-title"> <%= @post.title %> </h1> <br></br>
+      <h3 class = "card-subtitle mb-2 text-muted" style = "font-size: 70%">
+        <strong>Posted by</strong> 
+        <%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.firstName : "None" %>
+        <strong>on</strong>
+        <%= @post.postDate %>
+      </h3>
+    </div>
+  </div>
+</div>
 
-<p>
-  <%= @post.body %>
-</p>
+<div class = "comments-container">
+  <div class = "card">
+    <div class = "card-body">
+      <h1 class = "card-subtitle mb-2 text-muted" style = "font-size: 100%"> <strong>Comments</strong></h1>
+      <%Comment.where(postId: @post.postId).each do |comment| %>
+        <div class = "comment>
+        <tr>
+          <td><%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.firstName : "None"%> said: %></td>
+          <td><%=comment.message%></td> </br>
+          <td><%= time_ago_in_words(comment.commentDate)%> ago</td>
+          <%if current_user.studentId == comment.posterId%>
+            <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+            <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%elsif current_user.isAdmin%>
+            <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+            <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%end%>
+        </tr>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Posted by:</strong>
-  <%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.firstName : "None" %>
-</p>
-
-
-
-<p>
-  <strong>Postdate:</strong>
-  <%= @post.postDate %>
-</p>
-
-<p> Comments: <p>
+<!--
   <%Comment.where(postId: @post.postId).each do |comment| %>
     <tr>
       <td><%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.firstName : "None"%> said: </td>
@@ -38,6 +61,7 @@
     <br/>
     <br/>
 <% end %>
+-->
 
 <%if current_user.isOfficer%>
 <p>
@@ -64,3 +88,5 @@
 <%= link_to 'Back', posts_path %> |
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'All Posts', posts_path %>
+
+</body>
