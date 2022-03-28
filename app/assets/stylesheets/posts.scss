@@ -6,9 +6,30 @@
 }
 
 .comments-container{
-    padding-top: 5%;
+    padding-top: 1%;
     text-align: left;
     margin: auto;
     width: 85%;
 }
 
+.reply-container{
+    padding-top: 1%;
+    text-align: left;
+    margin: auto;
+    width: 85%;
+}
+
+.options-container{
+    width: 85%;
+    margin: auto;
+    display: flex;
+}
+
+.option-buttons{
+    display: inline-block;
+}
+
+.return-links{
+    margin: auto;
+    width: 85%;
+}
