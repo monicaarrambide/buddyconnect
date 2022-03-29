@@ -1,3 +1,7 @@
+body {
+  background-color: lightblue;
+}
+
 .full-container {
   display: flex;
   flex-direction: row;
@@ -64,10 +68,21 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5%;
+  background-color: white;
+  padding: 2%;
 }
 
 .post-title {
   color: black;
   font-weight: 500;
   font-size: larger;
+}
+
+.edit-post-body {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  top: 20%;
+  margin-left: auto;
+  margin-right: auto;
 }
