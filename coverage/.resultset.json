@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/csce431/csce431/project/buddyconnect/spec/rails_helper.rb": {
+      "/csce431/spec/rails_helper.rb": {
         "lines": [
           null,
           1,
@@ -71,7 +71,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/environment.rb": {
+      "/csce431/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -80,7 +80,7 @@
           1
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/application.rb": {
+      "/csce431/config/application.rb": {
         "lines": [
           1,
           null,
@@ -106,7 +106,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/boot.rb": {
+      "/csce431/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -114,7 +114,7 @@
           1
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/environments/test.rb": {
+      "/csce431/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -203,7 +203,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/initializers/application_controller_renderer.rb": {
+      "/csce431/config/initializers/application_controller_renderer.rb": {
         "lines": [
           null,
           null,
@@ -215,7 +215,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/initializers/assets.rb": {
+      "/csce431/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -233,7 +233,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/initializers/backtrace_silencers.rb": {
+      "/csce431/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -245,7 +245,7 @@
           1
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/initializers/content_security_policy.rb": {
+      "/csce431/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -279,7 +279,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/initializers/cookies_serializer.rb": {
+      "/csce431/config/initializers/cookies_serializer.rb": {
         "lines": [
           null,
           null,
@@ -288,7 +288,7 @@
           1
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/initializers/devise.rb": {
+      "/csce431/config/initializers/devise.rb": {
         "lines": [
           null,
           null,
@@ -606,7 +606,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/initializers/filter_parameter_logging.rb": {
+      "/csce431/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -616,7 +616,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/initializers/inflections.rb": {
+      "/csce431/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -636,7 +636,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/initializers/mime_types.rb": {
+      "/csce431/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -644,7 +644,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/initializers/permissions_policy.rb": {
+      "/csce431/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -659,7 +659,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/initializers/wrap_parameters.rb": {
+      "/csce431/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -677,7 +677,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/config/routes.rb": {
+      "/csce431/config/routes.rb": {
         "lines": [
           1,
           null,
@@ -714,7 +714,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/models/user.rb": {
+      "/csce431/app/models/user.rb": {
         "lines": [
           1,
           1,
@@ -729,6 +729,7 @@
           1,
           null,
           1,
+<<<<<<< HEAD
           5,
           null,
           5,
@@ -736,6 +737,15 @@
           null,
           null,
           5,
+=======
+          7,
+          null,
+          7,
+          0,
+          null,
+          null,
+          7,
+>>>>>>> 3c4dc3e1fac7613cfb25f3756d1864c80fed70b7
           null,
           null,
           null,
@@ -751,32 +761,32 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/models/application_record.rb": {
+      "/csce431/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/helpers/application_helper.rb": {
+      "/csce431/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/helpers/comments_helper.rb": {
+      "/csce431/app/helpers/comments_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/helpers/groups_helper.rb": {
+      "/csce431/app/helpers/groups_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/helpers/interests_helper.rb": {
+      "/csce431/app/helpers/interests_helper.rb": {
         "lines": [
           1,
           1,
@@ -786,25 +796,25 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/helpers/posts_helper.rb": {
+      "/csce431/app/helpers/posts_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/helpers/profiles_helper.rb": {
+      "/csce431/app/helpers/profiles_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/helpers/users_helper.rb": {
+      "/csce431/app/helpers/users_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/integration_spec_helper.rb": {
+      "/csce431/spec/integration_spec_helper.rb": {
         "lines": [
           1,
           1,
@@ -813,7 +823,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/feature/comments_integration_spec.rb": {
+      "/csce431/spec/feature/comments_integration_spec.rb": {
         "lines": [
           null,
           1,
@@ -825,236 +835,8 @@
           1,
           null,
           1,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null
-        ]
-      },
-      "/csce431/csce431/project/buddyconnect/spec/feature/groups_integration_spec.rb": {
-        "lines": [
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null
-        ]
-      },
-      "/csce431/csce431/project/buddyconnect/spec/feature/interests_integration_spec.rb": {
-        "lines": [
-          null,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/csce431/csce431/project/buddyconnect/spec/feature/posts_integration_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/csce431/csce431/project/buddyconnect/spec/feature/users_integration_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
           1,
           1,
           1,
@@ -1075,99 +857,144 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/helpers/interests_helper_spec.rb": {
+      "/csce431/spec/feature/groups_integration_spec.rb": {
         "lines": [
           null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+<<<<<<< HEAD
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+=======
+          1,
           null,
           null,
           null,
+          1,
+          1,
+          1,
+>>>>>>> 3c4dc3e1fac7613cfb25f3756d1864c80fed70b7
           null,
           null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/csce431/spec/feature/interests_integration_spec.rb": {
+        "lines": [
+          null,
+          1,
           null,
           null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
           null,
           null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null,
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/models/interest_spec.rb": {
+      "/csce431/spec/feature/posts_integration_spec.rb": {
         "lines": [
+          1,
           null,
+          1,
           null,
           null,
           null,
-          null
-        ]
-      },
-      "/csce431/csce431/project/buddyconnect/spec/requests/interests_spec.rb": {
-        "lines": [
+          1,
+          1,
           null,
           null,
           null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -1238,7 +1065,202 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/routing/interests_routing_spec.rb": {
+      "/csce431/spec/feature/users_integration_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/csce431/spec/helpers/interests_helper_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/spec/models/interest_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/spec/requests/interests_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/spec/routing/interests_routing_spec.rb": {
         "lines": [
           1,
           null,
@@ -1280,7 +1302,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/controllers/interests_controller.rb": {
+      "/csce431/app/controllers/interests_controller.rb": {
         "lines": [
           1,
           1,
@@ -1344,6 +1366,7 @@
           1,
           null,
           1,
+          null,
           1,
           null,
           null,
@@ -1354,14 +1377,14 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/controllers/application_controller.rb": {
+      "/csce431/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/unit/comments_unit_spec.rb": {
+      "/csce431/spec/unit/comments_unit_spec.rb": {
         "lines": [
           1,
           null,
@@ -1397,7 +1420,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/models/comment.rb": {
+      "/csce431/app/models/comment.rb": {
         "lines": [
           1,
           1,
@@ -1408,7 +1431,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/unit/groups_unit_spec.rb": {
+      "/csce431/spec/unit/groups_unit_spec.rb": {
         "lines": [
           null,
           1,
@@ -1434,14 +1457,14 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/models/group.rb": {
+      "/csce431/app/models/group.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/unit/interests_unit_spec.rb": {
+      "/csce431/spec/unit/interests_unit_spec.rb": {
         "lines": [
           null,
           1,
@@ -1521,7 +1544,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/models/interest.rb": {
+      "/csce431/app/models/interest.rb": {
         "lines": [
           1,
           1,
@@ -1546,7 +1569,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/unit/posts_unit_spec.rb": {
+      "/csce431/spec/unit/posts_unit_spec.rb": {
         "lines": [
           1,
           null,
@@ -1582,7 +1605,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/models/post.rb": {
+      "/csce431/app/models/post.rb": {
         "lines": [
           1,
           1,
@@ -1593,7 +1616,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/unit/profile_unit_spec.rb": {
+      "/csce431/spec/unit/profile_unit_spec.rb": {
         "lines": [
           1,
           null,
@@ -1646,7 +1669,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/models/profile.rb": {
+      "/csce431/app/models/profile.rb": {
         "lines": [
           1,
           1,
@@ -1657,7 +1680,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/unit/users_unit_spec.rb": {
+      "/csce431/spec/unit/users_unit_spec.rb": {
         "lines": [
           1,
           null,
@@ -1712,7 +1735,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/views/interests/edit.html.erb_spec.rb": {
+      "/csce431/spec/views/interests/edit.html.erb_spec.rb": {
         "lines": [
           null,
           null,
@@ -1773,7 +1796,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/views/interests/index.html.erb_spec.rb": {
+      "/csce431/spec/views/interests/index.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -1835,7 +1858,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/views/interests/new.html.erb_spec.rb": {
+      "/csce431/spec/views/interests/new.html.erb_spec.rb": {
         "lines": [
           null,
           null,
@@ -1896,7 +1919,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/spec/views/interests/show.html.erb_spec.rb": {
+      "/csce431/spec/views/interests/show.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -1940,7 +1963,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/controllers/users_controller.rb": {
+      "/csce431/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -1986,6 +2009,10 @@
           0,
           0,
           0,
+<<<<<<< HEAD
+=======
+          0,
+>>>>>>> 3c4dc3e1fac7613cfb25f3756d1864c80fed70b7
           null,
           null,
           0,
@@ -2015,6 +2042,7 @@
           null,
           1,
           0,
+          0,
           null,
           0,
           0,
@@ -2049,31 +2077,19 @@
           null,
           null,
           0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
           null,
           null,
           0,
-          0,
           null,
-          0,
           0,
           null,
           null,
-          null,
-          0,
           0,
           null,
           0,
+          null,
           0,
+          null,
           null,
           null,
           null,
@@ -2081,18 +2097,27 @@
           0,
           0,
           null,
+          null,
           0,
           0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
           null,
           null,
           null,
           0,
           0,
-          null,
-          0,
-          0,
-          null,
-          null,
           null,
           0,
           0,
@@ -2103,6 +2128,82 @@
           null,
           0,
           null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
           null,
           0,
           null,
@@ -2113,6 +2214,7 @@
           null,
           null,
           null,
+          0,
           0,
           null,
           null,
@@ -2168,8 +2270,13 @@
           1,
           null,
           1,
+<<<<<<< HEAD
           6,
           5,
+=======
+          8,
+          7,
+>>>>>>> 3c4dc3e1fac7613cfb25f3756d1864c80fed70b7
           null,
           1,
           null,
@@ -2182,7 +2289,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/controllers/users/sessions_controller.rb": {
+      "/csce431/app/controllers/users/sessions_controller.rb": {
         "lines": [
           1,
           1,
@@ -2195,11 +2302,154 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/controllers/users/omniauth_callbacks_controller.rb": {
+      "/csce431/app/controllers/users/omniauth_callbacks_controller.rb": {
         "lines": [
           1,
           1,
+<<<<<<< HEAD
           5,
+=======
+          7,
+          null,
+          7,
+          7,
+          7,
+          7,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          7,
+          null,
+          null,
+          1,
+          null,
+          1,
+          7,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          28,
+          null,
+          null
+        ]
+      },
+      "/csce431/app/controllers/comments_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          2,
+          1,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/csce431/app/controllers/groups_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+>>>>>>> 3c4dc3e1fac7613cfb25f3756d1864c80fed70b7
           null,
           5,
           5,
@@ -2228,7 +2478,12 @@
           null,
           null,
           null,
+<<<<<<< HEAD
+=======
           null,
+          1,
+          1,
+>>>>>>> 3c4dc3e1fac7613cfb25f3756d1864c80fed70b7
           null,
           null,
           null,
@@ -2238,7 +2493,7 @@
           null
         ]
       },
-      "/csce431/csce431/project/buddyconnect/app/controllers/posts_controller.rb": {
+      "/csce431/app/controllers/posts_controller.rb": {
         "lines": [
           1,
           1,
@@ -2336,6 +2591,10 @@
         ]
       }
     },
+<<<<<<< HEAD
     "timestamp": 1648146258
+=======
+    "timestamp": 1648280690
+>>>>>>> 3c4dc3e1fac7613cfb25f3756d1864c80fed70b7
   }
 }
