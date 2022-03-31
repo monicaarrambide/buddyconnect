@@ -12,12 +12,10 @@
       <strong>Groupid:</strong>
       <%= @group.groupId %>
     </p>
-
     <p>
       <strong>Group Leader:</strong>
       <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.fullName : "None"  %>
     </p>
-
     <p>
       <strong>Members:</strong>
     </p>
