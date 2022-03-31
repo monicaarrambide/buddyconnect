@@ -1,35 +1,47 @@
-<p id="notice"><%= notice %></p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<p>
-  <strong>Groupid:</strong>
-  <%= @group.groupId %>
-</p>
+  </head>
+  <body>
+    <p>Group</p>
+    <p>
+      <strong>Groupid:</strong>
+      <%= @group.groupId %>
+    </p>
 
-<p>
-  <strong>Group Leader:</strong>
-  <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.fullName : "None"  %>
-</p>
+    <p>
+      <strong>Group Leader:</strong>
+      <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.fullName : "None"  %>
+    </p>
 
-<p>
-  <strong>Members:</strong>
-</p>
-  <%User.where(groupId: @group.groupId).where.not(studentId: @group.leaderInt).each do |user| %>
-    <tr>
-      <td><%=user.fullName%> </td>
-      <td><%if current_user.isOfficer%>
-        <%= link_to 'Show', user%>
-      <% end %>
-      </td>
-    </tr>
-    <br/>
-<% end %>
+    <p>
+      <strong>Members:</strong>
+    </p>
+      <%User.where(groupId: @group.groupId).where.not(studentId: @group.leaderInt).each do |user| %>
+        <div class="card">
+          <div class="container">
+            <tr>
+              <td><%=user.fullName%> </td>
+              <td><%if current_user.isOfficer%>
+                <%= link_to 'Show', user_path(user.studentId)%>
+              <% end %>
+              </td>
+            </tr>
+          </div>
+        </div>
+        <br/>
+    <% end %>
 
-<%= link_to 'Profile', user_path(current_user.studentId) %>
-<% if current_user.isOfficer%>
-  |
-  <%= link_to 'Edit', edit_group_path(@group) %> |
-<% end %>
-<% if current_user.isAdmin %>
-  <%= link_to 'Show Groups', groups_path %>
-<% end %>
-
+    <%= link_to 'Profile', user_path(current_user.studentId) %>
+    <% if current_user.isOfficer%>
+      | <%= link_to 'Edit', edit_group_path(@group.groupId) %>
+    <% end %>
+    <% if current_user.isAdmin %>
+      | <%= link_to 'Show Groups', groups_path %>
+    <% end %>
+  </body>
+</html>
