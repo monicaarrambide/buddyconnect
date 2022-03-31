@@ -10,8 +10,10 @@ RSpec.describe 'Creating a interest', type: :feature do
     
     visit root_path
     click_on 'Sign in with Google'
+    # visit edit_user_path(-1)
+    # fill_in 'Groupid', with: 1
     visit new_interest_path
-    # fill_in 'Userid', with: 12345678
+    fill_in 'Userid', with: 12345678
     fill_in 'Phone', with: '123456789'
     fill_in 'Nationality', with: 'Native American'
     select 'TX', :from => 'interest_state'
@@ -30,7 +32,7 @@ RSpec.describe 'Creating a interest', type: :feature do
 
     click_on 'Create Interest'
     visit interests_path
-    # expect(page).to have_content(12345678)
+    expect(page).to have_content(12345678)
     expect(page).to have_content('123456789')
     expect(page).to have_content('Native American')
     expect(page).to have_content('TX')

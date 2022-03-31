@@ -25,11 +25,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to user_url(@user.studentId), notice: "User was successfully created." }
+        format.json { render :show, status: :created, location: user_path(@user.studentId) }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: (@user.studentId).errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,8 +39,13 @@ class UsersController < ApplicationController
     respond_to do |format|
       # checks if user wasn't a previous officer
       # avoids changing groupId every time info is updated
+      puts params[:user][:studentId]
+
+      # TO DO: change if we will allow users to change ids - breaks otherwise
+      @user = User.find_by(studentId: params[:user][:studentId])
+      
       changeGroup = false
-      if @user.isOfficer == false
+      if not @user.isOfficer
         changeGroup = true
       end
 
@@ -59,8 +64,8 @@ class UsersController < ApplicationController
           @user.update(create_params)
         end
 
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
+        format.html { redirect_to user_url(@user.studentId), notice: "User was successfully updated." }
+        format.json { render :show, status: :ok, location: user_path(@user.studentId) }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -70,6 +75,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
+    puts "Destroy"
     @user.destroy
 
     respond_to do |format|
@@ -99,22 +105,50 @@ class UsersController < ApplicationController
 
     for i in officerList  
       officer = []
+      prOfficer = []
+      prStud = []
+      peOfficer = []
+      techOfficer = []
+      peStud = []
+      techStud = []
 
       for j in studList
         affinityScore = 0
         # score for potential roles
         # this will have multiple answers (up to 3)
-        officerQ1 = Interest.where(userId: i).pluck(:potentialRoles).first.to_str
+
+        if Interest.where(userId: i).exists?
+          officerQ1 = Interest.where(userId: i).pluck(:potentialRoles).first.to_str
+          prOfficer = officerQ1.split(",")
+
+          officerQ2 = Interest.where(userId: i).pluck(:pastWorkExp).first.to_str
+          peOfficer = officerQ2.split(",");
+
+          officerQ4 = Interest.where(userId: i).pluck(:usedTech).first.to_str
+          techOfficer = officerQ4.split(",");
+        else
+          officerQ1 = Interest.where(userId: i).pluck(:potentialRoles).first
+        end
 
         # turning potential roles into array for student and officers
-        prOfficer = officerQ1.split(",")
+        # prOfficer = officerQ1.split(",")
         # puts "Officer pr array AFTER split:"
         puts prOfficer
        
-        
-        studQ1 = Interest.where(userId: j).pluck(:potentialRoles).first.to_str
+        if Interest.where(userId: j).exists?
+          studQ1 = Interest.where(userId: j).pluck(:potentialRoles).first.to_str
+          prStud = studQ1.split(",")
 
-        prStud = studQ1.split(",")
+          studQ2 = Interest.where(userId: j).pluck(:pastWorkExp).first.to_str
+          peStud = studQ2.split(",");
+
+          studQ4 = Interest.where(userId: j).pluck(:usedTech).first.to_str
+          techStud = studQ4.split(",");
+        else
+          studQ1 = Interest.where(userId: j).pluck(:potentialRoles).first
+        end
+
+        #prStud = studQ1.split(",")
         # puts "Sutdent pr array:"
         puts prStud
 
@@ -144,11 +178,11 @@ class UsersController < ApplicationController
 
         # score for past job experience
         # this will have multiple answers (up to 3)
-        officerQ2 = Interest.where(userId: i).pluck(:pastWorkExp).first.to_str
-        studQ2 = Interest.where(userId: j).pluck(:pastWorkExp).first.to_str
+        # officerQ2 = Interest.where(userId: i).pluck(:pastWorkExp).first.to_str
+        # studQ2 = Interest.where(userId: j).pluck(:pastWorkExp).first.to_str
 
-        peOfficer = officerQ2.split(",");
-        peStud = studQ2.split(",");
+        # peOfficer = officerQ2.split(",");
+        # peStud = studQ2.split(",");
 
         if peStud.size < peOfficer.size
           for k in peStud
@@ -183,11 +217,11 @@ class UsersController < ApplicationController
 
         # score for technologies worked on
         # this will have multiple answers (did not specify how many they can select)
-        officerQ4 = Interest.where(userId: i).pluck(:usedTech).first.to_str
-        studQ4 = Interest.where(userId: j).pluck(:usedTech).first.to_str
+        # officerQ4 = Interest.where(userId: i).pluck(:usedTech).first.to_str
+        # studQ4 = Interest.where(userId: j).pluck(:usedTech).first.to_str
 
-        techOfficer = officerQ4.split(",");
-        techStud = studQ4.split(",");
+        # techOfficer = officerQ4.split(",");
+        # techStud = studQ4.split(",");
 
         #puts techStud
         if techStud.size < techOfficer.size
@@ -301,7 +335,7 @@ class UsersController < ApplicationController
       if params[:id].nil?
         @user = User.find_or_create_by!(tamuEmail: current_user.tamuEmail)
       else
-        @user = User.find_by(tamuEmail: current_user.tamuEmail)
+        @user = User.find_by(studentId: params[:id])
       end
     end
 

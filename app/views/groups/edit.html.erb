@@ -15,5 +15,7 @@
 <%end%>
 
 
-<%= link_to 'Show', @group %> |
-<%= link_to 'Back', groups_path %>
+<%= link_to 'Show', group_path(@group.groupId) %>
+<% if current_user.isAdmin %>
+    | <%= link_to 'All groups', groups_path %>
+<% end %>
