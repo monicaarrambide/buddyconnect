@@ -31,11 +31,13 @@
   <div class = "edit-post-body">
 
     <div class="field">
+     <%= form.label :title, :class => "invis-title" %>
       <%= form.text_field :title , :class => 'title-area'%>
     </div>
 
     <div class="field">
-      <%= form.text_area :body , :class => 'text-area', rows: 10 %>
+      <%=form.label :body, :class => "invis-title"%>
+      <%= form.text_area :body , :class => 'text-area-edit', rows: 10 %>
     </div>
 
     <div class="actions">
