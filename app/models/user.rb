@@ -2,8 +2,8 @@ class User < ApplicationRecord
 	validates :studentId, presence: true
     validates :isOfficer, inclusion: { in: [ true, false ] }
     validates :isAdmin, inclusion: { in: [ true, false ] }
-    validates :firstName, presence: true
-    validates :lastName, presence: true
+    validates :fullName, presence: true
+    validates :avatarUrl, presence: true
     validates :tamuEmail, presence: true
     validates :dateOfBirth, presence: true
     validates :gradAssistance, inclusion: { in: [ true, false ] }
@@ -15,8 +15,8 @@ class User < ApplicationRecord
         # create_with(uid: uid, full_name: full_name, avatar_url: avatar_url).find_or_create_by!(tamuEmail: email)
         create_with(
             studentId: SecureRandom.uuid,
-            firstName: full_name, 
-            lastName: avatar_url, 
+            fullName: full_name, 
+            avatarUrl: avatar_url, 
             isOfficer: false,
             isAdmin: false,
             tamuEmail: email,

@@ -7,7 +7,7 @@
 
 <p>
   <strong>Group Leader:</strong>
-  <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.firstName : "None"  %>
+  <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.fullName : "None"  %>
 </p>
 
 <p>
@@ -15,8 +15,7 @@
 </p>
   <%User.where(groupId: @group.groupId).where.not(studentId: @group.leaderInt).each do |user| %>
     <tr>
-      <td><%=user.firstName%> </td>
-      <td><%=user.lastName%> </td>
+      <td><%=user.fullName%> </td>
       <td><%if current_user.isOfficer%>
         <%= link_to 'Show', user%>
       <% end %>

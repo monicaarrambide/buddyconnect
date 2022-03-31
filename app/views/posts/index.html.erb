@@ -41,7 +41,7 @@
 
         <h2><%= post.title %></h2>
         <td><%= post.body %></td>
-        <p>Posted by <%=User.where(studentId: post.posterId).first ? User.where(studentId: post.posterId).first.firstName : "None" %></p>
+        <p>Posted by <%=User.where(studentId: post.posterId).first ? User.where(studentId: post.posterId).first.fullName : "None" %></p>
         <td><%= time_ago_in_words(post.postDate) %> ago</td>
         <td><%= link_to 'Show', post %></td>
         <%if current_user.isAdmin%>

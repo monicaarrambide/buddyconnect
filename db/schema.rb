@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_05_223851) do
+ActiveRecord::Schema.define(version: 2022_03_31_203245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 2022_03_05_223851) do
     t.integer "profileId"
     t.boolean "isOfficer"
     t.boolean "isAdmin"
-    t.string "firstName"
-    t.string "lastName"
+    t.string "fullName"
+    t.string "avatarUrl"
     t.string "tamuEmail"
     t.date "dateOfBirth"
     t.boolean "gradAssistance"

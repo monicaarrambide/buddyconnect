@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
     subject do
-        described_class.new(studentId: 123456789, isOfficer: false, isAdmin: false, firstName: 'Jimbo', lastName: 'Fisher', tamuEmail:'jf@tamu.edu', dateOfBirth: '1965-10-09', gradAssistance: false)
+        described_class.new(studentId: 123456789, isOfficer: false, isAdmin: false, fullName: 'Jimbo Fisher', avatarUrl: 'url', tamuEmail:'jf@tamu.edu', dateOfBirth: '1965-10-09', gradAssistance: false)
     end
 
     it 'is valid with valid attributes' do
@@ -24,13 +24,13 @@ RSpec.describe User, type: :model do
         expect(subject).not_to be_valid
     end
 
-    it 'is not valid without a firstName' do
-        subject.firstName = nil
+    it 'is not valid without a fullName' do
+        subject.fullName = nil
         expect(subject).not_to be_valid
     end
 
-    it 'is not valid without a lastName' do
-        subject.lastName = nil
+    it 'is not valid without a avatarUrl' do
+        subject.avatarUrl = nil
         expect(subject).not_to be_valid
     end
 

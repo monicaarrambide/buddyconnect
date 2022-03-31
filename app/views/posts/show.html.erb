@@ -10,7 +10,7 @@
 
 <p>
   <strong>Posted by:</strong>
-  <%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.firstName : "None" %>
+  <%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.fullName : "None" %>
 </p>
 
 
@@ -23,7 +23,7 @@
 <p> Comments: <p>
   <%Comment.where(postId: @post.postId).each do |comment| %>
     <tr>
-      <td><%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.firstName : "None"%> said: </td>
+      <td><%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.fullName : "None"%> said: </td>
       <td><%=comment.message%> </td>
       <br/>
       <td><%= time_ago_in_words(comment.commentDate)%> ago</td>

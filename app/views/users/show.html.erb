@@ -22,8 +22,8 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
-            <img src=<%= @user.lastName %> alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-            <h5 class="my-3"><%= @user.firstName %></h5>
+            <img src=<%= @user.avatarUrl %> alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3"><%= @user.fullName %></h5>
             <% if @user.isAdmin %>
               <p class="text-muted mb-1">
                 Admin
@@ -43,7 +43,7 @@
             <div class="d-flex justify-content-center mb-2">
               <%= link_to 'Edit Profile', edit_user_path(@user), :class => "btn btn-outline-primary ms-1" %>
               <% if not Interest.where(userId: current_user.studentId).exists? %>
-                <%= link_to 'Edit Interest', new_interest_path, :class => "btn btn-outline-primary ms-1" %>
+                <%= link_to 'Create Interest', new_interest_path, :class => "btn btn-outline-primary ms-1" %>
               <% else %>
                 <%= link_to 'Edit Interest', interest_path(current_user.studentId), :class => "btn btn-outline-primary ms-1"  %>
               <% end %>
@@ -60,7 +60,7 @@
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">
-                  <%= @user.firstName %>
+                  <%= @user.fullName %>
                 </p>
               </div>
             </div>
@@ -122,6 +122,138 @@
           </div>
         </div>
       </div>
+
+      <% if not Interest.where(userId: current_user.studentId).exists? %>
+        <%= link_to 'Create Interest', new_interest_path, :class => "btn btn-outline-primary ms-1" %>
+      <% else %>
+        <% interest = Interest.where(userId: current_user.studentId).first %>
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">
+                    <%= interest.phone %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Nationality</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">
+                    <%= interest.nationality %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">State</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">
+                    <%= interest.state %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Community</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">
+                    <%= interest.community %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Number of Prereqs</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">
+                    <%= interest.numPrereqs %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Potential Roles</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">
+                    <%= interest.potentialRoles %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Years of Work Experience</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">
+                    <%= interest.numWorkExp %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Used Technology</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">
+                    <%= interest.usedTech %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Projects</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">
+                    <%= interest.projects %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Extra Curriculars</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">
+                    <%= interest.extracurric %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Past Work Experience</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">
+                    <%= interest.pastWorkExp %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>

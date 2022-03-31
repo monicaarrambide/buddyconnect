@@ -8785,7 +8785,7 @@
 
             
 
-            <code class="ruby">      params.require(:user).permit(:studentId, :groupId, :insterestsId, :profileId, :isOfficer, :isAdmin, :firstName, :lastName, :tamuEmail, :dateOfBirth, :gradAssistance)</code>
+            <code class="ruby">      params.require(:user).permit(:studentId, :groupId, :insterestsId, :profileId, :isOfficer, :isAdmin, :fullName, :avatarUrl, :tamuEmail, :dateOfBirth, :gradAssistance)</code>
           </li>
         </div>
       
@@ -10022,7 +10022,7 @@
 
             
 
-            <code class="ruby">    validates :firstName, presence: true</code>
+            <code class="ruby">    validates :fullName, presence: true</code>
           </li>
         </div>
       
@@ -10033,7 +10033,7 @@
 
             
 
-            <code class="ruby">    validates :lastName, presence: true</code>
+            <code class="ruby">    validates :avatarUrl, presence: true</code>
           </li>
         </div>
       
@@ -10165,7 +10165,7 @@
 
             
 
-            <code class="ruby">            firstName: full_name, </code>
+            <code class="ruby">            fullName: full_name, </code>
           </li>
         </div>
       
@@ -10176,7 +10176,7 @@
 
             
 
-            <code class="ruby">            lastName: avatar_url, </code>
+            <code class="ruby">            avatarUrl: avatar_url, </code>
           </li>
         </div>
       
