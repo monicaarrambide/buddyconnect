@@ -56,7 +56,7 @@
 </p>
 
 <% if current_user.studentId == @user.studentId %>
-  <%= link_to 'Edit Profile', edit_user_path(@user.studentId) %>
+  <%= link_to 'Edit', edit_user_path(@user.studentId) %>
   |
   <% if not Interest.where(userId: current_user.studentId).exists? %>
     <%= link_to 'Edit Interest', new_interest_path %>

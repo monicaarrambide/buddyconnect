@@ -37,9 +37,10 @@ class InterestsController < ApplicationController
   # PATCH/PUT /interests/1 or /interests/1.json
   def update
     respond_to do |format|
+      @interest = Interest.find_by(userId: params[:interest][:userId])
       if @interest.update(interest_params)
-        format.html { redirect_to interest_url(@interest), notice: "Interest was successfully updated." }
-        format.json { render :show, status: :ok, location: @interest }
+        format.html { redirect_to interest_url(@interest.userId), notice: "Interest was successfully updated." }
+        format.json { render :show, status: :ok, location: @interest.userId }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @interest.errors, status: :unprocessable_entity }

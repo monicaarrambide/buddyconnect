@@ -47,6 +47,34 @@ RSpec.describe 'Creating a interest', type: :feature do
     expect(page).to have_content('Photography')
     expect(page).to have_content('Software Development')
   end
+
+  scenario 'edit interest' do
+    visit root_path
+    click_on 'Sign in with Google'
+    visit new_interest_path
+    fill_in 'Userid', with: 12345678
+    fill_in 'Phone', with: '123456789'
+    fill_in 'Nationality', with: 'Native American'
+    select 'TX', :from => 'interest_state'
+    select 'Park West', :from => 'interest_community'
+    select 5, :from => 'interest_numPrereqs'
+    select 'No', :from => 'interest_scholarship'
+    fill_in 'Favemoviegenre', with: 'Action'
+    fill_in 'Usedtech', with: 'Rails'
+    select 1, :from => 'interest_numWorkExp'
+    fill_in 'Projects', with: 'Canadian wombat photography'
+    fill_in 'Extracurric', with: 'Photography'
+    check 'potentialRoles_software'
+    check 'pastWorkExp_softwareDev'
+
+    click_on 'Create Interest'
+    visit edit_interest_path(12345678)
+    fill_in 'Userid', with: 12345678
+    fill_in 'Nationality', with: 'German'
+    click_on 'Update Interest'
+    visit interests_path
+    expect(page).to have_content("German")
+  end
 end
 
 #:userId, :phone, :nationality, :state, :community, :numPrereqs, :scholarship, :faveMovieGenre, :numWorkExp, :usedTech, :projects, :extracurric, pastWorkExp:[], potentialRoles:[]
