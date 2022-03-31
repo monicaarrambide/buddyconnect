@@ -10,6 +10,8 @@ RSpec.describe 'Creating a interest', type: :feature do
     
     visit root_path
     click_on 'Sign in with Google'
+    # visit edit_user_path(-1)
+    # fill_in 'Groupid', with: 1
     visit new_interest_path
     fill_in 'Userid', with: 12345678
     fill_in 'Phone', with: '123456789'

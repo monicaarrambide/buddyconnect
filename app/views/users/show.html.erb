@@ -55,5 +55,22 @@
   <%= @user.gradAssistance %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if current_user.studentId == @user.studentId %>
+  <%= link_to 'Edit Profile', edit_user_path(@user.studentId) %>
+  |
+  <% if not Interest.where(userId: current_user.studentId).exists? %>
+    <%= link_to 'Edit Interest', new_interest_path %>
+  <% else %>
+    <%= link_to 'Edit Interest', edit_interest_path(@user.studentId) %>
+  <% end %>
+<% end %>
+
+| <%= link_to 'Forum', posts_path %>
+
+<% if current_user.isAdmin %>
+  | <%= link_to 'All Users', users_path %>
+<% end %>
+<% if @user.groupId.present? %>
+  | <%= link_to 'Group', group_path(@user.groupId) %>
+<% end %>
+

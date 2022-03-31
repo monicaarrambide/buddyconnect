@@ -25,8 +25,8 @@ class InterestsController < ApplicationController
 
     respond_to do |format|
       if @interest.save
-        format.html { redirect_to interest_url(@interest), notice: "Interest was successfully created." }
-        format.json { render :show, status: :created, location: @interest }
+        format.html { redirect_to interest_url(@interest.userId), notice: "Interest was successfully created." }
+        format.json { render :show, status: :created, location: interest_path(@interest.studentId) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @interest.errors, status: :unprocessable_entity }
@@ -60,7 +60,8 @@ class InterestsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_interest
-      @interest = Interest.find(params[:id])
+      # params[:id] should be studentId
+      @interest = Interest.find_by(userId: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
