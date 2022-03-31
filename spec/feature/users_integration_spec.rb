@@ -19,10 +19,8 @@ Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:googl
         # fill_in 'Dateofbirth', with: '1965-10-09'
         click_on 'Create User'
         visit users_path
-        expect(page).to have_content('12345678')
         expect(page).to have_content('Jimbo')
         expect(page).to have_content('Fisher')
         expect(page).to have_content('jf@tamu.edu')
-        expect(page).to have_content('2020-10-09')
     end
 end
