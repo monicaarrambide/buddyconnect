@@ -22,7 +22,7 @@
 <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.firstName %> <%=user.lastName %></td>
+        <td><%= user.fullName %></td>
         <td><%= user.tamuEmail %></td>
         <% if user.isOfficer%>
           <td>Officer</td>
