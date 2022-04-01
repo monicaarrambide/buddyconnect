@@ -9,11 +9,13 @@
 </nav>
 <div class="collapse" id="navbarToggleExternalContent">
   <div class="bg-dark p-4">
-    <span class="text-white h4">
+    <span class="text-white h4 center">
         <ul class="navbar-nav text-center">
-            Profile
-            <br>Group</br>
-            Forum
+            <%= link_to 'Profile', user_path(current_user.studentId), class:"btn btn-dark" %>
+            <% if current_user.groupId.present? %>
+                <%= link_to 'Group', group_path(current_user.groupId), class:"btn btn-dark" %>
+            <% end %>
+            <%= link_to 'Forum', posts_path, class:"btn btn-dark" %>
         </ul>
     </span>
   </div>
@@ -22,11 +24,3 @@
 &nbsp;
 
 <%= render 'form', interest: @interest %>
-<<<<<<< HEAD
-=======
-
-<%= link_to 'Show', interest_path(@interest.userId) %> 
-<% if current_user.isAdmin %>
-    |<%= link_to 'Back', interests_path %>
-<% end %>
->>>>>>> origin/test
