@@ -1,8 +1,11 @@
+<head>
+<%= stylesheet_link_tag 'catalog'%>
+</head>
 <p id="notice"><%= notice %></p>
 
-<h1>Groups</h1>
-
-<table>
+<h1 class = "title">Groups</h1>
+<div class = "table-container">
+<table class = "table table-striped">
   <thead>
     <tr>
       <th>Groupid</th>
@@ -18,14 +21,18 @@
         <td><%= group.groupId %></td>
         <td><%= group.leaderInt %></td>
         <td><%= User.where(studentId: group.leaderInt).pluck(:fullName).first %></td>
-        <td><%= link_to 'Show', group_path(group.groupId) %></td>
-        <td><%= link_to 'Edit', edit_group_path(group.groupId) %></td>
-        <td><%= link_to 'Destroy', group_path(group.groupId), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', group_path(group.groupId) %> |
+          <%= link_to 'Edit', edit_group_path(group.groupId) %> |
+          <%= link_to 'Destroy', group_path(group.groupId), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<div class = "links">
+  <%= link_to 'New Group', new_group_path %>
+</div>
 
-<%= link_to 'New Group', new_group_path %>
+<br>
