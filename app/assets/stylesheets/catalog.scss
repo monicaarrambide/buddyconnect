@@ -1,0 +1,32 @@
+.title {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 4%;
+}
+
+.table-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding:2%;
+    border: solid 2px  black;
+    background-color: white;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #89CFF0;
+ }
+
+ .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+    background-color: white;
+ }
+
+ body {
+     background-color: lightgray;
+ }
+
+ .links {
+    position: relative;
+ }

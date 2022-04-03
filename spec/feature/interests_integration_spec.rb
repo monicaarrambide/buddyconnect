@@ -10,8 +10,17 @@ RSpec.describe 'Creating a interest', type: :feature do
     
     visit root_path
     click_on 'Sign in with Google'
-    # visit edit_user_path(-1)
-    # fill_in 'Groupid', with: 1
+   
+    visit new_user_path
+    fill_in 'Studentid', with: 12345678
+    fill_in 'Fullname', with: 'Jimbo Fisher'
+    fill_in 'Avatarurl', with: 'url'
+    fill_in 'Tamuemail', with: 'jf@tamu.edu'
+    select '2020', :from => 'user_dateOfBirth_1i'
+    select 'October', :from => 'user_dateOfBirth_2i'
+    select '9', :from => 'user_dateOfBirth_3i'
+    click_on 'Create User'
+
     visit new_interest_path
     fill_in 'Userid', with: 12345678
     fill_in 'Phone', with: '123456789'
@@ -51,6 +60,17 @@ RSpec.describe 'Creating a interest', type: :feature do
   scenario 'edit interest' do
     visit root_path
     click_on 'Sign in with Google'
+
+    visit new_user_path
+    fill_in 'Studentid', with: 12345678
+    fill_in 'Fullname', with: 'Jimbo Fisher'
+    fill_in 'Avatarurl', with: 'url'
+    fill_in 'Tamuemail', with: 'jf@tamu.edu'
+    select '2020', :from => 'user_dateOfBirth_1i'
+    select 'October', :from => 'user_dateOfBirth_2i'
+    select '9', :from => 'user_dateOfBirth_3i'
+    click_on 'Create User'
+
     visit new_interest_path
     fill_in 'Userid', with: 12345678
     fill_in 'Phone', with: '123456789'

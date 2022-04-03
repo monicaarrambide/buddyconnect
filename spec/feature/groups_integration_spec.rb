@@ -11,8 +11,8 @@ RSpec.describe 'Creating a group', type: :feature do
     click_on 'Sign in with Google'
     visit new_user_path
     fill_in 'Studentid', with: 1234567
-    fill_in 'Firstname', with: 'Jimbo'
-    fill_in 'Lastname', with: 'Fisher'
+    fill_in 'Fullname', with: 'Jimbo Fisher'
+    fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
     check 'user_isOfficer'
     select '2020', :from => 'user_dateOfBirth_1i'
@@ -22,12 +22,12 @@ RSpec.describe 'Creating a group', type: :feature do
 
     visit new_group_path
     fill_in 'Groupid', with: 12345678
-    select 'Jimbo', :from => 'group_leaderInt'
+    select 'Jimbo Fisher', :from => 'group_leaderInt'
 
     click_on 'Create Group'
     visit groups_path
     expect(page).to have_content(12345678)
-    expect(page).to have_content('Jimbo')
+    expect(page).to have_content('Jimbo Fisher')
   end
 
   scenario 'editing group - adding user' do
@@ -37,8 +37,8 @@ RSpec.describe 'Creating a group', type: :feature do
 
     visit new_user_path
     fill_in 'Studentid', with: 1234567
-    fill_in 'Firstname', with: 'Jimbo'
-    fill_in 'Lastname', with: 'Fisher'
+    fill_in 'Fullname', with: 'Jimbo Fisher'
+    fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
     fill_in 'Groupid', with: 123
     check 'user_isOfficer'
@@ -47,13 +47,15 @@ RSpec.describe 'Creating a group', type: :feature do
     select '9', :from => 'user_dateOfBirth_3i'
     click_on 'Create User'
     
-    visit user_path(1234567)
-    click_on 'Group'
+    visit new_group_path
+    fill_in 'Groupid', with: 123
+    select 'Jimbo Fisher', :from => 'group_leaderInt'
+    click_on 'Create Group'
 
     visit new_user_path
     fill_in 'Studentid', with: 8
-    fill_in 'Firstname', with: 'stud'
-    fill_in 'Lastname', with: 'a'
+    fill_in 'Fullname', with: 'stud'
+    fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'studa@tamu.edu'
     fill_in 'Groupid', with: 567
     select '2020', :from => 'user_dateOfBirth_1i'
@@ -66,7 +68,7 @@ RSpec.describe 'Creating a group', type: :feature do
     click_on 'Update Group'
 
     visit group_path(123)
-    expect(page).to have_content('stud a')
+    expect(page).to have_content('stud')
   end
 
   scenario 'editing group - removing user' do
@@ -75,9 +77,9 @@ RSpec.describe 'Creating a group', type: :feature do
     click_on 'Sign in with Google'
 
     visit new_user_path
-    fill_in 'Studentid', with: 1234567
-    fill_in 'Firstname', with: 'Jimbo'
-    fill_in 'Lastname', with: 'Fisher'
+    fill_in 'Studentid', with: 12345678
+    fill_in 'Fullname', with: 'Jimbo Fisher'
+    fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
     fill_in 'Groupid', with: 123
     check 'user_isOfficer'
@@ -86,13 +88,15 @@ RSpec.describe 'Creating a group', type: :feature do
     select '9', :from => 'user_dateOfBirth_3i'
     click_on 'Create User'
     
-    visit user_path(1234567)
-    click_on 'Group'
+    visit new_group_path
+    fill_in 'Groupid', with: 123
+    select 'Jimbo Fisher', :from => 'group_leaderInt'
+    click_on 'Create Group'
 
     visit new_user_path
     fill_in 'Studentid', with: 8
-    fill_in 'Firstname', with: 'stud'
-    fill_in 'Lastname', with: 'a'
+    fill_in 'Fullname', with: 'stud'
+    fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'studa@tamu.edu'
     fill_in 'Groupid', with: 123
     select '2020', :from => 'user_dateOfBirth_1i'
@@ -105,6 +109,6 @@ RSpec.describe 'Creating a group', type: :feature do
     click_on 'Update Group'
 
     visit group_path(123)
-    expect(page).not_to have_content('stud a')
+    expect(page).not_to have_content('stud')
   end
 end

@@ -25,8 +25,8 @@ class InterestsController < ApplicationController
 
     respond_to do |format|
       if @interest.save
-        format.html { redirect_to interest_url(@interest.userId), notice: "Interest was successfully created." }
-        format.json { render :show, status: :created, location: interest_path(@interest.studentId) }
+        format.html { redirect_to user_url(@interest.userId), notice: "Interest was successfully created." }
+        format.json { render :show, status: :created, location: user_path(@interest.studentId) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @interest.errors, status: :unprocessable_entity }
@@ -39,8 +39,8 @@ class InterestsController < ApplicationController
     respond_to do |format|
       @interest = Interest.find_by(userId: params[:interest][:userId])
       if @interest.update(interest_params)
-        format.html { redirect_to interest_url(@interest.userId), notice: "Interest was successfully updated." }
-        format.json { render :show, status: :ok, location: @interest.userId }
+        format.html { redirect_to user_url(@interest.userId), notice: "Interest was successfully updated." }
+        format.json { render :show, status: :ok, location: user_path(@interest.userId) }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @interest.errors, status: :unprocessable_entity }
