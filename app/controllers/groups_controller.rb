@@ -18,10 +18,12 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
+    @group = Group.find_by(groupId: params[:id])
   end
 
   # POST /groups or /groups.json
   def create
+    puts "CREATE"
     @group = Group.new(group_params)
     #@group = group_params
     respond_to do |format|
@@ -41,7 +43,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1 or /groups/1.json
   def update
 
-    #respond_to do |format|
+    # respond_to do |format|
     #   @group = Group.find_by(groupId: params[:group][:groupId])
     #   puts params
     #   if @group.update(leaderInt: params[:group][:leaderInt])
@@ -57,6 +59,39 @@ class GroupsController < ApplicationController
     #Ideally: Pass in user and group id as params, do user.find(param[:userId]).groupId = params[:groupID] and save this
     #params[:user].groupId = @group.groupId
     respond_to do |format|
+      puts "Here"
+      puts params[:group]
+      if params[:group][:user_id].nil? and params[:group][:remove_users].nil?
+        tempParams = params
+        tempParams[:id] = params[:group][:groupId]
+        
+        # Changing the group id for the old leader
+        oldLeader = User.find_by(groupId: params[:group][:groupId], isOfficer: true)
+        oldLeader.groupId = -1
+        oldLeader.save
+
+        # Changing the group id for the new leader
+        newLeader = User.find_by(studentId: params[:group][:leaderInt])
+        newLeader.groupId = tempParams[:id]
+        newLeader.save
+
+        puts "These"
+        puts group_params
+        # tempParams = params
+        # tempParams[:id] = params[:group][:groupId]
+        puts "Param ID"
+        puts tempParams[:id]
+        # @group.groupId = params[:group][:groupId]
+        # @group.leaderInt = params[:group][:leaderInt]
+        # @group.save
+        format.html { redirect_to group_url(tempParams[:id]), notice: "Group was successfully updated." }
+        format.json { render :show, status: :ok, location: group_path(tempParams[:id]) }
+        # if @group.update(groupId: params[:group][:groupId], leaderInt: params[:group][:leaderInt])
+        #   format.html { redirect_to group_url(@group.groupId), notice: "Group was successfully updated." }
+        #   format.json { render :show, status: :ok, location: group_path(@group.groupId) }
+        # end
+      end
+
       if params[:group][:user_id].present?
         tempUser = User.find_by(studentId: params[:group][:user_id])
         if(tempUser.groupId == @group.groupId) 
@@ -112,8 +147,15 @@ class GroupsController < ApplicationController
       # the group is created with the groupId and leaderInt since group num doesn't exist without officer
       #puts params
       lInt = User.where(groupId: params[:id], isOfficer: true).pluck(:studentId).first
-      @group = Group.find_or_create_by!(groupId: params[:id], leaderInt: lInt)
-      # @group = Group.find!([:id], leaderInt: lInt)
+      puts "PARAMS"
+      puts params
+      if params[:group].present? 
+        @group = Group.find_by(groupId: params[:group][:groupId])
+      else
+        @group = Group.find_or_create_by!(groupId: params[:id])
+        @group.leaderInt = lInt
+        @group.save
+      end
     end
 
     # Only allow a list of trusted parameters through.

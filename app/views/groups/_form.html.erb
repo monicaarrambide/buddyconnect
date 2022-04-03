@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :leaderInt %>
-    <%= form.number_field :leaderInt %>
+    <%= form.select :leaderInt, User.where(isOfficer: true).order(:firstName).map{|user| [user.firstName, user.studentId]}, include_blank: true, id: "group_leaderInt", name: "group"%>
   </div>
 
   <div class="actions">
