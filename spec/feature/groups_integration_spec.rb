@@ -9,37 +9,102 @@ RSpec.describe 'Creating a group', type: :feature do
     
     visit root_path
     click_on 'Sign in with Google'
-    # visit edit_user_path(-1)
-    # fill_in 'Groupid', with: 1
-    # click_on 'Update User'
+    visit new_user_path
+    fill_in 'Studentid', with: 1234567
+    fill_in 'Firstname', with: 'Jimbo'
+    fill_in 'Lastname', with: 'Fisher'
+    fill_in 'Tamuemail', with: 'jf@tamu.edu'
+    check 'user_isOfficer'
+    select '2020', :from => 'user_dateOfBirth_1i'
+    select 'October', :from => 'user_dateOfBirth_2i'
+    select '9', :from => 'user_dateOfBirth_3i'
+    click_on 'Create User'
+
     visit new_group_path
     fill_in 'Groupid', with: 12345678
-    fill_in 'Leaderint', with: -1
-
+    select 'Jimbo', :from => 'group_leaderInt'
 
     click_on 'Create Group'
     visit groups_path
     expect(page).to have_content(12345678)
-    expect(page).to have_content(-1)
+    expect(page).to have_content('Jimbo')
   end
 
-  scenario 'editing group' do
-    
+  scenario 'editing group - adding user' do
+
     visit root_path
     click_on 'Sign in with Google'
-    # visit edit_user_path(-1)
-    # fill_in 'Groupid', with: 1
-    # click_on 'Update User'
-    visit new_group_path
-    fill_in 'Groupid', with: 12345678
-    fill_in 'Leaderint', with: -1
 
+    visit new_user_path
+    fill_in 'Studentid', with: 1234567
+    fill_in 'Firstname', with: 'Jimbo'
+    fill_in 'Lastname', with: 'Fisher'
+    fill_in 'Tamuemail', with: 'jf@tamu.edu'
+    fill_in 'Groupid', with: 123
+    check 'user_isOfficer'
+    select '2020', :from => 'user_dateOfBirth_1i'
+    select 'October', :from => 'user_dateOfBirth_2i'
+    select '9', :from => 'user_dateOfBirth_3i'
+    click_on 'Create User'
+    
+    visit user_path(1234567)
+    click_on 'Group'
 
-    click_on 'Create Group'
-    visit edit_group_path(12345678)
-    fill_in 'Leaderint', with: 5
+    visit new_user_path
+    fill_in 'Studentid', with: 8
+    fill_in 'Firstname', with: 'stud'
+    fill_in 'Lastname', with: 'a'
+    fill_in 'Tamuemail', with: 'studa@tamu.edu'
+    fill_in 'Groupid', with: 567
+    select '2020', :from => 'user_dateOfBirth_1i'
+    select 'October', :from => 'user_dateOfBirth_2i'
+    select '9', :from => 'user_dateOfBirth_3i'
+    click_on 'Create User'
+    
+    visit edit_group_path(123)
+    select 'stud', :from => 'group_user_id'
     click_on 'Update Group'
-    expect(page).to have_content(12345678)
-    expect(page).to have_content(5)
+
+    visit group_path(123)
+    expect(page).to have_content('stud a')
+  end
+
+  scenario 'editing group - removing user' do
+
+    visit root_path
+    click_on 'Sign in with Google'
+
+    visit new_user_path
+    fill_in 'Studentid', with: 1234567
+    fill_in 'Firstname', with: 'Jimbo'
+    fill_in 'Lastname', with: 'Fisher'
+    fill_in 'Tamuemail', with: 'jf@tamu.edu'
+    fill_in 'Groupid', with: 123
+    check 'user_isOfficer'
+    select '2020', :from => 'user_dateOfBirth_1i'
+    select 'October', :from => 'user_dateOfBirth_2i'
+    select '9', :from => 'user_dateOfBirth_3i'
+    click_on 'Create User'
+    
+    visit user_path(1234567)
+    click_on 'Group'
+
+    visit new_user_path
+    fill_in 'Studentid', with: 8
+    fill_in 'Firstname', with: 'stud'
+    fill_in 'Lastname', with: 'a'
+    fill_in 'Tamuemail', with: 'studa@tamu.edu'
+    fill_in 'Groupid', with: 123
+    select '2020', :from => 'user_dateOfBirth_1i'
+    select 'October', :from => 'user_dateOfBirth_2i'
+    select '9', :from => 'user_dateOfBirth_3i'
+    click_on 'Create User'
+    
+    visit edit_group_path(123)
+    select 'stud', :from => 'group_remove_users'
+    click_on 'Update Group'
+
+    visit group_path(123)
+    expect(page).not_to have_content('stud a')
   end
 end

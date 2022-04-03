@@ -23,9 +23,10 @@ class GroupsController < ApplicationController
 
   # POST /groups or /groups.json
   def create
-    puts "CREATE"
     @group = Group.new(group_params)
-    #@group = group_params
+    tempUser = User.find_by(studentId: params[:group][:leaderInt])
+    tempUser.groupId = params[:group][:groupId]
+    tempUser.save
     respond_to do |format|
       if @group.save
         format.html { redirect_to group_path(@group.groupId), notice: "Group was successfully created." }
@@ -37,25 +38,8 @@ class GroupsController < ApplicationController
     end
   end
 
-  
-    #params[:user].save
-
   # PATCH/PUT /groups/1 or /groups/1.json
   def update
-
-    # respond_to do |format|
-    #   @group = Group.find_by(groupId: params[:group][:groupId])
-    #   puts params
-    #   if @group.update(leaderInt: params[:group][:leaderInt])
-    #     format.html { redirect_to group_url(@group.groupId), notice: "Group was successfully updated." }
-    #     format.json { render :show, status: :ok, location: @group.groupId }
-    #   else
-    #     format.html { render :edit, status: :unprocessable_entity }
-    #     format.json { render json: @group.errors, status: :unprocessable_entity }
-    #   end
-    # end
-
-    #puts params
     #Ideally: Pass in user and group id as params, do user.find(param[:userId]).groupId = params[:groupID] and save this
     #params[:user].groupId = @group.groupId
     respond_to do |format|
@@ -112,7 +96,6 @@ class GroupsController < ApplicationController
   end
 
   def change_users
-      #puts params
       #Ideally: Pass in user and group id as params, do user.find(param[:userId]).groupId = params[:groupID] and save this
       params[:user].groupId = @group.groupId
       params[:user].save
@@ -124,10 +107,7 @@ class GroupsController < ApplicationController
       # TO DO: Can this be added to the model instead??
       # params[:id] is groupId
       # the group is created with the groupId and leaderInt since group num doesn't exist without officer
-      #puts params
       lInt = User.where(groupId: params[:id], isOfficer: true).pluck(:studentId).first
-      puts "PARAMS"
-      puts params
       if params[:group].present? 
         @group = Group.find_by(groupId: params[:group][:groupId])
       else
