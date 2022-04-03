@@ -59,9 +59,7 @@ class GroupsController < ApplicationController
     #Ideally: Pass in user and group id as params, do user.find(param[:userId]).groupId = params[:groupID] and save this
     #params[:user].groupId = @group.groupId
     respond_to do |format|
-      puts "Here"
-      puts params[:group]
-      if params[:group][:user_id].nil? and params[:group][:remove_users].nil?
+      if params[:group][:leaderInt].present? and params[:group][:leaderInt] != @group.leaderInt
         tempParams = params
         tempParams[:id] = params[:group][:groupId]
         
@@ -74,51 +72,32 @@ class GroupsController < ApplicationController
         newLeader = User.find_by(studentId: params[:group][:leaderInt])
         newLeader.groupId = tempParams[:id]
         newLeader.save
-
-        puts "These"
-        puts group_params
-        # tempParams = params
-        # tempParams[:id] = params[:group][:groupId]
-        puts "Param ID"
-        puts tempParams[:id]
-        # @group.groupId = params[:group][:groupId]
-        # @group.leaderInt = params[:group][:leaderInt]
-        # @group.save
-        format.html { redirect_to group_url(tempParams[:id]), notice: "Group was successfully updated." }
-        format.json { render :show, status: :ok, location: group_path(tempParams[:id]) }
-        # if @group.update(groupId: params[:group][:groupId], leaderInt: params[:group][:leaderInt])
-        #   format.html { redirect_to group_url(@group.groupId), notice: "Group was successfully updated." }
-        #   format.json { render :show, status: :ok, location: group_path(@group.groupId) }
-        # end
       end
 
       if params[:group][:user_id].present?
         tempUser = User.find_by(studentId: params[:group][:user_id])
-        if(tempUser.groupId == @group.groupId) 
-          tempUser.groupId = 0
+        if(tempUser.groupId == @group.groupId) # what does this do?
+          tempUser.groupId = -1
           tempUser.save
         else
           tempUser.groupId = @group.groupId
           tempUser.save
-        end
-        if @group.update(groupId: params[:group][:groupId], leaderInt: params[:group][:leaderInt])
-          format.html { redirect_to group_url(@group.groupId), notice: "Group was successfully updated." }
-          format.json { render :show, status: :ok, location: group_path(@group.groupId) }
         end
       end
 
       if params[:group][:remove_users].present?
         tempUser = User.find_by(studentId: params[:group][:remove_users])
         if(tempUser.groupId == @group.groupId) 
-          tempUser.groupId = 0
+          tempUser.groupId = -1
           tempUser.save
         else
           tempUser.groupId = @group.groupId
           tempUser.save
         end
-        format.html { redirect_to group_url(@group.groupId), notice: "Group was successfully updated." }
-        format.json { render :show, status: :ok, location: group_path(@group.groupId) }
       end
+
+      format.html { redirect_to group_url(tempParams[:id]), notice: "Group was successfully updated." }
+      format.json { render :show, status: :ok, location: group_path(tempParams[:id]) }
     end
   end
 
