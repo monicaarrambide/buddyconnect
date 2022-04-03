@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-04-03T17:09:04+00:00">2022-04-03T17:09:04+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-04-03T18:06:02+00:00">2022-04-03T18:06:02+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="yellow">
-  80.42%
+  83.2%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.39
+         1.57
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>945</b> relevant lines,
-    <span class="green"><b>760</b> lines covered</span> and
-    <span class="red"><b>185</b> lines missed. </span>
+    <b>1036</b> relevant lines,
+    <span class="green"><b>862</b> lines covered</span> and
+    <span class="red"><b>174</b> lines missed. </span>
     (<span class="yellow">
-  80.42%
+  83.2%
 </span>
 )
   </div>
@@ -110,18 +110,18 @@
             <td class="cell--number">34</td>
             <td class="cell--number">26</td>
             <td class="cell--number">8</td>
-            <td class="cell--number">1.18</td>
+            <td class="cell--number">1.15</td>
             
           </tr>
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#da2c4de6e79390dc7d0a7ee5a3d3ca88b5a97fb8" class="src_link" title="app/controllers/posts_controller.rb">app/controllers/posts_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">52.54 %</td>
+            <td class="red strong cell--number t-file__coverage">71.19 %</td>
             <td class="cell--number">111</td>
             <td class="cell--number">59</td>
-            <td class="cell--number">31</td>
-            <td class="cell--number">28</td>
-            <td class="cell--number">1.07</td>
+            <td class="cell--number">42</td>
+            <td class="cell--number">17</td>
+            <td class="cell--number">2.19</td>
             
           </tr>
         
@@ -132,7 +132,7 @@
             <td class="cell--number">19</td>
             <td class="cell--number">16</td>
             <td class="cell--number">3</td>
-            <td class="cell--number">6.79</td>
+            <td class="cell--number">12.00</td>
             
           </tr>
         
@@ -154,7 +154,7 @@
             <td class="cell--number">150</td>
             <td class="cell--number">33</td>
             <td class="cell--number">117</td>
-            <td class="cell--number">0.98</td>
+            <td class="cell--number">1.27</td>
             
           </tr>
         
@@ -308,7 +308,7 @@
             <td class="cell--number">13</td>
             <td class="cell--number">13</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">2.54</td>
+            <td class="cell--number">3.92</td>
             
           </tr>
         
@@ -524,9 +524,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#b98ca4e2bc8b2cfdb18ecca7537af2549dbbc038" class="src_link" title="spec/feature/posts_integration_spec.rb">spec/feature/posts_integration_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">109</td>
-            <td class="cell--number">30</td>
-            <td class="cell--number">30</td>
+            <td class="cell--number">118</td>
+            <td class="cell--number">88</td>
+            <td class="cell--number">88</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -535,9 +535,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#c2cc070591a3926e87be4c316fda91b68db2b05b" class="src_link" title="spec/feature/users_integration_spec.rb">spec/feature/users_integration_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">44</td>
-            <td class="cell--number">35</td>
-            <td class="cell--number">35</td>
+            <td class="cell--number">88</td>
+            <td class="cell--number">68</td>
+            <td class="cell--number">68</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -3480,7 +3480,7 @@
 
             
 
-            <code class="ruby">        format.html { redirect_to interest_url(@interest.userId), notice: &quot;Interest was successfully updated.&quot; }</code>
+            <code class="ruby">        format.html { redirect_to user_url(@interest.userId), notice: &quot;Interest was successfully updated.&quot; }</code>
           </li>
         </div>
       
@@ -3491,7 +3491,7 @@
 
             
 
-            <code class="ruby">        format.json { render :show, status: :ok, location: @interest.userId }</code>
+            <code class="ruby">        format.json { render :show, status: :ok, location: user_path(@interest.userId) }</code>
           </li>
         </div>
       
@@ -3727,8 +3727,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="65">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="2" data-linenumber="65">
+            <span class="hits">2</span>
             
 
             
@@ -3824,7 +3824,7 @@
     <h3>app/controllers/posts_controller.rb</h3>
     <h4>
       <span class="red">
-  52.54%
+  71.19%
 </span>
 
       lines covered
@@ -3834,8 +3834,8 @@
 
     <div class="t-line-summary">
       <b>59</b> relevant lines.
-      <span class="green"><b>31</b> lines covered</span> and
-      <span class="red"><b>28</b> lines missed.</span>
+      <span class="green"><b>42</b> lines covered</span> and
+      <span class="red"><b>17</b> lines missed.</span>
     </div>
 
     
@@ -3901,8 +3901,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="6">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="8" data-linenumber="6">
+            <span class="hits">8</span>
             
 
             
@@ -3912,8 +3912,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="7">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="8" data-linenumber="7">
+            <span class="hits">8</span>
             
 
             
@@ -4110,8 +4110,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="25">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="25">
+            <span class="hits">4</span>
             
 
             
@@ -4121,8 +4121,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="26">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="26">
+            <span class="hits">4</span>
             
 
             
@@ -4132,8 +4132,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="27">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="27">
+            <span class="hits">4</span>
             
 
             
@@ -4143,8 +4143,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="28">
-            
+          <li class="covered" data-hits="1" data-linenumber="28">
+            <span class="hits">1</span>
             
 
             
@@ -4154,8 +4154,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="29">
-            
+          <li class="covered" data-hits="1" data-linenumber="29">
+            <span class="hits">1</span>
             
 
             
@@ -4176,8 +4176,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="31">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="31">
+            <span class="hits">4</span>
             
 
             
@@ -4187,8 +4187,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="32">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="32">
+            <span class="hits">4</span>
             
 
             
@@ -4198,8 +4198,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="33">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="33">
+            <span class="hits">4</span>
             
 
             
@@ -4220,8 +4220,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="35">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="35">
+            <span class="hits">4</span>
             
 
             
@@ -4242,8 +4242,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="37">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="37">
+            <span class="hits">4</span>
             
 
             
@@ -4253,8 +4253,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="38">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="38">
+            <span class="hits">4</span>
             
 
             
@@ -4264,8 +4264,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="39">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="6" data-linenumber="39">
+            <span class="hits">6</span>
             
 
             
@@ -4275,8 +4275,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="40">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="3" data-linenumber="40">
+            <span class="hits">3</span>
             
 
             
@@ -4385,8 +4385,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="50">
-            
+          <li class="covered" data-hits="3" data-linenumber="50">
+            <span class="hits">3</span>
             
 
             
@@ -4539,8 +4539,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="64">
-            
+          <li class="covered" data-hits="3" data-linenumber="64">
+            <span class="hits">3</span>
             
 
             
@@ -4638,8 +4638,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="73">
-            
+          <li class="covered" data-hits="3" data-linenumber="73">
+            <span class="hits">3</span>
             
 
             
@@ -4649,8 +4649,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="74">
-            
+          <li class="covered" data-hits="3" data-linenumber="74">
+            <span class="hits">3</span>
             
 
             
@@ -4660,8 +4660,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="75">
-            
+          <li class="covered" data-hits="2" data-linenumber="75">
+            <span class="hits">2</span>
             
 
             
@@ -4671,8 +4671,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="76">
-            
+          <li class="covered" data-hits="1" data-linenumber="76">
+            <span class="hits">1</span>
             
 
             
@@ -4693,8 +4693,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="78">
-            
+          <li class="covered" data-hits="4" data-linenumber="78">
+            <span class="hits">4</span>
             
 
             
@@ -4704,8 +4704,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="79">
-            
+          <li class="covered" data-hits="2" data-linenumber="79">
+            <span class="hits">2</span>
             
 
             
@@ -4935,8 +4935,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="100">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="13" data-linenumber="100">
+            <span class="hits">13</span>
             
 
             
@@ -4990,8 +4990,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="105">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="7" data-linenumber="105">
+            <span class="hits">7</span>
             
 
             
@@ -5001,8 +5001,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="106">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="6" data-linenumber="106">
+            <span class="hits">6</span>
             
 
             
@@ -5023,8 +5023,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="108">
-            
+          <li class="covered" data-hits="1" data-linenumber="108">
+            <span class="hits">1</span>
             
 
             
@@ -5120,8 +5120,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="11" data-linenumber="3">
-            <span class="hits">11</span>
+          <li class="covered" data-hits="20" data-linenumber="3">
+            <span class="hits">20</span>
             
 
             
@@ -5142,8 +5142,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="11" data-linenumber="5">
-            <span class="hits">11</span>
+          <li class="covered" data-hits="20" data-linenumber="5">
+            <span class="hits">20</span>
             
 
             
@@ -5153,8 +5153,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="11" data-linenumber="6">
-            <span class="hits">11</span>
+          <li class="covered" data-hits="20" data-linenumber="6">
+            <span class="hits">20</span>
             
 
             
@@ -5164,8 +5164,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="11" data-linenumber="7">
-            <span class="hits">11</span>
+          <li class="covered" data-hits="20" data-linenumber="7">
+            <span class="hits">20</span>
             
 
             
@@ -5175,8 +5175,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="11" data-linenumber="8">
-            <span class="hits">11</span>
+          <li class="covered" data-hits="20" data-linenumber="8">
+            <span class="hits">20</span>
             
 
             
@@ -5329,8 +5329,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="11" data-linenumber="22">
-            <span class="hits">11</span>
+          <li class="covered" data-hits="20" data-linenumber="22">
+            <span class="hits">20</span>
             
 
             
@@ -5395,8 +5395,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="11" data-linenumber="28">
-            <span class="hits">11</span>
+          <li class="covered" data-hits="20" data-linenumber="28">
+            <span class="hits">20</span>
             
 
             
@@ -5494,8 +5494,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="44" data-linenumber="37">
-            <span class="hits">44</span>
+          <li class="covered" data-hits="80" data-linenumber="37">
+            <span class="hits">80</span>
             
 
             
@@ -5743,8 +5743,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="6">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="6">
+            <span class="hits">2</span>
             
 
             
@@ -5842,8 +5842,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="9" data-linenumber="15">
-            <span class="hits">9</span>
+          <li class="covered" data-hits="12" data-linenumber="15">
+            <span class="hits">12</span>
             
 
             
@@ -5941,8 +5941,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="9" data-linenumber="24">
-            <span class="hits">9</span>
+          <li class="covered" data-hits="11" data-linenumber="24">
+            <span class="hits">11</span>
             
 
             
@@ -5963,8 +5963,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="9" data-linenumber="26">
-            <span class="hits">9</span>
+          <li class="covered" data-hits="11" data-linenumber="26">
+            <span class="hits">11</span>
             
 
             
@@ -5974,8 +5974,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="9" data-linenumber="27">
-            <span class="hits">9</span>
+          <li class="covered" data-hits="11" data-linenumber="27">
+            <span class="hits">11</span>
             
 
             
@@ -5985,8 +5985,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="18" data-linenumber="28">
-            <span class="hits">18</span>
+          <li class="covered" data-hits="22" data-linenumber="28">
+            <span class="hits">22</span>
             
 
             
@@ -5996,8 +5996,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="9" data-linenumber="29">
-            <span class="hits">9</span>
+          <li class="covered" data-hits="11" data-linenumber="29">
+            <span class="hits">11</span>
             
 
             
@@ -9362,8 +9362,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="25" data-linenumber="335">
-            <span class="hits">25</span>
+          <li class="covered" data-hits="38" data-linenumber="335">
+            <span class="hits">38</span>
             
 
             
@@ -9373,8 +9373,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="11" data-linenumber="336">
-            <span class="hits">11</span>
+          <li class="covered" data-hits="20" data-linenumber="336">
+            <span class="hits">20</span>
             
 
             
@@ -9395,8 +9395,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="14" data-linenumber="338">
-            <span class="hits">14</span>
+          <li class="covered" data-hits="18" data-linenumber="338">
+            <span class="hits">18</span>
             
 
             
@@ -9461,8 +9461,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="10" data-linenumber="344">
-            <span class="hits">10</span>
+          <li class="covered" data-hits="12" data-linenumber="344">
+            <span class="hits">12</span>
             
 
             
@@ -10797,8 +10797,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="11" data-linenumber="14">
-            <span class="hits">11</span>
+          <li class="covered" data-hits="20" data-linenumber="14">
+            <span class="hits">20</span>
             
 
             
@@ -10819,8 +10819,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="11" data-linenumber="16">
-            <span class="hits">11</span>
+          <li class="covered" data-hits="20" data-linenumber="16">
+            <span class="hits">20</span>
             
 
             
@@ -20611,8 +20611,8 @@
     
 
     <div class="t-line-summary">
-      <b>30</b> relevant lines.
-      <span class="green"><b>30</b> lines covered</span> and
+      <b>88</b> relevant lines.
+      <span class="green"><b>88</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -20668,29 +20668,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="5">
-            
-            
-
-            
-
-            <code class="ruby">  </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="6">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="7">
+          <li class="covered" data-hits="1" data-linenumber="5">
             <span class="hits">1</span>
             
 
@@ -20701,7 +20679,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="8">
+          <li class="covered" data-hits="1" data-linenumber="6">
             <span class="hits">1</span>
             
 
@@ -20712,7 +20690,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="9">
+          <li class="never" data-hits="" data-linenumber="7">
             
             
 
@@ -20723,24 +20701,46 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="10">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="8">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">  scenario &#39;valid inputs for Title&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="11">
+          <li class="covered" data-hits="1" data-linenumber="9">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">    visit root_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="10">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    click_on &#39;Sign in with Google&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="11">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit new_post_path</code>
           </li>
         </div>
       
@@ -20751,7 +20751,7 @@
 
             
 
-            <code class="ruby">    scenario &#39;valid inputs for Title&#39; do</code>
+            <code class="ruby">    fill_in &#39;Title&#39;, with: &#39;Hi everyone!&#39;</code>
           </li>
         </div>
       
@@ -20762,7 +20762,7 @@
 
             
 
-            <code class="ruby">      visit root_path</code>
+            <code class="ruby">    fill_in &#39;Body&#39;, with: &#39;I just wanted to say hello&#39;</code>
           </li>
         </div>
       
@@ -20773,7 +20773,7 @@
 
             
 
-            <code class="ruby">      click_on &#39;Sign in with Google&#39;</code>
+            <code class="ruby">    click_on &#39;Create Post&#39;</code>
           </li>
         </div>
       
@@ -20784,7 +20784,7 @@
 
             
 
-            <code class="ruby">        visit new_post_path</code>
+            <code class="ruby">    visit posts_path</code>
           </li>
         </div>
       
@@ -20795,29 +20795,29 @@
 
             
 
-            <code class="ruby">        fill_in &#39;Title&#39;, with: &#39;Hi everyone!&#39;</code>
+            <code class="ruby">    expect(page).to have_content(&#39;Hi everyone!&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="17">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="17">
+            
             
 
             
 
-            <code class="ruby">        fill_in &#39;Body&#39;, with: &#39;I just wanted to say hello&#39;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="18">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="18">
+            
             
 
             
 
-            <code class="ruby">        click_on &#39;Create Post&#39;</code>
+            <code class="ruby">  </code>
           </li>
         </div>
       
@@ -20828,7 +20828,7 @@
 
             
 
-            <code class="ruby">        visit posts_path</code>
+            <code class="ruby">  scenario &#39;valid inputs for Body&#39; do</code>
           </li>
         </div>
       
@@ -20839,29 +20839,29 @@
 
             
 
-            <code class="ruby">        expect(page).to have_content(&#39;Hi everyone!&#39;)</code>
+            <code class="ruby">    visit root_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">    click_on &#39;Sign in with Google&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="22">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="22">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    </code>
+            
+
+            <code class="ruby">    visit new_post_path</code>
           </li>
         </div>
       
@@ -20872,7 +20872,7 @@
 
             
 
-            <code class="ruby">    scenario &#39;valid inputs for Body&#39; do</code>
+            <code class="ruby">    fill_in &#39;Title&#39;, with: &#39;Hi everyone!&#39;</code>
           </li>
         </div>
       
@@ -20883,7 +20883,7 @@
 
             
 
-            <code class="ruby">      visit root_path</code>
+            <code class="ruby">    fill_in &#39;Body&#39;, with: &#39;I just wanted to say hello&#39;</code>
           </li>
         </div>
       
@@ -20894,7 +20894,7 @@
 
             
 
-            <code class="ruby">      click_on &#39;Sign in with Google&#39;</code>
+            <code class="ruby">    click_on &#39;Create Post&#39;</code>
           </li>
         </div>
       
@@ -20905,7 +20905,7 @@
 
             
 
-            <code class="ruby">        visit new_post_path</code>
+            <code class="ruby">    visit posts_path</code>
           </li>
         </div>
       
@@ -20916,29 +20916,29 @@
 
             
 
-            <code class="ruby">        fill_in &#39;Title&#39;, with: &#39;Hi everyone!&#39;</code>
+            <code class="ruby">    expect(page).to have_content(&#39;I just wanted to say hello&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="28">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="28">
+            
             
 
             
 
-            <code class="ruby">        fill_in &#39;Body&#39;, with: &#39;I just wanted to say hello&#39;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="29">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="29">
+            
             
 
             
 
-            <code class="ruby">        click_on &#39;Create Post&#39;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -20949,7 +20949,7 @@
 
             
 
-            <code class="ruby">        visit posts_path</code>
+            <code class="ruby">  scenario &#39;invalid inputs for title&#39; do</code>
           </li>
         </div>
       
@@ -20960,29 +20960,29 @@
 
             
 
-            <code class="ruby">        expect(page).to have_content(&#39;I just wanted to say hello&#39;)</code>
+            <code class="ruby">    visit root_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="32">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="32">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">    click_on &#39;Sign in with Google&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="33">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">    visit new_post_path</code>
           </li>
         </div>
       
@@ -20993,7 +20993,7 @@
 
             
 
-            <code class="ruby">    scenario &#39;invalid inputs for title&#39; do</code>
+            <code class="ruby">    fill_in &#39;Title&#39;, with: &#39;&#39;</code>
           </li>
         </div>
       
@@ -21004,7 +21004,7 @@
 
             
 
-            <code class="ruby">      visit root_path</code>
+            <code class="ruby">    fill_in &#39;Body&#39;, with: &#39;I just wanted to say hello&#39;</code>
           </li>
         </div>
       
@@ -21015,7 +21015,7 @@
 
             
 
-            <code class="ruby">      click_on &#39;Sign in with Google&#39;</code>
+            <code class="ruby">    click_on &#39;Create Post&#39;</code>
           </li>
         </div>
       
@@ -21026,29 +21026,29 @@
 
             
 
-            <code class="ruby">        visit new_post_path</code>
+            <code class="ruby">    expect(page).to have_content(&quot;Title can&#39;t be blank&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="38">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="38">
+            
             
 
             
 
-            <code class="ruby">        fill_in &#39;Title&#39;, with: &#39;&#39;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="39">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="39">
+            
             
 
             
 
-            <code class="ruby">        fill_in &#39;Body&#39;, with: &#39;I just wanted to say hello&#39;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -21059,7 +21059,7 @@
 
             
 
-            <code class="ruby">        click_on &#39;Create Post&#39;</code>
+            <code class="ruby">  scenario &#39;from forum page&#39; do</code>
           </li>
         </div>
       
@@ -21070,73 +21070,73 @@
 
             
 
-            <code class="ruby">        expect(page).to have_content(&quot;Title can&#39;t be blank&quot;)</code>
+            <code class="ruby">    visit root_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="42">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="42">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">    click_on &#39;Sign in with Google&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="43">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="43">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">    visit posts_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="44">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="44">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">end</code>
+            
+
+            <code class="ruby">    fill_in &#39;title&#39;, with: &#39;Harry Potter&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="45">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="45">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">    fill_in &#39;body&#39;, with: &#39;A great book&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="46">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="46">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"># # UPDATING</code>
+            
+
+            <code class="ruby">    click_on &#39;Create Post&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="47">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="47">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"># RSpec.describe &#39;Updating a post&#39;, type: :feature do</code>
+            
+
+            <code class="ruby">    expect(page).to have_content(&#39;Harry Potter&#39;)</code>
           </li>
         </div>
       
@@ -21147,29 +21147,29 @@
 
             
 
-            <code class="ruby">#     scenario &#39;valid inputs&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="49">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="49">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       visit root_path</code>
+            
+
+            <code class="ruby">    visit posts_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="50">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="50">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       click_on &#39;Sign in with Google&#39;</code>
+            
+
+            <code class="ruby">    expect(page).to have_content(&#39;Harry Potter&#39;)</code>
           </li>
         </div>
       
@@ -21180,7 +21180,7 @@
 
             
 
-            <code class="ruby">#       posting = Post.create!(postId: 2468, posterId: 123456789, postDate: &#39;2022-02-02&#39;, title: &#39;Hi&#39;, body: &#39;Hello everyone!&#39;)</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -21191,7 +21191,7 @@
 
             
 
-            <code class="ruby">#       visit edit_post_path(id: posting.id)</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -21202,7 +21202,7 @@
 
             
 
-            <code class="ruby">#       fill_in &#39;Title&#39;, with: &#39;Harry Potter&#39;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -21213,117 +21213,117 @@
 
             
 
-            <code class="ruby">#       click_on &#39;Update Post&#39;</code>
+            <code class="ruby"># # UPDATING</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="55">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="55">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       visit posts_path </code>
+            
+
+            <code class="ruby">RSpec.describe &#39;Updating a post&#39;, type: :feature do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="56">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="56">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       expect(page).to have_content(&#39;Harry Potter&#39;)</code>
+            
+
+            <code class="ruby">  scenario &#39;valid inputs&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="57">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="57">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     end</code>
+            
+
+            <code class="ruby">    visit root_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="58">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="58">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  </code>
+            
+
+            <code class="ruby">    click_on &#39;Sign in with Google&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="59">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="59">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     scenario &#39;invalid title input&#39; do</code>
+            
+
+            <code class="ruby">    posting = Post.create!(postId: 2468, posterId: 123456789, postDate: &#39;2022-02-02&#39;, title: &#39;Hi&#39;, body: &#39;Hello everyone!&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="60">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="60">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       visit root_path</code>
+            
+
+            <code class="ruby">    visit edit_post_path(id: posting.id)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="61">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="61">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       click_on &#39;Sign in with Google&#39;</code>
+            
+
+            <code class="ruby">    fill_in &#39;Title&#39;, with: &#39;Harry Potter&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="62">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="62">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       posting = Post.create!(postId: 2468, posterId: 123456789, postDate: &#39;2022-02-02&#39;, title: &#39;Hi&#39;, body: &#39;Hello everyone!&#39;)</code>
+            
+
+            <code class="ruby">    click_on &#39;Update Post&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="63">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="63">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       visit edit_post_path(id: posting.id)</code>
+            
+
+            <code class="ruby">    visit posts_path </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="64">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="64">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       fill_in &#39;Title&#39;, with: &#39;&#39;</code>
+            
+
+            <code class="ruby">    expect(page).to have_content(&#39;Harry Potter&#39;)</code>
           </li>
         </div>
       
@@ -21334,7 +21334,7 @@
 
             
 
-            <code class="ruby">#       click_on &#39;Update Post&#39;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -21345,95 +21345,95 @@
 
             
 
-            <code class="ruby">#       expect(page).to have_content(&quot;Title can&#39;t be blank&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="67">
-            
-            
-
-            
-
-            <code class="ruby">#     end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="68">
-            
-            
-
-            
-
             <code class="ruby">  </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="69">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="67">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     scenario &#39;invalid postid input&#39; do</code>
+            
+
+            <code class="ruby">  scenario &#39;invalid title input&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="70">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="68">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       visit root_path</code>
+            
+
+            <code class="ruby">    visit root_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="71">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="69">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       click_on &#39;Sign in with Google&#39;</code>
+            
+
+            <code class="ruby">    click_on &#39;Sign in with Google&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="72">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="70">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       posting = Post.create!(postId: 2468, posterId: 123456789, postDate: &#39;2022-02-02&#39;, title: &#39;Hi&#39;, body: &#39;Hello everyone!&#39;)</code>
+            
+
+            <code class="ruby">    posting = Post.create!(postId: 2468, posterId: 123456789, postDate: &#39;2022-02-02&#39;, title: &#39;Hi&#39;, body: &#39;Hello everyone!&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="73">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="71">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       visit edit_post_path(id: posting.id)</code>
+            
+
+            <code class="ruby">    visit edit_post_path(id: posting.id)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="74">
+          <li class="covered" data-hits="1" data-linenumber="72">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">    fill_in &#39;Title&#39;, with: &#39;&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="73">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">#       fill_in &#39;Postid&#39;, with: &#39;&#39;</code>
+            <code class="ruby">    click_on &#39;Update Post&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="74">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_content(&quot;Title can&#39;t be blank&quot;)</code>
           </li>
         </div>
       
@@ -21444,7 +21444,7 @@
 
             
 
-            <code class="ruby">#       click_on &#39;Update Post&#39;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -21455,95 +21455,95 @@
 
             
 
-            <code class="ruby">#       expect(page).to have_content(&quot;Postid can&#39;t be blank&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="77">
-            
-            
-
-            
-
-            <code class="ruby">#     end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="78">
-            
-            
-
-            
-
             <code class="ruby">  </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="79">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="77">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     scenario &#39;invalid posterid input&#39; do</code>
+            
+
+            <code class="ruby">  scenario &#39;invalid body input&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="80">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="78">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       visit root_path</code>
+            
+
+            <code class="ruby">    visit root_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="81">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="79">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       click_on &#39;Sign in with Google&#39;</code>
+            
+
+            <code class="ruby">    click_on &#39;Sign in with Google&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="82">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="80">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       posting = Post.create!(postId: 2468, posterId: 123456789, postDate: &#39;2022-02-02&#39;, title: &#39;Hi&#39;, body: &#39;Hello everyone!&#39;)</code>
+            
+
+            <code class="ruby">    posting = Post.create!(postId: 2468, posterId: 123456789, postDate: &#39;2022-02-02&#39;, title: &#39;Hi&#39;, body: &#39;Hello everyone!&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="83">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="81">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       visit edit_post_path(id: posting.id)</code>
+            
+
+            <code class="ruby">    visit edit_post_path(id: posting.id)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="84">
+          <li class="covered" data-hits="1" data-linenumber="82">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">    fill_in &#39;Body&#39;, with: &#39;&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="83">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">#       fill_in &#39;Posterid&#39;, with: &#39;&#39;</code>
+            <code class="ruby">    click_on &#39;Update Post&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="84">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_content(&quot;Body can&#39;t be blank&quot;)</code>
           </li>
         </div>
       
@@ -21554,7 +21554,7 @@
 
             
 
-            <code class="ruby">#       click_on &#39;Update Post&#39;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -21565,7 +21565,7 @@
 
             
 
-            <code class="ruby">#       expect(page).to have_content(&quot;Posterid can&#39;t be blank&quot;)</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -21576,7 +21576,7 @@
 
             
 
-            <code class="ruby">#     end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -21587,84 +21587,84 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"># SHOW</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="89">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="89">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     scenario &#39;invalid body input&#39; do</code>
+            
+
+            <code class="ruby">RSpec.describe &#39;Show a post&#39;, type: :feature do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="90">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="90">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       visit root_path</code>
+            
+
+            <code class="ruby">  scenario &#39;correct post&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="91">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="91">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       click_on &#39;Sign in with Google&#39;</code>
+            
+
+            <code class="ruby">    visit root_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="92">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="92">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       posting = Post.create!(postId: 2468, posterId: 123456789, postDate: &#39;2022-02-02&#39;, title: &#39;Hi&#39;, body: &#39;Hello everyone!&#39;)</code>
+            
+
+            <code class="ruby">    click_on &#39;Sign in with Google&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="93">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="93">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       visit edit_post_path(id: posting.id)</code>
+            
+
+            <code class="ruby">    posting = Post.create!(postId: 2468, posterId: 123456789, postDate: &#39;2022-02-02&#39;, title: &#39;Hi&#39;, body: &#39;Hello everyone!&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="94">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="94">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       fill_in &#39;Body&#39;, with: &#39;&#39;</code>
+            
+
+            <code class="ruby">    visit post_path(id: posting.id)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="95">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="95">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       click_on &#39;Update Post&#39;</code>
+            
+
+            <code class="ruby">    expect(page).to have_content(&quot;Hello everyone!&quot;)</code>
           </li>
         </div>
       
@@ -21675,7 +21675,7 @@
 
             
 
-            <code class="ruby">#       expect(page).to have_content(&quot;Body can&#39;t be blank&quot;)</code>
+            <code class="ruby">  end  </code>
           </li>
         </div>
       
@@ -21686,7 +21686,7 @@
 
             
 
-            <code class="ruby">#     end</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -21697,95 +21697,95 @@
 
             
 
-            <code class="ruby">#   end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="99">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="100">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="99">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"># # SHOW</code>
+            
+
+            <code class="ruby">RSpec.describe &#39;Routing&#39;, type: :feature do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="101">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="100">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"># RSpec.describe &#39;Show a post&#39;, type: :feature do</code>
+            
+
+            <code class="ruby">  scenario &#39;posts page to specific post&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="102">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="101">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     scenario &#39;correct post&#39; do</code>
+            
+
+            <code class="ruby">    visit root_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="103">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="102">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       visit root_path</code>
+            
+
+            <code class="ruby">    click_on &#39;Sign in with Google&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="104">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="103">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       click_on &#39;Sign in with Google&#39;</code>
+            
+
+            <code class="ruby">    posting = Post.create!(postId: 2468, posterId: 123456789, postDate: &#39;2022-02-02&#39;, title: &#39;Hi&#39;, body: &#39;Hello everyone!&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="105">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="104">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#       posting = Post.create!(postId: 2468, posterId: 123456789, postDate: &#39;2022-02-02&#39;, title: &#39;Hi&#39;, body: &#39;Hello everyone!&#39;)</code>
+            
+
+            <code class="ruby">    visit posts_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="106">
+          <li class="covered" data-hits="1" data-linenumber="105">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">    click_on &#39;Hi&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="106">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">#       visit post_path(id: posting.id)</code>
+            <code class="ruby">    expect(page).to have_content(&quot;Hello everyone!&quot;)</code>
           </li>
         </div>
       
@@ -21796,7 +21796,7 @@
 
             
 
-            <code class="ruby">#       expect(page).to have_content(&quot;Hello everyone!&quot;)</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -21807,18 +21807,117 @@
 
             
 
-            <code class="ruby">#     end  </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="109">
+          <li class="covered" data-hits="1" data-linenumber="109">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  scenario &#39;post to all posts&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="110">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit root_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="111">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    click_on &#39;Sign in with Google&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="112">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    posting = Post.create!(postId: 2468, posterId: 123456789, postDate: &#39;2022-02-02&#39;, title: &#39;Hi&#39;, body: &#39;Hello everyone!&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="113">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit post_path(id: posting.id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="114">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    click_on &#39;Back&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="115">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_content(&quot;BuddyConnect Forum&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="116">
             
             
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="117">
+            
+            
+
+            
+
+            <code class="ruby">  </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="118">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -21841,8 +21940,8 @@
     
 
     <div class="t-line-summary">
-      <b>35</b> relevant lines.
-      <span class="green"><b>35</b> lines covered</span> and
+      <b>68</b> relevant lines.
+      <span class="green"><b>68</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -21904,7 +22003,7 @@
 
             
 
-            <code class="ruby">Rails.application.env_config[&quot;devise.mapping&quot;] = Devise.mappings[:user] # If using Devise</code>
+            <code class="ruby">    Rails.application.env_config[&quot;devise.mapping&quot;] = Devise.mappings[:user] # If using Devise</code>
           </li>
         </div>
       
@@ -21915,7 +22014,7 @@
 
             
 
-            <code class="ruby">Rails.application.env_config[&quot;omniauth.auth&quot;] = OmniAuth.config.mock_auth[:google_user]</code>
+            <code class="ruby">    Rails.application.env_config[&quot;omniauth.auth&quot;] = OmniAuth.config.mock_auth[:google_user]</code>
           </li>
         </div>
       
@@ -22328,6 +22427,490 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="44">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="45">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="46">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">RSpec.describe &#39;Navigating from user page&#39;, type: :feature do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="47">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="48">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    Rails.application.env_config[&quot;devise.mapping&quot;] = Devise.mappings[:user] # If using Devise</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="49">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    Rails.application.env_config[&quot;omniauth.auth&quot;] = OmniAuth.config.mock_auth[:google_user]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="50">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="51">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    scenario &#39;to forum&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="52">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        visit root_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="53">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        click_on &#39;Sign in with Google&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="54">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        visit new_user_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="55">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        fill_in &#39;Studentid&#39;, with: 123</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="56">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        fill_in &#39;Fullname&#39;, with: &#39;Jimbo Fisher&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="57">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        fill_in &#39;Avatarurl&#39;, with: &#39;url&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="58">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        fill_in &#39;Tamuemail&#39;, with: &#39;jf@tamu.edu&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="59">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        select &#39;2020&#39;, :from =&gt; &#39;user_dateOfBirth_1i&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="60">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        select &#39;October&#39;, :from =&gt; &#39;user_dateOfBirth_2i&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="61">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        select &#39;9&#39;, :from =&gt; &#39;user_dateOfBirth_3i&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="62">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        click_on &#39;Create User&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="63">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="64">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        visit user_path(123)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="65">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        click_on &#39;Forum&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="66">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="67">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(page).to have_content(&#39;Add New Post&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="68">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="69">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="70">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    scenario &#39;users catalog to create new user&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="71">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        visit root_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="72">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        click_on &#39;Sign in with Google&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="73">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        visit new_user_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="74">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        fill_in &#39;Studentid&#39;, with: 123</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="75">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        fill_in &#39;Fullname&#39;, with: &#39;Jimbo Fisher&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="76">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        fill_in &#39;Avatarurl&#39;, with: &#39;url&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="77">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        fill_in &#39;Tamuemail&#39;, with: &#39;jf@tamu.edu&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="78">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        select &#39;2020&#39;, :from =&gt; &#39;user_dateOfBirth_1i&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="79">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        select &#39;October&#39;, :from =&gt; &#39;user_dateOfBirth_2i&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="80">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        select &#39;9&#39;, :from =&gt; &#39;user_dateOfBirth_3i&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="81">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        click_on &#39;Create User&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="82">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="83">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        visit users_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="84">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        click_on &#39;New User&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="85">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="86">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(page).to have_content(&#39;New User&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="87">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="88">
             
             
 
