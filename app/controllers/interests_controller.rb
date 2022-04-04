@@ -61,9 +61,10 @@ class InterestsController < ApplicationController
         puts temp_params
         biography = Biography.find_by(userId: current_user.studentId)
         biography.update(create_bio_params)
-      if @interest.update(temp_params)
-        format.html { redirect_to interest_url(@interest), notice: "Interest was successfully updated." }
-        format.json { render :show, status: :ok, location: @interest }
+        @interest = Interest.find_by(userId: params[:interest][:userId])
+        if @interest.update(temp_params)
+          format.html { redirect_to user_url(@interest.userId), notice: "Interest was successfully updated." }
+          format.json { render :show, status: :ok, location: user_path(@interest.userId) }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @interest.errors, status: :unprocessable_entity }
