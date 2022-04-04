@@ -46,7 +46,7 @@
                 <% if not Interest.where(userId: current_user.studentId).exists? %>
                   <%= link_to 'Create Interest', new_interest_path, :class => "btn btn-outline-primary ms-1" %>
                 <% else %>
-                  <%= link_to 'Edit Interest', interest_path(current_user.studentId), :class => "btn btn-outline-primary ms-1"  %>
+                  <%= link_to 'Edit Interest', edit_interest_path(current_user.studentId), :class => "btn btn-outline-primary ms-1"  %>
                 <% end %>
               <% end %>
             </div>

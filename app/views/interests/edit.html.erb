@@ -4,5 +4,5 @@
 
 <%= link_to 'Show', interest_path(@interest.userId) %> 
 <% if current_user.isAdmin %>
-    |<%= link_to 'Back', interests_path %>
+    |<%= link_to 'Back', user_path(@interest.userId) %>
 <% end %>
