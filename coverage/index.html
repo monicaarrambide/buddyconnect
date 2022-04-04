@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-03-31T18:36:01+00:00">2022-03-31T18:36:01+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-03-31T19:56:53+00:00">2022-03-31T19:56:53+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  72.43%
+  76.55%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.97
+       <span class="green">
+         1.04
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>798</b> relevant lines,
-    <span class="green"><b>578</b> lines covered</span> and
-    <span class="red"><b>220</b> lines missed. </span>
+    <b>772</b> relevant lines,
+    <span class="green"><b>591</b> lines covered</span> and
+    <span class="red"><b>181</b> lines missed. </span>
     (<span class="red">
-  72.43%
+  76.55%
 </span>
 )
   </div>
@@ -302,13 +302,13 @@
           </tr>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#5bc4531c9e2ef6a90a4fc7cfbb951054e6c2c864" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">93.33 %</td>
-            <td class="cell--number">33</td>
-            <td class="cell--number">15</td>
-            <td class="cell--number">14</td>
-            <td class="cell--number">1</td>
-            <td class="cell--number">2.13</td>
+            <td class="strong t-file__name"><a href="#d1033225f9fc934422fc37beabf4f425c517df17" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">28</td>
+            <td class="cell--number">13</td>
+            <td class="cell--number">13</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.92</td>
             
           </tr>
         
@@ -348,7 +348,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#82aeff57e4f68da24a64fe60cbfd43913d545385" class="src_link" title="config/environments/test.rb">config/environments/test.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">85</td>
+            <td class="cell--number">84</td>
             <td class="cell--number">23</td>
             <td class="cell--number">23</td>
             <td class="cell--number">0</td>
@@ -3048,6 +3048,7 @@
           <li class="never" data-hits="" data-linenumber="11">
             
             
+
 
             
 
@@ -9368,7 +9369,7 @@
 
             
 
-            <code class="ruby">      params.require(:user).permit(:studentId, :groupId, :insterestsId, :profileId, :isOfficer, :isAdmin, :firstName, :lastName, :tamuEmail, :dateOfBirth, :gradAssistance)</code>
+            <code class="ruby">      params.require(:user).permit(:studentId, :groupId, :insterestsId, :profileId, :isOfficer, :isAdmin, :fullName, :avatarUrl, :tamuEmail, :dateOfBirth, :gradAssistance)</code>
           </li>
         </div>
       
@@ -10533,7 +10534,7 @@
     <h3>app/models/user.rb</h3>
     <h4>
       <span class="green">
-  93.33%
+  100.0%
 </span>
 
       lines covered
@@ -10542,9 +10543,9 @@
     
 
     <div class="t-line-summary">
-      <b>15</b> relevant lines.
-      <span class="green"><b>14</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <b>13</b> relevant lines.
+      <span class="green"><b>13</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
 
     
@@ -10605,7 +10606,7 @@
 
             
 
-            <code class="ruby">    validates :firstName, presence: true</code>
+            <code class="ruby">    validates :fullName, presence: true</code>
           </li>
         </div>
       
@@ -10616,7 +10617,7 @@
 
             
 
-            <code class="ruby">    validates :lastName, presence: true</code>
+            <code class="ruby">    validates :avatarUrl, presence: true</code>
           </li>
         </div>
       
@@ -10726,18 +10727,18 @@
 
             
 
-            <code class="ruby">        if(User.where(tamuEmail: email).length() &gt; 0)</code>
+            <code class="ruby">        create_with(</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="17">
+          <li class="never" data-hits="" data-linenumber="17">
             
             
 
             
 
-            <code class="ruby">            find_or_create_by!(tamuEmail:email)</code>
+            <code class="ruby">            studentId: SecureRandom.uuid,</code>
           </li>
         </div>
       
@@ -10748,7 +10749,7 @@
 
             
 
-            <code class="ruby">        else</code>
+            <code class="ruby">            fullName: full_name, </code>
           </li>
         </div>
       
@@ -10759,18 +10760,18 @@
 
             
 
-            <code class="ruby">            # redirect_to new_user_path</code>
+            <code class="ruby">            avatarUrl: avatar_url, </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="20">
-            <span class="hits">7</span>
+          <li class="never" data-hits="" data-linenumber="20">
+            
             
 
             
 
-            <code class="ruby">            create_with(</code>
+            <code class="ruby">            isOfficer: false,</code>
           </li>
         </div>
       
@@ -10781,7 +10782,7 @@
 
             
 
-            <code class="ruby">              studentId: -1,</code>
+            <code class="ruby">            isAdmin: false,</code>
           </li>
         </div>
       
@@ -10792,7 +10793,7 @@
 
             
 
-            <code class="ruby">              firstName: &quot;firstname&quot;, </code>
+            <code class="ruby">            tamuEmail: email,</code>
           </li>
         </div>
       
@@ -10803,7 +10804,7 @@
 
             
 
-            <code class="ruby">              lastName: &quot;lastname&quot;, </code>
+            <code class="ruby">            dateOfBirth: &#39;2022-3-4&#39;,</code>
           </li>
         </div>
       
@@ -10814,7 +10815,7 @@
 
             
 
-            <code class="ruby">              isOfficer: false,</code>
+            <code class="ruby">            gradAssistance: false</code>
           </li>
         </div>
       
@@ -10825,7 +10826,7 @@
 
             
 
-            <code class="ruby">              isAdmin: false,</code>
+            <code class="ruby">        ).find_or_create_by!(tamuEmail: email)</code>
           </li>
         </div>
       
@@ -10836,7 +10837,7 @@
 
             
 
-            <code class="ruby">              tamuEmail: email,</code>
+            <code class="ruby">        #@TODO could be a bug</code>
           </li>
         </div>
       
@@ -10847,67 +10848,12 @@
 
             
 
-            <code class="ruby">              dateOfBirth: &#39;2022-3-4&#39;,</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="28">
-            
-            
-
-            
-
-            <code class="ruby">              gradAssistance: false</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="29">
-            
-            
-
-            
-
-            <code class="ruby">            ).find_or_create_by!(tamuEmail: email)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="30">
-            
-            
-
-            
-
-            <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="31">
-            
-            
-
-            
-
-            <code class="ruby">        #@TODO could be a bug</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="32">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="33">
             
             
 
@@ -12181,7 +12127,7 @@
 
             
 
-            <code class="ruby">      avatar_url: &quot;mock_url&quot;,</code>
+            <code class="ruby">      image: &#39;https://lh3.googleusercontent.com/url/photo.jpg&#39;</code>
           </li>
         </div>
       
@@ -12192,7 +12138,7 @@
 
             
 
-            <code class="ruby">      uid: &quot;123456789&quot;</code>
+            <code class="ruby">    },</code>
           </li>
         </div>
       
@@ -12203,7 +12149,7 @@
 
             
 
-            <code class="ruby">    },</code>
+            <code class="ruby">    credentials: {</code>
           </li>
         </div>
       
@@ -12214,7 +12160,7 @@
 
             
 
-            <code class="ruby">    credentials: {</code>
+            <code class="ruby">      token: &#39;token1&#39;,</code>
           </li>
         </div>
       
@@ -12225,7 +12171,7 @@
 
             
 
-            <code class="ruby">      token: &#39;token1&#39;,</code>
+            <code class="ruby">      refresh_token: &#39;rtoken1&#39;,</code>
           </li>
         </div>
       
@@ -12236,7 +12182,7 @@
 
             
 
-            <code class="ruby">      refresh_token: &#39;rtoken1&#39;,</code>
+            <code class="ruby">      expires_at: 1_354_920_555,</code>
           </li>
         </div>
       
@@ -12247,7 +12193,7 @@
 
             
 
-            <code class="ruby">      expires_at: 1_354_920_555,</code>
+            <code class="ruby">      expires: true</code>
           </li>
         </div>
       
@@ -12258,7 +12204,7 @@
 
             
 
-            <code class="ruby">      expires: true</code>
+            <code class="ruby">    }</code>
           </li>
         </div>
       
@@ -12269,7 +12215,7 @@
 
             
 
-            <code class="ruby">    }</code>
+            <code class="ruby">  })</code>
           </li>
         </div>
       
@@ -12280,7 +12226,7 @@
 
             
 
-            <code class="ruby">  })</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -12297,17 +12243,6 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="84">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="85">
             
             
 

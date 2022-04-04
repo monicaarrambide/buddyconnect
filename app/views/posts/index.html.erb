@@ -59,7 +59,7 @@
         <td><%= post.body %></td>
         </br>
         </br>
-        <td>Posted by <%=User.where(studentId: post.posterId).first ? User.where(studentId: post.posterId).first.firstName : "None" %></td>
+        <td>Posted by <%=User.where(studentId: post.posterId).first ? User.where(studentId: post.posterId).first.fullName : "None" %></td>
         <td><%= time_ago_in_words (post.created_at) %> ago</td>
         <%if current_user.isAdmin%>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>

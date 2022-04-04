@@ -4,6 +4,7 @@ class InterestsController < ApplicationController
   # GET /interests or /interests.json
   def index
     @interests = Interest.all
+    @biographies = Biography.all
   end
 
   # GET /interests/1 or /interests/1.json
@@ -28,20 +29,22 @@ class InterestsController < ApplicationController
     end
 
     @interest = Interest.new(temp_params)
-    if interest_params[:biography].present?
-      create_bio_params = {
-        :userId => current_user.studentId,
-        :description => interest_params[:biography],
-      }
-      Biography.create(create_bio_params)
-    end
     respond_to do |format|
       if @interest.save
+        if interest_params[:biography].present?
+          create_bio_params = {
+            :userId => current_user.studentId,
+            :description => interest_params[:biography],
+          }
+          Biography.create(create_bio_params)
+        end
         format.html { redirect_to interest_url(@interest.userId), notice: "Interest was successfully created." }
         format.json { render :show, status: :created, location: interest_path(@interest.studentId) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @interest.errors, status: :unprocessable_entity }
+        destroybio = Biography.find_by(userId: current_user.studentId)
+        
       end
     end
   end
@@ -49,7 +52,16 @@ class InterestsController < ApplicationController
   # PATCH/PUT /interests/1 or /interests/1.json
   def update
     respond_to do |format|
-      if @interest.update(interest_params)
+      temp_params = interest_params
+      temp_params.delete :biography
+        create_bio_params = {
+          :userId => current_user.studentId,
+          :description => interest_params[:biography],
+        }
+        puts temp_params
+        biography = Biography.find_by(userId: current_user.studentId)
+        biography.update(create_bio_params)
+      if @interest.update(temp_params)
         format.html { redirect_to interest_url(@interest), notice: "Interest was successfully updated." }
         format.json { render :show, status: :ok, location: @interest }
       else

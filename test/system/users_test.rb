@@ -15,13 +15,13 @@ class UsersTest < ApplicationSystemTestCase
     click_on "New User"
 
     fill_in "Dateofbirth", with: @user.dateOfBirth
-    fill_in "Firstname", with: @user.firstName
+    fill_in "Fullname", with: @user.fullName
     check "Gradassistance" if @user.gradAssistance
     fill_in "Groupid", with: @user.groupId
     fill_in "Insterestsid", with: @user.insterestsId
     check "Isadmin" if @user.isAdmin
     check "Isofficer" if @user.isOfficer
-    fill_in "Lastname", with: @user.lastName
+    fill_in "Avatarurl", with: @user.avatarUrl
     fill_in "Profileid", with: @user.profileId
     fill_in "Studentid", with: @user.studentId
     fill_in "Tamuemail", with: @user.tamuEmail
@@ -36,13 +36,13 @@ class UsersTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Dateofbirth", with: @user.dateOfBirth
-    fill_in "Firstname", with: @user.firstName
+    fill_in "Fullname", with: @user.fullName
     check "Gradassistance" if @user.gradAssistance
     fill_in "Groupid", with: @user.groupId
     fill_in "Insterestsid", with: @user.insterestsId
     check "Isadmin" if @user.isAdmin
     check "Isofficer" if @user.isOfficer
-    fill_in "Lastname", with: @user.lastName
+    fill_in "Avatarurl", with: @user.avatarUrl
     fill_in "Profileid", with: @user.profileId
     fill_in "Studentid", with: @user.studentId
     fill_in "Tamuemail", with: @user.tamuEmail

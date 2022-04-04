@@ -35,36 +35,24 @@
   </head>
 
   <body>
-
-    <div style="display:flex;height:100%; margin-left:5%;">
-      I am here
-      <div style="border-left:2px solid black;margin:0 100px;"></div>
-        <div>
-          <div style="text-align: center;">
-            <p>
-
-              <%= image_tag "profile-icon.png", height: 150 %>
-
-              <br><strong>Group Leader:</strong>
-              <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.firstName : "None"  %>
-              <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.lastName : "None"  %></br>
-            </p>
-          </div>
-
-          <p>
-            <strong>Members:</strong>
-          </p>
-          <div class="container-fluid">
-            <%User.where(groupId: @group.groupId).where.not(studentId: @group.leaderInt).each do |user| %>
-                  
-
-              <%= image_tag "profile-icon.png", height: 150 %>
-            
-              <br><%=user.firstName%>
-
-              <%=user.lastName%></br>
-            
-              <%if current_user.isOfficer%>
+    <p>Group</p>
+    <p>
+      <strong>Groupid:</strong>
+      <%= @group.groupId %>
+    </p>
+    <p>
+      <strong>Group Leader:</strong>
+      <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.fullName : "None"  %>
+    </p>
+    <p>
+      <strong>Members:</strong>
+    </p>
+      <%User.where(groupId: @group.groupId).where.not(studentId: @group.leaderInt).each do |user| %>
+        <div class="card">
+          <div class="container">
+            <tr>
+              <td><%=user.fullName%> </td>
+              <td><%if current_user.isOfficer%>
                 <%= link_to 'Show', user_path(user.studentId)%>
               <% end %>
             <% end %>     
