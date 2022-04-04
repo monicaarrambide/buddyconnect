@@ -1,158 +1,200 @@
-<%= form_with(model: interest) do |form| %>
-  <% if interest.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(interest.errors.count, "error") %> prohibited this interest from being saved:</h2>
+<div class="d-flex align-items-center justify-content-center">
+  <%= form_with(model: interest) do |form| %>
+    <% if interest.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(interest.errors.count, "error") %> prohibited this interest from being saved:</h2>
 
-      <ul>
-        <% interest.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% interest.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    
+
+    <div style="width:600px; height:750px; float:left;">  
+      <div class="field">
+        <b><%= form.label :Name %></b>
+        <br><%= form.number_field :userId %></br>
+      </div>
+      
+      &nbsp;
+      <div class="field">
+        <b><%= form.label :phone %></b>
+        <br><%= form.text_field :phone %></br>
+      </div>
+
+      &nbsp;
+
+      <div class="field">
+        <b><%= form.label :nationality %></b>
+        <br><%= form.text_field :nationality %></br>
+      </div>
+
+      &nbsp;
+
+      <div class="field">
+        <b><%= form.label :State %></b>
+        <br><%= form.select(:state, ['AL', 'AK', 'AZ', 'AR', 'CA', 'CZ', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'PR', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY'], {:prompt => "Please select"})%></br>
+      </div>
+
+      &nbsp;
+
+      <div class="field">
+        <b><%= form.label :Which_community_will_you_be_staying_at_in_College_Station %></b>
+        <br><%= form.select(:community, [['Park West'],['White Creek'],['Z Islander'],['Reveille Ranch'],['The London'],['Scandia'],['Gateway'],['U Center'],['Aspire'],['On Campus'],['Other']], {:prompt => "Please select"})%></br>
+      </div>
+
+      &nbsp;
+
+      <div class="field">
+        <b><%= form.label :Number_of_prerequisites %></b>
+        <br><%= form.select(:numPrereqs, ['1', '2', '3', '4', '5'], {:prompt => "Please select"})%></br>
+      </div>
+
+      &nbsp;
+
+      <div class="field">
+        <b><%= form.label :Do_you_have_a_scholarship %></b>
+        <br><%= form.select(:scholarship, [['Yes'],['No']], {:prompt => "Please select"})%></br>
+      </div>
+
+      &nbsp;
+
+      <div class="field">
+        <b><%= form.label :How_many_years_of_FullTime_work_experience_do_you_have %></b>
+        <br><%= form.select(:numWorkExp, ['0','1', '2', '3', '4', '5','6','7','8','9','10'], {:prompt => "Please select"})%></br>
+      </div>
+    </div>  
+
+
+    <div style="width:500px; height:750px; float:right;">
+      <div>
+        <div class="field", style="float:left;">
+
+          <b><%= form.label :projects %></b>
+          <br><%= form.text_area :projects, :cols => "25", :rows => "6" %></br>
+        </div>
+
+        <div class="field", style="float:right;">
+          <b><%= form.label :Technology_used_before %></b>
+          <br><%= form.text_area :usedTech, :cols => "25", :rows => "6" %></br>
+        </div>
+      </div>
+      
+      <div>
+        <div class="field", style="float:left;">
+          <b><%= form.label :favorite_Movie_Genre %></b>
+          <br><%= form.text_area :faveMovieGenre, :cols => "25", :rows => "6" %></br>
+        </div>
+
+        <div class="field", style="float:right;">
+          <b><%= form.label :extracurriculars %></b>
+          <br><%= form.text_area :extracurric, :cols => "25", :rows => "6" %></br>
+        </div>
+      </div>
+      
+      <div class="field" , style="text-align:center; float:center; top: 200px; margin-top: 350px;">
+          <b><%= form.label :biography %></b>
+          <br><%= form.text_area :biography, :cols => "50", :rows => "3", placeholder: "Add a biography" %></br>
+      </div>
+
+      <div>
+        <div class="field", style="width:200px;float:left;">
+          <b><%= form.label :Select_at_least_1_to_3_roles_you_would_like_to_pursue_a_career %></b>
+
+            <%= check_box_tag 'interest[potentialRoles][]', 'Software Engineering', checked('Software Engineering'), id:'potentialRoles_software'%>
+            Software Engineering<br>
+
+            <%= check_box_tag 'interest[potentialRoles][]', 'Data Analytics', checked('Data Analytics'), id:'potentialRoles_dataAn'%>
+            Data Analytics<br>
+
+            <%= check_box_tag 'interest[potentialRoles][]', 'Data Science', checked('Data Science'), id:'potentialRoles_dataSc'%>
+            Data Science<br>
+
+            <%= check_box_tag 'interest[potentialRoles][]', 'Business Intelligience', checked('Business Intelligience'), id:'potentialRoles_businessI'%>
+            Business Intelligience<br>
+
+            <%= check_box_tag 'interest[potentialRoles][]', 'Consulting', checked('Consulting'), id:'potentialRoles_consult'%>
+            Consulting<br>
+
+            <%= check_box_tag 'interest[potentialRoles][]', 'Project Management', checked('Project Management'), id:'potentialRoles_projectM'%>
+            Project Management<br>
+
+            <%= check_box_tag 'interest[potentialRoles][]', 'Product Management', checked('Product Management'), id:'potentialRoles_productM'%>
+            Product Management<br>
+
+            <%= check_box_tag 'interest[potentialRoles][]', 'Data Engineering', checked('Data Engineering'), id:'potentialRoles_dataEng'%>
+            Data Engineering<br>
+
+            <%= check_box_tag 'interest[potentialRoles][]', 'Business Analytics', checked('Business Analytics'), id:'potentialRoles_businessA'%>
+            Business Analytics<br>
+
+            <%= check_box_tag 'interest[potentialRoles][]', 'Cyber Security', checked('Cyber Security'), id:'potentialRoles_cyberS'%>
+            Cyber Security<br>
+
+        </div>  
+
+        <div class="field", style="width:200px;float:right;">
+          <b><%= form.label :Select_fields_you_have_worked_in %></b>
+
+          <%= check_box_tag 'interest[pastWorkExp][]', 'Software Development', checked('Software Development'), id:'pastWorkExp_softwareDev'%>
+            Software Development<br>
+
+            <%= check_box_tag 'interest[pastWorkExp][]', 'Data Analytics and Visualization', checked('Data Analytics and Visualization'), id:'pastWorkExp_dataAnV'%>
+            Data Analytics and Visualization<br>
+
+            <%= check_box_tag 'interest[pastWorkExp][]', 'Data Science', checked('Data Science'), id:'pastWorkExp_dataSc'%>
+            Data Science<br>
+
+
+            <%= check_box_tag 'interest[pastWorkExp][]', 'Consulting', checked('Consulting'), id:'pastWorkExp_consult'%>
+            Consulting<br>
+
+            <%= check_box_tag 'interest[pastWorkExp][]', 'Systems Analyst', checked('Systems Analyst'), id:'pastWorkExp_systemA'%>
+            Systems Analyst<br>
+
+            <%= check_box_tag 'interest[pastWorkExp][]', 'Project Management', checked('Project Management'), id:'pastWorkExp_projectM'%>
+            Project Management<br>
+
+            <%= check_box_tag 'interest[pastWorkExp][]', 'Product Management', checked('Product Management'), id:'pastWorkExp_productM'%>
+            Product Management<br>
+
+            <%= check_box_tag 'interest[pastWorkExp][]', 'Data Engineering/ETL Developer', checked('Data Engineering/ETL Developer'), id:'pastWorkExp_dataEngETL'%>
+            Data Engineering/ETL Developer<br>
+
+            <%= check_box_tag 'interest[pastWorkExp][]', 'Business Analytics', checked('Business Analytics'), id:'pastWorkExp_businessA'%>
+            Business Analytics<br>
+
+            <%= check_box_tag 'interest[pastWorkExp][]', 'Cyber Security', checked('Cyber Security'), id:'pastWorkExp_cyberS'%>
+            Cyber Security<br>
+
+            <%= check_box_tag 'interest[pastWorkExp][]', 'Quality Analyst/Engineer', checked('Quality Analyst/Engineer'), id:'pastWorkExp_qualityA'%>
+            Quality Analyst/Engineer<br>
+
+            <%= check_box_tag 'interest[pastWorkExp][]', 'Other', checked('Other'), id:'pastWorkExp_other'%>
+            Other<br>
+        </div>
+
+
+      </div>
     </div>
+    
+
+    <div>
+      <div class="actions", style="float:right; margin-top: 100px;">
+        <%= form.submit "Create Interest", :class => 'btn btn-outline-dark'%>
+      </div>
+
+      <%= link_to 'Back', interests_path, class:"btn btn-outline-dark" %>
+      <%= link_to 'All interests', interests_path, class:"btn btn-outline-dark" %>
+
+    </div>
+
+    &nbsp;&nbsp;
+    
   <% end %>
+</div>
 
-  <div class="field">
-    <%= form.label :userId %>
-    <%= form.number_field :userId, value: current_user.studentId%>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :nationality %>
-    <%= form.text_field :nationality %>
-  </div>
-
-  <div class="field">
-    <%= form.label :State %>
-    <%= form.select(:state, ['AL', 'AK', 'AZ', 'AR', 'CA', 'CZ', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'PR', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY'], {:prompt => "Please select"})%>
-  </div>
-
-  <div class="field">
-    <%= form.label :Which_community_will_you_be_staying_at_in_College_Station %>
-    <%= form.select(:community, [['Park West'],['White Creek'],['Z Islander'],['Reveille Ranch'],['The London'],['Scandia'],['Gateway'],['U Center'],['Aspire'],['On Campus'],['Other']], {:prompt => "Please select"})%>
-  </div>
-
-  <div class="field">
-    <%= form.label :Number_of_prerequisites %>
-    <%= form.select(:numPrereqs, ['1', '2', '3', '4', '5'], {:prompt => "Please select"})%>
-  </div>
-
-  <div class="field">
-    <%= form.label :Do_you_have_a_scholarship %>
-    <%= form.select(:scholarship, [['Yes'],['No']], {:prompt => "Please select"})%>
-  </div>
-
-  <div class="field">
-    <%= form.label :faveMovieGenre %>
-    <%= form.text_field :faveMovieGenre %>
-  </div>
-
-
-
-  <div class="field">
-    <%= form.label :Select_at_least_1_role_or_up_to_3_in_which_you_would_like_to_pursue_a_career %>
-
-      <%= check_box_tag 'interest[potentialRoles][]', 'Software Engineering', checked('Software Engineering'), id:'potentialRoles_software'%>
-      Software Engineering<br>
-
-      <%= check_box_tag 'interest[potentialRoles][]', 'Data Analytics', checked('Data Analytics'), id:'potentialRoles_dataAn'%>
-      Data Analytics<br>
-
-      <%= check_box_tag 'interest[potentialRoles][]', 'Data Science', checked('Data Science'), id:'potentialRoles_dataSc'%>
-      Data Science<br>
-
-      <%= check_box_tag 'interest[potentialRoles][]', 'Business Intelligience', checked('Business Intelligience'), id:'potentialRoles_businessI'%>
-      Business Intelligience<br>
-
-      <%= check_box_tag 'interest[potentialRoles][]', 'Consulting', checked('Consulting'), id:'potentialRoles_consult'%>
-      Consulting<br>
-
-      <%= check_box_tag 'interest[potentialRoles][]', 'Project Management', checked('Project Management'), id:'potentialRoles_projectM'%>
-      Project Management<br>
-
-      <%= check_box_tag 'interest[potentialRoles][]', 'Product Management', checked('Product Management'), id:'potentialRoles_productM'%>
-      Product Management<br>
-
-      <%= check_box_tag 'interest[potentialRoles][]', 'Data Engineering', checked('Data Engineering'), id:'potentialRoles_dataEng'%>
-      Data Engineering<br>
-
-      <%= check_box_tag 'interest[potentialRoles][]', 'Business Analytics', checked('Business Analytics'), id:'potentialRoles_businessA'%>
-      Business Analytics<br>
-
-      <%= check_box_tag 'interest[potentialRoles][]', 'Cyber Security', checked('Cyber Security'), id:'potentialRoles_cyberS'%>
-      Cyber Security<br>
-
-  </div>
-
-
-
-
-  <div class="field">
-    <%= form.label :How_many_years_of_FullTime_work_experience_do_you_have %>
-    <%= form.select(:numWorkExp, ['0','1', '2', '3', '4', '5','6','7','8','9','10'], {:prompt => "Please select"})%>
-  </div>
-
-  <div class="field">
-    <%= form.label :usedTech %>
-    <%= form.text_field :usedTech %>
-  </div>
-
-  <div class="field">
-    <%= form.label :projects %>
-    <%= form.text_area :projects, :cols => "50", :rows => "20" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :extracurric %>
-    <%= form.text_field :extracurric %>
-  </div>
-
-  <div class="field">
-    <%= form.label :Select_a_field_you_have_worked_in %>
-
-    <%= check_box_tag 'interest[pastWorkExp][]', 'Software Development', checked('Software Development'), id:'pastWorkExp_softwareDev'%>
-      Software Development<br>
-
-      <%= check_box_tag 'interest[pastWorkExp][]', 'Data Analytics and Visualization', checked('Data Analytics and Visualization'), id:'pastWorkExp_dataAnV'%>
-      Data Analytics and Visualization<br>
-
-      <%= check_box_tag 'interest[pastWorkExp][]', 'Data Science', checked('Data Science'), id:'pastWorkExp_dataSc'%>
-      Data Science<br>
-
-
-      <%= check_box_tag 'interest[pastWorkExp][]', 'Consulting', checked('Consulting'), id:'pastWorkExp_consult'%>
-      Consulting<br>
-
-      <%= check_box_tag 'interest[pastWorkExp][]', 'Systems Analyst', checked('Systems Analyst'), id:'pastWorkExp_systemA'%>
-      Systems Analyst<br>
-
-      <%= check_box_tag 'interest[pastWorkExp][]', 'Project Management', checked('Project Management'), id:'pastWorkExp_projectM'%>
-      Project Management<br>
-
-      <%= check_box_tag 'interest[pastWorkExp][]', 'Product Management', checked('Product Management'), id:'pastWorkExp_productM'%>
-      Product Management<br>
-
-      <%= check_box_tag 'interest[pastWorkExp][]', 'Data Engineering/ETL Developer', checked('Data Engineering/ETL Developer'), id:'pastWorkExp_dataEngETL'%>
-      Data Engineering/ETL Developer<br>
-
-      <%= check_box_tag 'interest[pastWorkExp][]', 'Business Analytics', checked('Business Analytics'), id:'pastWorkExp_businessA'%>
-      Business Analytics<br>
-
-      <%= check_box_tag 'interest[pastWorkExp][]', 'Cyber Security', checked('Cyber Security'), id:'pastWorkExp_cyberS'%>
-      Cyber Security<br>
-
-      <%= check_box_tag 'interest[pastWorkExp][]', 'Quality Analyst/Engineer', checked('Quality Analyst/Engineer'), id:'pastWorkExp_qualityA'%>
-      Quality Analyst/Engineer<br>
-
-      <%= check_box_tag 'interest[pastWorkExp][]', 'Other', checked('Other'), id:'pastWorkExp_other'%>
-      Other<br>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

@@ -1,5 +1,29 @@
-<h1>New Interest</h1>
+<nav class="navbar navbar-dark bg-dark"> 
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h1 style="color: white;">Interest Form</h1> 
+    <%= link_to "Sign Out", destroy_user_session_path, class:"btn btn-outline-light"%>
+  </div>
+</nav>
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-dark p-4">
+    <span class="text-white h4 center">
+        <ul class="navbar-nav text-center">
+            <%= link_to 'Profile', user_path(current_user.studentId), class:"btn btn-dark" %>
+            <% if current_user.groupId.present? %>
+                <%= link_to 'Group', group_path(current_user.groupId), class:"btn btn-dark" %>
+            <% end %>
+            <%= link_to 'Forum', posts_path, class:"btn btn-dark" %>
+        </ul>
+    </span>
+  </div>
+</div>
+
+
+
+&nbsp;
 
 <%= render 'form', interest: @interest %>
 
-<%= link_to 'All interests', interests_path %>

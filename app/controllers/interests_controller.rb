@@ -21,8 +21,20 @@ class InterestsController < ApplicationController
 
   # POST /interests or /interests.json
   def create
-    @interest = Interest.new(interest_params)
+    temp_params = interest_params
+    puts temp_params
+    if temp_params[:biography].present?
+      temp_params.delete :biography
+    end
 
+    @interest = Interest.new(temp_params)
+    if interest_params[:biography].present?
+      create_bio_params = {
+        :userId => current_user.studentId,
+        :description => interest_params[:biography],
+      }
+      Biography.create(create_bio_params)
+    end
     respond_to do |format|
       if @interest.save
         format.html { redirect_to interest_url(@interest.userId), notice: "Interest was successfully created." }
@@ -66,6 +78,6 @@ class InterestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def interest_params
-      params.require(:interest).permit(:userId, :phone, :nationality, :state, :community, :numPrereqs, :scholarship, :faveMovieGenre, :numWorkExp, :usedTech, :projects, :extracurric, pastWorkExp:[], potentialRoles:[])
+      params.require(:interest).permit(:userId, :biography, :phone, :nationality, :state, :community, :numPrereqs, :scholarship, :faveMovieGenre, :numWorkExp, :usedTech, :projects, :extracurric, pastWorkExp:[], potentialRoles:[])
     end
 end
