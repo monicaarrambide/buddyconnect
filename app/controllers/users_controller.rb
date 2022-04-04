@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       # checks if user wasn't a previous officer
       # avoids changing groupId every time info is updated
-      puts params[:user][:studentId]
+      # puts params[:user][:studentId]
 
       # TO DO: change if we will allow users to change ids - breaks otherwise
       @user = User.find_by(studentId: params[:user][:studentId])
@@ -341,6 +341,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:studentId, :groupId, :insterestsId, :profileId, :isOfficer, :isAdmin, :firstName, :lastName, :tamuEmail, :dateOfBirth, :gradAssistance)
+      params.require(:user).permit(:studentId, :groupId, :insterestsId, :profileId, :isOfficer, :isAdmin, :fullName, :avatarUrl, :tamuEmail, :dateOfBirth, :gradAssistance)
     end
 end
