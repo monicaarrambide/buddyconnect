@@ -12,7 +12,7 @@
       <p> <%= @post.body %> </p> </br> </br>
       <h3 class = "card-subtitle mb-2 text-muted" style = "font-size: 70%">
         <strong>Posted by</strong> 
-        <%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.firstName : "None" %>
+        <%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.fullName : "None" %>
         <strong>on</strong>
         <%= @post.postDate %>
       </h3>
@@ -26,7 +26,7 @@
       <h1 class = "card-subtitle mb-2 text-muted" style = "font-size: 100%"> <strong>Comments</strong></h1>
       <%Comment.where(postId: @post.postId).each do |comment| %>
         
-          <td><%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.firstName : "None"%> said: </td>
+          <td><%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.fullName : "None"%>: </td>
           <td><%=comment.message%></td> </br>
           <td><%= time_ago_in_words(comment.commentDate)%> ago</td>
                
@@ -69,7 +69,6 @@
 
 <div class="reply-container">
   <%if current_user.isOfficer%>
-  <p>
     <strong>Reply:<strong>
   <%= form_with model: @post do |form|%>
   <div class = "field">
@@ -79,7 +78,6 @@
     <%= form.submit "Add Comment"%>
   </div>
   <%end%>
-  <p>
   <%end%>
 </div>
 
