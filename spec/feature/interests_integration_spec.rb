@@ -22,7 +22,7 @@ RSpec.describe 'Creating a interest', type: :feature do
     click_on 'Create User'
 
     visit new_interest_path
-    fill_in 'Userid', with: 12345678
+    fill_in 'Name', with: 12345678
     fill_in 'Phone', with: '123456789'
     fill_in 'Nationality', with: 'Native American'
     select 'TX', :from => 'interest_state'
@@ -72,7 +72,7 @@ RSpec.describe 'Creating a interest', type: :feature do
     click_on 'Create User'
 
     visit new_interest_path
-    fill_in 'Userid', with: 12345678
+    fill_in 'Name', with: 12345678
     fill_in 'Phone', with: '123456789'
     fill_in 'Nationality', with: 'Native American'
     select 'TX', :from => 'interest_state'
@@ -89,7 +89,7 @@ RSpec.describe 'Creating a interest', type: :feature do
 
     click_on 'Create Interest'
     visit edit_interest_path(12345678)
-    fill_in 'Userid', with: 12345678
+    fill_in 'Name', with: 12345678
     fill_in 'Nationality', with: 'German'
     click_on 'Update Interest'
     visit interests_path
