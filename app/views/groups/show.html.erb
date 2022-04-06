@@ -5,87 +5,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <nav class="navbar navbar-dark bg-dark"> 
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <h1 style="color: white;">
-          Group
-          <%= @group.groupId %>
-        </h1> 
-
-        <%= link_to "Sign Out", destroy_user_session_path, class:"btn btn-outline-light"%>
-      </div>
-    </nav>
-    <div class="collapse" id="navbarToggleExternalContent">
-      <div class="bg-dark p-4">
-        <span class="text-white h4 center">
-            <ul class="navbar-nav text-center">
-                <%= link_to 'Profile', user_path(current_user.studentId), class:"btn btn-dark" %>
-                <% if current_user.groupId.present? %>
-                    <%= link_to 'Group', group_path(current_user.groupId), class:"btn btn-dark" %>
-                <% end %>
-                <%= link_to 'Forum', posts_path, class:"btn btn-dark" %>
-            </ul>
-        </span>
-      </div>
-    </div>
   </head>
-
   <body>
-
-    <div style="display:flex;height:100%; margin-left:5%;">
-      I am here
-      <div style="border-left:2px solid black;margin:0 100px;"></div>
-        <div>
-          <div style="text-align: center;">
-            <p>
-
-              <%= image_tag "profile-icon.png", height: 150 %>
-
-              <br><strong>Group Leader:</strong>
-              <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.firstName : "None"  %>
-              <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.lastName : "None"  %></br>
-            </p>
-          </div>
-
-          <p>
-            <strong>Members:</strong>
-          </p>
-          <div class="container-fluid">
-            <%User.where(groupId: @group.groupId).where.not(studentId: @group.leaderInt).each do |user| %>
-                  
-
-              <%= image_tag "profile-icon.png", height: 150 %>
-            
-              <br><%=user.firstName%>
-
-              <%=user.lastName%></br>
-            
-              <%if current_user.isOfficer%>
+    <p>Group</p>
+    <p>
+      <strong>Groupid:</strong>
+      <%= @group.groupId %>
+    </p>
+    <p>
+      <strong>Group Leader:</strong>
+      <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.fullName : "None"  %>
+    </p>
+    <p>
+      <strong>Members:</strong>
+    </p>
+      <%User.where(groupId: @group.groupId).where.not(studentId: @group.leaderInt).each do |user| %>
+        <div class="card">
+          <div class="container">
+            <tr>
+              <td><%=user.fullName%> </td>
+              <td><%if current_user.isOfficer%>
                 <%= link_to 'Show', user_path(user.studentId)%>
               <% end %>
-            <% end %>     
+              </td>
+            </tr>
           </div>
-
-
-          <%= link_to 'Profile', user_path(current_user.studentId) %>
-          <% if current_user.isOfficer%>
-            | <%= link_to 'Edit', edit_group_path(@group.groupId) %>
-          <% end %>
-          <% if current_user.isAdmin %>
-            | <%= link_to 'Show Groups', groups_path %>
-          <% end %>
         </div>
-      </div>
-
-
-        
-
-        
-
-        
+        <br/>
+    <% end %>
+    <%= link_to 'Profile', user_path(current_user.studentId) %>
+    <% if current_user.isOfficer%>
+      | <%= link_to 'Edit', edit_group_path(@group.groupId) %>
+    <% end %>
+    <% if current_user.isAdmin %>
+      | <%= link_to 'Show Groups', groups_path %>
+    <% end %>
   </body>
 </html>

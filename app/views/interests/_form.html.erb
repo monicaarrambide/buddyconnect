@@ -16,10 +16,10 @@
 
     <div style="width:600px; height:750px; float:left;">  
       <div class="field">
-        <b><%= form.label :Name %></b>
+        <b><%= form.label :userId %></b>
         <br><%= form.number_field :userId %></br>
       </div>
-      
+
       &nbsp;
       <div class="field">
         <b><%= form.label :phone %></b>
@@ -79,26 +79,29 @@
         </div>
 
         <div class="field", style="float:right;">
-          <b><%= form.label :Technology_used_before %></b>
+          <b><%= form.label :usedTech%></b>
           <br><%= form.text_area :usedTech, :cols => "25", :rows => "6" %></br>
         </div>
+
       </div>
       
       <div>
         <div class="field", style="float:left;">
-          <b><%= form.label :favorite_Movie_Genre %></b>
+          <b><%= form.label :faveMovieGenre %></b>
           <br><%= form.text_area :faveMovieGenre, :cols => "25", :rows => "6" %></br>
         </div>
 
         <div class="field", style="float:right;">
-          <b><%= form.label :extracurriculars %></b>
+          <b><%= form.label :extracurric %></b>
           <br><%= form.text_area :extracurric, :cols => "25", :rows => "6" %></br>
         </div>
       </div>
 
       <div>
         <div class="field", style="width:200px;float:left;">
-          <b><%= form.label :Select_at_least_1_to_3_roles_you_would_like_to_pursue_a_career %></b>
+          <b><%= form.label :potentialRoles %></b>
+
+          <br>
 
             <%= check_box_tag 'interest[potentialRoles][]', 'Software Engineering', checked('Software Engineering'), id:'potentialRoles_software'%>
             Software Engineering<br>
@@ -129,48 +132,50 @@
 
             <%= check_box_tag 'interest[potentialRoles][]', 'Cyber Security', checked('Cyber Security'), id:'potentialRoles_cyberS'%>
             Cyber Security<br>
+          </br>
 
         </div>  
 
         <div class="field", style="width:200px;float:right;">
-          <b><%= form.label :Select_fields_you_have_worked_in %></b>
+          <b><%= form.label :pastWorkExp %></b>
+          <br>
+            <%= check_box_tag 'interest[pastWorkExp][]', 'Software Development', checked('Software Development'), id:'pastWorkExp_softwareDev'%>
+              Software Development<br>
 
-          <%= check_box_tag 'interest[pastWorkExp][]', 'Software Development', checked('Software Development'), id:'pastWorkExp_softwareDev'%>
-            Software Development<br>
+              <%= check_box_tag 'interest[pastWorkExp][]', 'Data Analytics and Visualization', checked('Data Analytics and Visualization'), id:'pastWorkExp_dataAnV'%>
+              Data Analytics and Visualization<br>
 
-            <%= check_box_tag 'interest[pastWorkExp][]', 'Data Analytics and Visualization', checked('Data Analytics and Visualization'), id:'pastWorkExp_dataAnV'%>
-            Data Analytics and Visualization<br>
-
-            <%= check_box_tag 'interest[pastWorkExp][]', 'Data Science', checked('Data Science'), id:'pastWorkExp_dataSc'%>
-            Data Science<br>
+              <%= check_box_tag 'interest[pastWorkExp][]', 'Data Science', checked('Data Science'), id:'pastWorkExp_dataSc'%>
+              Data Science<br>
 
 
-            <%= check_box_tag 'interest[pastWorkExp][]', 'Consulting', checked('Consulting'), id:'pastWorkExp_consult'%>
-            Consulting<br>
+              <%= check_box_tag 'interest[pastWorkExp][]', 'Consulting', checked('Consulting'), id:'pastWorkExp_consult'%>
+              Consulting<br>
 
-            <%= check_box_tag 'interest[pastWorkExp][]', 'Systems Analyst', checked('Systems Analyst'), id:'pastWorkExp_systemA'%>
-            Systems Analyst<br>
+              <%= check_box_tag 'interest[pastWorkExp][]', 'Systems Analyst', checked('Systems Analyst'), id:'pastWorkExp_systemA'%>
+              Systems Analyst<br>
 
-            <%= check_box_tag 'interest[pastWorkExp][]', 'Project Management', checked('Project Management'), id:'pastWorkExp_projectM'%>
-            Project Management<br>
+              <%= check_box_tag 'interest[pastWorkExp][]', 'Project Management', checked('Project Management'), id:'pastWorkExp_projectM'%>
+              Project Management<br>
 
-            <%= check_box_tag 'interest[pastWorkExp][]', 'Product Management', checked('Product Management'), id:'pastWorkExp_productM'%>
-            Product Management<br>
+              <%= check_box_tag 'interest[pastWorkExp][]', 'Product Management', checked('Product Management'), id:'pastWorkExp_productM'%>
+              Product Management<br>
 
-            <%= check_box_tag 'interest[pastWorkExp][]', 'Data Engineering/ETL Developer', checked('Data Engineering/ETL Developer'), id:'pastWorkExp_dataEngETL'%>
-            Data Engineering/ETL Developer<br>
+              <%= check_box_tag 'interest[pastWorkExp][]', 'Data Engineering/ETL Developer', checked('Data Engineering/ETL Developer'), id:'pastWorkExp_dataEngETL'%>
+              Data Engineering/ETL Developer<br>
 
-            <%= check_box_tag 'interest[pastWorkExp][]', 'Business Analytics', checked('Business Analytics'), id:'pastWorkExp_businessA'%>
-            Business Analytics<br>
+              <%= check_box_tag 'interest[pastWorkExp][]', 'Business Analytics', checked('Business Analytics'), id:'pastWorkExp_businessA'%>
+              Business Analytics<br>
 
-            <%= check_box_tag 'interest[pastWorkExp][]', 'Cyber Security', checked('Cyber Security'), id:'pastWorkExp_cyberS'%>
-            Cyber Security<br>
+              <%= check_box_tag 'interest[pastWorkExp][]', 'Cyber Security', checked('Cyber Security'), id:'pastWorkExp_cyberS'%>
+              Cyber Security<br>
 
-            <%= check_box_tag 'interest[pastWorkExp][]', 'Quality Analyst/Engineer', checked('Quality Analyst/Engineer'), id:'pastWorkExp_qualityA'%>
-            Quality Analyst/Engineer<br>
+              <%= check_box_tag 'interest[pastWorkExp][]', 'Quality Analyst/Engineer', checked('Quality Analyst/Engineer'), id:'pastWorkExp_qualityA'%>
+              Quality Analyst/Engineer<br>
 
-            <%= check_box_tag 'interest[pastWorkExp][]', 'Other', checked('Other'), id:'pastWorkExp_other'%>
-            Other<br>
+              <%= check_box_tag 'interest[pastWorkExp][]', 'Other', checked('Other'), id:'pastWorkExp_other'%>
+              Other<br>
+          </br>
             
         </div>
       </div>
@@ -178,11 +183,11 @@
 
     <div>
       <div class="actions", style="float:right;">
-        <%= form.submit "Create Interest", :class => 'btn btn-outline-dark'%>
+        <%= form.submit class: 'btn btn-outline-primary' %>
       </div>
 
-      <%= link_to 'Back', interests_path, class:"btn btn-outline-dark" %>
-      <%= link_to 'All interests', interests_path, class:"btn btn-outline-dark" %>
+      <%= link_to 'Back', interests_path, class:"btn btn-outline-primary" %>
+      <%= link_to 'All interests', interests_path, class:"btn btn-outline-primary" %>
 
     </div>
 
