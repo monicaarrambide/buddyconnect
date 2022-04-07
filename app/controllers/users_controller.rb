@@ -3,7 +3,12 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    # users can see everyone while buddies only see officers/admins
+    if current_user.isAdmin
+      @users = User.all
+    else
+      @users = User.where(isOfficer: true)
+    end
   end
 
   # GET /users/1 or /users/1.json
