@@ -17,115 +17,115 @@ RSpec.describe "/biographies", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Biography. As you add validations to Biography, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  # let(:valid_attributes) {
+  #   skip("Add a hash of attributes valid for your model")
+  # }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  # let(:invalid_attributes) {
+  #   skip("Add a hash of attributes invalid for your model")
+  # }
 
-  describe "GET /index" do
-    it "renders a successful response" do
-      Biography.create! valid_attributes
-      get biographies_url
-      expect(response).to be_successful
-    end
-  end
-
-  describe "GET /show" do
-    it "renders a successful response" do
-      biography = Biography.create! valid_attributes
-      get biography_url(biography)
-      expect(response).to be_successful
-    end
-  end
-
-  # describe "GET /new" do
+  # describe "GET /index" do
   #   it "renders a successful response" do
-  #     get new_biography_url
+  #     Biography.create! valid_attributes
+  #     get biographies_url
   #     expect(response).to be_successful
   #   end
   # end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
-      biography = Biography.create! valid_attributes
-      get edit_biography_url(biography)
-      expect(response).to be_successful
-    end
-  end
+  # describe "GET /show" do
+  #   it "renders a successful response" do
+  #     biography = Biography.create! valid_attributes
+  #     get biography_url(biography)
+  #     expect(response).to be_successful
+  #   end
+  # end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Biography" do
-        expect {
-          post biographies_url, params: { biography: valid_attributes }
-        }.to change(Biography, :count).by(1)
-      end
+  # # describe "GET /new" do
+  # #   it "renders a successful response" do
+  # #     get new_biography_url
+  # #     expect(response).to be_successful
+  # #   end
+  # # end
 
-      it "redirects to the created biography" do
-        post biographies_url, params: { biography: valid_attributes }
-        expect(response).to redirect_to(biography_url(Biography.last))
-      end
-    end
+  # describe "GET /edit" do
+  #   it "renders a successful response" do
+  #     biography = Biography.create! valid_attributes
+  #     get edit_biography_url(biography)
+  #     expect(response).to be_successful
+  #   end
+  # end
 
-    context "with invalid parameters" do
-      it "does not create a new Biography" do
-        expect {
-          post biographies_url, params: { biography: invalid_attributes }
-        }.to change(Biography, :count).by(0)
-      end
+  # describe "POST /create" do
+  #   context "with valid parameters" do
+  #     it "creates a new Biography" do
+  #       expect {
+  #         post biographies_url, params: { biography: valid_attributes }
+  #       }.to change(Biography, :count).by(1)
+  #     end
 
-      it "renders a successful response (i.e. to display the 'new' template)" do
-        post biographies_url, params: { biography: invalid_attributes }
-        expect(response).to be_successful
-      end
-    end
-  end
+  #     it "redirects to the created biography" do
+  #       post biographies_url, params: { biography: valid_attributes }
+  #       expect(response).to redirect_to(biography_url(Biography.last))
+  #     end
+  #   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+  #   context "with invalid parameters" do
+  #     it "does not create a new Biography" do
+  #       expect {
+  #         post biographies_url, params: { biography: invalid_attributes }
+  #       }.to change(Biography, :count).by(0)
+  #     end
 
-      it "updates the requested biography" do
-        biography = Biography.create! valid_attributes
-        patch biography_url(biography), params: { biography: new_attributes }
-        biography.reload
-        skip("Add assertions for updated state")
-      end
+  #     it "renders a successful response (i.e. to display the 'new' template)" do
+  #       post biographies_url, params: { biography: invalid_attributes }
+  #       expect(response).to be_successful
+  #     end
+  #   end
+  # end
 
-      it "redirects to the biography" do
-        biography = Biography.create! valid_attributes
-        patch biography_url(biography), params: { biography: new_attributes }
-        biography.reload
-        expect(response).to redirect_to(biography_url(biography))
-      end
-    end
+  # describe "PATCH /update" do
+  #   context "with valid parameters" do
+  #     let(:new_attributes) {
+  #       skip("Add a hash of attributes valid for your model")
+  #     }
 
-    context "with invalid parameters" do
-      it "renders a successful response (i.e. to display the 'edit' template)" do
-        biography = Biography.create! valid_attributes
-        patch biography_url(biography), params: { biography: invalid_attributes }
-        expect(response).to be_successful
-      end
-    end
-  end
+  #     it "updates the requested biography" do
+  #       biography = Biography.create! valid_attributes
+  #       patch biography_url(biography), params: { biography: new_attributes }
+  #       biography.reload
+  #       skip("Add assertions for updated state")
+  #     end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested biography" do
-      biography = Biography.create! valid_attributes
-      expect {
-        delete biography_url(biography)
-      }.to change(Biography, :count).by(-1)
-    end
+  #     it "redirects to the biography" do
+  #       biography = Biography.create! valid_attributes
+  #       patch biography_url(biography), params: { biography: new_attributes }
+  #       biography.reload
+  #       expect(response).to redirect_to(biography_url(biography))
+  #     end
+  #   end
 
-    it "redirects to the biographies list" do
-      biography = Biography.create! valid_attributes
-      delete biography_url(biography)
-      expect(response).to redirect_to(biographies_url)
-    end
-  end
+  #   context "with invalid parameters" do
+  #     it "renders a successful response (i.e. to display the 'edit' template)" do
+  #       biography = Biography.create! valid_attributes
+  #       patch biography_url(biography), params: { biography: invalid_attributes }
+  #       expect(response).to be_successful
+  #     end
+  #   end
+  # end
+
+  # describe "DELETE /destroy" do
+  #   it "destroys the requested biography" do
+  #     biography = Biography.create! valid_attributes
+  #     expect {
+  #       delete biography_url(biography)
+  #     }.to change(Biography, :count).by(-1)
+  #   end
+
+  #   it "redirects to the biographies list" do
+  #     biography = Biography.create! valid_attributes
+  #     delete biography_url(biography)
+  #     expect(response).to redirect_to(biographies_url)
+  #   end
+  # end
 end

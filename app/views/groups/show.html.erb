@@ -47,28 +47,19 @@
     <p>
       <strong>Members:</strong>
     </p>
-      <%User.where(groupId: @group.groupId).where.not(studentId: @group.leaderInt).each do |user| %>
-        <div class="card">
-          <div class="container">
-            <tr>
-              <td><%=user.fullName%> </td>
-              <td><%if current_user.isOfficer%>
-                <%= link_to 'Show', user_path(user.studentId)%>
-              <% end %>
-            <% end %>     
-          </div>
-
-
-          <%= link_to 'Profile', user_path(current_user.studentId) %>
-          <% if current_user.isOfficer%>
-            | <%= link_to 'Edit', edit_group_path(@group.groupId) %>
-          <% end %>
-          <% if current_user.isAdmin %>
-            | <%= link_to 'Show Groups', groups_path %>
-          <% end %>
+    <%User.where(groupId: @group.groupId).where.not(studentId: @group.leaderInt).each do |user| %>
+      <div class="card">
+        <div class="container">
+          <tr>
+            <td><%=user.fullName%> </td>
+            <td><%if current_user.isOfficer%>
+              <%= link_to 'Show', user_path(user.studentId)%>
+            <% end %>
+            </td>
+          </tr>
         </div>
-        <br/>
-    <% end %>
+      <% end %>   
+
     <%= link_to 'Profile', user_path(current_user.studentId) %>
     <% if current_user.isOfficer%>
       | <%= link_to 'Edit', edit_group_path(@group.groupId) %>
