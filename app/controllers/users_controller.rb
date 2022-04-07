@@ -21,7 +21,10 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    @user = User.new(user_params)
+    create_params = user_params
+    create_params[:studentId] = SecureRandom.uuid
+
+    @user = User.new(create_params)
 
     respond_to do |format|
       if @user.save

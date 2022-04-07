@@ -11,32 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :studentId %>
-    <%= form.number_field :studentId %>
-  </div>
-
-  <div class="field">
-    <%= form.label :groupId %>
-    <%= form.number_field :groupId %>
-  </div>
-
-  <div class="field">
-    <%= form.label :profileId %>
-    <%= form.number_field :profileId %>
-  </div>
-
- 
-  <div class="field">
-    <%= form.label :isOfficer %>
-    <%= form.check_box :isOfficer %>
-  </div>
-
-  <div class="field">
-    <%= form.label :isAdmin %>
-    <%= form.check_box :isAdmin %>
-  </div>
- 
+  <%= hidden_field_tag "user[studentId]", "#{@user.studentId}" %>
 
   <div class="field">
     <%= form.label :fullName %>
@@ -62,6 +37,18 @@
     <%= form.label :gradAssistance %>
     <%= form.check_box :gradAssistance %>
   </div>
+ 
+  <% if current_user.isAdmin%>
+    <div class="field">
+      <%= form.label :isOfficer %>
+      <%= form.check_box :isOfficer %>
+    </div>
+
+    <div class="field">
+      <%= form.label :isAdmin %>
+      <%= form.check_box :isAdmin %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
