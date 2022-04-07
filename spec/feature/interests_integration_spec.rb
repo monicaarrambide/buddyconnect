@@ -16,9 +16,7 @@ RSpec.describe 'Creating a interest', type: :feature do
     fill_in 'Fullname', with: 'Jimbo Fisher'
     fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
-    select '2020', :from => 'user_dateOfBirth_1i'
-    select 'October', :from => 'user_dateOfBirth_2i'
-    select '9', :from => 'user_dateOfBirth_3i'
+    fill_in 'Dateofbirth', with: '2020-09-28'
     click_on 'Create User'
 
     visit new_interest_path
@@ -64,9 +62,7 @@ RSpec.describe 'Creating a interest', type: :feature do
     fill_in 'Fullname', with: 'Jimbo Fisher'
     fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
-    select '2020', :from => 'user_dateOfBirth_1i'
-    select 'October', :from => 'user_dateOfBirth_2i'
-    select '9', :from => 'user_dateOfBirth_3i'
+    fill_in 'Dateofbirth', with: '2020-09-28'
     click_on 'Create User'
 
     visit new_interest_path

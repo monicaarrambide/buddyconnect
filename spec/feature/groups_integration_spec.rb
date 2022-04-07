@@ -15,9 +15,7 @@ RSpec.describe 'Creating a group', type: :feature do
     fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
     check 'user_isOfficer'
-    select '2020', :from => 'user_dateOfBirth_1i'
-    select 'October', :from => 'user_dateOfBirth_2i'
-    select '9', :from => 'user_dateOfBirth_3i'
+    fill_in 'Dateofbirth', with: '2020-09-28'
     click_on 'Create User'
 
     visit new_group_path
@@ -42,9 +40,7 @@ RSpec.describe 'Creating a group', type: :feature do
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
     fill_in 'Groupid', with: 123
     check 'user_isOfficer'
-    select '2020', :from => 'user_dateOfBirth_1i'
-    select 'October', :from => 'user_dateOfBirth_2i'
-    select '9', :from => 'user_dateOfBirth_3i'
+    fill_in 'Dateofbirth', with: '2020-09-28'
     click_on 'Create User'
     
     visit new_group_path
@@ -58,9 +54,7 @@ RSpec.describe 'Creating a group', type: :feature do
     fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'studa@tamu.edu'
     fill_in 'Groupid', with: 567
-    select '2020', :from => 'user_dateOfBirth_1i'
-    select 'October', :from => 'user_dateOfBirth_2i'
-    select '9', :from => 'user_dateOfBirth_3i'
+    fill_in 'Dateofbirth', with: '2020-09-28'
     click_on 'Create User'
     
     visit edit_group_path(123)
@@ -83,9 +77,7 @@ RSpec.describe 'Creating a group', type: :feature do
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
     fill_in 'Groupid', with: 123
     check 'user_isOfficer'
-    select '2020', :from => 'user_dateOfBirth_1i'
-    select 'October', :from => 'user_dateOfBirth_2i'
-    select '9', :from => 'user_dateOfBirth_3i'
+    fill_in 'Dateofbirth', with: '2020-09-28'
     click_on 'Create User'
     
     visit new_group_path
@@ -99,9 +91,7 @@ RSpec.describe 'Creating a group', type: :feature do
     fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'studa@tamu.edu'
     fill_in 'Groupid', with: 123
-    select '2020', :from => 'user_dateOfBirth_1i'
-    select 'October', :from => 'user_dateOfBirth_2i'
-    select '9', :from => 'user_dateOfBirth_3i'
+    fill_in 'Dateofbirth', with: '2020-09-28'
     click_on 'Create User'
     
     visit edit_group_path(123)

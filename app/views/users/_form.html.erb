@@ -26,18 +26,6 @@
     <%= form.number_field :profileId %>
   </div>
 
- 
-  <div class="field">
-    <%= form.label :isOfficer %>
-    <%= form.check_box :isOfficer %>
-  </div>
-
-  <div class="field">
-    <%= form.label :isAdmin %>
-    <%= form.check_box :isAdmin %>
-  </div>
- 
-
   <div class="field">
     <%= form.label :fullName %>
     <%= form.text_field :fullName %>
@@ -55,15 +43,32 @@
 
   <div class="field">
     <%= form.label :dateOfBirth %>
-    <%= form.date_select :dateOfBirth %>
+    <%= form.date_field :dateOfBirth %>
   </div>
 
-  <div class="field">
-    <%= form.label :gradAssistance %>
-    <%= form.check_box :gradAssistance %>
+  <div class="col d-flex justify-content-center">
+    <div class="field">
+      <%= form.check_box :gradAssistance %>
+      <%= form.label :gradAssistance %>
+    </div>
+    &nbsp;
+    <div class="field">
+      <%= form.check_box :isOfficer %>
+      <%= form.label :isOfficer %>
+    </div>
+    &nbsp;
+    <div class="field">
+      <%= form.check_box :isAdmin %>
+      <%= form.label :isAdmin %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="col d-flex justify-content-center">
+    <div class="actions">
+      <% if current_user.studentId == @user.studentId %>
+          <%= link_to 'Show', user_path(@user.studentId), class:"btn btn-outline-primary" %> 
+      <% end %>
+      <%= form.submit class: 'btn btn-outline-primary' %>
+    </div>
   </div>
 <% end %>

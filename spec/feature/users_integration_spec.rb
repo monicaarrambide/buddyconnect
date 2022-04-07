@@ -13,9 +13,7 @@ RSpec.describe 'Creating a user', type: :feature do
         fill_in 'Fullname', with: 'Jimbo Fisher'
         fill_in 'Avatarurl', with: 'url'
         fill_in 'Tamuemail', with: 'jf@tamu.edu'
-        select '2020', :from => 'user_dateOfBirth_1i'
-        select 'October', :from => 'user_dateOfBirth_2i'
-        select '9', :from => 'user_dateOfBirth_3i'
+        fill_in 'Dateofbirth', with: '2020-09-28'
         click_on 'Create User'
         visit users_path
         expect(page).to have_content('Jimbo Fisher')
@@ -30,9 +28,7 @@ RSpec.describe 'Creating a user', type: :feature do
         fill_in 'Fullname', with: 'Jimbo Fisher'
         fill_in 'Avatarurl', with: 'url'
         fill_in 'Tamuemail', with: 'jf@tamu.edu'
-        select '2020', :from => 'user_dateOfBirth_1i'
-        select 'October', :from => 'user_dateOfBirth_2i'
-        select '9', :from => 'user_dateOfBirth_3i'
+        fill_in 'Dateofbirth', with: '2020-09-28'
         click_on 'Create User'
         #visit user_path(123) #should show new user page
         visit edit_user_path(123)
@@ -56,9 +52,7 @@ RSpec.describe 'Navigating from user page', type: :feature do
         fill_in 'Fullname', with: 'Jimbo Fisher'
         fill_in 'Avatarurl', with: 'url'
         fill_in 'Tamuemail', with: 'jf@tamu.edu'
-        select '2020', :from => 'user_dateOfBirth_1i'
-        select 'October', :from => 'user_dateOfBirth_2i'
-        select '9', :from => 'user_dateOfBirth_3i'
+        fill_in 'Dateofbirth', with: '2020-09-28'
         click_on 'Create User'
 
         visit user_path(123)
@@ -75,9 +69,7 @@ RSpec.describe 'Navigating from user page', type: :feature do
         fill_in 'Fullname', with: 'Jimbo Fisher'
         fill_in 'Avatarurl', with: 'url'
         fill_in 'Tamuemail', with: 'jf@tamu.edu'
-        select '2020', :from => 'user_dateOfBirth_1i'
-        select 'October', :from => 'user_dateOfBirth_2i'
-        select '9', :from => 'user_dateOfBirth_3i'
+        fill_in 'Dateofbirth', with: '2020-09-28'
         click_on 'Create User'
 
         visit users_path
