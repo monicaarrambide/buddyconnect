@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark"> 
+<nav class="navbar navbar-dark bg-primary"> 
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,14 +8,14 @@
   </div>
 </nav>
 <div class="collapse" id="navbarToggleExternalContent">
-  <div class="bg-dark p-4">
+  <div class="bg-primary p-4">
     <span class="text-white h4 center">
         <ul class="navbar-nav text-center">
-            <%= link_to 'Profile', user_path(current_user.studentId), class:"btn btn-dark" %>
+            <%= link_to 'Profile', user_path(current_user.studentId), class:"btn btn-primary" %>
             <% if current_user.groupId.present? %>
-                <%= link_to 'Group', group_path(current_user.groupId), class:"btn btn-dark" %>
+                <%= link_to 'Group', group_path(current_user.groupId), class:"btn btn-primary" %>
             <% end %>
-            <%= link_to 'Forum', posts_path, class:"btn btn-dark" %>
+            <%= link_to 'Forum', posts_path, class:"btn btn-primary" %>
         </ul>
     </span>
   </div>
@@ -23,6 +23,7 @@
 
 &nbsp;
 
+<%= render 'form', interest: @interest %>
 <%= link_to 'Show', interest_path(@interest.userId) %> 
 <% if current_user.isAdmin %>
     |<%= link_to 'Back', user_path(@interest.userId) %>

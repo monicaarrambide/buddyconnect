@@ -67,13 +67,14 @@
             | <%= link_to 'Show Groups', groups_path %>
           <% end %>
         </div>
-      </div>
-
-
-        
-
-        
-
-        
+        <br/>
+    <% end %>
+    <%= link_to 'Profile', user_path(current_user.studentId) %>
+    <% if current_user.isOfficer%>
+      | <%= link_to 'Edit', edit_group_path(@group.groupId) %>
+    <% end %>
+    <% if current_user.isAdmin %>
+      | <%= link_to 'Show Groups', groups_path %>
+    <% end %>
   </body>
 </html>

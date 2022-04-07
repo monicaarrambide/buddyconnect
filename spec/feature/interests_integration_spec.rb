@@ -30,12 +30,10 @@ RSpec.describe 'Creating a interest', type: :feature do
     select 5, :from => 'interest_numPrereqs'
     select 'No', :from => 'interest_scholarship'
     fill_in 'Favemoviegenre', with: 'Action'
-    #select 'Software Engineering', :from => 'potentialRoles_software'
     fill_in 'Usedtech', with: 'Rails'
     select 1, :from => 'interest_numWorkExp'
     fill_in 'Projects', with: 'Canadian wombat photography'
     fill_in 'Extracurric', with: 'Photography'
-    #select 'Software Developement', :from => 'pastWorkExp_softwareDev'
     check 'potentialRoles_software'
     check 'pastWorkExp_softwareDev'
 
