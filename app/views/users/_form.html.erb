@@ -1,56 +1,62 @@
-<%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="d-flex align-items-center justify-content-center">
+  <%= form_with(model: user) do |form| %>
+    <% if user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= hidden_field_tag "user[studentId]", "#{@user.studentId}" %>
+    <%= hidden_field_tag "user[avatarUrl]", "#{@user.avatarUrl}" %>
+
+    <div>
+      &nbsp;
+      <div class="field">
+        <b><%= form.label :fullName %></b>
+        <br><%= form.text_field :fullName %>
+      </div>
+
+      &nbsp;
+      <div class="field">
+        <b><%= form.label :tamuEmail %></b>
+        <br><%= form.text_field :tamuEmail %>
+      </div>
+
+      &nbsp;
+      <div class="field">
+        <b><%= form.label :dateOfBirth %></b>
+        <br><%= form.date_select :dateOfBirth %>
+      </div>
+
+      &nbsp;
+      <div class="field">
+        <b><%= form.label :gradAssistance %></b>
+        <%= form.check_box :gradAssistance %>
+      </div>
+    
+      <% if current_user.isAdmin%>
+        &nbsp;
+        <div class="field">
+          <b><%= form.label :isOfficer %></b>
+          <%= form.check_box :isOfficer %>
+        </div>
+
+        &nbsp;
+        <div class="field">
+          <b><%= form.label :isAdmin %></b>
+          <%= form.check_box :isAdmin %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <%= hidden_field_tag "user[studentId]", "#{@user.studentId}" %>
-
-  <div class="field">
-    <%= form.label :fullName %>
-    <%= form.text_field :fullName %>
-  </div>
-
-  <div class="field">
-    <%= form.label :avatarUrl %>
-    <%= form.text_field :avatarUrl %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tamuEmail %>
-    <%= form.text_field :tamuEmail %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dateOfBirth %>
-    <%= form.date_select :dateOfBirth %>
-  </div>
-
-  <div class="field">
-    <%= form.label :gradAssistance %>
-    <%= form.check_box :gradAssistance %>
-  </div>
- 
-  <% if current_user.isAdmin%>
-    <div class="field">
-      <%= form.label :isOfficer %>
-      <%= form.check_box :isOfficer %>
-    </div>
-
-    <div class="field">
-      <%= form.label :isAdmin %>
-      <%= form.check_box :isAdmin %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
