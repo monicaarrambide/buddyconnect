@@ -46,15 +46,15 @@
                 <% if not Interest.where(userId: current_user.studentId).exists? %>
                   <%= link_to 'Create Interest', new_interest_path, :class => "btn btn-outline-primary ms-1" %>
                 <% else %>
-                  <%= link_to 'Edit Interest', edit_interest_path(current_user.studentId), :class => "btn btn-outline-primary ms-1"  %>
+                  <%= link_to 'Edit Interest', edit_interest_path(@user.studentId), :class => "btn btn-outline-primary ms-1"  %>
                 <% end %>
               <% end %>
               
             </div>
           </div>
           <div style = "padding: 5px;">
-            <%if Biography.find_by(userId: current_user.studentId) %>
-            <%=Biography.find_by(userId: current_user.studentId).description%>
+            <%if Biography.find_by(userId: @user.studentId) %>
+              <%=Biography.find_by(userId: @user.studentId).description%>
             <%end%>
            </div>
         </div>
@@ -131,10 +131,10 @@
         </div>
       </div>
 
-      <% if not Interest.where(userId: current_user.studentId).exists? %>
+      <% if not Interest.where(userId: @user.studentId).exists? %>
         <%= link_to 'Create Interest', new_interest_path, :class => "btn btn-outline-primary ms-1" %>
       <% else %>
-        <% interest = Interest.where(userId: current_user.studentId).first %>
+        <% interest = Interest.where(userId: @user.studentId).first %>
         <div class="col-lg-8">
           <div class="card mb-4">
             <div class="card-body">
