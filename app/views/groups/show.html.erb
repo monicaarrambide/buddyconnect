@@ -37,13 +37,13 @@
         </span>
       </div>
     </div>
-
   </head>
+
   <body>
     <p>Group</p>
     <p>
       <strong>Groupid:</strong>
-      <%= @group.groupId %>
+      
     </p>
     <p>
       <strong>Group Leader:</strong>
@@ -52,20 +52,19 @@
     <p>
       <strong>Members:</strong>
     </p>
-      <%User.where(groupId: @group.groupId).where.not(studentId: @group.leaderInt).each do |user| %>
-        <div class="card">
-          <div class="container">
-            <tr>
-              <td><%=user.fullName%> </td>
-              <td><%if current_user.isOfficer%>
-                <%= link_to 'Show', user_path(user.studentId)%>
-              <% end %>
-              </td>
-            </tr>
-          </div>
+    <%User.where(groupId: @group.groupId).where.not(studentId: @group.leaderInt).each do |user| %>
+      <div class="card">
+        <div class="container">
+          <tr>
+            <td><%=user.fullName%> </td>
+            <td><%if current_user.isOfficer%>
+              <%= link_to 'Show', user_path(user.studentId)%>
+            <% end %>
+            </td>
+          </tr>
         </div>
-        <br/>
-    <% end %>
+      <% end %>   
+
     <%= link_to 'Profile', user_path(current_user.studentId) %>
     <% if current_user.isOfficer%>
       | <%= link_to 'Edit', edit_group_path(@group.groupId) %>
