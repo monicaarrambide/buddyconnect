@@ -3,6 +3,7 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
+    redirect_to user_path(current_user.studentId) unless current_user.isOfficer?
     @groups = Group.all
     @users = User.all
   end
