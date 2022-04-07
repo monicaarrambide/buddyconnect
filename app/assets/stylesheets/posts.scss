@@ -1,3 +1,35 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.post-container{
+    padding-top: 5%;
+    margin: auto;
+    text-align: left;
+    width: 85%;
+}
+
+.comments-container{
+    padding-top: 1%;
+    text-align: left;
+    margin: auto;
+    width: 85%;
+}
+
+.reply-container{
+    padding-top: 1%;
+    text-align: left;
+    margin: auto;
+    width: 85%;
+}
+
+.options-container{
+    width: 85%;
+    margin: auto;
+    display: flex;
+}
+
+.option-buttons{
+    display: inline-block;
+}
+
+.return-links{
+    margin: auto;
+    width: 85%;
+}
