@@ -39,13 +39,91 @@
     </div>
   </head>
 
+
+
+
+
+
+  <div style="display:flex;height:100%; margin-left:5%;">
+     I am here
+     <div style="border-left:2px solid black;margin:0 100px;"></div>
+       <div>
+         <div style="text-align: center;">
+           <p>
+ 
+             <br><strong>Group Leader:</strong>
+             
+           </p>
+         </div>
+ 
+         <p>
+           <strong>Members:</strong>
+         </p>
+         <div class="container-fluid">
+           hi
+         </div>
+ 
+ 
+         <%= link_to 'Profile', user_path(current_user.studentId) %>
+         <% if current_user.isOfficer%>
+           | <%= link_to 'Edit', edit_group_path(@group.groupId) %>
+         <% end %>
+         <% if current_user.isAdmin %>
+           | <%= link_to 'Show Groups', groups_path %>
+         <% end %>
+       </div>
+     </div>
+
+
+
+
+
   <body>
-    <p>Group</p>
     <p>
-      <strong>Groupid:</strong>
-      
-    </p>
-    <p>
+
+      <div class="card text-center" style="width: 18rem;">
+        <img src= <%= current_user.avatarUrl %> class="rounded-circle img-fluid" style="width: 150px;" alt="avatar">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= current_user.fullName %>
+          </h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <% if current_user.isAdmin%>
+                Admin, 
+            <% end %>
+            <% if current_user.isOfficer %>
+                Officer
+            <% end %>  
+            <% if current_user.gradAssistance %>
+              <li class="list-group-item">
+                Graduate Assistantship
+              </li>
+            <% end %>  
+          </li>
+
+          <li class="list-group-item">
+            Phone goes here
+          </li>
+
+          <li class="list-group-item">
+            <%= current_user.tamuEmail %>
+          </li>
+
+        </ul>
+        <div class="card-body">
+          <div class="col d-flex justify-content-center">
+            <a href="#" class="card-link">
+              <%= link_to 'Profile', user_path(current_user.studentId),:class => "text-white btn btn-primary ms-1" %>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+
       <strong>Group Leader:</strong>
       <%= User.where(studentId: @group.leaderInt).first ? User.where(studentId: @group.leaderInt).first.fullName : "None"  %>
     </p>
@@ -74,3 +152,6 @@
     <% end %>
   </body>
 </html>
+
+
+
