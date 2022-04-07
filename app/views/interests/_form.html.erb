@@ -12,14 +12,13 @@
       </div>
     <% end %>
 
-    
+    <% if @interest.userId %>
+      <%= hidden_field_tag "interest[userId]", "#{@interest.userId}" %>
+    <% else %>
+      <%= hidden_field_tag "interest[userId]", "#{userId}" %>
+    <% end %>
 
-    <div style="width:600px; height:750px; float:left;">  
-      <div class="field">
-        <b><%= form.label :userId %></b>
-        <br><%= form.number_field :userId %></br>
-      </div>
-
+    <div>
       &nbsp;
       <div class="field">
         <b><%= form.label :phone %></b>
