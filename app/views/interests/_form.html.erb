@@ -79,7 +79,8 @@
         </div>
 
         <div class="field", style="float:right;">
-          <b><%= form.label :usedTech%></b>
+          <b><%= form.label :usedTech, :class => "invis-title"%></b>
+          <b>Technology Used Before</b>
           <br><%= form.text_area :usedTech, :cols => "25", :rows => "6" %></br>
         </div>
 
@@ -87,21 +88,28 @@
       
       <div>
         <div class="field", style="float:left;">
-          <b><%= form.label :faveMovieGenre %></b>
+          <b><%= form.label :faveMovieGenre, :class => "invis-title" %></b>
+          <b>Favorite Movie Genre</b>
           <br><%= form.text_area :faveMovieGenre, :cols => "25", :rows => "6" %></br>
         </div>
 
         <div class="field", style="float:right;">
-          <b><%= form.label :extracurric %></b>
+          <b><%= form.label :extracurric, :class => "invis-title" %></b>
+          <b>extracurriculars</b>
           <br><%= form.text_area :extracurric, :cols => "25", :rows => "6" %></br>
         </div>
       </div>
 
+            
+      <div class="field" , style="text-align:center; float:center; top: 200px; margin-top: 350px;">
+          <b><%= form.label :biography %></b>
+          <br><%= form.text_area :biography, :cols => "50", :rows => "3", placeholder: "Add a biography" %></br>
+      </div>
+
       <div>
         <div class="field", style="width:200px;float:left;">
-          <b><%= form.label :potentialRoles %></b>
-
-          <br>
+          <b><%= form.label :potentialRoles, :class => "invis-title" %></b>
+          <br><b>Select at least 1 to 3 roles you would like to pursue a career as:</b></br>
 
             <%= check_box_tag 'interest[potentialRoles][]', 'Software Engineering', checked('Software Engineering'), id:'potentialRoles_software'%>
             Software Engineering<br>
@@ -132,13 +140,13 @@
 
             <%= check_box_tag 'interest[potentialRoles][]', 'Cyber Security', checked('Cyber Security'), id:'potentialRoles_cyberS'%>
             Cyber Security<br>
-          </br>
+          
 
         </div>  
 
         <div class="field", style="width:200px;float:right;">
-          <b><%= form.label :pastWorkExp %></b>
-          <br>
+          <%= form.label :pastWorkExp, :class => "invis-title" %>
+          <br><b>Select fields you have worked in:</b></br>
             <%= check_box_tag 'interest[pastWorkExp][]', 'Software Development', checked('Software Development'), id:'pastWorkExp_softwareDev'%>
               Software Development<br>
 
@@ -175,19 +183,20 @@
 
               <%= check_box_tag 'interest[pastWorkExp][]', 'Other', checked('Other'), id:'pastWorkExp_other'%>
               Other<br>
-          </br>
+          
             
         </div>
       </div>
     </div>
-
+    
+    
     <div>
-      <div class="actions", style="float:right;">
+      <div class="actions">
+        <% if current_user.isAdmin ||  current_user.isOfficer%>
+            <%= link_to 'Back', interests_path, class:"btn btn-outline-primary"  %>
+        <% end %>
         <%= form.submit class: 'btn btn-outline-primary' %>
       </div>
-
-      <%= link_to 'Back', interests_path, class:"btn btn-outline-primary" %>
-      <%= link_to 'All interests', interests_path, class:"btn btn-outline-primary" %>
 
     </div>
 

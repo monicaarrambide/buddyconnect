@@ -4,6 +4,7 @@ class InterestsController < ApplicationController
   # GET /interests or /interests.json
   def index
     @interests = Interest.all
+    @biographies = Biography.all
   end
 
   # GET /interests/1 or /interests/1.json
@@ -21,15 +22,30 @@ class InterestsController < ApplicationController
 
   # POST /interests or /interests.json
   def create
-    @interest = Interest.new(interest_params)
+    temp_params = interest_params
+    #puts temp_params
+    #if temp_params[:biography].present?
+    temp_params.delete :biography
+    #end
 
+    @interest = Interest.new(temp_params)
     respond_to do |format|
       if @interest.save
-        format.html { redirect_to user_url(@interest.userId), notice: "Interest was successfully created." }
-        format.json { render :show, status: :created, location: user_path(@interest.studentId) }
+        if interest_params[:biography].present?
+          create_bio_params = {
+            :userId => interest_params[:userId],
+            :description => interest_params[:biography],
+          }
+          Biography.create(create_bio_params)
+
+        end
+        format.html { redirect_to interest_url(@interest.userId), notice: "Interest was successfully created." }
+        format.json { render :show, status: :created, location: interest_path(@interest.userId) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @interest.errors, status: :unprocessable_entity }
+        destroybio = Biography.find_by(userId: params[:interest][:userId])
+        
       end
     end
   end
@@ -37,10 +53,24 @@ class InterestsController < ApplicationController
   # PATCH/PUT /interests/1 or /interests/1.json
   def update
     respond_to do |format|
+      temp_params = interest_params
+      temp_params.delete :biography
+
+      if interest_params[:biography].present?
+        create_bio_params = {
+          # if we use current_user we can't test other users
+          :userId => interest_params[:userId],
+          :description => interest_params[:biography],
+        }
+        #puts temp_params
+        biography = Biography.find_by(userId: interest_params[:userId])
+        biography.update(create_bio_params)
+      end
+
       @interest = Interest.find_by(userId: params[:interest][:userId])
-      if @interest.update(interest_params)
-        format.html { redirect_to user_url(@interest.userId), notice: "Interest was successfully updated." }
-        format.json { render :show, status: :ok, location: user_path(@interest.userId) }
+      if @interest.update(temp_params)
+          format.html { redirect_to user_url(@interest.userId), notice: "Interest was successfully updated." }
+          format.json { render :show, status: :ok, location: user_path(@interest.userId) }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @interest.errors, status: :unprocessable_entity }
@@ -67,6 +97,6 @@ class InterestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def interest_params
-      params.require(:interest).permit(:userId, :phone, :nationality, :state, :community, :numPrereqs, :scholarship, :faveMovieGenre, :numWorkExp, :usedTech, :projects, :extracurric, pastWorkExp:[], potentialRoles:[])
+      params.require(:interest).permit(:userId, :biography, :phone, :nationality, :state, :community, :numPrereqs, :scholarship, :faveMovieGenre, :numWorkExp, :usedTech, :projects, :extracurric, pastWorkExp:[], potentialRoles:[])
     end
 end

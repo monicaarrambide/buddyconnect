@@ -4,18 +4,24 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <h1 style="color: white;">Editing Interest</h1> 
-    <%= link_to "Sign Out", destroy_user_session_path, class:"btn btn-outline-light"%>
+    <%= link_to "Sign Out", destroy_user_session_path, class:"text-light btn btn-outline-light"%>
   </div>
 </nav>
 <div class="collapse" id="navbarToggleExternalContent">
   <div class="bg-primary p-4">
     <span class="text-white h4 center">
         <ul class="navbar-nav text-center">
-            <%= link_to 'Profile', user_path(current_user.studentId), class:"btn btn-primary" %>
+            <%= link_to 'Profile', user_path(current_user.studentId), class:"text-light btn btn-primary btn-lg btn-block" %>
             <% if current_user.groupId.present? %>
-                <%= link_to 'Group', group_path(current_user.groupId), class:"btn btn-primary" %>
+                <%= link_to 'Group', group_path(current_user.groupId), class:"text-light btn btn-primary btn-lg btn-block" %>
             <% end %>
-            <%= link_to 'Forum', posts_path, class:"btn btn-primary" %>
+            <%= link_to 'Forum', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+            <% if current_user.isAdmin || current_user.isOfficer%>
+              <%= link_to 'All Users', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+              <%= link_to 'All groups', groups_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+              <%= link_to 'All interests', interests_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+            <% end %>
+            
         </ul>
     </span>
   </div>
@@ -24,7 +30,3 @@
 &nbsp;
 
 <%= render 'form', interest: @interest %>
-<%= link_to 'Show', interest_path(@interest.userId) %> 
-<% if current_user.isAdmin %>
-    |<%= link_to 'Back', user_path(@interest.userId) %>
-<% end %>

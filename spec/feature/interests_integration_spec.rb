@@ -16,9 +16,7 @@ RSpec.describe 'Creating a interest', type: :feature do
     fill_in 'Fullname', with: 'Jimbo Fisher'
     fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
-    select '2020', :from => 'user_dateOfBirth_1i'
-    select 'October', :from => 'user_dateOfBirth_2i'
-    select '9', :from => 'user_dateOfBirth_3i'
+    fill_in 'Dateofbirth', with: '2020-09-28'
     click_on 'Create User'
 
     visit new_interest_path
@@ -36,6 +34,7 @@ RSpec.describe 'Creating a interest', type: :feature do
     fill_in 'Extracurric', with: 'Photography'
     check 'potentialRoles_software'
     check 'pastWorkExp_softwareDev'
+    fill_in 'Biography', with: 'Hi'
 
     click_on 'Create Interest'
     visit interests_path
@@ -53,6 +52,9 @@ RSpec.describe 'Creating a interest', type: :feature do
     expect(page).to have_content('Canadian wombat photography')
     expect(page).to have_content('Photography')
     expect(page).to have_content('Software Development')
+
+    visit user_path(12345678)
+    expect(page).to have_content('Hi')
   end
 
   scenario 'edit interest' do
@@ -64,9 +66,7 @@ RSpec.describe 'Creating a interest', type: :feature do
     fill_in 'Fullname', with: 'Jimbo Fisher'
     fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
-    select '2020', :from => 'user_dateOfBirth_1i'
-    select 'October', :from => 'user_dateOfBirth_2i'
-    select '9', :from => 'user_dateOfBirth_3i'
+    fill_in 'Dateofbirth', with: '2020-09-28'
     click_on 'Create User'
 
     visit new_interest_path
@@ -84,14 +84,20 @@ RSpec.describe 'Creating a interest', type: :feature do
     fill_in 'Extracurric', with: 'Photography'
     check 'potentialRoles_software'
     check 'pastWorkExp_softwareDev'
+    fill_in 'Biography', with: 'Hello'
 
     click_on 'Create Interest'
     visit edit_interest_path(12345678)
     fill_in 'Userid', with: 12345678
     fill_in 'Nationality', with: 'German'
+    fill_in 'Biography', with: 'Hi'
     click_on 'Update Interest'
+    
     visit interests_path
     expect(page).to have_content("German")
+
+    visit user_path(12345678)
+    expect(page).to have_content('Hi')
   end
 end
 
