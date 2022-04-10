@@ -23,7 +23,7 @@ RSpec.describe 'Creating a group', type: :feature do
     select 'Jimbo Fisher', :from => 'group_leaderInt'
 
     click_on 'Create Group'
-    visit groups_path
+    visit user_path(1234567)
     expect(page).to have_content(12345678)
     expect(page).to have_content('Jimbo Fisher')
   end
