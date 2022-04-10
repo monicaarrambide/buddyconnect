@@ -14,6 +14,7 @@ RSpec.describe 'Creating a user', type: :feature do
         fill_in 'Avatarurl', with: 'url'
         fill_in 'Tamuemail', with: 'jf@tamu.edu'
         fill_in 'Dateofbirth', with: '2020-09-28'
+        check 'user_isOfficer'
         click_on 'Create User'
         visit users_path
         expect(page).to have_content('Jimbo Fisher')
@@ -29,6 +30,7 @@ RSpec.describe 'Creating a user', type: :feature do
         fill_in 'Avatarurl', with: 'url'
         fill_in 'Tamuemail', with: 'jf@tamu.edu'
         fill_in 'Dateofbirth', with: '2020-09-28'
+        check 'user_isOfficer'
         click_on 'Create User'
         #visit user_path(123) #should show new user page
         visit edit_user_path(123)
