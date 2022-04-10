@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-04-07T19:31:38+00:00">2022-04-07T19:31:38+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-04-10T22:47:17+00:00">2022-04-10T22:47:17+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="yellow">
-  83.39%
+  82.21%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.59
+         1.53
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>1114</b> relevant lines,
-    <span class="green"><b>929</b> lines covered</span> and
-    <span class="red"><b>185</b> lines missed. </span>
+    <b>1102</b> relevant lines,
+    <span class="green"><b>906</b> lines covered</span> and
+    <span class="red"><b>196</b> lines missed. </span>
     (<span class="yellow">
-  83.39%
+  82.21%
 </span>
 )
   </div>
@@ -116,12 +116,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#8a71bd12ea6cd4c7e5dcd4a73fdfa9658ce5ef95" class="src_link" title="app/controllers/interests_controller.rb">app/controllers/interests_controller.rb</a></td>
-            <td class="yellow strong cell--number t-file__coverage">80.85 %</td>
-            <td class="cell--number">102</td>
-            <td class="cell--number">47</td>
-            <td class="cell--number">38</td>
-            <td class="cell--number">9</td>
-            <td class="cell--number">1.47</td>
+            <td class="red strong cell--number t-file__coverage">58.33 %</td>
+            <td class="cell--number">131</td>
+            <td class="cell--number">48</td>
+            <td class="cell--number">28</td>
+            <td class="cell--number">20</td>
+            <td class="cell--number">1.04</td>
             
           </tr>
         
@@ -165,7 +165,7 @@
             <td class="cell--number">150</td>
             <td class="cell--number">33</td>
             <td class="cell--number">117</td>
-            <td class="cell--number">1.31</td>
+            <td class="cell--number">1.27</td>
             
           </tr>
         
@@ -220,7 +220,7 @@
             <td class="cell--number">4</td>
             <td class="cell--number">4</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">33.50</td>
+            <td class="cell--number">22.50</td>
             
           </tr>
         
@@ -308,7 +308,7 @@
             <td class="cell--number">18</td>
             <td class="cell--number">18</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.22</td>
+            <td class="cell--number">1.11</td>
             
           </tr>
         
@@ -557,9 +557,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#8b516695c6a7380eb32e0312930599e0877ff45a" class="src_link" title="spec/feature/interests_integration_spec.rb">spec/feature/interests_integration_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">104</td>
-            <td class="cell--number">84</td>
-            <td class="cell--number">84</td>
+            <td class="cell--number">96</td>
+            <td class="cell--number">71</td>
+            <td class="cell--number">71</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -3944,8 +3944,8 @@
   <div class="header">
     <h3>app/controllers/interests_controller.rb</h3>
     <h4>
-      <span class="yellow">
-  80.85%
+      <span class="red">
+  58.33%
 </span>
 
       lines covered
@@ -3954,9 +3954,9 @@
     
 
     <div class="t-line-summary">
-      <b>47</b> relevant lines.
-      <span class="green"><b>38</b> lines covered</span> and
-      <span class="red"><b>9</b> lines missed.</span>
+      <b>48</b> relevant lines.
+      <span class="green"><b>28</b> lines covered</span> and
+      <span class="red"><b>20</b> lines missed.</span>
     </div>
 
     
@@ -4022,8 +4022,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="6">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
             
 
             
@@ -4033,8 +4033,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="7">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="7">
+            <span class="hits">1</span>
             
 
             
@@ -4242,13 +4242,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="26">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="26">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">    #puts temp_params</code>
+            
+
+            <code class="ruby">    temp_params[:userId] = current_user.studentId</code>
           </li>
         </div>
       
@@ -4259,12 +4259,23 @@
 
             
 
+            <code class="ruby">    #puts temp_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="28">
+            
+            
+
+            
+
             <code class="ruby">    #if temp_params[:biography].present?</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="28">
+          <li class="covered" data-hits="2" data-linenumber="29">
             <span class="hits">2</span>
             
 
@@ -4275,7 +4286,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="29">
+          <li class="never" data-hits="" data-linenumber="30">
             
             
 
@@ -4286,24 +4297,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="30">
+          <li class="never" data-hits="" data-linenumber="31">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="31">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    @interest = Interest.new(temp_params)</code>
           </li>
         </div>
       
@@ -4314,7 +4314,7 @@
 
             
 
-            <code class="ruby">    respond_to do |format|</code>
+            <code class="ruby">    @interest = Interest.new(temp_params)</code>
           </li>
         </div>
       
@@ -4325,7 +4325,7 @@
 
             
 
-            <code class="ruby">      if @interest.save</code>
+            <code class="ruby">    respond_to do |format|</code>
           </li>
         </div>
       
@@ -4336,12 +4336,23 @@
 
             
 
+            <code class="ruby">      if @interest.save</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="35">
+            <span class="hits">2</span>
+            
+
+            
+
             <code class="ruby">        if interest_params[:biography].present?</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="35">
+          <li class="never" data-hits="" data-linenumber="36">
             
             
 
@@ -4352,7 +4363,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="36">
+          <li class="covered" data-hits="2" data-linenumber="37">
             <span class="hits">2</span>
             
 
@@ -4363,7 +4374,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
+          <li class="never" data-hits="" data-linenumber="38">
             
             
 
@@ -4374,7 +4385,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
+          <li class="never" data-hits="" data-linenumber="39">
             
             
 
@@ -4385,7 +4396,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="39">
+          <li class="covered" data-hits="2" data-linenumber="40">
             <span class="hits">2</span>
             
 
@@ -4396,7 +4407,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="40">
+          <li class="never" data-hits="" data-linenumber="41">
             
             
 
@@ -4407,7 +4418,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="41">
+          <li class="never" data-hits="" data-linenumber="42">
             
             
 
@@ -4418,7 +4429,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="42">
+          <li class="covered" data-hits="4" data-linenumber="43">
             <span class="hits">4</span>
             
 
@@ -4429,7 +4440,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="43">
+          <li class="covered" data-hits="2" data-linenumber="44">
             <span class="hits">2</span>
             
 
@@ -4440,24 +4451,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="44">
+          <li class="never" data-hits="" data-linenumber="45">
             
             
 
             
 
             <code class="ruby">      else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="45">
-            
-            
-
-            
-
-            <code class="ruby">        format.html { render :new, status: :unprocessable_entity }</code>
           </li>
         </div>
       
@@ -4468,7 +4468,7 @@
 
             
 
-            <code class="ruby">        format.json { render json: @interest.errors, status: :unprocessable_entity }</code>
+            <code class="ruby">        format.html { render :new, status: :unprocessable_entity }</code>
           </li>
         </div>
       
@@ -4479,18 +4479,18 @@
 
             
 
-            <code class="ruby">        destroybio = Biography.find_by(userId: params[:interest][:userId])</code>
+            <code class="ruby">        format.json { render json: @interest.errors, status: :unprocessable_entity }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="48">
+          <li class="missed" data-hits="0" data-linenumber="48">
             
             
 
             
 
-            <code class="ruby">        </code>
+            <code class="ruby">        destroybio = Biography.find_by(userId: params[:interest][:userId])</code>
           </li>
         </div>
       
@@ -4501,7 +4501,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">        </code>
           </li>
         </div>
       
@@ -4512,7 +4512,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -4523,7 +4523,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -4534,7 +4534,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -4545,51 +4545,51 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+
             <code class="ruby">  # PATCH/PUT /interests/1 or /interests/1.json</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="54">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="55">
+            
             
 
             
 
-            <code class="ruby">  def update</code>
+            <code class="ruby">  # def update</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="55">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="56">
+            
             
 
             
 
-            <code class="ruby">    respond_to do |format|</code>
+            <code class="ruby">  #   respond_to do |format|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="56">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="57">
+            
             
 
             
 
-            <code class="ruby">      temp_params = interest_params</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="57">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      temp_params.delete :biography</code>
+            <code class="ruby">  #     temp_params = interest_params</code>
           </li>
         </div>
       
@@ -4600,18 +4600,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  #     temp_params.delete :biography</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="59">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="59">
+            
             
 
             
 
-            <code class="ruby">      if interest_params[:biography].present?</code>
+            <code class="ruby">  #     temp_params[:userId] = current_user.studentId</code>
           </li>
         </div>
       
@@ -4622,7 +4622,7 @@
 
             
 
-            <code class="ruby">        create_bio_params = {</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -4633,18 +4633,18 @@
 
             
 
-            <code class="ruby">          # if we use current_user we can&#39;t test other users</code>
+            <code class="ruby">      # if interest_params[:biography].present?</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="62">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="62">
+            
             
 
             
 
-            <code class="ruby">          :userId =&gt; interest_params[:userId],</code>
+            <code class="ruby">      #   create_bio_params = {</code>
           </li>
         </div>
       
@@ -4655,7 +4655,7 @@
 
             
 
-            <code class="ruby">          :description =&gt; interest_params[:biography],</code>
+            <code class="ruby">      #     # if we use current_user we can&#39;t test other users</code>
           </li>
         </div>
       
@@ -4666,7 +4666,7 @@
 
             
 
-            <code class="ruby">        }</code>
+            <code class="ruby">      #     :userId =&gt; interest_params[:userId],</code>
           </li>
         </div>
       
@@ -4677,29 +4677,29 @@
 
             
 
-            <code class="ruby">        #puts temp_params</code>
+            <code class="ruby">      #     :description =&gt; interest_params[:biography],</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="66">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="66">
+            
             
 
             
 
-            <code class="ruby">        biography = Biography.find_by(userId: interest_params[:userId])</code>
+            <code class="ruby">      #   }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="67">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="67">
+            
             
 
             
 
-            <code class="ruby">        biography.update(create_bio_params)</code>
+            <code class="ruby">  #       #puts temp_params</code>
           </li>
         </div>
       
@@ -4710,7 +4710,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">  #       biography = Biography.find_or_create_by(userId: current_user.studentId)</code>
           </li>
         </div>
       
@@ -4721,51 +4721,51 @@
 
             
 
+            <code class="ruby">  #       biography.update(create_bio_params)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="70">
+            
+            
+
+            
+
+            <code class="ruby">  #     end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="71">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="70">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="72">
+            
             
 
             
 
-            <code class="ruby">      @interest = Interest.find_by(userId: params[:interest][:userId])</code>
+            <code class="ruby">  #     @interest = Interest.find_by(userId: temp_params[:userId])</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="71">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="73">
+            
             
 
             
 
-            <code class="ruby">      if @interest.update(temp_params)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="72">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">          format.html { redirect_to user_url(@interest.userId), notice: &quot;Interest was successfully updated.&quot; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="73">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">          format.json { render :show, status: :ok, location: user_path(@interest.userId) }</code>
+            <code class="ruby">  #     if @interest.update(temp_params)</code>
           </li>
         </div>
       
@@ -4776,29 +4776,29 @@
 
             
 
-            <code class="ruby">      else</code>
+            <code class="ruby">  #         format.html { redirect_to user_url(@interest.userId), notice: &quot;Interest was successfully updated.&quot; }</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="75">
+          <li class="never" data-hits="" data-linenumber="75">
             
             
 
             
 
-            <code class="ruby">        format.html { render :edit, status: :unprocessable_entity }</code>
+            <code class="ruby">  #         format.json { render :show, status: :ok, location: user_path(@interest.userId) }</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="76">
+          <li class="never" data-hits="" data-linenumber="76">
             
             
 
             
 
-            <code class="ruby">        format.json { render json: @interest.errors, status: :unprocessable_entity }</code>
+            <code class="ruby">  #     else</code>
           </li>
         </div>
       
@@ -4809,7 +4809,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">  #       format.html { render :edit, status: :unprocessable_entity }</code>
           </li>
         </div>
       
@@ -4820,7 +4820,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">  #       format.json { render json: @interest.errors, status: :unprocessable_entity }</code>
           </li>
         </div>
       
@@ -4831,7 +4831,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">  #     end</code>
           </li>
         </div>
       
@@ -4842,7 +4842,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  #   end</code>
           </li>
         </div>
       
@@ -4853,40 +4853,40 @@
 
             
 
-            <code class="ruby">  # DELETE /interests/1 or /interests/1.json</code>
+            <code class="ruby">  # end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="82">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def destroy</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="83">
-            
-            
-
-            
-
-            <code class="ruby">    @interest.destroy</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="84">
+          <li class="never" data-hits="" data-linenumber="82">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="83">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="84">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def update</code>
           </li>
         </div>
       
@@ -4908,7 +4908,7 @@
 
             
 
-            <code class="ruby">      format.html { redirect_to interests_url, notice: &quot;Interest was successfully destroyed.&quot; }</code>
+            <code class="ruby">      temp_params = interest_params</code>
           </li>
         </div>
       
@@ -4919,18 +4919,18 @@
 
             
 
-            <code class="ruby">      format.json { head :no_content }</code>
+            <code class="ruby">      temp_params.delete :biography</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="88">
+          <li class="missed" data-hits="0" data-linenumber="88">
             
             
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      if interest_params[:biography].present?</code>
           </li>
         </div>
       
@@ -4941,29 +4941,29 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">        create_bio_params = {</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="90">
+          <li class="missed" data-hits="0" data-linenumber="90">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">          :userId =&gt; current_user.studentId,</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="91">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="91">
+            
             
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">          :description =&gt; interest_params[:biography],</code>
           </li>
         </div>
       
@@ -4974,45 +4974,133 @@
 
             
 
-            <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
+            <code class="ruby">        }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="93">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="93">
+            
             
 
             
 
-            <code class="ruby">    def set_interest</code>
+            <code class="ruby">        biography = Biography.find_or_create_by(userId: current_user.studentId)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="94">
+          <li class="missed" data-hits="0" data-linenumber="94">
             
             
 
             
 
-            <code class="ruby">      # params[:id] should be studentId</code>
+            <code class="ruby">        biography.update(create_bio_params)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="95">
-            <span class="hits">4</span>
+          <li class="never" data-hits="" data-linenumber="95">
+            
             
 
             
 
-            <code class="ruby">      @interest = Interest.find_by(userId: params[:id])</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="96">
+          <li class="missed" data-hits="0" data-linenumber="96">
+            
+            
+
+            
+
+            <code class="ruby">        @interest = Interest.find_by(userId: current_user.studentId)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="97">
+            
+            
+
+            
+
+            <code class="ruby">        if @interest.update(temp_params)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="98">
+            
+            
+
+            
+
+            <code class="ruby">          format.html { redirect_to user_url(@interest.userId), notice: &quot;Interest was successfully updated.&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="99">
+            
+            
+
+            
+
+            <code class="ruby">          format.json { render :show, status: :ok, location: user_path(@interest.userId) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="100">
+            
+            
+
+            
+
+            <code class="ruby">      else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="101">
+            
+            
+
+            
+
+            <code class="ruby">        format.html { render :edit, status: :unprocessable_entity }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="102">
+            
+            
+
+            
+
+            <code class="ruby">        format.json { render json: @interest.errors, status: :unprocessable_entity }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="103">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="104">
             
             
 
@@ -5023,7 +5111,18 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="97">
+          <li class="never" data-hits="" data-linenumber="105">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="106">
             
             
 
@@ -5034,40 +5133,117 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="98">
+          <li class="never" data-hits="" data-linenumber="107">
             
             
 
             
 
-            <code class="ruby">    # Only allow a list of trusted parameters through.</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="99">
+          <li class="never" data-hits="" data-linenumber="108">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="109">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="110">
+            
+            
+
+            
+
+            <code class="ruby">  # DELETE /interests/1 or /interests/1.json</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="111">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    def interest_params</code>
+            <code class="ruby">  def destroy</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="13" data-linenumber="100">
-            <span class="hits">13</span>
+          <li class="missed" data-hits="0" data-linenumber="112">
+            
             
 
             
 
-            <code class="ruby">      params.require(:interest).permit(:userId, :biography, :phone, :nationality, :state, :community, :numPrereqs, :scholarship, :faveMovieGenre, :numWorkExp, :usedTech, :projects, :extracurric, pastWorkExp:[], potentialRoles:[])</code>
+            <code class="ruby">    @interest.destroy</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="101">
+          <li class="never" data-hits="" data-linenumber="113">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="114">
+            
+            
+
+            
+
+            <code class="ruby">    respond_to do |format|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="115">
+            
+            
+
+            
+
+            <code class="ruby">      format.html { redirect_to interests_url, notice: &quot;Interest was successfully destroyed.&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="116">
+            
+            
+
+            
+
+            <code class="ruby">      format.json { head :no_content }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="117">
             
             
 
@@ -5078,7 +5254,150 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="102">
+          <li class="never" data-hits="" data-linenumber="118">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="119">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="120">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  private</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="121">
+            
+            
+
+            
+
+            <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="122">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def set_interest</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="123">
+            
+            
+
+            
+
+            <code class="ruby">      # params[:id] should be studentId</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="124">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      @interest = Interest.find_by(userId: params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="125">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="126">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="127">
+            
+            
+
+            
+
+            <code class="ruby">    # Only allow a list of trusted parameters through.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="128">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def interest_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="8" data-linenumber="129">
+            <span class="hits">8</span>
+            
+
+            
+
+            <code class="ruby">      params.require(:interest).permit(:userId, :biography, :phone, :nationality, :state, :community, :numPrereqs, :scholarship, :faveMovieGenre, :numWorkExp, :usedTech, :projects, :extracurric, pastWorkExp:[], potentialRoles:[])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="130">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="131">
             
             
 
@@ -10636,8 +10955,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="41" data-linenumber="335">
-            <span class="hits">41</span>
+          <li class="covered" data-hits="38" data-linenumber="335">
+            <span class="hits">38</span>
             
 
             
@@ -10669,8 +10988,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="18" data-linenumber="338">
-            <span class="hits">18</span>
+          <li class="covered" data-hits="15" data-linenumber="338">
+            <span class="hits">15</span>
             
 
             
@@ -11033,8 +11352,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="66" data-linenumber="3">
-            <span class="hits">66</span>
+          <li class="covered" data-hits="44" data-linenumber="3">
+            <span class="hits">44</span>
             
 
             
@@ -11044,8 +11363,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="66" data-linenumber="4">
-            <span class="hits">66</span>
+          <li class="covered" data-hits="44" data-linenumber="4">
+            <span class="hits">44</span>
             
 
             
@@ -11765,8 +12084,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="18">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="2" data-linenumber="18">
+            <span class="hits">2</span>
             
 
             
@@ -11776,8 +12095,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="19">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="2" data-linenumber="19">
+            <span class="hits">2</span>
             
 
             
@@ -21276,8 +21595,8 @@
     
 
     <div class="t-line-summary">
-      <b>84</b> relevant lines.
-      <span class="green"><b>84</b> lines covered</span> and
+      <b>71</b> relevant lines.
+      <span class="green"><b>71</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -21537,7 +21856,7 @@
 
             
 
-            <code class="ruby">    fill_in &#39;Userid&#39;, with: 12345678</code>
+            <code class="ruby">    fill_in &#39;Phone&#39;, with: &#39;123456789&#39;</code>
           </li>
         </div>
       
@@ -21548,7 +21867,7 @@
 
             
 
-            <code class="ruby">    fill_in &#39;Phone&#39;, with: &#39;123456789&#39;</code>
+            <code class="ruby">    fill_in &#39;Nationality&#39;, with: &#39;Native American&#39;</code>
           </li>
         </div>
       
@@ -21559,7 +21878,7 @@
 
             
 
-            <code class="ruby">    fill_in &#39;Nationality&#39;, with: &#39;Native American&#39;</code>
+            <code class="ruby">    select &#39;TX&#39;, :from =&gt; &#39;interest_state&#39;</code>
           </li>
         </div>
       
@@ -21570,7 +21889,7 @@
 
             
 
-            <code class="ruby">    select &#39;TX&#39;, :from =&gt; &#39;interest_state&#39;</code>
+            <code class="ruby">    select &#39;Park West&#39;, :from =&gt; &#39;interest_community&#39;</code>
           </li>
         </div>
       
@@ -21581,7 +21900,7 @@
 
             
 
-            <code class="ruby">    select &#39;Park West&#39;, :from =&gt; &#39;interest_community&#39;</code>
+            <code class="ruby">    select 5, :from =&gt; &#39;interest_numPrereqs&#39;</code>
           </li>
         </div>
       
@@ -21592,7 +21911,7 @@
 
             
 
-            <code class="ruby">    select 5, :from =&gt; &#39;interest_numPrereqs&#39;</code>
+            <code class="ruby">    select &#39;No&#39;, :from =&gt; &#39;interest_scholarship&#39;</code>
           </li>
         </div>
       
@@ -21603,7 +21922,7 @@
 
             
 
-            <code class="ruby">    select &#39;No&#39;, :from =&gt; &#39;interest_scholarship&#39;</code>
+            <code class="ruby">    fill_in &#39;Favemoviegenre&#39;, with: &#39;Action&#39;</code>
           </li>
         </div>
       
@@ -21614,7 +21933,7 @@
 
             
 
-            <code class="ruby">    fill_in &#39;Favemoviegenre&#39;, with: &#39;Action&#39;</code>
+            <code class="ruby">    fill_in &#39;Usedtech&#39;, with: &#39;Rails&#39;</code>
           </li>
         </div>
       
@@ -21625,7 +21944,7 @@
 
             
 
-            <code class="ruby">    fill_in &#39;Usedtech&#39;, with: &#39;Rails&#39;</code>
+            <code class="ruby">    select 1, :from =&gt; &#39;interest_numWorkExp&#39;</code>
           </li>
         </div>
       
@@ -21636,7 +21955,7 @@
 
             
 
-            <code class="ruby">    select 1, :from =&gt; &#39;interest_numWorkExp&#39;</code>
+            <code class="ruby">    fill_in &#39;Projects&#39;, with: &#39;Canadian wombat photography&#39;</code>
           </li>
         </div>
       
@@ -21647,7 +21966,7 @@
 
             
 
-            <code class="ruby">    fill_in &#39;Projects&#39;, with: &#39;Canadian wombat photography&#39;</code>
+            <code class="ruby">    fill_in &#39;Extracurric&#39;, with: &#39;Photography&#39;</code>
           </li>
         </div>
       
@@ -21658,7 +21977,7 @@
 
             
 
-            <code class="ruby">    fill_in &#39;Extracurric&#39;, with: &#39;Photography&#39;</code>
+            <code class="ruby">    check &#39;potentialRoles_software&#39;</code>
           </li>
         </div>
       
@@ -21669,7 +21988,7 @@
 
             
 
-            <code class="ruby">    check &#39;potentialRoles_software&#39;</code>
+            <code class="ruby">    check &#39;pastWorkExp_softwareDev&#39;</code>
           </li>
         </div>
       
@@ -21680,23 +21999,12 @@
 
             
 
-            <code class="ruby">    check &#39;pastWorkExp_softwareDev&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="37">
-            <span class="hits">1</span>
-            
-
-            
-
             <code class="ruby">    fill_in &#39;Biography&#39;, with: &#39;Hi&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
+          <li class="never" data-hits="" data-linenumber="37">
             
             
 
@@ -21707,7 +22015,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="39">
+          <li class="covered" data-hits="1" data-linenumber="38">
             <span class="hits">1</span>
             
 
@@ -21718,7 +22026,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="40">
+          <li class="covered" data-hits="1" data-linenumber="39">
             <span class="hits">1</span>
             
 
@@ -21729,7 +22037,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="41">
+          <li class="covered" data-hits="1" data-linenumber="40">
             <span class="hits">1</span>
             
 
@@ -21740,7 +22048,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="42">
+          <li class="covered" data-hits="1" data-linenumber="41">
             <span class="hits">1</span>
             
 
@@ -21751,7 +22059,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="43">
+          <li class="covered" data-hits="1" data-linenumber="42">
             <span class="hits">1</span>
             
 
@@ -21762,7 +22070,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="44">
+          <li class="covered" data-hits="1" data-linenumber="43">
             <span class="hits">1</span>
             
 
@@ -21773,7 +22081,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="45">
+          <li class="covered" data-hits="1" data-linenumber="44">
             <span class="hits">1</span>
             
 
@@ -21784,7 +22092,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="46">
+          <li class="covered" data-hits="1" data-linenumber="45">
             <span class="hits">1</span>
             
 
@@ -21795,7 +22103,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="47">
+          <li class="covered" data-hits="1" data-linenumber="46">
             <span class="hits">1</span>
             
 
@@ -21806,7 +22114,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="48">
+          <li class="covered" data-hits="1" data-linenumber="47">
             <span class="hits">1</span>
             
 
@@ -21817,7 +22125,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="49">
+          <li class="covered" data-hits="1" data-linenumber="48">
             <span class="hits">1</span>
             
 
@@ -21828,7 +22136,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="50">
+          <li class="covered" data-hits="1" data-linenumber="49">
             <span class="hits">1</span>
             
 
@@ -21839,7 +22147,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="51">
+          <li class="covered" data-hits="1" data-linenumber="50">
             <span class="hits">1</span>
             
 
@@ -21850,7 +22158,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="52">
+          <li class="covered" data-hits="1" data-linenumber="51">
             <span class="hits">1</span>
             
 
@@ -21861,7 +22169,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="53">
+          <li class="covered" data-hits="1" data-linenumber="52">
             <span class="hits">1</span>
             
 
@@ -21872,13 +22180,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="54">
+          <li class="covered" data-hits="1" data-linenumber="53">
             <span class="hits">1</span>
             
 
             
 
             <code class="ruby">    expect(page).to have_content(&#39;Software Development&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -21900,7 +22219,7 @@
 
             
 
-            <code class="ruby">    visit user_path(12345678)</code>
+            <code class="ruby">  scenario &#39;edit interest&#39; do</code>
           </li>
         </div>
       
@@ -21911,18 +22230,18 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content(&#39;Hi&#39;)</code>
+            <code class="ruby">    visit root_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="58">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="58">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    click_on &#39;Sign in with Google&#39;</code>
           </li>
         </div>
       
@@ -21944,7 +22263,7 @@
 
             
 
-            <code class="ruby">  scenario &#39;edit interest&#39; do</code>
+            <code class="ruby">    visit new_user_path</code>
           </li>
         </div>
       
@@ -21955,7 +22274,7 @@
 
             
 
-            <code class="ruby">    visit root_path</code>
+            <code class="ruby">    fill_in &#39;Studentid&#39;, with: 12345678</code>
           </li>
         </div>
       
@@ -21966,56 +22285,12 @@
 
             
 
-            <code class="ruby">    click_on &#39;Sign in with Google&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="63">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="64">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    visit new_user_path</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="65">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    fill_in &#39;Studentid&#39;, with: 12345678</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="66">
-            <span class="hits">1</span>
-            
-
-            
-
             <code class="ruby">    fill_in &#39;Fullname&#39;, with: &#39;Jimbo Fisher&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="67">
+          <li class="covered" data-hits="1" data-linenumber="63">
             <span class="hits">1</span>
             
 
@@ -22026,7 +22301,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="68">
+          <li class="covered" data-hits="1" data-linenumber="64">
             <span class="hits">1</span>
             
 
@@ -22037,7 +22312,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="69">
+          <li class="covered" data-hits="1" data-linenumber="65">
             <span class="hits">1</span>
             
 
@@ -22048,7 +22323,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="70">
+          <li class="covered" data-hits="1" data-linenumber="66">
             <span class="hits">1</span>
             
 
@@ -22059,7 +22334,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="71">
+          <li class="never" data-hits="" data-linenumber="67">
             
             
 
@@ -22070,7 +22345,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="72">
+          <li class="covered" data-hits="1" data-linenumber="68">
             <span class="hits">1</span>
             
 
@@ -22081,18 +22356,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="73">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    fill_in &#39;Userid&#39;, with: 12345678</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="74">
+          <li class="covered" data-hits="1" data-linenumber="69">
             <span class="hits">1</span>
             
 
@@ -22103,7 +22367,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="75">
+          <li class="covered" data-hits="1" data-linenumber="70">
             <span class="hits">1</span>
             
 
@@ -22114,7 +22378,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="76">
+          <li class="covered" data-hits="1" data-linenumber="71">
             <span class="hits">1</span>
             
 
@@ -22125,7 +22389,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="77">
+          <li class="covered" data-hits="1" data-linenumber="72">
             <span class="hits">1</span>
             
 
@@ -22136,7 +22400,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="78">
+          <li class="covered" data-hits="1" data-linenumber="73">
             <span class="hits">1</span>
             
 
@@ -22147,7 +22411,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="79">
+          <li class="covered" data-hits="1" data-linenumber="74">
             <span class="hits">1</span>
             
 
@@ -22158,7 +22422,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="80">
+          <li class="covered" data-hits="1" data-linenumber="75">
             <span class="hits">1</span>
             
 
@@ -22169,7 +22433,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="81">
+          <li class="covered" data-hits="1" data-linenumber="76">
             <span class="hits">1</span>
             
 
@@ -22180,7 +22444,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="82">
+          <li class="covered" data-hits="1" data-linenumber="77">
             <span class="hits">1</span>
             
 
@@ -22191,7 +22455,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="83">
+          <li class="covered" data-hits="1" data-linenumber="78">
             <span class="hits">1</span>
             
 
@@ -22202,7 +22466,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="84">
+          <li class="covered" data-hits="1" data-linenumber="79">
             <span class="hits">1</span>
             
 
@@ -22213,7 +22477,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="85">
+          <li class="covered" data-hits="1" data-linenumber="80">
             <span class="hits">1</span>
             
 
@@ -22224,7 +22488,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="86">
+          <li class="covered" data-hits="1" data-linenumber="81">
             <span class="hits">1</span>
             
 
@@ -22235,7 +22499,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="87">
+          <li class="covered" data-hits="1" data-linenumber="82">
             <span class="hits">1</span>
             
 
@@ -22246,18 +22510,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="88">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="89">
+          <li class="covered" data-hits="1" data-linenumber="83">
             <span class="hits">1</span>
             
 
@@ -22268,62 +22521,62 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="90">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="84">
+            
             
 
             
 
-            <code class="ruby">    visit edit_interest_path(12345678)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="91">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="85">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;Userid&#39;, with: 12345678</code>
+            <code class="ruby">    # visit edit_interest_path(12345678)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="92">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="86">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;Nationality&#39;, with: &#39;German&#39;</code>
+            <code class="ruby">    # fill_in &#39;Nationality&#39;, with: &#39;German&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="93">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="87">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;Biography&#39;, with: &#39;Hi&#39;</code>
+            <code class="ruby">    # fill_in &#39;Biography&#39;, with: &#39;Hi&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="94">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="88">
+            
             
 
             
 
-            <code class="ruby">    click_on &#39;Update Interest&#39;</code>
+            <code class="ruby">    # click_on &#39;Update Interest&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="95">
+          <li class="never" data-hits="" data-linenumber="89">
             
             
 
@@ -22334,29 +22587,29 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="96">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="90">
+            
             
 
             
 
-            <code class="ruby">    visit interests_path</code>
+            <code class="ruby">    # visit interests_path</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="97">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="91">
+            
             
 
             
 
-            <code class="ruby">    expect(page).to have_content(&quot;German&quot;)</code>
+            <code class="ruby">    # expect(page).to have_content(&quot;German&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="98">
+          <li class="never" data-hits="" data-linenumber="92">
             
             
 
@@ -22367,29 +22620,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="99">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    visit user_path(12345678)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="100">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(page).to have_content(&#39;Hi&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="101">
+          <li class="never" data-hits="" data-linenumber="93">
             
             
 
@@ -22400,7 +22631,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="102">
+          <li class="never" data-hits="" data-linenumber="94">
             
             
 
@@ -22411,7 +22642,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="103">
+          <li class="never" data-hits="" data-linenumber="95">
             
             
 
@@ -22422,7 +22653,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="104">
+          <li class="never" data-hits="" data-linenumber="96">
             
             
 

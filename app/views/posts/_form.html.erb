@@ -32,16 +32,16 @@
 
     <div class="field">
      <%= form.label :title, :class => "invis-title" %>
-      <%= form.text_field :title , :class => 'title-area'%>
-    </div>
-
-    <div class="field">
+      </br><%= form.text_field :title , :class => 'title-area'%>
+    
       <%=form.label :body, :class => "invis-title"%>
       <%= form.text_area :body , :class => 'text-area-edit', rows: 10 %>
     </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit class: 'btn btn-outline-primary' %>
+      <%= link_to 'Show', @post , class:"btn btn-outline-primary" %> 
+      <%= link_to 'Back', posts_path , class:"btn btn-outline-primary" %>
     </div>
 
   </div>

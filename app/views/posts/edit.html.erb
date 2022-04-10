@@ -3,7 +3,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <h1 style="color: white;">Editing Post</h1> 
+    <h1 style="color: white;">Editing Posts</h1> 
     <%= link_to "Sign Out", destroy_user_session_path, class:"text-light btn btn-outline-light"%>
   </div>
 </nav>
@@ -17,17 +17,15 @@
             <% end %>
             <%= link_to 'Forum', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
             <% if current_user.isAdmin || current_user.isOfficer%>
+              <%= link_to 'All Posts', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
               <%= link_to 'All Users', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
               <%= link_to 'All groups', groups_path, class:"text-light btn btn-primary btn-lg btn-block" %>
-              <%= link_to 'All interests', interests_path, class:"text-light btn btn-primary btn-lg btn-block" %>
             <% end %>
         </ul>
     </span>
   </div>
 </div>
-<p id="notice"><%= notice %></p>
+
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>

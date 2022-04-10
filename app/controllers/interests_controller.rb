@@ -23,6 +23,7 @@ class InterestsController < ApplicationController
   # POST /interests or /interests.json
   def create
     temp_params = interest_params
+    temp_params[:userId] = current_user.studentId
     #puts temp_params
     #if temp_params[:biography].present?
     temp_params.delete :biography
@@ -51,24 +52,49 @@ class InterestsController < ApplicationController
   end
 
   # PATCH/PUT /interests/1 or /interests/1.json
+  # def update
+  #   respond_to do |format|
+  #     temp_params = interest_params
+  #     temp_params.delete :biography
+  #     temp_params[:userId] = current_user.studentId
+
+      # if interest_params[:biography].present?
+      #   create_bio_params = {
+      #     # if we use current_user we can't test other users
+      #     :userId => interest_params[:userId],
+      #     :description => interest_params[:biography],
+      #   }
+  #       #puts temp_params
+  #       biography = Biography.find_or_create_by(userId: current_user.studentId)
+  #       biography.update(create_bio_params)
+  #     end
+
+  #     @interest = Interest.find_by(userId: temp_params[:userId])
+  #     if @interest.update(temp_params)
+  #         format.html { redirect_to user_url(@interest.userId), notice: "Interest was successfully updated." }
+  #         format.json { render :show, status: :ok, location: user_path(@interest.userId) }
+  #     else
+  #       format.html { render :edit, status: :unprocessable_entity }
+  #       format.json { render json: @interest.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
+
   def update
     respond_to do |format|
       temp_params = interest_params
       temp_params.delete :biography
-
       if interest_params[:biography].present?
         create_bio_params = {
-          # if we use current_user we can't test other users
-          :userId => interest_params[:userId],
+          :userId => current_user.studentId,
           :description => interest_params[:biography],
         }
-        #puts temp_params
-        biography = Biography.find_by(userId: interest_params[:userId])
+        biography = Biography.find_or_create_by(userId: current_user.studentId)
         biography.update(create_bio_params)
       end
-
-      @interest = Interest.find_by(userId: params[:interest][:userId])
-      if @interest.update(temp_params)
+        @interest = Interest.find_by(userId: current_user.studentId)
+        if @interest.update(temp_params)
           format.html { redirect_to user_url(@interest.userId), notice: "Interest was successfully updated." }
           format.json { render :show, status: :ok, location: user_path(@interest.userId) }
       else
@@ -77,6 +103,9 @@ class InterestsController < ApplicationController
       end
     end
   end
+
+
+
 
   # DELETE /interests/1 or /interests/1.json
   def destroy

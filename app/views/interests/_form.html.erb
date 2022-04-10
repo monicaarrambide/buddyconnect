@@ -14,13 +14,8 @@
 
     
 
-    <div style="width:600px; height:750px; float:left;">  
-      <div class="field">
-        <b><%= form.label :userId %></b>
-        <br><%= form.number_field :userId %></br>
-      </div>
+    <div style="width:40%; height:100%; float:left;">  
 
-      &nbsp;
       <div class="field">
         <b><%= form.label :phone %></b>
         <br><%= form.text_field :phone %></br>
@@ -70,7 +65,7 @@
     </div>  
 
 
-    <div style="width:500px; height:750px; float:right;">
+    <div style="width:45%; margin-left: 10%; height:100%; float:left;">
       <div>
         <div class="field", style="float:left;">
 
@@ -101,13 +96,13 @@
       </div>
 
             
-      <div class="field" , style="text-align:center; float:center; top: 200px; margin-top: 350px;">
+      <div class="field" , style="text-align:center; float:center; margin-top: 70%;">
           <b><%= form.label :biography %></b>
           <br><%= form.text_area :biography, :cols => "50", :rows => "3", placeholder: "Add a biography" %></br>
       </div>
 
       <div>
-        <div class="field", style="width:200px;float:left;">
+        <div class="field", style="width:40%;float:left;">
           <b><%= form.label :potentialRoles, :class => "invis-title" %></b>
           <br><b>Select at least 1 to 3 roles you would like to pursue a career as:</b></br>
 
@@ -144,7 +139,7 @@
 
         </div>  
 
-        <div class="field", style="width:200px;float:right;">
+        <div class="field", style="width:40%;float:right;">
           <%= form.label :pastWorkExp, :class => "invis-title" %>
           <br><b>Select fields you have worked in:</b></br>
             <%= check_box_tag 'interest[pastWorkExp][]', 'Software Development', checked('Software Development'), id:'pastWorkExp_softwareDev'%>
