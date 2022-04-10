@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    # users can see everyone while buddies only see officers/admins
+    # admins can see everyone while buddies only see officers/admins
     if current_user.isAdmin
       @users = User.all
     else
