@@ -1,19 +1,20 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users or /users.json
   def index
     # admins can see everyone while buddies only see officers/admins
-    if current_user.isAdmin
-      @users = User.all
-    else
-      @users = User.where(isOfficer: true)
-    end
+    @users = if current_user.isAdmin
+               User.all
+             else
+               User.where(isOfficer: true)
+             end
   end
 
   # GET /users/1 or /users/1.json
-  def show
-  end
+  def show; end
 
   # GET /users/new
   def new
@@ -21,8 +22,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /users or /users.json
   def create
@@ -30,11 +30,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to user_url(@user.studentId), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: user_path(@user.studentId) }
+        format.html { redirect_to(user_url(@user.studentId), notice: 'User was successfully created.') }
+        format.json { render(:show, status: :created, location: user_path(@user.studentId)) }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: (@user.studentId).errors, status: :unprocessable_entity }
+        format.html { render(:new, status: :unprocessable_entity) }
+        format.json { render(json: @user.studentId.errors, status: :unprocessable_entity) }
       end
     end
   end
@@ -48,58 +48,53 @@ class UsersController < ApplicationController
 
       # TO DO: change if we will allow users to change ids - breaks otherwise
       @user = User.find_by(studentId: params[:user][:studentId])
-      
+
       changeGroup = false
-      if not @user.isOfficer
-        changeGroup = true
-      end
+      changeGroup = true unless @user.isOfficer
 
       if @user.update(user_params)
 
         # generates random groupId for each new officer
-        if @user.isOfficer == true and changeGroup
+        if (@user.isOfficer == true) && changeGroup
           create_params = user_params
           gId = SecureRandom.uuid
-          
+
           # ensures there's not two groups with the same id
-          while Group.find_by(groupId: gId).present?
-            gId = SecureRandom.uuid
-          end
+          gId = SecureRandom.uuid while Group.find_by(groupId: gId).present?
           create_params[:groupId] = gId
-          @user.update(create_params)
+          @user.update!(create_params)
         end
 
-        format.html { redirect_to user_url(@user.studentId), notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: user_path(@user.studentId) }
+        format.html { redirect_to(user_url(@user.studentId), notice: 'User was successfully updated.') }
+        format.json { render(:show, status: :ok, location: user_path(@user.studentId)) }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { render(:edit, status: :unprocessable_entity) }
+        format.json { render(json: @user.errors, status: :unprocessable_entity) }
       end
     end
   end
 
   # DELETE /users/1 or /users/1.json
   def destroy
-    puts "Destroy"
-    @user.destroy
+    Rails.logger.debug('Destroy')
+    @user.destroy!
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to(users_url, notice: 'User was successfully destroyed.') }
+      format.json { head(:no_content) }
     end
   end
 
   # will calculate affinity between officers and students and match them accordingly
   def affinity_matching
-
     officerList = []
     studList = []
     affinities = []
     groups = []
-    
+
     # Sorting officers and members into respective lists from user table
     User.all.each do |student|
-      if not student.isOfficer and not student.isAdmin
+      if !student.isOfficer && !student.isAdmin
         studList.append(student.studentId)
       elsif student.isOfficer
         officerList.append(student.studentId)
@@ -107,8 +102,7 @@ class UsersController < ApplicationController
       end
     end
 
-
-    for i in officerList  
+    officerList.each do |i|
       officer = []
       prOfficer = []
       prStud = []
@@ -117,61 +111,61 @@ class UsersController < ApplicationController
       peStud = []
       techStud = []
 
-      for j in studList
+      studList.each do |j|
         affinityScore = 0
         # score for potential roles
         # this will have multiple answers (up to 3)
 
-        if Interest.where(userId: i).exists?
-          officerQ1 = Interest.where(userId: i).pluck(:potentialRoles).first.to_str
-          prOfficer = officerQ1.split(",")
+        if Interest.exists?(userId: i)
+          officerQ1 = Interest.where(userId: i).pick(:potentialRoles).to_str
+          prOfficer = officerQ1.split(',')
 
-          officerQ2 = Interest.where(userId: i).pluck(:pastWorkExp).first.to_str
-          peOfficer = officerQ2.split(",");
+          officerQ2 = Interest.where(userId: i).pick(:pastWorkExp).to_str
+          peOfficer = officerQ2.split(',')
 
-          officerQ4 = Interest.where(userId: i).pluck(:usedTech).first.to_str
-          techOfficer = officerQ4.split(",");
+          officerQ4 = Interest.where(userId: i).pick(:usedTech).to_str
+          techOfficer = officerQ4.split(',')
         else
-          officerQ1 = Interest.where(userId: i).pluck(:potentialRoles).first
+          officerQ1 = Interest.where(userId: i).pick(:potentialRoles)
         end
 
         # turning potential roles into array for student and officers
         # prOfficer = officerQ1.split(",")
         # puts "Officer pr array AFTER split:"
-        puts prOfficer
-       
-        if Interest.where(userId: j).exists?
-          studQ1 = Interest.where(userId: j).pluck(:potentialRoles).first.to_str
-          prStud = studQ1.split(",")
+        Rails.logger.debug(prOfficer)
 
-          studQ2 = Interest.where(userId: j).pluck(:pastWorkExp).first.to_str
-          peStud = studQ2.split(",");
+        if Interest.exists?(userId: j)
+          studQ1 = Interest.where(userId: j).pick(:potentialRoles).to_str
+          prStud = studQ1.split(',')
 
-          studQ4 = Interest.where(userId: j).pluck(:usedTech).first.to_str
-          techStud = studQ4.split(",");
+          studQ2 = Interest.where(userId: j).pick(:pastWorkExp).to_str
+          peStud = studQ2.split(',')
+
+          studQ4 = Interest.where(userId: j).pick(:usedTech).to_str
+          techStud = studQ4.split(',')
         else
-          studQ1 = Interest.where(userId: j).pluck(:potentialRoles).first
+          studQ1 = Interest.where(userId: j).pick(:potentialRoles)
         end
 
-        #prStud = studQ1.split(",")
+        # prStud = studQ1.split(",")
         # puts "Sutdent pr array:"
-        puts prStud
+        Rails.logger.debug(prStud)
 
         # a = [1,2,3,4,5]
         # a.include?(3)   # => true
         # a.include?(9)   # => false
 
         if prStud.size < prOfficer.size
-          for k in prStud
+          prStud.each do |k|
             # puts "This is my current k: "
             # puts k.strip
             if (k.strip).in?(officerQ1)
-              puts "Potential Role MATCH"
+              Rails.logger.debug('Potential Role MATCH')
               affinityScore += 10
             end
           end
         else
-          for k in prOfficer
+          prOfficer.each do |k|
             # puts "Officer - This is my current k: "
             # puts k.strip
             if (k.strip).in?(studQ1)
@@ -190,24 +184,24 @@ class UsersController < ApplicationController
         # peStud = studQ2.split(",");
 
         if peStud.size < peOfficer.size
-          for k in peStud
+          peStud.each do |k|
             # puts "This is my current k: "
             # puts k.strip
-            if (k.strip).in?(officerQ2)
-              # puts "Past experience MATCH"
-              affinityScore += 5
-              # puts affinityScore
-            end
+            next unless (k.strip).in?(officerQ2)
+
+            # puts "Past experience MATCH"
+            affinityScore += 5
+            # puts affinityScore
           end
         else
-          for k in peOfficer
+          peOfficer.each do |k|
             # puts "Officer - This is my current k: "
             # puts k.strip
-            if (k.strip).in?(studQ2)
-              #puts "Past experience MATCH"
-              affinityScore += 5
-              # puts affinityScore
-            end
+            next unless (k.strip).in?(studQ2)
+
+            # puts "Past experience MATCH"
+            affinityScore += 5
+            # puts affinityScore
           end
         end
 
@@ -216,7 +210,7 @@ class UsersController < ApplicationController
         studQ3 = Interest.where(userId: j).pluck(:numWorkExp)
 
         if officerQ3 == studQ3
-          puts "Years MATCH"
+          Rails.logger.debug('Years MATCH')
           affinityScore += 2
         end
 
@@ -228,28 +222,28 @@ class UsersController < ApplicationController
         # techOfficer = officerQ4.split(",");
         # techStud = studQ4.split(",");
 
-        #puts techStud
+        # puts techStud
         if techStud.size < techOfficer.size
-          for k in techStud
+          techStud.each do |k|
             # puts "This is my current k: "
             # puts k.strip
-            if (k.strip).in?(officerQ4)
+            next unless (k.strip).in?(officerQ4)
+
             # if techOfficer.include?(k.strip)
-              puts "Technologies MATCH"
-              affinityScore += 2
-              # puts affinityScore
-            end
+            Rails.logger.debug('Technologies MATCH')
+            affinityScore += 2
+            # puts affinityScore
           end
         else
-          for k in techOfficer
+          techOfficer.each do |k|
             # puts "Officer - This is my current k: "
             # puts k.strip
-            if (k.strip).in?(studQ4)
-            #if techStud.include?(k.strip)
-              puts "Technologies MATCH"
-              affinityScore += 2
-              # puts affinityScore
-            end
+            next unless (k.strip).in?(studQ4)
+
+            # if techStud.include?(k.strip)
+            Rails.logger.debug('Technologies MATCH')
+            affinityScore += 2
+            # puts affinityScore
           end
         end
 
@@ -258,7 +252,7 @@ class UsersController < ApplicationController
         studQ5 = Interest.where(userId: j).pluck(:state)
 
         if officerQ5 == studQ5
-          puts "State MATCH"
+          Rails.logger.debug('State MATCH')
           affinityScore += 1
         end
 
@@ -267,7 +261,7 @@ class UsersController < ApplicationController
         studQ6 = Interest.where(userId: j).pluck(:community)
 
         if officerQ6 == studQ6
-          puts "Community MATCH"
+          Rails.logger.debug('Community MATCH')
           affinityScore += 1
         end
 
@@ -278,74 +272,70 @@ class UsersController < ApplicationController
       affinities.append(officer)
     end
 
-
     # All affinities calculated!
     # officer index 0 = officerList index 0
-    puts "Affinities scores"
-    puts affinities.inspect()
-
+    Rails.logger.debug('Affinities scores')
+    Rails.logger.debug(affinities.inspect)
 
     # Sorting members based on affinity scores
 
     sID = 0
     topOfficer = 0
-    maxGroupSize = (studList.length/officerList.length.to_f).ceil
+    maxGroupSize = (studList.length / Float(officerList.length)).ceil
 
-    puts maxGroupSize
-    
+    Rails.logger.debug(maxGroupSize)
 
-    for i in 0 ... studList.size
+    (0...studList.size).each do |i|
       highestAff = -1
-      for j in 0 ... officerList.size
-
+      (0...officerList.size).each do |j|
         # if the studnt officer affinity is the greatest or if the affinity is equal, then the student is put in the group with less people
-        if ((affinities[j][i] > highestAff and groups[j].length < maxGroupSize) or (affinities[j][i] == highestAff and groups[j].length < groups[topOfficer].length))
-          highestAff = affinities[j][i]
-          topOfficer = j
-          sID = i
+        unless ((affinities[j][i] > highestAff) && (groups[j].length < maxGroupSize)) || ((affinities[j][i] == highestAff) && (groups[j].length < groups[topOfficer].length))
+          next
         end
 
+        highestAff = affinities[j][i]
+        topOfficer = j
+        sID = i
       end
-      groups[topOfficer].append(studList[sID]);
-      
+      groups[topOfficer].append(studList[sID])
     end
     [['Software Engineering'], ['Data Analytics']]
     # update students groupId
-    puts groups.inspect()
+    Rails.logger.debug(groups.inspect)
 
-    for j in 0 ... groups.size
+    (0...groups.size).each do |j|
       officerId = officerList[j]
       # get the officers groupID
       gID = User.where(studentId: officerId).pluck(:groupId)
-      for stude in groups[j]
+      groups[j].each do |stude|
         # find student by ID in user table
         # add group id to users database
-        User.where(studentId: stude).update_all(:groupId  => gID.first) 
+        User.where(studentId: stude).update_all(groupId: gID.first)
       end
     end
-
 
     # confirm that matching worked
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "Function called: We matched! yay!" }
-      format.json { head :no_content }
+      format.html { redirect_to(users_url, notice: 'Function called: We matched! yay!') }
+      format.json { head(:no_content) }
     end
   end
 
-
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      if params[:id].nil?
-        @user = User.find_or_create_by!(tamuEmail: current_user.tamuEmail)
-      else
-        @user = User.find_by(studentId: params[:id])
-      end
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:studentId, :groupId, :insterestsId, :profileId, :isOfficer, :isAdmin, :fullName, :avatarUrl, :tamuEmail, :dateOfBirth, :gradAssistance)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = if params[:id].nil?
+              User.find_or_create_by!(tamuEmail: current_user.tamuEmail)
+            else
+              User.find_by(studentId: params[:id])
+            end
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:studentId, :groupId, :insterestsId, :profileId, :isOfficer, :isAdmin, :fullName, :avatarUrl, :tamuEmail,
+                                 :dateOfBirth, :gradAssistance
+    )
+  end
 end
