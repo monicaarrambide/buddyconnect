@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-04-11T06:58:38+00:00">2022-04-11T06:58:38+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-04-11T15:43:42+00:00">2022-04-11T15:43:42+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="yellow">
-  81.85%
+  81.76%
 </span>
 
      </span>
@@ -44,10 +44,10 @@
 
   <div class="t-line-summary">
     <b>1102</b> relevant lines,
-    <span class="green"><b>902</b> lines covered</span> and
-    <span class="red"><b>200</b> lines missed. </span>
+    <span class="green"><b>901</b> lines covered</span> and
+    <span class="red"><b>201</b> lines missed. </span>
     (<span class="yellow">
-  81.85%
+  81.76%
 </span>
 )
   </div>
@@ -116,12 +116,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#8a71bd12ea6cd4c7e5dcd4a73fdfa9658ce5ef95" class="src_link" title="app/controllers/interests_controller.rb">app/controllers/interests_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">54.17 %</td>
+            <td class="red strong cell--number t-file__coverage">52.08 %</td>
             <td class="cell--number">130</td>
             <td class="cell--number">48</td>
-            <td class="cell--number">26</td>
-            <td class="cell--number">22</td>
-            <td class="cell--number">0.88</td>
+            <td class="cell--number">25</td>
+            <td class="cell--number">23</td>
+            <td class="cell--number">0.83</td>
             
           </tr>
         
@@ -165,7 +165,7 @@
             <td class="cell--number">151</td>
             <td class="cell--number">33</td>
             <td class="cell--number">118</td>
-            <td class="cell--number">1.28</td>
+            <td class="cell--number">1.31</td>
             
           </tr>
         
@@ -4000,7 +4000,7 @@
     <h3>app/controllers/interests_controller.rb</h3>
     <h4>
       <span class="red">
-  54.17%
+  52.08%
 </span>
 
       lines covered
@@ -4010,8 +4010,8 @@
 
     <div class="t-line-summary">
       <b>48</b> relevant lines.
-      <span class="green"><b>26</b> lines covered</span> and
-      <span class="red"><b>22</b> lines missed.</span>
+      <span class="green"><b>25</b> lines covered</span> and
+      <span class="red"><b>23</b> lines missed.</span>
     </div>
 
     
@@ -4424,7 +4424,7 @@
 
             
 
-            <code class="ruby">            userId: interest_params[:userId],</code>
+            <code class="ruby">            userId: temp_params[:userId],</code>
           </li>
         </div>
       
@@ -4490,7 +4490,7 @@
 
             
 
-            <code class="ruby">        format.html { redirect_to(interest_url(@interest.userId), notice: &#39;Interest was successfully created.&#39;) }</code>
+            <code class="ruby">        format.html { redirect_to(user_url(@interest.userId), notice: &#39;Interest was successfully created.&#39;) }</code>
           </li>
         </div>
       
@@ -4501,7 +4501,7 @@
 
             
 
-            <code class="ruby">        format.json { render(:show, status: :created, location: interest_path(@interest.userId)) }</code>
+            <code class="ruby">        format.json { render(:show, status: :created, location: user_path(@interest.userId)) }</code>
           </li>
         </div>
       
@@ -5342,8 +5342,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="121">
-            <span class="hits">2</span>
+          <li class="missed" data-hits="0" data-linenumber="121">
+            
             
 
             
@@ -10977,8 +10977,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="39" data-linenumber="328">
-            <span class="hits">39</span>
+          <li class="covered" data-hits="41" data-linenumber="328">
+            <span class="hits">41</span>
             
 
             
@@ -11010,8 +11010,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="16" data-linenumber="331">
-            <span class="hits">16</span>
+          <li class="covered" data-hits="18" data-linenumber="331">
+            <span class="hits">18</span>
             
 
             
