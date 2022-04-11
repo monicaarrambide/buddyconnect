@@ -123,7 +123,19 @@
     <%end%>
   </div>
 
-  </br>
+</br>
+<div class = "options-container">
+  <% if current_user.studentId == @post.posterId%>
+    <div class="option-buttons><%= button_to 'Edit Post', edit_post_path(@post) %></div> 
+    <div class="option-buttons><%= button_to'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' } %> </div>
+  <%elsif current_user.isAdmin%>
+    <div class="option-buttons><%= button_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' } %></div>  
+  <%end%>
+</div>
+
+</br>
+<div class = "return-links">
+  <%= link_to 'Back', posts_path %>
 </div>
 
 </body>
