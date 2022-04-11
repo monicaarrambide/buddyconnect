@@ -12,9 +12,7 @@ RSpec.describe('Creating a interest', type: :feature) do
     click_on 'Sign in with TAMU'
 
     visit new_user_path
-    fill_in 'Studentid', with: 12_345_678
     fill_in 'Fullname', with: 'Jimbo Fisher'
-    fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
     fill_in 'Dateofbirth', with: '2020-09-28'
     click_on 'Create User'
@@ -59,9 +57,7 @@ RSpec.describe('Creating a interest', type: :feature) do
     click_on 'Sign in with TAMU'
 
     visit new_user_path
-    fill_in 'Studentid', with: 12_345_678
     fill_in 'Fullname', with: 'Jimbo Fisher'
-    fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
     fill_in 'Dateofbirth', with: '2020-09-28'
     click_on 'Create User'
@@ -80,16 +76,16 @@ RSpec.describe('Creating a interest', type: :feature) do
     fill_in 'Extracurric', with: 'Photography'
     check 'potentialRoles_software'
     check 'pastWorkExp_softwareDev'
-    # fill_in 'Biography', with: 'Hello'
+    fill_in 'Biography', with: 'Hello'
     click_on 'Create Interest'
+    
+  
+    click_on 'Edit Interest'
+    fill_in 'Nationality', with: 'German'
+    click_on 'Update Interest'
 
-    # visit edit_interest_path(12345678)
-    # fill_in 'Nationality', with: 'German'
-    # fill_in 'Biography', with: 'Hi'
-    # click_on 'Update Interest'
-
-    # visit interests_path
-    # expect(page).to have_content("German")
+    visit interests_path
+    expect(page).to have_content("German")
   end
 end
 

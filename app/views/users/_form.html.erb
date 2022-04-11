@@ -1,74 +1,67 @@
-<%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="d-flex align-items-center justify-content-center">
+  <%= form_with(model: user) do |form| %>
+    <% if user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= hidden_field_tag "user[studentId]", "#{@user.studentId}" %>
+    <%= hidden_field_tag "user[avatarUrl]", "#{@user.avatarUrl}" %>
+
+    <div>
+      &nbsp;
+      <div class="field">
+        <%= form.label :fullName, :class => "invis-title" %>
+        Full Name
+        <%= form.text_field :fullName %>
+      </div>
+
+      &nbsp;
+      <div class="field">
+        <%= form.label :tamuEmail, :class => "invis-title" %>
+        Tamu Email
+        <%= form.text_field :tamuEmail %>
+      </div>
+
+      &nbsp;
+      <div class="field">
+        <%= form.label :dateOfBirth, :class => "invis-title" %>
+        Date Of Birth
+        <%= form.date_field :dateOfBirth %>
+      </div>
+
+
+      <div class="col d-flex justify-content-center">
+        <div class="field">
+          <%= form.check_box :gradAssistance %>
+          <%= form.label :Grad_Assistance %>
+        </div>
+      </div>
+    
+      <% if current_user.isAdmin%>
+        <div class="col d-flex justify-content-center">
+          <div class="field">
+            <%= form.check_box :isOfficer %>
+            <%= form.label :Officer %>
+          </div>
+          &nbsp;
+          <div class="field">
+            <%= form.check_box :isAdmin %>
+            <%= form.label :Admin %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :studentId %>
-    <%= form.number_field :studentId %>
-  </div>
-
-  <div class="field">
-    <%= form.label :groupId %>
-    <%= form.number_field :groupId %>
-  </div>
-
-  <div class="field">
-    <%= form.label :profileId %>
-    <%= form.number_field :profileId %>
-  </div>
-
-  <div class="field">
-    <%= form.label :fullName %>
-    <%= form.text_field :fullName %>
-  </div>
-
-  <div class="field">
-    <%= form.label :avatarUrl %>
-    <%= form.text_field :avatarUrl %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tamuEmail %>
-    <%= form.text_field :tamuEmail %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dateOfBirth %>
-    <%= form.date_field :dateOfBirth %>
-  </div>
-
-  <div class="col d-flex justify-content-center">
-    <div class="field">
-      <%= form.check_box :gradAssistance %>
-      <%= form.label :gradAssistance %>
-    </div>
-    &nbsp;
-    <div class="field">
-      <%= form.check_box :isOfficer %>
-      <%= form.label :isOfficer %>
-    </div>
-    &nbsp;
-    <div class="field">
-      <%= form.check_box :isAdmin %>
-      <%= form.label :isAdmin %>
-    </div>
-  </div>
-
-  <div class="col d-flex justify-content-center">
-    <div class="actions">
-      <% if current_user.studentId == @user.studentId %>
-          <%= link_to 'Show', user_path(@user.studentId), class:"btn btn-outline-primary" %> 
-      <% end %>
-      <%= form.submit class: 'btn btn-outline-primary' %>
-    </div>
-  </div>
-<% end %>
+</div>
