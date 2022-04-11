@@ -48,25 +48,29 @@
     </div>
   </div>
 
-  <div class = "comments-container">
-    <div class = "card">
-      <div class = "card-body">
-        <h1 class = "card-subtitle mb-2 text-muted" style = "font-size: 100%"> <strong>Comments</strong></h1>
-        <%Comment.where(postId: @post.postId).each do |comment| %>
-          
-            <td><%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.fullName : "None"%>: </td>
-            <td><%=comment.message%></td> </br>
-            <td><%= time_ago_in_words(comment.commentDate)%> ago</td>
-                
-            <%if current_user.studentId == comment.posterId%>
-              </br>
-              <td><%= link_to 'Edit', edit_comment_path(comment), class:"text-white btn btn-primary btn-sm"   %></td>
-              <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary btn-sm" %></td>
-            <%elsif current_user.isAdmin%>
-              </br>
-              <td><%= link_to 'Edit', edit_comment_path(comment), class:"text-white btn btn-primary btn-sm"   %></td>
-              <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary btn-sm" %></td>
-            <%end%>
+<div class = "comments-container">
+  <div class = "card">
+    <div class = "card-body">
+      <h1 class = "card-subtitle mb-2 text-muted" style = "font-size: 100%"> <strong>Comments</strong></h1>
+      <%Comment.where(postId: @post.postId).each do |comment| %>
+        
+          <td><%=comment.message%></td> </br>
+           <div class = "card-subtitle mb-2 text-muted" style = "font-size: 70%" >
+          <strong>Posted by</strong> 
+          <td><%=User.where(studentId: comment.posterId).first ? User.where(studentId: comment.posterId).first.fullName : "None"%>: </td>
+          <strong>on</strong>
+          <td><%= comment.commentDate%></td>
+          </div>
+               
+          <%if current_user.studentId == comment.posterId%>
+            </br>
+            <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+            <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%elsif current_user.isAdmin%>
+            </br>
+            <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+            <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%end%>
 
             </br></br>
                 
