@@ -7,17 +7,21 @@
     src: url('/buddyconnect/app/assets/fonts/Raleway-VariableFont_wght.ttf')
  }
 
- h1 {
-     font-family: 'Raleway-VariableFont_wght';
- }
+h1 {
+    font-family: 'Raleway-VariableFont_wght';
+}
 
- .invis-title {
+.invis-title {
     opacity: 0;
     font-size:0.01rem;
-  }
+}
 
 .space {
     width: 10px;
     height: auto;
     display: inline-block;
+}
+
+.interests-background {
+    background-color: #eeeeee;
 }

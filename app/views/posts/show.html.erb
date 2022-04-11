@@ -110,32 +110,18 @@
     <%end%>
   </div>
 
+
   </br>
   <div class = "options-container">
-    <%= link_to 'Back', posts_path, class:"text-white btn btn-primary"  %>
+    <%= link_to 'Back', posts_path , class:"text-white btn btn-primary" %>
     <div class="space"></div>
     <% if current_user.studentId == @post.posterId%>
-      <%= button_to 'Edit Post', edit_post_path(@post), class:"text-white btn btn-primary" %> 
+      <div class="option-buttons><%= button_to 'Edit Post', edit_post_path(@post), class:"text-white btn btn-primary" %></div> 
       <div class="space"></div>
-      <%= button_to'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary" %> 
+      <div class="option-buttons><%= button_to'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary" %> </div>
     <%elsif current_user.isAdmin%>
       <div class="option-buttons><%= button_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' } %></div>  
     <%end%>
   </div>
-
-</br>
-<div class = "options-container">
-  <% if current_user.studentId == @post.posterId%>
-    <div class="option-buttons><%= button_to 'Edit Post', edit_post_path(@post) %></div> 
-    <div class="option-buttons><%= button_to'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' } %> </div>
-  <%elsif current_user.isAdmin%>
-    <div class="option-buttons><%= button_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' } %></div>  
-  <%end%>
-</div>
-
-</br>
-<div class = "return-links">
-  <%= link_to 'Back', posts_path %>
-</div>
 
 </body>
