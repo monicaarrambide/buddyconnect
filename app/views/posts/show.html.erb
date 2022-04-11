@@ -53,9 +53,12 @@
       <h1 class = "card-subtitle mb-2 text-muted" style = "font-size: 100%"> <strong>Comments</strong></h1>
       <%Comment.where(postId: @post.postId).each do |comment| %>
         
-          <td><%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.fullName : "None"%>: </td>
+          
           <td><%=comment.message%></td> </br>
-          <td><%= time_ago_in_words(comment.commentDate)%> ago</td>
+          <strong>Posted by</strong> 
+          <td><%=User.where(studentId: commeny.posterId).first ? User.where(studentId: comment.posterId).first.fullName : "None"%>: </td>
+          <strong>on</strong>
+          <td><%= comment.commentDate%></td>
                
           <%if current_user.studentId == comment.posterId%>
             </br>
