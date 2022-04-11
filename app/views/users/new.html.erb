@@ -16,9 +16,9 @@
                   <%= link_to 'Group', group_path(current_user.groupId), class:"text-light btn btn-primary btn-lg btn-block" %>
               <% end %>
               <%= link_to 'Forum', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+              <%= link_to 'Users', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
               <% if current_user.isAdmin || current_user.isOfficer%>
                 <%= link_to 'All Posts', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
-                <%= link_to 'All Users', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
                 <%= link_to 'All groups', groups_path, class:"text-light btn btn-primary btn-lg btn-block" %>
               <% end %>
           </ul>
