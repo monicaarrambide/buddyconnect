@@ -28,6 +28,9 @@ class UsersController < ApplicationController
   def create
     create_params = user_params
     create_params[:studentId] = SecureRandom.uuid
+    if create_params[:isOfficer] == false
+      create_params[:groupId] = -1
+    end
     create_params[:avatarUrl] = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'
 
     @user = User.new(create_params)

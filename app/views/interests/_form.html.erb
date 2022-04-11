@@ -19,15 +19,15 @@
 
         <div class="field">
           <b><%= form.label :phone %></b>
-          <br><%= form.text_field :phone %>
+          <br><%= form.text_field :phone %></br>
         </div>
 
         &nbsp;
 
-      <div class="field">
-        <b><%= form.label :nationality %></b>
-        <br><%= form.text_field :nationality %>
-      </div>
+        <div class="field">
+          <b><%= form.label :nationality %></b>
+          <br><%= form.text_field :nationality %></br>
+        </div>
 
         &nbsp;
 
@@ -70,26 +70,30 @@
         <div>
           <div class="field", style="float:left;">
 
-          <b><%= form.label :projects %></b>
-          <br><%= form.text_area :projects, :cols => "25", :rows => "6" %>
-        </div>
+            <b><%= form.label :projects %></b>
+            <br><%= form.text_area :projects, :cols => "25", :rows => "6" %></br>
+          </div>
 
-        <div class="field", style="float:right;">
-          <b><%= form.label :usedTech%></b>
-          <br><%= form.text_area :usedTech, :cols => "25", :rows => "6" %>
-        </div>
+          <div class="field", style="float:right;">
+            <b><%= form.label :usedTech, :class => "invis-title"%></b>
+            <b>Technology Used Before</b>
+            <br><%= form.text_area :usedTech, :cols => "25", :rows => "6" %></br>
+          </div>
 
-      </div>
-      
-      <div>
-        <div class="field", style="float:left;">
-          <b><%= form.label :faveMovieGenre %></b>
-          <br><%= form.text_area :faveMovieGenre, :cols => "25", :rows => "6" %>
         </div>
+        
+        <div>
+          <div class="field", style="float:left;">
+            <b><%= form.label :faveMovieGenre, :class => "invis-title" %></b>
+            <b>Favorite Movie Genre</b>
+            <br><%= form.text_area :faveMovieGenre, :cols => "25", :rows => "6" %></br>
+          </div>
 
-        <div class="field", style="float:right;">
-          <b><%= form.label :extracurric %></b>
-          <br><%= form.text_area :extracurric, :cols => "25", :rows => "6" %>
+          <div class="field", style="float:right;">
+            <b><%= form.label :extracurric, :class => "invis-title" %></b>
+            <b>extracurriculars</b>
+            <br><%= form.text_area :extracurric, :cols => "25", :rows => "6" %></br>
+          </div>
         </div>
 
               
@@ -194,4 +198,3 @@
     
   <% end %>
 </div>
-
