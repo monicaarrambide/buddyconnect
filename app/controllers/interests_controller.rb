@@ -5,6 +5,7 @@ class InterestsController < ApplicationController
 
   # GET /interests or /interests.json
   def index
+    redirect_to(user_path(current_user.studentId)) unless current_user.isAdmin?
     @interests = Interest.all
     @biographies = Biography.all
   end
