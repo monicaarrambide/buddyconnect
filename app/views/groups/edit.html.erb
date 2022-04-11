@@ -49,16 +49,19 @@
           <%= form.number_field :groupId %>
         </div>
         <div class="field">
-          <%= form.label :leaderInt %>
+          <%= form.label :leaderInt, :class => 'invis-title' %>
+          Leader
           <%= form.select :leaderInt, User.where(isOfficer: true).order(:fullName).map{|user| [user.fullName, user.studentId]}, include_blank: true, id: "group_leaderInt", name: "group"%>
         </div>
         <div class = "field">
-            <%= form.label :user_id%>
+            <%= form.label :user_id, :class => 'invis-title' %>
+            Add Member
             <%= form.select :user_id, User.where.not(groupId: @group.groupId).order(:fullName).map{|user| [user.fullName, user.studentId]}, include_blank: true, id: "id_of_the_user_id_select_box", name: "user"%>
             
         </div>
         <div class = "field">
-            <%= form.label :remove_users%>
+            <%= form.label :remove_users, :class => 'invis-title' %>
+            Remove Member
             <%= form.select :remove_users, User.where(groupId: @group.groupId).order(:fullName).map{|user| [user.fullName, user.studentId]}, include_blank: true, id: "id_of_the_user_id_select_box", name: "user"%>
         </div>
         <div class = "actions">

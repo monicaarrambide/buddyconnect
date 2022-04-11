@@ -187,9 +187,6 @@
     
     <div>
       <div class="actions">
-        <% if current_user.isAdmin ||  current_user.isOfficer%>
-            <%= link_to 'Back', interests_path, class:"btn btn-outline-primary"  %>
-        <% end %>
         <%= form.submit class: 'btn btn-outline-primary' %>
       </div>
 

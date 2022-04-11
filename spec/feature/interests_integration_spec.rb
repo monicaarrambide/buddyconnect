@@ -33,7 +33,7 @@ RSpec.describe('Creating a interest', type: :feature) do
     fill_in 'Extracurric', with: 'Photography'
     check 'potentialRoles_software'
     check 'pastWorkExp_softwareDev'
-    fill_in 'Biography', with: 'Hi'
+    # fill_in 'Biography', with: 'Hi'
 
     click_on 'Create Interest'
     visit interests_path
@@ -51,7 +51,7 @@ RSpec.describe('Creating a interest', type: :feature) do
     expect(page).to(have_content('Canadian wombat photography'))
     expect(page).to(have_content('Photography'))
     expect(page).to(have_content('Software Development'))
-    expect(page).to(have_content('Hi'))
+    # expect(page).to(have_content('Hi'))
   end
 
   it 'edit interest' do
@@ -80,7 +80,7 @@ RSpec.describe('Creating a interest', type: :feature) do
     fill_in 'Extracurric', with: 'Photography'
     check 'potentialRoles_software'
     check 'pastWorkExp_softwareDev'
-    fill_in 'Biography', with: 'Hello'
+    # fill_in 'Biography', with: 'Hello'
     click_on 'Create Interest'
 
     # visit edit_interest_path(12345678)
