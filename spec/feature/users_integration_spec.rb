@@ -9,9 +9,7 @@ RSpec.describe 'Creating a user', type: :feature do
         visit root_path
         click_on 'Sign in with Google'
         visit new_user_path
-        fill_in 'Studentid', with: 12345678
         fill_in 'Fullname', with: 'Jimbo Fisher'
-        fill_in 'Avatarurl', with: 'url'
         fill_in 'Tamuemail', with: 'jf@tamu.edu'
         select '2020', :from => 'user_dateOfBirth_1i'
         select 'October', :from => 'user_dateOfBirth_2i'
@@ -26,16 +24,15 @@ RSpec.describe 'Creating a user', type: :feature do
         visit root_path
         click_on 'Sign in with Google'
         visit new_user_path
-        fill_in 'Studentid', with: 123
         fill_in 'Fullname', with: 'Jimbo Fisher'
-        fill_in 'Avatarurl', with: 'url'
         fill_in 'Tamuemail', with: 'jf@tamu.edu'
         select '2020', :from => 'user_dateOfBirth_1i'
         select 'October', :from => 'user_dateOfBirth_2i'
         select '9', :from => 'user_dateOfBirth_3i'
         click_on 'Create User'
         #visit user_path(123) #should show new user page
-        visit edit_user_path(123)
+        click_on 'Edit Profile'
+        # visit edit_user_path(123)
         #click_on 'Edit Profile'
         fill_in 'Groupid', with: 143
         click_on 'Update User'
@@ -52,16 +49,14 @@ RSpec.describe 'Navigating from user page', type: :feature do
         visit root_path
         click_on 'Sign in with Google'
         visit new_user_path
-        fill_in 'Studentid', with: 123
         fill_in 'Fullname', with: 'Jimbo Fisher'
-        fill_in 'Avatarurl', with: 'url'
         fill_in 'Tamuemail', with: 'jf@tamu.edu'
         select '2020', :from => 'user_dateOfBirth_1i'
         select 'October', :from => 'user_dateOfBirth_2i'
         select '9', :from => 'user_dateOfBirth_3i'
         click_on 'Create User'
 
-        visit user_path(123)
+        # visit user_path(123)
         click_on 'Forum'
 
         expect(page).to have_content('Add New Post')
@@ -71,9 +66,7 @@ RSpec.describe 'Navigating from user page', type: :feature do
         visit root_path
         click_on 'Sign in with Google'
         visit new_user_path
-        fill_in 'Studentid', with: 123
         fill_in 'Fullname', with: 'Jimbo Fisher'
-        fill_in 'Avatarurl', with: 'url'
         fill_in 'Tamuemail', with: 'jf@tamu.edu'
         select '2020', :from => 'user_dateOfBirth_1i'
         select 'October', :from => 'user_dateOfBirth_2i'

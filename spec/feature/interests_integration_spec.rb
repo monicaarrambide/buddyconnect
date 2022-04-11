@@ -12,9 +12,7 @@ RSpec.describe 'Creating a interest', type: :feature do
     click_on 'Sign in with Google'
    
     visit new_user_path
-    fill_in 'Studentid', with: 12345678
     fill_in 'Fullname', with: 'Jimbo Fisher'
-    fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
     select '2020', :from => 'user_dateOfBirth_1i'
     select 'October', :from => 'user_dateOfBirth_2i'
@@ -22,7 +20,6 @@ RSpec.describe 'Creating a interest', type: :feature do
     click_on 'Create User'
 
     visit new_interest_path
-    fill_in 'Userid', with: 12345678
     fill_in 'Phone', with: '123456789'
     fill_in 'Nationality', with: 'Native American'
     select 'TX', :from => 'interest_state'
@@ -39,7 +36,6 @@ RSpec.describe 'Creating a interest', type: :feature do
 
     click_on 'Create Interest'
     visit interests_path
-    expect(page).to have_content(12345678)
     expect(page).to have_content('123456789')
     expect(page).to have_content('Native American')
     expect(page).to have_content('TX')
@@ -60,9 +56,7 @@ RSpec.describe 'Creating a interest', type: :feature do
     click_on 'Sign in with Google'
 
     visit new_user_path
-    fill_in 'Studentid', with: 12345678
     fill_in 'Fullname', with: 'Jimbo Fisher'
-    fill_in 'Avatarurl', with: 'url'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
     select '2020', :from => 'user_dateOfBirth_1i'
     select 'October', :from => 'user_dateOfBirth_2i'
@@ -70,7 +64,6 @@ RSpec.describe 'Creating a interest', type: :feature do
     click_on 'Create User'
 
     visit new_interest_path
-    fill_in 'Userid', with: 12345678
     fill_in 'Phone', with: '123456789'
     fill_in 'Nationality', with: 'Native American'
     select 'TX', :from => 'interest_state'
@@ -84,10 +77,10 @@ RSpec.describe 'Creating a interest', type: :feature do
     fill_in 'Extracurric', with: 'Photography'
     check 'potentialRoles_software'
     check 'pastWorkExp_softwareDev'
-
     click_on 'Create Interest'
-    visit edit_interest_path(12345678)
-    fill_in 'Userid', with: 12345678
+
+    click_on 'Edit Interest'
+    # visit edit_interest_path(12345678)
     fill_in 'Nationality', with: 'German'
     click_on 'Update Interest'
     visit interests_path
