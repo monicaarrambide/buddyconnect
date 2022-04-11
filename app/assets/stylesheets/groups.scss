@@ -1,3 +1,12 @@
 // Place all the styles related to the Groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.groups-background {
+    background-color: #eeeeee;
+  }
+
+.invis-title {
+  opacity: 0;
+  font-size:0.01rem;
+}

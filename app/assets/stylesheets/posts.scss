@@ -29,7 +29,17 @@
     display: inline-block;
 }
 
+.space {
+    width: 4px;
+    height: auto;
+    display: inline-block;
+  }
+
 .return-links{
     margin: auto;
     width: 85%;
+}
+
+.posts-background {
+    background-color: #eeeeee;
 }

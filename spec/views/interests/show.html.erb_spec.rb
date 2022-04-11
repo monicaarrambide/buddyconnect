@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "interests/show", type: :view do
+RSpec.describe('interests/show', type: :view) do
   # before(:each) do
   #   @interest = assign(:interest, Interest.create!(
   #     userId: 2,

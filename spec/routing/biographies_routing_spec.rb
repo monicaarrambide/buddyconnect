@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # require "rails_helper"
 
 # RSpec.describe BiographiesController, type: :routing do
@@ -17,7 +18,6 @@
 #     it "routes to #edit" do
 #       expect(get: "/biographies/1/edit").to route_to("biographies#edit", id: "1")
 #     end
-
 
 #     it "routes to #create" do
 #       expect(post: "/biographies").to route_to("biographies#create")

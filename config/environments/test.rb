@@ -1,4 +1,6 @@
-require "active_support/core_ext/integer/time"
+# frozen_string_literal: true
+
+require 'active_support/core_ext/integer/time'
 
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
@@ -59,7 +61,7 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
   ENV['GOOGLE_OAUTH_CLIENT_ID'] = '468360085787-e1goacd7lr32omi2j29ffemlug4ck1u3.apps.googleusercontent.com'
   ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
-  
+
   OmniAuth.config.test_mode = true
   OmniAuth.config.allowed_request_methods += %i[get]
   OmniAuth.config.mock_auth[:google_user] = OmniAuth::AuthHash.new({
@@ -78,7 +80,6 @@ Rails.application.configure do
       expires_at: 1_354_920_555,
       expires: true
     }
-  })
-
-
+  }
+                                                                  )
 end
