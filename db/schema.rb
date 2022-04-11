@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 2022_03_31_203245) do
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
+  create_table "biographies", force: :cascade do |t|
+    t.string "userId"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.integer "commentId"
     t.integer "postId"

@@ -1,1 +1,3 @@
-json.array! @profiles, partial: "profiles/profile", as: :profile
+# frozen_string_literal: true
+
+json.array!(@profiles, partial: 'profiles/profile', as: :profile)

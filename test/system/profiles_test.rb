@@ -1,51 +1,53 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class ProfilesTest < ApplicationSystemTestCase
   setup do
     @profile = profiles(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit profiles_url
-    assert_selector "h1", text: "Profiles"
+    assert_selector 'h1', text: 'Profiles'
   end
 
-  test "creating a Profile" do
+  test 'creating a Profile' do
     visit profiles_url
-    click_on "New Profile"
+    click_on 'New Profile'
 
-    fill_in "Contactinfo", with: @profile.contactInfo
-    fill_in "Picture", with: @profile.picture
-    fill_in "Profileid", with: @profile.profileId
-    fill_in "Userid", with: @profile.userId
-    fill_in "Year", with: @profile.year
-    click_on "Create Profile"
+    fill_in 'Contactinfo', with: @profile.contactInfo
+    fill_in 'Picture', with: @profile.picture
+    fill_in 'Profileid', with: @profile.profileId
+    fill_in 'Userid', with: @profile.userId
+    fill_in 'Year', with: @profile.year
+    click_on 'Create Profile'
 
-    assert_text "Profile was successfully created"
-    click_on "Back"
+    assert_text 'Profile was successfully created'
+    click_on 'Back'
   end
 
-  test "updating a Profile" do
+  test 'updating a Profile' do
     visit profiles_url
-    click_on "Edit", match: :first
+    click_on 'Edit', match: :first
 
-    fill_in "Contactinfo", with: @profile.contactInfo
-    fill_in "Picture", with: @profile.picture
-    fill_in "Profileid", with: @profile.profileId
-    fill_in "Userid", with: @profile.userId
-    fill_in "Year", with: @profile.year
-    click_on "Update Profile"
+    fill_in 'Contactinfo', with: @profile.contactInfo
+    fill_in 'Picture', with: @profile.picture
+    fill_in 'Profileid', with: @profile.profileId
+    fill_in 'Userid', with: @profile.userId
+    fill_in 'Year', with: @profile.year
+    click_on 'Update Profile'
 
-    assert_text "Profile was successfully updated"
-    click_on "Back"
+    assert_text 'Profile was successfully updated'
+    click_on 'Back'
   end
 
-  test "destroying a Profile" do
+  test 'destroying a Profile' do
     visit profiles_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on 'Destroy', match: :first
     end
 
-    assert_text "Profile was successfully destroyed"
+    assert_text 'Profile was successfully destroyed'
   end
 end
