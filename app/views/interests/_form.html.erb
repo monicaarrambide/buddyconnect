@@ -68,38 +68,38 @@
 
       <div style="width:45%; margin-left: 10%; height:100%; float:left;">
         <div>
-          <div class="field", style="float:left;">
+          <div class="field", style="float:left; max-width:50%; min-width:40%;">
 
             <b><%= form.label :projects %></b>
-            <br><%= form.text_area :projects, :cols => "25", :rows => "6" %></br>
+            <br><%= form.text_area :projects, style: 'width:100%; min-width:40%;', :rows => "6" %></br>
           </div>
 
-          <div class="field", style="float:right;">
+          <div class="field", style="float:right;  max-width:50% ; min-width:40%;">
             <b><%= form.label :usedTech, :class => "invis-title"%></b>
             <b>Technology Used Before</b>
-            <br><%= form.text_area :usedTech, :cols => "25", :rows => "6" %></br>
+            <br><%= form.text_area :usedTech, style: 'width:100%;', :rows => "6" %></br>
           </div>
 
         </div>
         
         <div>
-          <div class="field", style="float:left;">
+          <div class="field", style="float:left;  max-width:50%; min-width:40%;">
             <b><%= form.label :faveMovieGenre, :class => "invis-title" %></b>
             <b>Favorite Movie Genre</b>
-            <br><%= form.text_area :faveMovieGenre, :cols => "25", :rows => "6" %></br>
+            <br><%= form.text_area :faveMovieGenre, style: 'width:100%;', :rows => "6" %></br>
           </div>
 
-          <div class="field", style="float:right;">
+          <div class="field", style="float:right;  max-width:50%; min-width: 40%;">
             <b><%= form.label :extracurric, :class => "invis-title" %></b>
             <b>extracurriculars</b>
-            <br><%= form.text_area :extracurric, :cols => "25", :rows => "6" %></br>
+            <br><%= form.text_area :extracurric, style: 'width:100%;', :rows => "6" %></br>
           </div>
         </div>
 
               
         <div class="field" , style="text-align:center; float:center; margin-top: 70%;">
             <b><%= form.label :biography %></b>
-            <br><%= form.text_area :biography, :cols => "50", :rows => "3", placeholder: "Add a biography" %></br>
+            <br><%= form.text_area :biography, style: 'width:100%;', :rows => "3", placeholder: "Add a biography" %></br>
         </div>
 
         <div>
