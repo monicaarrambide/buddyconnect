@@ -34,14 +34,14 @@ class InterestsController < ApplicationController
       if @interest.save
         if interest_params[:biography].present?
           create_bio_params = {
-            userId: interest_params[:userId],
+            userId: temp_params[:userId],
             description: interest_params[:biography]
           }
           Biography.create!(create_bio_params)
 
         end
-        format.html { redirect_to(interest_url(@interest.userId), notice: 'Interest was successfully created.') }
-        format.json { render(:show, status: :created, location: interest_path(@interest.userId)) }
+        format.html { redirect_to(user_url(@interest.userId), notice: 'Interest was successfully created.') }
+        format.json { render(:show, status: :created, location: user_path(@interest.userId)) }
       else
         format.html { render(:new, status: :unprocessable_entity) }
         format.json { render(json: @interest.errors, status: :unprocessable_entity) }
