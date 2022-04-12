@@ -78,11 +78,9 @@
                
           <%if current_user.studentId == comment.posterId%>
             </br>
-            <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
             <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <%elsif current_user.isAdmin%>
             </br>
-            <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
             <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <%end%>
 
