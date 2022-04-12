@@ -78,14 +78,13 @@ RSpec.describe('Creating a interest', type: :feature) do
     check 'pastWorkExp_softwareDev'
     fill_in 'Biography', with: 'Hello'
     click_on 'Create Interest'
-    
-  
+
     click_on 'Edit Interest'
     fill_in 'Nationality', with: 'German'
     click_on 'Update Interest'
 
     visit interests_path
-    expect(page).to have_content("German")
+    expect(page).to(have_content('German'))
   end
 end
 

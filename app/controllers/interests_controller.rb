@@ -86,10 +86,10 @@ class InterestsController < ApplicationController
       temp_params.delete(:biography)
       if interest_params[:biography].present?
         create_bio_params = {
-          :userId => current_user.studentId,
-          :description => interest_params[:biography],
+          userId: current_user.studentId,
+          description: interest_params[:biography]
         }
-        biography = Biography.find_or_create_by(userId: current_user.studentId)
+        biography = Biography.find_or_create_by!(userId: current_user.studentId)
         biography.update!(create_bio_params)
       end
       @interest = Interest.find_by(userId: current_user.studentId)
