@@ -1,30 +1,45 @@
-<nav class="navbar navbar-dark bg-primary"> 
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <h1 style="color: white;">Editing Profile</h1> 
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary"> 
+  <div class="container-fluid" id="navbarText">
+    
+      
+      <ul class="navbar-nav">
+
+        <li class="nav-item active">
+          <%= link_to 'Profile', user_path(current_user.studentId), class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
+
+        <% if current_user.groupId.present? %>
+          <li class="nav-item">
+            <%= link_to 'Group', group_path(current_user.groupId), class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li> 
+        <% end %>
+
+        <li class="nav-item">
+          <%= link_to 'Forum', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
+
+        <% if current_user.isOfficer || !current_user.isAdmin %>
+          <li class="nav-item">
+            <%= link_to 'Officers', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Users', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% end %>  
+
+        <% if current_user.isAdmin %>
+          <li class="nav-item">
+            <%= link_to 'All Posts', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+            <%= link_to 'All groups', groups_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% end %>  
+        
+      </ul>
+      
     <%= link_to "Sign Out", destroy_user_session_path, class:"text-light btn btn-outline-light"%>
   </div>
 </nav>
-<div class="collapse" id="navbarToggleExternalContent">
-  <div class="bg-primary p-4">
-    <span class="text-white h4 center">
-        <ul class="navbar-nav text-center">
-            <%= link_to 'Profile', user_path(current_user.studentId), class:"text-light btn btn-primary btn-lg btn-block" %>
-            <% if current_user.groupId.present? %>
-                <%= link_to 'Group', group_path(current_user.groupId), class:"text-light btn btn-primary btn-lg btn-block" %>
-            <% end %>
-            <%= link_to 'Forum', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
-            <%= link_to 'Users', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
-            <% if current_user.isAdmin || current_user.isOfficer%>
-              <%= link_to 'All Posts', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
-              <%= link_to 'All groups', groups_path, class:"text-light btn btn-primary btn-lg btn-block" %>
-            <% end %>
-        </ul>
-    </span>
-  </div>
-</div>
 
 
 

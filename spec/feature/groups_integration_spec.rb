@@ -12,7 +12,7 @@ RSpec.describe('Creating a group', type: :feature) do
     click_on 'Sign in with TAMU'
 
     User.create!(studentId: 1_234_567, isOfficer: true, isAdmin: false, fullName: 'Jimbo Fisher', avatarUrl: 'url', tamuEmail: 'jf@tamu.edu', dateOfBirth: '1965-10-09', gradAssistance: false)
-    
+
     visit new_group_path
     select 'Jimbo Fisher', from: 'group_leaderInt'
     click_on 'Create Group'
