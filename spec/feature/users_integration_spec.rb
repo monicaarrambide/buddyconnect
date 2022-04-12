@@ -52,19 +52,4 @@ RSpec.describe('Navigating from user page', type: :feature) do
 
     expect(page).to(have_content('Add New Post'))
   end
-
-  it 'users catalog to create new user' do
-    visit root_path
-    click_on 'Sign in with TAMU'
-    visit new_user_path
-    fill_in 'Fullname', with: 'Jimbo Fisher'
-    fill_in 'Tamuemail', with: 'jf@tamu.edu'
-    fill_in 'Dateofbirth', with: '2020-09-28'
-    click_on 'Create User'
-
-    visit users_path
-    click_on 'New User'
-
-    expect(page).to(have_content('New User'))
-  end
 end
