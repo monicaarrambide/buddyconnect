@@ -1,0 +1,107 @@
+body {
+  background-color: #eeeeee;
+}
+
+.forum-background {
+  background-color: #eeeeee;
+}
+
+.full-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  height: 100%;
+  padding: 0 2% 2% 2%;
+}
+
+.form-container {
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  width: 80%;
+}
+
+.add-new-post {
+  width: 33%;
+  height: 100%;
+  min-height: 100vh;
+  border-right: solid 2px;
+  border-color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-new-post .title {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-area {
+  margin-top: 5%;
+  width: 100%;
+  min-height: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10%;
+}
+
+.text-area-edit {
+  margin-top: 5%;
+  width: 100%;
+  min-height: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.invis-title {
+  opacity: 0;
+  font-size:0.01rem;
+}
+
+.title-area {
+  margin-top: 5%;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+.forum-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.forum-container .title{
+  margin-left: 10%;
+  margin-bottom: 5%;
+}
+
+.forum-container .post {
+  text-align: left;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+  background-color: white;
+  padding: 2%;
+  border-style: solid;
+}
+
+.post-title {
+  color: black;
+  font-weight: 500;
+  font-size: larger;
+}
+
+.edit-post-body {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  top: 20%;
+  margin-left: auto;
+  margin-right: auto;
+}

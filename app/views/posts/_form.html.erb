@@ -1,3 +1,7 @@
+<head>
+<%= stylesheet_link_tag 'forum'%>
+</head>
+
 <%= form_with(model: post) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -11,32 +15,34 @@
     </div>
   <% end %>
 
+<!--
   <div class="field">
     <%= form.label :postId %>
     <%= form.number_field :postId %>
   </div>
-
+  -->
+<!--
   <div class="field">
     <%= form.label :posterId %>
     <%= form.number_field :posterId %>
   </div>
+  -->
 
-  <div class="field">
-    <%= form.label :postDate %>
-    <%= form.date_select :postDate %>
-  </div>
+  <div class = "edit-post-body">
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+    <div class="field">
+     <%= form.label :title, :class => "invis-title" %>
+      </br><%= form.text_field :title , :class => 'title-area'%>
+    
+      <%=form.label :body, :class => "invis-title"%>
+      <%= form.text_area :body , :class => 'text-area-edit', rows: 10 %>
+    </div>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </div>
+    <div class="actions">
+      <%= form.submit class: 'btn btn-outline-primary' %>
+      <%= link_to 'Show', @post , class:"btn btn-outline-primary" %> 
+      <%= link_to 'Back', posts_path , class:"btn btn-outline-primary" %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>

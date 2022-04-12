@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  root to: 'dashboards#show'
+  resources :biographies
+  # root to: 'dashboards#show'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
     get 'users/sign_in', to: 'users/sessions#new', as: :new_user_session
@@ -11,7 +14,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :posts
 
-  resources :users do 
+  resources :users do
     collection do
       get :affinity_matching
     end
@@ -25,8 +28,7 @@ Rails.application.routes.draw do
   resources :interests
 
   # root 'users#index'
-
-
+  root to: 'users#show'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

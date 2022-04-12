@@ -1,49 +1,87 @@
-<p id="notice"><%= notice %></p>
+<head>
+<%= stylesheet_link_tag 'catalog'%>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary"> 
+  <div class="container-fluid" id="navbarText">
+    
+      
+      <ul class="navbar-nav">
 
-<h1>Users</h1>
+        <li class="nav-item active">
+          <%= link_to 'Profile', user_path(current_user.studentId), class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
 
-<table>
+        <% if current_user.groupId.present? %>
+          <li class="nav-item">
+            <%= link_to 'Group', group_path(current_user.groupId), class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li> 
+        <% end %>
+
+        <li class="nav-item">
+          <%= link_to 'Forum', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
+
+        <% if current_user.isOfficer || !current_user.isAdmin %>
+          <li class="nav-item">
+            <%= link_to 'Officers', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Users', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% end %>  
+
+        <% if current_user.isAdmin %>
+          <li class="nav-item">
+            <%= link_to 'All Posts', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+            <%= link_to 'All groups', groups_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% end %>  
+        
+      </ul>
+      
+    <%= link_to "Sign Out", destroy_user_session_path, class:"text-light btn btn-outline-light"%>
+  </div>
+</nav>
+
+</head>
+
+
+</br><div class = "table-container">
+<table class = "table table-striped">
   <thead>
     <tr>
-      <th>Studentid</th>
-      <th>Groupid</th>
-      <th>Insterestsid</th>
-      <th>Profileid</th>
-      <th>Isofficer</th>
-      <th>Isadmin</th>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Tamuemail</th>
-      <th>Dateofbirth</th>
-      <th>Gradassistance</th>
-      <th colspan="3"></th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Group ID</th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
-  <tbody>
+
+
+<tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.studentId %></td>
-        <td><%= user.groupId %></td>
-        <td><%= user.insterestsId %></td>
-        <td><%= user.profileId %></td>
-        <td><%= user.isOfficer %></td>
-        <td><%= user.isAdmin %></td>
-        <td><%= user.firstName %></td>
-        <td><%= user.lastName %></td>
+        <td><%= user.fullName %></td>
         <td><%= user.tamuEmail %></td>
-        <td><%= user.dateOfBirth %></td>
-        <td><%= user.gradAssistance %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user.isOfficer%>
+          <td>Officer</td>
+        <% else %>
+          <td>Buddy</td>
+        <%end%>
+        <td><%= user.groupId%></td>
+        <td><%= link_to 'Show', user_path(user.studentId) %> | <%= link_to 'Edit', edit_user_path(user.studentId) %> | <%= link_to 'Destroy', user_path(user.studentId), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
+  <%=link_to 'New User', new_user_path, class:"text-white btn btn-primary btn-sm" %> 
+  <%= link_to "Let's Match", affinity_matching_users_path, class:"text-white btn btn-primary btn-sm" %>
+
+
+  </div>
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
-
-<%= link_to "Let's Match", affinity_matching_users_path %>

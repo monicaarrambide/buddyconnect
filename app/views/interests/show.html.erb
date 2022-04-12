@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Userid:</strong>
@@ -70,5 +69,10 @@
   <%= @interest.pastWorkExp %>
 </p>
 
-<%= link_to 'Edit', edit_interest_path(@interest) %> |
-<%= link_to 'Back', interests_path %>
+<% if current_user.studentId == @interest.userId %>
+  <%= link_to 'Edit', edit_interest_path(@interest.userId) %> |
+<% end %>
+<%= link_to 'Profile', user_path(@interest.userId) %>
+<% if current_user.isAdmin %>
+  | <%= link_to 'All interests', interests_path %>
+<% end %>

@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[show edit update destroy]
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.order('created_at DESC')
+    @comments = Comment.all
   end
 
   # GET /posts/1 or /posts/1.json
-  def show
-  end
+  def show; end
 
   # GET /posts/new
   def new
@@ -16,55 +18,95 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    create_params = post_params
+    time = Time.zone.now
+    if create_params[:commit].present?
+      create_params.delete(:commit)
+      create_params.delete(:authenticity_token)
+    end
+    create_params[:posterId] = current_user.studentId # This way the poster id is always the users
+    create_params[:postId] = SecureRandom.uuid
+    create_params[:postDate] = time.strftime('%Y-%m-%d')
+    # create_params[postDate] = Time.now
+    @post = Post.new(create_params)
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
+        format.html { redirect_to(post_url(@post), notice: 'Post was successfully created.') }
+        format.json { render(:show, status: :created, location: @post) }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.html { render(:new, status: :unprocessable_entity) }
+        format.json { render(json: @post.errors, status: :unprocessable_entity) }
       end
     end
   end
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+    if params[:post][:message].present?
+      time = Time.zone.now
+      Rails.logger.debug(params)
+      create_comment = {
+        message: params[:post][:message],
+        commentId: SecureRandom.uuid,
+        postId: @post.postId,
+        posterId: current_user.studentId,
+        commentDate: time.strftime('%Y-%m-%d')
+      }
+      Comment.create!(create_comment)
+
+      redirect_back(fallback_location: root_path)
+
+    elsif params[:post].blank?
+      create_params = params
+      Rails.logger.debug('yes')
+      create_params.delete(:authenticity_token)
+      create_params.delete(:commit)
+      Rails.logger.debug(create_params)
+      Post.create!(create_params)
+
+    else
+      respond_to do |format|
+        if @post.update(post_params)
+          format.html { redirect_to(post_url(@post), notice: 'Post was successfully updated.') }
+          format.json { render(:show, status: :ok, location: @post) }
+        else
+          format.html { render(:edit, status: :unprocessable_entity) }
+          format.json { render(json: @post.errors, status: :unprocessable_entity) }
+        end
       end
     end
   end
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
-    @post.destroy
+    Rails.logger.debug('destroy')
+    post = Post.find(params[:id])
+    post.destroy!
 
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to(posts_url, notice: 'Post was successfully destroyed.') }
+      format.json { head(:no_content) }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def post_params
-      params.require(:post).permit(:postId, :posterId, :postDate, :title, :body)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def post_params
+    if params[:post].present?
+      params.require(:post).permit(:postId, :posterId, :postDate, :title, :body, :message, :text)
+    else
+      params.permit(:postId, :posterId, :postDate, :title, :body, :message, :text, :authenticity_token, :commit, :delete)
     end
+  end
 end
