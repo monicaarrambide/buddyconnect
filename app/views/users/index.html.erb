@@ -74,14 +74,22 @@
           <td>Buddy</td>
         <%end%>
         <td><%= user.groupId%></td>
-        <td><%= link_to 'Show', user_path(user.studentId) %> | <%= link_to 'Edit', edit_user_path(user.studentId) %> | <%= link_to 'Destroy', user_path(user.studentId), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', user_path(user.studentId) %> 
+          <%if current_user.isAdmin %> | 
+            <%= link_to 'Edit', edit_user_path(user.studentId) %> | 
+            <%= link_to 'Destroy', user_path(user.studentId), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%end%>
+        </td>
 
       </tr>
     <% end %>
   </tbody>
 </table>
+  <%if current_user.isAdmin %>
   <%=link_to 'New User', new_user_path, class:"text-white btn btn-primary btn-sm" %> 
   <%= link_to "Let's Match", affinity_matching_users_path, class:"text-white btn btn-primary btn-sm" %>
+  <%end%>
 
 
   </div>
