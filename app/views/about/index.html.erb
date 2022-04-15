@@ -45,11 +45,14 @@
 </nav>
 
 <div class="container">
+    </br>
     <% if current_user.isAdmin %>
 
     <h2>Admins</h2>
     <h4>Usage Suggestion</h4>
     <p>
+    As an administrator, you have access to the information of all users as well as the ability to initiate the matching process. Once the matching process is ready to be run,
+    navigate to the Users page and click "Lets Match" </br>
     In order to have future users become admins, only current admins will be able to switch those privileges. An admin can edit the profile of a
     specific user in order for them to become admins. Without an admin making the change on the user profile, a specific user can't become an admin. 
     An admin should always be set as an officer, but not all officers are considered to be admins.
@@ -57,6 +60,7 @@
     </p>
     </br>
     <h4>Maintenance Guide</h4>
+    <p>You can find the support manual at https://docs.google.com/document/d/1TFG5FN15L89nH8-ZQCU6m4uLB_osriOF4VaVg32Ju_o/edit?usp=sharing</p>
     </br>
     <%end %>
 
@@ -65,7 +69,8 @@
     <h4>Usage Suggestion</h4>
     <p>
     Officers will have access to all the profiles of the members of their group. They should be able to edit their group and also leave
-    comments on any post on the forum. 
+    comments on any post on the forum, as well as delete posts that may be inappropriate. Although administrators should be the only ones who need to access the support guide,
+    it can be found at https://docs.google.com/document/d/1TFG5FN15L89nH8-ZQCU6m4uLB_osriOF4VaVg32Ju_o/edit?usp=sharing. 
     </p>
 
     <%else %>
