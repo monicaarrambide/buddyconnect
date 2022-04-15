@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
     # create_with(uid: uid, full_name: full_name, avatar_url: avatar_url).find_or_create_by!(tamuEmail: email)
     create_with(
-      studentId: SecureRandom.uuid,
+      studentId: SecureRandom.random_number((9e5) + 1e5).to_i,
       fullName: full_name,
       avatarUrl: avatar_url,
       isOfficer: false,
