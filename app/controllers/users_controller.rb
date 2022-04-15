@@ -68,8 +68,8 @@ class UsersController < ApplicationController
           gId = SecureRandom.uuid while Group.find_by(groupId: gId).present?
           create_params[:groupId] = gId
           @user.update!(create_params)
-        end
 
+        end
         format.html { redirect_to(user_url(@user.studentId), notice: 'User was successfully updated.') }
         format.json { render(:show, status: :ok, location: user_path(@user.studentId)) }
       else
