@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   resources :interests
 
+  get "about", to: "about#index"
+
   # root 'users#index'
   root to: 'users#show'
 
