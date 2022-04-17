@@ -62,14 +62,16 @@ class UsersController < ApplicationController
         # generates random groupId for each new officer
         if (@user.isOfficer == true) && changeGroup
           create_params = user_params
-          gId = SecureRandom.uuid
+          gId = SecureRandom.random_number((9e5) + 1e5).to_i
 
           # ensures there's not two groups with the same id
+         
           gId = SecureRandom.uuid while Group.find_by(groupId: gId).present?
           create_params[:groupId] = gId
           @user.update!(create_params)
+          puts "HERE"
+          puts create_params
         end
-
         format.html { redirect_to(user_url(@user.studentId), notice: 'User was successfully updated.') }
         format.json { render(:show, status: :ok, location: user_path(@user.studentId)) }
       else
