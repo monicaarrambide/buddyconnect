@@ -34,6 +34,9 @@
           </li>
         <% end %>  
         
+        <li class="nav-item">
+            <%= link_to 'About', about_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
       </ul>
       
     <%= link_to "Sign Out", destroy_user_session_path, class:"text-light btn btn-outline-light"%>
