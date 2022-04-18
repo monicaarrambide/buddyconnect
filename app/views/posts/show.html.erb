@@ -136,11 +136,11 @@
     <%= link_to 'Back', posts_path , class:"text-white btn btn-primary" %>
     <div class="space"></div>
     <% if current_user.studentId == @post.posterId%>
-      <div class="option-buttons><%= button_to 'Edit Post', edit_post_path(@post), class:"text-white btn btn-primary" %></div> 
+      <%= link_to 'Edit Post', edit_post_path(@post), class:"text-white btn btn-primary" %>
       <div class="space"></div>
-      <div class="option-buttons><%= button_to'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary" %> </div>
+      <%= link_to'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary" %>
     <%elsif current_user.isAdmin%>
-      <div class="option-buttons><%= button_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' } %></div>  
+      <%= link_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' } %> 
     <%end%>
   </div>
 

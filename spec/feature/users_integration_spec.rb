@@ -16,6 +16,8 @@ RSpec.describe('Creating a user', type: :feature) do
     fill_in 'Fullname', with: 'Jimbo Fisher'
     fill_in 'Tamuemail', with: 'jf@tamu.edu'
     fill_in 'Dateofbirth', with: '2020-09-28'
+    check 'isAdmin'
+    check 'isOfficer'
     click_on 'Create User'
 
     visit users_path
