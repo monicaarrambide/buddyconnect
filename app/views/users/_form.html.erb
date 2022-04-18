@@ -45,7 +45,6 @@
         </div>
       </div>
     
-      <% if current_user.isAdmin%>
         <div class="col d-flex justify-content-center">
           <div class="field">
             <%= form.check_box :isOfficer %>
@@ -56,8 +55,11 @@
             <%= form.check_box :isAdmin %>
             <%= form.label :Admin %>
           </div>
+          <div>
+          Dont forget to make it so only admins can view me
+          </div>
         </div>
-      <% end %>
+  
     </div>
 
     <div class="actions">
