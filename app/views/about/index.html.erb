@@ -46,6 +46,7 @@
 
 </br>
 
+<%# Creating accordian to hold all support info %>
 
 <div class="col d-flex justify-content-center">
   <div class="card" style="width: 70rem;">
@@ -58,6 +59,8 @@
               Who are we?
             </button>
           </h2>
+
+          <%# Intro info for buddyconnect %>
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
             <p>
@@ -72,6 +75,7 @@
         </div>
 
 
+        <%# User's support info %>
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
@@ -85,24 +89,25 @@
                 be able to see the contact information of other members of your group, as well as your officer's profile. The rest of the officers will be in the Users
                 tab. The forum is available for anyone to post, so feel free to leave any questions! </br>
 
-                <ul class="list-group">
-                    <li class="list-group-item active">Some things to keep in mind:</li>
-                    <li class="list-group-item">
-                    Don’t forget to update the information in your profile and interests. Since this will be used to match you with an officer, make sure it is all correct!
-                    </li>
-                    <li class="list-group-item">
-                    You can create posts in the forum, but only officers can respond to them. If you have any questions, search through the forum or ask a new question.
-                    </li>
-                    <li class="list-group-item">
-                    In the “officers” tab, you can view the information of all Buddy Connect officers.
-                    </li>
-                  </ul>
+                </br><b>Some things to keep in mind:</b>
+                <ul>
+                  <li>
+                  Don’t forget to update the information in your profile and interests. Since this will be used to match you with an officer, make sure it is all correct!
+                  </li>
+                  <li>
+                  You can create posts in the forum, but only officers can respond to them. If you have any questions, search through the forum or ask a new question.
+                  </li>
+                  <li>
+                  In the “officers” tab, you can view the information of all Buddy Connect officers.
+                  </li>
+                </ul>
                 
               </p>
             </div>
           </div>
         </div>
 
+        <%# Officers support info but admins can view this as well %>
         <%if current_user.isOfficer || current_user.isAdmin%>
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingThree">
@@ -117,18 +122,18 @@
                   comments on any post on the forum, as well as delete posts that may be inappropriate. Although administrators should be the only ones who need to access the support guide,
                   it can be found at https://docs.google.com/document/d/1TFG5FN15L89nH8-ZQCU6m4uLB_osriOF4VaVg32Ju_o/edit?usp=sharing. </br>
 
-                  <ul class="list-group">
-                    <li class="list-group-item active">Some things to keep in mind:</li>
-                    <li class="list-group-item">
+                  </br><b>Some things to keep in mind:</b>
+                  <ul>
+                    <li>
                       Don’t forget to update the information in your profile and interests. Since this will be used to match you with your buddies, make sure it is all correct!
                     </li>
-                    <li class="list-group-item">
+                    <li>
                       You can create posts in the forum and comment on any other posts. You can also delete a post if it’s inappropriate or irrelevant.
                     </li>
-                    <li class="list-group-item">
+                    <li>
                       Once groups have been created, a “group” tab will appear where all of your group member’s information will be located.
                     </li>
-                    <li class="list-group-item">
+                    <li>
                       In the “officers” tab, you can view the information of all Buddy Connect officers.
                     </li>
                   </ul>
@@ -137,16 +142,18 @@
               </div>
             </div>
           </div>
+        <% else %>
         <% end %>
 
+        <%# Admins only support info %>
         <%if current_user.isAdmin%>
           <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            <h2 class="accordion-header" id="flush-headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                 Admins Guide
               </button>
             </h2>
-            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
                 <p>
                   As an administrator, you have access to the information of all users as well as the ability to initiate the matching process. Once the matching process is ready to be run,
@@ -158,22 +165,22 @@
                   The main difference here is that admins have extra access to all the users in Buddy Connect, as well as all the groups, posts, comments, etc.
                   </br>
 
-                  <ul class="list-group">
-                    <li class="list-group-item active">Some things to keep in mind:</li>
-                    <li class="list-group-item">
+                  </br><b>Some things to keep in mind:</b>
+                  <ul>
+                    <li>
                     You are the only user with the ability to promote other users to either officer 
                     or administrator. Ensure that the next administrator gains access to administrator privileges before you leave! 
                     Also make sure that all of the Buddy Connect officers have been given officer permissions. In the “users” tab, 
                     you can change these permissions.
                     </li>
-                    <li class="list-group-item">
+                    <li>
                       In order to initiate the matching process, click “Let’s Match” in the users tab.
                     </li>
-                    <li class="list-group-item">
+                    <li>
                       You can edit groups in the “groups” tab. If a member joins late or you want to change around 
                       a couple members, it would be better to do so here instead of running the matching algorithm once more.
                     </li>
-                    <li class="list-group-item">
+                    <li>
                       In the “Users” tab, you can view the information of all Buddy Connect members.
                     </li>
                   </ul>
@@ -186,14 +193,14 @@
         <% end %>
 
 
-        
+        <%# Addiitonal help and contact information %>
         <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          <h2 class="accordion-header" id="flush-headingFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
               Additional Support
             </button>
           </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+          <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
               <%if current_user.isOfficer || current_user.isAdmin%>
                 For additional support, please see the documentation found at 
@@ -212,3 +219,4 @@
     </div>
   </div>
 </div>
+
