@@ -1,0 +1,147 @@
+<head>  
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary"> 
+  <div class="container-fluid" id="navbarText">
+    
+      
+      <ul class="navbar-nav">
+
+        <li class="nav-item active">
+          <%= link_to 'Profile', user_path(current_user.studentId), class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
+
+        <% if current_user.groupId.present? %>
+          <li class="nav-item">
+            <%= link_to 'Group', group_path(current_user.groupId), class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li> 
+        <% end %>
+
+        <li class="nav-item">
+          <%= link_to 'Forum', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
+
+        <% if current_user.isAdmin %>
+          <li class="nav-item">
+            <%= link_to 'Users', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Officers', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% end %>  
+
+        <% if current_user.isAdmin%>
+          <li class="nav-item">
+            <%= link_to 'All Groups', groups_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% end %>  
+
+        <li class="nav-item">
+            <%= link_to 'About', about_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
+        
+      </ul>
+      
+    <%= link_to "Sign Out", destroy_user_session_path, class:"text-light btn btn-outline-light"%>
+  </div>
+</nav>
+
+<%= stylesheet_link_tag 'posts'%>
+</head>
+<body>
+<div class="posts-background">
+
+
+  <div class = "post-container">
+    <div class = "card">
+      <div class = "card-body">
+        <h1 class = "card-title"> <%= @post.title %> </h1> <br>
+        <p> <%= @post.body %> </p> </br> </br>
+        <h3 class = "card-subtitle mb-2 text-muted" style = "font-size: 70%">
+          <strong>Posted by</strong> 
+          <%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.fullName : "None" %>
+          <strong>on</strong>
+          <%= @post.postDate %>
+        </h3>
+      </div>
+    </div>
+  </div>
+
+<div class = "comments-container">
+  <div class = "card">
+    <div class = "card-body">
+      <h1 class = "card-subtitle mb-2 text-muted" style = "font-size: 100%"> <strong>Comments</strong></h1>
+      <%Comment.where(postId: @post.postId).each do |comment| %>
+        
+          <td><%=comment.message%></td> </br>
+           <div class = "card-subtitle mb-2 text-muted" style = "font-size: 70%" >
+          <strong>Posted by</strong> 
+          <td><%=User.where(studentId: comment.posterId).first ? User.where(studentId: comment.posterId).first.fullName : "None"%>: </td>
+          <strong>on</strong>
+          <td><%= comment.commentDate%></td>
+          </div>
+               
+          <%if current_user.studentId == comment.posterId%>
+            </br>
+            <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%elsif current_user.isAdmin%>
+            </br>
+            <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%end%>
+
+            </br></br>
+                
+        <%end%>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    <%Comment.where(postId: @post.postId).each do |comment| %>
+      <tr>
+        <td><%=User.where(studentId: @post.posterId).first ? User.where(studentId: @post.posterId).first.fullName : "None"%> said: </td>
+        <td><%=comment.message%> </td>
+        <br/>
+        <td><%= time_ago_in_words(comment.commentDate)%> ago</td>
+      </tr>
+      <%if current_user.studentId == comment.posterId%>
+        <%= link_to 'Edit', edit_comment_path(comment), class:"text-white btn btn-primary btn-sm"   %>
+        <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary btn-sm" %>
+      <%elsif current_user.isAdmin%>
+        <%= link_to 'Edit', edit_comment_path(comment), class:"text-white btn btn-primary btn-sm"   %>
+        <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary btn-sm" %>
+      <%end%>
+      <br/>
+      <br/>
+  <% end %>
+  -->
+
+  <div class="reply-container">
+    <%if current_user.isOfficer%>
+      <strong>Reply:<strong>
+      <%= form_with model: @post do |form|%>
+        <div class = "actions">
+            <%= form.text_area :message , :class => 'text-area', rows: 3, placeholder: "Add Comment Here"%>
+        </div>
+        <div class = "actions">
+          <%= form.submit "Add Comment", class: 'btn btn-primary'%>
+          
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+
+
+  </br>
+  <div class = "options-container">
+    <%= link_to 'Back', posts_path , class:"text-white btn btn-primary" %>
+    <div class="space"></div>
+    <% if current_user.studentId == @post.posterId%>
+      <%= link_to 'Edit Post', edit_post_path(@post), class:"text-white btn btn-primary" %>
+      <div class="space"></div>
+      <%= link_to'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary" %>
+    <%elsif current_user.isAdmin%>
+      <%= link_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' } %> 
+    <%end%>
+  </div>
+
+</body>

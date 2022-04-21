@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary"> 
+  <div class="container-fluid" id="navbarText">
+    
+      
+      <ul class="navbar-nav">
+
+        <li class="nav-item active">
+          <%= link_to 'Profile', user_path(current_user.studentId), class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
+
+        <% if current_user.groupId.present? %>
+          <li class="nav-item">
+            <%= link_to 'Group', group_path(current_user.groupId), class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li> 
+        <% end %>
+
+        <li class="nav-item">
+          <%= link_to 'Forum', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
+
+        <% if current_user.isAdmin %>
+          <li class="nav-item">
+            <%= link_to 'Users', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Officers', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% end %>  
+
+        <% if current_user.isAdmin%>
+          <li class="nav-item">
+            <%= link_to 'All Groups', groups_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% end %>  
+
+        <li class="nav-item">
+            <%= link_to 'About', about_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
+        
+      </ul>
+      
+    <%= link_to "Sign Out", destroy_user_session_path, class:"text-light btn btn-outline-light"%>
+  </div>
+</nav>
+
+
+<%= render 'form', group: @group %>
+

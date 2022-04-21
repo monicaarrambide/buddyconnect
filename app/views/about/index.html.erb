@@ -1,0 +1,223 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary"> 
+  <div class="container-fluid" id="navbarText">
+    
+      
+      <ul class="navbar-nav">
+
+        <li class="nav-item active">
+          <%= link_to 'Profile', user_path(current_user.studentId), class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
+
+        <% if current_user.groupId.present? %>
+          <li class="nav-item">
+            <%= link_to 'Group', group_path(current_user.groupId), class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li> 
+        <% end %>
+
+        <li class="nav-item">
+          <%= link_to 'Forum', posts_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
+
+        <% if current_user.isAdmin %>
+          <li class="nav-item">
+            <%= link_to 'Users', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Officers', users_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% end %>  
+
+        <% if current_user.isAdmin%>
+          <li class="nav-item">
+            <%= link_to 'All Groups', groups_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+          </li>
+        <% end %>  
+
+        <li class="nav-item">
+            <%= link_to 'About', about_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
+        
+      </ul>
+      
+    <%= link_to "Sign Out", destroy_user_session_path, class:"text-light btn btn-outline-light"%>
+  </div>
+</nav>
+
+</br>
+
+<body style="background-color:#eeeeee;">
+  <%# Creating accordian to hold all support info %>
+
+  <div class="col d-flex justify-content-center">
+    <div class="card" style="width: 70rem;">
+      </br><h2 class="card-title text-center">Support Center</h2>
+      <div class="card-body">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Who are we?
+              </button>
+            </h2>
+
+            <%# Intro info for buddyconnect %>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+              <p>
+              Howdy! </br> This is an application developed for Buddy Connect in Spring 2022, and the main function of this website
+              is to provide an easy way for buddies and officers to be matched with one another. Make sure to update your 
+              interests and profile so that you can be matched into the best possible group! Once groups have been created, 
+              you will be able to see the information of your group members or group leader. If you have any questions about 
+              Buddy Connect, you can also access the forum on this website to talk with other members of the organization.
+              </p>
+              </div>
+            </div>
+          </div>
+
+
+          <%# User's support info %>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                Users Guide
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <p>
+                  Welcome to BuddyConnect! Once you have been assigned to your group, there will be a group tab appearing near the top of your screen. You should
+                  be able to see the contact information of other members of your group, as well as your officer's profile. The rest of the officers will be in the Users
+                  tab. The forum is available for anyone to post, so feel free to leave any questions! </br>
+
+                  </br><b>Some things to keep in mind:</b>
+                  <ul>
+                    <li>
+                    Don’t forget to update the information in your profile and interests. Since this will be used to match you with an officer, make sure it is all correct!
+                    </li>
+                    <li>
+                    You can create posts in the forum, but only officers can respond to them. If you have any questions, search through the forum or ask a new question.
+                    </li>
+                    <li>
+                    In the “officers” tab, you can view the information of all Buddy Connect officers.
+                    </li>
+                  </ul>
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <%# Officers support info but admins can view this as well %>
+          <%if current_user.isOfficer || current_user.isAdmin%>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  Officers Guide
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                  <p>
+                    Officers will have access to all the profiles of the members of their group. They should be able to edit their group and also leave
+                    comments on any post on the forum, as well as delete posts that may be inappropriate. Although administrators should be the only ones who need to access the support guide,
+                    it can be found at https://docs.google.com/document/d/1TFG5FN15L89nH8-ZQCU6m4uLB_osriOF4VaVg32Ju_o/edit?usp=sharing. </br>
+
+                    </br><b>Some things to keep in mind:</b>
+                    <ul>
+                      <li>
+                        Don’t forget to update the information in your profile and interests. Since this will be used to match you with your buddies, make sure it is all correct!
+                      </li>
+                      <li>
+                        You can create posts in the forum and comment on any other posts. You can also delete a post if it’s inappropriate or irrelevant.
+                      </li>
+                      <li>
+                        Once groups have been created, a “group” tab will appear where all of your group member’s information will be located.
+                      </li>
+                      <li>
+                        In the “officers” tab, you can view the information of all Buddy Connect officers.
+                      </li>
+                    </ul>
+
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% else %>
+          <% end %>
+
+          <%# Admins only support info %>
+          <%if current_user.isAdmin%>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                  Admins Guide
+                </button>
+              </h2>
+              <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                  <p>
+                    As an administrator, you have access to the information of all users as well as the ability to initiate the matching process. Once the matching process is ready to be run,
+                    navigate to the Users page and click "Lets Match" </br>
+                    </br>
+                    In order to have future users become admins, only current admins will be able to switch those privileges. An admin can edit the profile of a
+                    specific user in order for them to become admins. Without an admin making the change on the user profile, a specific user can't become an admin. 
+                    An admin should always be set as an officer, but not all officers are considered to be admins.
+                    The main difference here is that admins have extra access to all the users in Buddy Connect, as well as all the groups, posts, comments, etc.
+                    </br>
+
+                    </br><b>Some things to keep in mind:</b>
+                    <ul>
+                      <li>
+                      You are the only user with the ability to promote other users to either officer 
+                      or administrator. Ensure that the next administrator gains access to administrator privileges before you leave! 
+                      Also make sure that all of the Buddy Connect officers have been given officer permissions. In the “users” tab, 
+                      you can change these permissions.
+                      </li>
+                      <li>
+                        In order to initiate the matching process, click “Let’s Match” in the users tab.
+                      </li>
+                      <li>
+                        You can edit groups in the “groups” tab. If a member joins late or you want to change around 
+                        a couple members, it would be better to do so here instead of running the matching algorithm once more.
+                      </li>
+                      <li>
+                        In the “Users” tab, you can view the information of all Buddy Connect members.
+                      </li>
+                    </ul>
+
+                  </p>
+                </br>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+
+          <%# Addiitonal help and contact information %>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                Additional Support
+              </button>
+            </h2>
+            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <%if current_user.isOfficer || current_user.isAdmin%>
+                  For additional support, please see the documentation found at 
+                  <a href = "https://docs.google.com/document/d/1TFG5FN15L89nH8-ZQCU6m4uLB_osriOF4VaVg32Ju_o/edit?usp=sharing">https://docs.google.com/document/d/1TFG5FN15L89nH8-ZQCU6m4uLB_osriOF4VaVg32Ju_o/edit?usp=sharing</a>. 
+                  You can also email dmcdonald15@tamu.edu with the subject line “Buddy Connect Support” if the documentation 
+                  is not sufficient.
+                <% else %>
+                  For additional support, please contact the officer who acts as this website’s administrator, or one of the 
+                  other Buddy Connect officers. 
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

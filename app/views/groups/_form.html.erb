@@ -1,0 +1,35 @@
+<div class="groups-background" style>
+  <%= form_with(model: group) do |form| %>
+    <% if group.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+        <ul>
+          <% group.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    </br><div class="col d-flex justify-content-center" style="height:100vh;">
+        <div class="card text-center" style="width: 17rem; height: 10rem">
+        <h5 class="card-title">New Group Information</h5>
+          <div class="field">
+            <%= form.label :groupId, :class => "invis-title" %>
+            Group ID
+            <%= form.number_field :groupId %>
+          </div>
+      
+          <div class="field">
+            <%= form.label :leaderInt, :class => "invis-title" %>
+            Leader
+            <%= form.select :leaderInt, User.where(isOfficer: true).order(:fullName).map{|user| [user.fullName, user.studentId]}, include_blank: true, id: "group_leaderInt", name: "group"%>
+          </div>
+          <div class = "actions">
+            <%= form.submit class: "btn btn-outline-primary"%>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
