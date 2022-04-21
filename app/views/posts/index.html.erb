@@ -45,7 +45,8 @@
         
       </ul>
       
-    <%= link_to "Sign Out", destroy_user_session_path, class:"text-light btn btn-outline-light"%>
+    <%= link_to "Sign Out", 
+    y_user_session_path, class:"text-light btn btn-outline-light"%>
   </div>
 </nav>
 
@@ -108,7 +109,7 @@
           <td><%= time_ago_in_words (post.created_at) %> ago</td>
           <%if current_user.isAdmin%>
             <td><%= link_to 'Edit', edit_post_path(post) %></td>
-            <td><%= button_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= button_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <%end%>
         
       </div>
