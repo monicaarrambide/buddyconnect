@@ -86,7 +86,7 @@
         <td><%= interest.pastWorkExp %></td>
         <td><%= link_to 'Show', interest_path(interest.userId) %></td>
         <td><%= link_to 'Edit', edit_interest_path(interest.userId) %></td>
-        <td><%= link_to 'Destroy', interest_path(interest.userId), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', interest_path(interest.userId), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
