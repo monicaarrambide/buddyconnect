@@ -16,7 +16,7 @@
         <td><%= biography.description %></td>
         <td><%= link_to 'Show', biography %></td>
         <td><%= link_to 'Edit', edit_biography_path(biography) %></td>
-        <td><%= button_to 'Destroy', biography, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Delete', biography, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
