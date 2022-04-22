@@ -78,7 +78,7 @@
           <%= link_to 'Show', user_path(user.studentId) %> 
           <%if current_user.isAdmin %> | 
             <%= link_to 'Edit', edit_user_path(user.studentId) %> | 
-            <%= link_to 'Destroy', user_path(user.studentId), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Delete', user_path(user.studentId), method: :delete, data: { confirm: 'Are you sure?' } %>
           <%end%>
         </td>
 

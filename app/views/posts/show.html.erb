@@ -82,10 +82,10 @@
                
           <%if current_user.studentId == comment.posterId%>
             </br>
-            <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <%elsif current_user.isAdmin%>
             </br>
-            <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <%end%>
 
             </br></br>
@@ -105,10 +105,10 @@
       </tr>
       <%if current_user.studentId == comment.posterId%>
         <%= link_to 'Edit', edit_comment_path(comment), class:"text-white btn btn-primary btn-sm"   %>
-        <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary btn-sm" %>
+        <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary btn-sm" %>
       <%elsif current_user.isAdmin%>
         <%= link_to 'Edit', edit_comment_path(comment), class:"text-white btn btn-primary btn-sm"   %>
-        <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary btn-sm" %>
+        <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white btn btn-primary btn-sm" %>
       <%end%>
       <br/>
       <br/>
