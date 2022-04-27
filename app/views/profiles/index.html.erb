@@ -33,6 +33,10 @@
             <%= link_to 'All Groups', groups_path, class:"text-light btn btn-primary btn-lg btn-block" %>
           </li>
         <% end %>  
+
+        <li class="nav-item">
+            <%= link_to 'About', about_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
         
       </ul>
       
@@ -65,7 +69,7 @@
         <td><%= profile.contactInfo %></td>
         <td><%= link_to 'Show', profile %></td>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

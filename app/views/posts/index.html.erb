@@ -37,7 +37,11 @@
           <li class="nav-item">
             <%= link_to 'All Groups', groups_path, class:"text-light btn btn-primary btn-lg btn-block" %>
           </li>
-        <% end %>  
+        <% end %>
+        
+        <li class="nav-item">
+            <%= link_to 'About', about_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
         
       </ul>
       
@@ -51,10 +55,10 @@
       <div class = "form-container">
         <%= form_with model: @post do |form|%>
           <div class="field">
-            <%= form.text_field :title, :class => 'title-area', placeholder: "Post Summary/Title" %>
+            <%= form.text_field :title, :class => 'title-area', placeholder: "Post Summary/Title", required: true %>
           </div>
           <div class="field">
-            <%= form.text_area :body, :class => 'text-area', rows: 10, placeholder: "Type here..." %>
+            <%= form.text_area :body, :class => 'text-area', rows: 10, placeholder: "Type here...",  required: true %>
           </div>
         <div class = "actions">
           <%= form.submit "Create Post" %>
@@ -104,7 +108,7 @@
           <td><%= time_ago_in_words (post.created_at) %> ago</td>
           <%if current_user.isAdmin%>
             <td><%= link_to 'Edit', edit_post_path(post) %></td>
-            <td><%= button_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= button_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <%end%>
         
       </div>

@@ -33,6 +33,10 @@
             <%= link_to 'All Groups', groups_path, class:"text-light btn btn-primary btn-lg btn-block" %>
           </li>
         <% end %>  
+
+        <li class="nav-item">
+            <%= link_to 'About', about_path, class:"text-light btn btn-primary btn-lg btn-block" %>
+        </li>
         
       </ul>
       
@@ -70,7 +74,7 @@
           <div class = "field">
               <%= form.label :user_id, :class => 'invis-title' %>
               Add Member
-              <%= form.select :user_id, User.where.not(groupId: @group.groupId).order(:fullName).map{|user| [user.fullName, user.studentId]}, include_blank: true, id: "id_of_the_user_id_select_box", name: "user"%>
+              <%= form.select :user_id, User.where.not(groupId: @group.groupId).where(isOfficer: false).order(:fullName).map{|user| [user.fullName, user.studentId]}, include_blank: true, id: "id_of_the_user_id_select_box", name: "user"%>
               
           </div>
           <div class = "field">
