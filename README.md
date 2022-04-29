@@ -68,7 +68,12 @@ The application can be seen using a browser and navigating to http://localhost:3
 
 # Environmental Variables/Files
 
-Please refer to the `/config/environments/development.rb` file located within the repository
+There are currently two environment variables that need to be confifured to run this application. If you are 
+running it locally then they can be set in config/environments/development.rb * Otherwise, they will need to be set
+as both GitHub secrets as well as Heroku deployment config variables.
+* GOOGLE_OAUTH_CLIENT_ID
+* GOOGLE_OAUTH_CLIENT_SECRET
+An in-depth guide on how to set these variables on Heroku can be accessed [here](https://devcenter.heroku.com/articles/config-vars "here"). A guide to get the Google OAuth IDs can be found [here](https://medium.com/geekculture/how-do-i-get-an-oauth-credential-35d6d0e5d617)
 
 # Deployment
 
