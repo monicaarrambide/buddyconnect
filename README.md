@@ -78,13 +78,10 @@ An in-depth guide on how to set these variables on Heroku can be accessed [here]
 
 # Deployment
 
-Customer/production App: https://stage-buddy-app.herokuapp.com/users/sign_in
-
-Review App:  https://buddy-connec-test-vohk6obhdqqq.herokuapp.com/users/sign_in
-
-Please refer to this link and follow directions in order to deploy to Heroku:
-
-https://docs.google.com/document/d/1mjPJRIuQDJPMo6IIn-zcVu92VvMaDE7y/edit?usp=sharing&ouid=105801530057548120433&rtpof=true&sd=true
+Both of the production and review applications are hosted on Heroku. In order to deploy a new version of the application, one must install the Heroku Command Line Interface (CLI) and manage the Heroku app through that terminal. To deploy to the stage-buddy-app, which is our production application, the following steps must be taken:
+* Adding a remote to the local repository with the following command: heroku git:remote -a stage-buddy-app
+* To deploy the code from master branch: git push heroku master
+* To deploy code from a different branch, make sure to commit your changes and then type the following command: git push heroku branchName:master
 
 # CI/CD
 
@@ -92,15 +89,7 @@ For Continuous Integration, a workflow (workflow.yml) file was created to run Rs
 
 The file can be found here `/.github/workflows/workflow.yml` within this repository.
 
-Please refer to this link if you want to read more on how we set-up our continuous integration:
-
-https://docs.google.com/document/d/1mBwyJdas5ip5dSKIlosRTiVg4yxcnkir/edit?usp=sharing&ouid=105801530057548120433&rtpof=true&sd=true
-
 For Continuous Deployment, auto-deployment on master and test branch was used after Continuous Integration has passed on Heroku
-
-Please refer to this link if you want to read more on how we set-up our continuous integration:
-
-https://docs.google.com/document/d/1mjPJRIuQDJPMo6IIn-zcVu92VvMaDE7y/edit?usp=sharing&ouid=105801530057548120433&rtpof=true&sd=true
 
 # Support
 
