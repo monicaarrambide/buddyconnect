@@ -79,6 +79,4 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   # google Oauth
-  ENV['GOOGLE_OAUTH_CLIENT_ID'] = '468360085787-e1goacd7lr32omi2j29ffemlug4ck1u3.apps.googleusercontent.com'
-  ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
 end
